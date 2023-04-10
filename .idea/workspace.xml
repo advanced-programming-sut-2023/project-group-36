@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Create Project" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Create Project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +11,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OFMhWtUBDgkPQIH2VPUtKtqKv1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -34,7 +39,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681152011108</updated>
-      <workItem from="1681152020128" duration="351000" />
+      <workItem from="1681152020128" duration="700000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -42,7 +47,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
       <updated>1681152307251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎−۰۰۰۰۲" summary="Create Project">
+      <created>1681152459585</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
+      <updated>1681152459585</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
