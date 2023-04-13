@@ -1,8 +1,8 @@
 package controller;
 
-public class Controller {
-    public void createGame(String regex){
+import view.LoginMenu;
+import view.Menu;
 
-    }
+public class Controller {
 
 }
