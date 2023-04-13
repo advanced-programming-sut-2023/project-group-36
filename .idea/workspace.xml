@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="register and profile regex added">
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Buildings added">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Farm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Industrinal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Trap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +45,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -54,7 +61,7 @@
       <updated>1681152011108</updated>
       <workItem from="1681152020128" duration="1348000" />
       <workItem from="1681158583641" duration="2503000" />
-      <workItem from="1681205133422" duration="10490000" />
+      <workItem from="1681205133422" duration="14481000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -104,7 +111,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
       <updated>1681373729710</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎−۰۰۰۰۹" summary="register and profile regex added">
+      <created>1681379547555</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
+      <updated>1681379547555</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +142,7 @@
     <MESSAGE value="first steps 2" />
     <MESSAGE value="first steps 3" />
     <MESSAGE value="register and profile regex added" />
-    <option name="LAST_COMMIT_MESSAGE" value="register and profile regex added" />
+    <MESSAGE value="Buildings added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Buildings added" />
   </component>
 </project>
