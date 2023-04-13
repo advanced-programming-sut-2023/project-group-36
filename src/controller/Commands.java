@@ -11,7 +11,6 @@ public enum Commands {
     LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)"),
     LOGIN_LOGGEDIn("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)--stay-logged-in"),
     FORGET_PASSWORD("forgot my password"),
-    LOGOUT("user logout"),
 
     //PROFILE
     CHANGE_USERNAME("profile change -u (?<username>[^\n]+)"),
@@ -23,6 +22,13 @@ public enum Commands {
     MAP_TRANSFORMATION("map (?<dir1>\\S+ (\\d)+)(?<dir2> \\S+ (\\d)+)?(?<dir3> \\S+ (\\d)+)?(?<dir4> \\S+ (\\d)+)?"),
     SHOW_DETAILS("show details -x (?<x>\\d+) -y (?<y>\\d+)"),
     EXIT("exit"),
+
+    //Main menu
+    START_GAME("start new game -n (?<usersNumber>\\d+)"),
+    OPEN_GAME("open game"),
+    PROFILE_MENU("profile menu"),
+    LOGOUT("user logout"),
+
 
     //Game menu
     SHOW_POPULARITY_FACTORS("show popularity factors"),
@@ -53,12 +59,17 @@ public enum Commands {
     DROP_ROCK("droprock -x (?<x>\\d+) -y (?<y>\\d+) -d (?<direction>[^\n])"),
     DROP_TREE("droptree -x (?<x>\\d+) -y (?<y>\\d+) -t [type]"),
     DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
+    MAIN_MENU("main menu"),
+    TRADE_MENU("trade menu"),
+    SHOP_MENU("shop menu"),
 
     // Trade menu
     TRADE_REQUEST("trade -t (?<resourceType>[^\n]+) -a (?<resourceAmount>[^\n]+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),
     TRADE_LIST("trade list"),
     TRADE_ACCEPT("trade accept -i (?<id>\\d+) -m (?<message>[^\n]+)"),
     TRADE_HISTORY("trade history"),
+
+    // Shop menu
     SHOW_PRICE_LIST("show price list"),
     BUY("buy -i (?<item’s name>[^\n]+) -a (?<item’s amount>\\d+)"),
     SELL("sell -i (?<item’s name>[^\n]+) -a (?<item’s amount>\\d+)");
