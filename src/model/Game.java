@@ -8,4 +8,7 @@ public class Game {
     private Map map;
     private boolean condition;
 
+    public Map getMap() {
+        return map;
+    }
 }

@@ -10,4 +10,11 @@ public class Block {
     private ArrayList<Militia> soldiers;
     private ArrayList<NormalPeople> normalPeoples;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

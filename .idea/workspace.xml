@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Start People &amp; forces">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/PeopleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Types.java" afterDir="false" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Add PeopleType &amp; PeopleTypes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Militia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/People.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +113,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
       <updated>1681389942755</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎−۰۰۰۱۰" summary="Add PeopleType &amp; PeopleTypes">
+      <created>1681392239639</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
+      <updated>1681392239639</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +182,7 @@
     <MESSAGE value="first steps 3" />
     <MESSAGE value="register and profile regex added" />
     <MESSAGE value="Start People &amp; forces" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start People &amp; forces" />
+    <MESSAGE value="Add PeopleType &amp; PeopleTypes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add PeopleType &amp; PeopleTypes" />
   </component>
 </project>
