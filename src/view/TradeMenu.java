@@ -3,8 +3,9 @@ package view;
 import java.util.Scanner;
 
 public class TradeMenu {
-    public static Scanner scanner;
-    public static void run() {
+    private final static Scanner scanner = Menu.getScanner();
 
+    public static void run(){
+        String command = scanner.nextLine();
     }
 }
