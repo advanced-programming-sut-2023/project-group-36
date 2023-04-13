@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="first steps 3">
-      <change afterPath="$PROJECT_DIR$/src/controller/Commands.java" afterDir="false" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="register and profile regex added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +32,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,7 +52,7 @@
       <updated>1681152011108</updated>
       <workItem from="1681152020128" duration="1348000" />
       <workItem from="1681158583641" duration="2503000" />
-      <workItem from="1681205133422" duration="1535000" />
+      <workItem from="1681205133422" duration="6584000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -88,7 +90,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
       <updated>1681158705386</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎−۰۰۰۰۷" summary="register and profile regex added">
+      <created>1681207479419</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۷" />
+      <updated>1681207479419</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +120,7 @@
     <MESSAGE value="first steps 1" />
     <MESSAGE value="first steps 2" />
     <MESSAGE value="first steps 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="first steps 3" />
+    <MESSAGE value="register and profile regex added" />
+    <option name="LAST_COMMIT_MESSAGE" value="register and profile regex added" />
   </component>
 </project>
