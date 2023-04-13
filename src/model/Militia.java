@@ -1,10 +1,9 @@
 package model;
 
 public class Militia extends People{
-    private String speed;
-    private String type;
-    private String attackPower;
-    private String defencePower;
+    private int attackPower;
+    public void damage(Block block){
 
+    }
 
 }
