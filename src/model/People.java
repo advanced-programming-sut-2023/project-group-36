@@ -2,10 +2,11 @@ package model;
 
 public class People {
 
-    private String speed;
-    private String type;
-    private String defencePower;
+    private int speed;
+    private int type;
+    private int defencePower;
     private Government government;
+    private int price;
     private Block block;
     private boolean inMove;
     private boolean employed;

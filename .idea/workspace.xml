@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Create primary classes">
-      <change afterPath="$PROJECT_DIR$/src/model/FightingForce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Launcher.java" afterDir="false" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Start People &amp; forces">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/PeopleType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Types.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Militia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/People.java" afterDir="false" />
     </list>
@@ -35,16 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -105,7 +108,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
       <updated>1681373729710</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎−۰۰۰۰۹" summary="Start People &amp; forces">
+      <created>1681389942755</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۹" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
+      <updated>1681389942755</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +176,7 @@
     <MESSAGE value="first steps 2" />
     <MESSAGE value="first steps 3" />
     <MESSAGE value="register and profile regex added" />
-    <option name="LAST_COMMIT_MESSAGE" value="register and profile regex added" />
+    <MESSAGE value="Start People &amp; forces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start People &amp; forces" />
   </component>
 </project>

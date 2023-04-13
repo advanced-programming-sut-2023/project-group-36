@@ -1,7 +1,7 @@
 package model;
 
 public class Militia extends People{
-    private String attackPower;
+    private int attackPower;
     public void damage(Block block){
 
     }
