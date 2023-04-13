@@ -12,7 +12,7 @@ public enum Commands {
     LOGOUT("user logout"),
     //PROFILE
     CHANGE_USERNAME("profile change -u (?<username>[^\n]+)"),
-    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]+"),
+    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]+)"),
     CHANGE_PASSWORD("profile change password -o (?<old-password> -n <new-password>\n");
     String regex;
     Commands(String regex) {
