@@ -1,6 +1,9 @@
-package model;
+package model.Peoples;
 
-public class Militia extends People{
+import model.Block;
+import model.Government;
+
+public class Militia extends People {
     private int attackPower;
 
     Militia(PeopleType peopleType, Government government, Block block) {

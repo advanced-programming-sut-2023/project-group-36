@@ -1,4 +1,8 @@
-package model;
+package model.Peoples;
+
+import model.ApplicationManager;
+import model.Block;
+import model.Government;
 
 public class People {
 

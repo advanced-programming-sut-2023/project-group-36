@@ -1,6 +1,6 @@
 package model.Buildings;
 
-import model.NormalPeople;
+import model.Peoples.NormalPeople;
 
 import java.util.ArrayList;
 
