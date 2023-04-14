@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Game &amp; Trade Updated.">
-      <change afterPath="$PROJECT_DIR$/src/model/BuildingType.java" afterDir="false" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Trap,Farm &amp; TownBuilding updated">
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Other.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Farm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Industrinal.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FightingForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/FightingForce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/Militia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/NormalPeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/NormalPeople.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Peoples/PeopleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Types.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +47,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,11 +60,7 @@
       <updated>1681152011108</updated>
       <workItem from="1681152020128" duration="1348000" />
       <workItem from="1681158583641" duration="2503000" />
-      <workItem from="1681205133422" duration="10490000" />
-      <workItem from="1681404075368" duration="9173000" />
-      <workItem from="1681471185148" duration="2747000" />
-      <workItem from="1681478368944" duration="1223000" />
-      <workItem from="1681484408260" duration="4447000" />
+      <workItem from="1681205133422" duration="14481000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -121,61 +110,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
       <updated>1681373729710</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۹" summary="Start People &amp; forces">
-      <created>1681389942755</created>
+    <task id="LOCAL‎−۰۰۰۰۹" summary="register and profile regex added">
+      <created>1681379547555</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۹" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
-      <updated>1681389942755</updated>
+      <updated>1681379547555</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۱۰" summary="Add PeopleType &amp; PeopleTypes">
-      <created>1681392239639</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
-      <updated>1681392239639</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۱" summary="Add some methods for Block, People, Map, Game &amp; ApplicationManager">
-      <created>1681393277608</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۱" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
-      <updated>1681393277608</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۲" summary="Create Trade, TradeMenu &amp; TradeMessage. Commands &amp; Government updated.">
-      <created>1681412933373</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۲" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
-      <updated>1681412933373</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۳" summary="Commands updated.">
-      <created>1681414395464</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۳" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۳" />
-      <updated>1681414395464</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۴" summary="Menus updated.">
-      <created>1681415296428</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۴" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۴" />
-      <updated>1681415296428</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۵" summary="Update Block, Game, Map, Government &amp; add some methods.">
-      <created>1681472538927</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۵" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۵" />
-      <updated>1681472538927</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۶" summary="Add two controller, Update ApplicationManager &amp; User">
-      <created>1681485564913</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۶" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۶" />
-      <updated>1681485564913</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۷" summary="Game &amp; Trade Updated.">
-      <created>1681487654904</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۷" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
-      <updated>1681487654904</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,44 +127,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="master" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Mohammad" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/master" />
-                </option>
-              </RecentGroup>
-            </list>
+            <State />
           </value>
         </entry>
       </map>
@@ -237,19 +141,7 @@
     <MESSAGE value="first steps 2" />
     <MESSAGE value="first steps 3" />
     <MESSAGE value="register and profile regex added" />
-    <MESSAGE value="Start People &amp; forces" />
-    <MESSAGE value="Add PeopleType &amp; PeopleTypes" />
-    <MESSAGE value="Add some methods for Block, People, Map, Game &amp; ApplicationManager" />
-    <MESSAGE value="Create Trade, TradeMenu &amp; TradeMessage. Commands &amp; Government updated." />
-    <MESSAGE value="Commands updated." />
-    <MESSAGE value="Menus updated." />
-    <MESSAGE value="Update Block, Game, Map, Government &amp; add some methods." />
-    <MESSAGE value="Add two controller, Update ApplicationManager &amp; User" />
-    <MESSAGE value="Game &amp; Trade Updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game &amp; Trade Updated." />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="Buildings added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Buildings added" />
   </component>
 </project>

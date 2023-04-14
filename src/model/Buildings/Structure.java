@@ -6,9 +6,11 @@ import model.Peoples.Militia;
 import java.util.ArrayList;
 
 public class Structure {
-    private int HP;
-    private Government government;
-    private ArrayList<Militia> militias;
+    int HP;
+    Government government;
+    int GoldCost;
+    int WoodCost;
+    ArrayList<Militia> militias;
 
 
 }
