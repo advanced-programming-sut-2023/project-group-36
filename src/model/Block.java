@@ -1,5 +1,7 @@
 package model;
 
+import model.Buildings.Structure;
+
 import java.util.ArrayList;
 
 public class Block {
