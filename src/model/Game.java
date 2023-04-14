@@ -3,9 +3,10 @@ package model;
 import java.util.ArrayList;
 
 public class Game {
-    private User CurrentUser;
-    private ArrayList<Government> governments;
-    private Map map;
+
+    private Government currentGovernment;
+    private final ArrayList<Government> governments;
+    private final Map map;
     private boolean condition;
 
     public Map getMap() {
@@ -16,6 +17,7 @@ public class Game {
         this.governments = governments;
         this.map = map;
         condition = true;
+        currentGovernment = governments.get(0);
     }
 
     public void nextTurn(){
@@ -33,7 +35,14 @@ public class Game {
         map.nextTurn();
     }
 
+    private void changeCurrentUser(){
+        int number = governments.indexOf(currentGovernment);
+        currentGovernment = governments.get((number%governments.size()));
+        //...
+    }
+
     public boolean checkEnd(){
+        condition = false;
         return false; // ...
     }
 
@@ -44,5 +53,14 @@ public class Game {
             }
         }
         return null;
+    }
+
+    private void giveScore(Government government){
+        User user = government.getOwner();
+        user.addScore(governments.size());
+    }
+
+    private void removeGovernment(Government government){
+        governments.remove(government);
     }
 }
