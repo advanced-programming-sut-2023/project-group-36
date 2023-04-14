@@ -10,6 +10,7 @@ public class Structure {
     Government government;
     int GoldCost;
     int WoodCost;
+    int StoneCost;
     ArrayList<Militia> militias;
 
 

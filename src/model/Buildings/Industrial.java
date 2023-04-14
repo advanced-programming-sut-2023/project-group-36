@@ -1,7 +1,7 @@
 package model.Buildings;
 
 public class Industrial extends Structure {
-    String[] IndustrialStuctures={"Market","Ox tether","Stockpile","Woodcutter"};
+    String[] IndustrialStuctures={"Market","Ox tether","Woodcutter"};
     int rate;
     int capacity;
 

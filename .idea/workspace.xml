@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Trap,Farm &amp; TownBuilding updated">
-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Other.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Industrinal.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Storge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,17 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,7 +114,19 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
       <updated>1681379547555</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎−۰۰۰۱۰" summary="Trap,Farm &amp; TownBuilding updated">
+      <created>1681492552351</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
+      <updated>1681492552351</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۱۱" summary="Trap,Farm &amp; TownBuilding updated">
+      <created>1681492591254</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
+      <updated>1681492591254</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +152,7 @@
     <MESSAGE value="first steps 3" />
     <MESSAGE value="register and profile regex added" />
     <MESSAGE value="Buildings added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Buildings added" />
+    <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trap,Farm &amp; TownBuilding updated" />
   </component>
 </project>

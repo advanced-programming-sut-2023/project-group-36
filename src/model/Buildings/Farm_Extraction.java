@@ -4,7 +4,7 @@ import model.Peoples.NormalPeople;
 
 import java.util.ArrayList;
 
-public class Farm extends Structure{
+public class Farm_Extraction extends Structure{
     ArrayList<NormalPeople> normalPeople;
 
 }
