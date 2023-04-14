@@ -15,4 +15,10 @@ public class Map {
         }
         return null;
     }
+
+    public void nextTurn(){
+        for (int i = 0; i < blocks.size(); i++) {
+            blocks.get(i).nextTurn();
+        }
+    }
 }
