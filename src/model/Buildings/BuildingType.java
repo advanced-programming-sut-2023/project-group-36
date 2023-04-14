@@ -8,9 +8,15 @@ public class BuildingType {
     public int damage;
     public int popularityChange;
     public int rate;
+    public int fireRange;
+    public int defenceRange;
+    public int capacity;
+
+
     // ....
 
-    BuildingType(){ //... need
+    BuildingType(String type, String category, int HP, int damage, int popularityChange, int rate, int fireRange , int defenceRange, int capacity){ //... need
+
     }
 
 }
