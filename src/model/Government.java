@@ -26,9 +26,68 @@ public class Government{
         tradeMessages.add(tradeMessage);
     }
 
+    public User getOwner() {
+        return owner;
+    }
 
+    public ArrayList<People> getPeoples() {
+        return peoples;
+    }
 
+    public ArrayList<Trade> getTrades() {
+        return trades;
+    }
 
+    public ArrayList<TradeMessage> getTradeMessages() {
+        return tradeMessages;
+    }
 
+    public int getFear() {
+        return fear;
+    }
+
+    public int getFood1Amount() {
+        return food1Amount;
+    }
+
+    public int getFood2Amount() {
+        return food2Amount;
+    }
+
+    public int getFood3Amount() {
+        return food3Amount;
+    }
+
+    public int getFood4Amount() {
+        return food4Amount;
+    }
+
+    public int getFoodRate() {
+        return foodRate;
+    }
+
+    public int getPopularity() {
+        return popularity;
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public void changePopularity(int amount) {
+        popularity += amount;
+    }
+
+    public void removeTradMessage(TradeMessage tradeMessage){
+
+    }
+
+    public boolean checkGameOver(){
+        return false; //
+    }
+
+    public void nextTurn(){
+
+    }
 
 }
