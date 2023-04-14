@@ -2,23 +2,32 @@ package model;
 
 public class People {
 
-    private int speed;
-    private int type;
-    private int defencePower;
+    private PeopleType peopleType;
     private Government government;
-    private int price;
     private int hitPoint;
     private Block block;
     private boolean inMove;
-    private boolean employed;
     private Block destination;
     public void startMove(Block block){
         destination = block;
         inMove = true;
     }
 
+
+    People (PeopleType peopleType, Government government, Block block){
+        this.peopleType = peopleType;
+        this.government = government;
+        inMove = false;
+        hitPoint = 25;
+        // ... for example
+    }
+
+
+
+
     public void endMove(){
         destination = null;
+        inMove = false;
     }
 
     public void thisTurnMove(){
@@ -40,8 +49,17 @@ public class People {
         checkIsDead();
     }
 
+    public void hitPointReduce(int amount){
+        hitPoint -= Math.max(0,(amount - peopleType.defencePower));
+    }
 
 
+    public int getHitPoint() {
+        return hitPoint;
+    }
 
+    public Government getGovernment() {
+        return government;
+    }
 
 }
