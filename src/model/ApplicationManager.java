@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class ApplicationManager {
 
     private static ArrayList<User> users;
-    private static ArrayList<User> sortedUsers;
+
     private static ArrayList<Game> games;
     private static Game currentGame;
+    private static User currentUser;
+    private static boolean stayLoggedIn;
 
     public static User getUserByUsername(String username){
         for (User user : users) {
@@ -29,4 +31,30 @@ public class ApplicationManager {
     public static Game getCurrentGame() {
         return currentGame;
     }
+
+    public void sortUsers(){
+        //...
+    }
+
+    public ArrayList<User> getUsers(){
+        return users;
+    }
+
+    public static void login(User user){
+        currentUser = user;
+    }
+
+    public static void logout(){
+        currentUser = null;
+        stayLoggedIn = false;
+    }
+
+    public static void exit(){
+        if (!stayLoggedIn){
+            currentUser = null;
+        }
+        // && save date ...
+    }
+
+
 }
