@@ -1,15 +1,14 @@
 package model.Buildings;
 
 import model.Government;
-import model.Militia;
-import model.NormalPeople;
+import model.Peoples.Militia;
 
 import java.util.ArrayList;
 
 public class Structure {
-    int HP;
-    Government government;
-    ArrayList<Militia> militias;
+    private int HP;
+    private Government government;
+    private ArrayList<Militia> militias;
 
 
 }

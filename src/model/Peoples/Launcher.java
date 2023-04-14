@@ -1,6 +1,11 @@
-package model;
+package model.Peoples;
 
-public class Launcher extends Militia{
+import model.Block;
+import model.Government;
+import model.Peoples.Militia;
+import model.Peoples.PeopleType;
+
+public class Launcher extends Militia {
 
     private int launchRadius;
 

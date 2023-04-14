@@ -1,5 +1,7 @@
 package model;
 
+import model.Peoples.People;
+
 import java.util.ArrayList;
 
 public class Government{

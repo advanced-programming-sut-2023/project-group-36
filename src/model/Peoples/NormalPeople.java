@@ -1,6 +1,9 @@
-package model;
+package model.Peoples;
 
-public class NormalPeople extends People{
+import model.Block;
+import model.Government;
+
+public class NormalPeople extends People {
     private boolean employed;
     NormalPeople(PeopleType peopleType, Government government, Block block) {
         super(peopleType, government, block);

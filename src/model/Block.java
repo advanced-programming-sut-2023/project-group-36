@@ -1,6 +1,7 @@
 package model;
 
 import model.Buildings.Structure;
+import model.Peoples.People;
 
 import java.util.ArrayList;
 
@@ -39,5 +40,9 @@ public class Block {
 
     public String getType(){
         return (type);
+    }
+
+    public void underAttack(Government government){
+
     }
 }

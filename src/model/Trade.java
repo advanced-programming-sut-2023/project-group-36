@@ -5,9 +5,6 @@ public class Trade {
     private Government requested;
     private String type;
     private int price;
-
-    private boolean IsShowedForRequester;
-    private boolean IsShowedForRequested;
     private boolean IsAccepted;
 
     Trade (Government requester, Government requested, String type,int price, String message){
