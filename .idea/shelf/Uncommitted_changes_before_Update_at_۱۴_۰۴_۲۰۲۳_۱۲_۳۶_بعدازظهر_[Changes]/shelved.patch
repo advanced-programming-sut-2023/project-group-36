@@ -1,0 +1,91 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c56c4605-57a2-4f7a-8574-6b44ee110374\" name=\"Changes\" comment=\"Buildings added\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Farm.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Industrinal.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/TownBuilding.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Trap.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/model/Block.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/Block.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/model/Structure.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/Buildings/Structure.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OFMhWtUBDgkPQIH2VPUtKtqKv1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c56c4605-57a2-4f7a-8574-6b44ee110374\" name=\"Changes\" comment=\"\" />\r\n      <created>1681152011108</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681152011108</updated>\r\n      <workItem from=\"1681152020128\" duration=\"1348000\" />\r\n      <workItem from=\"1681158583641\" duration=\"2503000\" />\r\n      <workItem from=\"1681205133422\" duration=\"14481000\" />\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۱\" summary=\"Create Project\">\r\n      <created>1681152307251</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <updated>1681152307251</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۲\" summary=\"Create Project\">\r\n      <created>1681152459585</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <updated>1681152459585</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۳\" summary=\"Create Packages\">\r\n      <created>1681152751396</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۳\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۳\" />\r\n      <updated>1681152751396</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۴\" summary=\"first steps 1\">\r\n      <created>1681153036034</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۴\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۴\" />\r\n      <updated>1681153036034</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۵\" summary=\"first steps 2\">\r\n      <created>1681153112600</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۵\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۵\" />\r\n      <updated>1681153112600</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۶\" summary=\"first steps 3\">\r\n      <created>1681158705386</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۶\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۶\" />\r\n      <updated>1681158705386</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۷\" summary=\"register and profile regex added\">\r\n      <created>1681207479419</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۷\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۷\" />\r\n      <updated>1681207479419</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۸\" summary=\"register and profile regex added\">\r\n      <created>1681373729710</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۸\" />\r\n      <updated>1681373729710</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۹\" summary=\"register and profile regex added\">\r\n      <created>1681379547555</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۹\" />\r\n      <updated>1681379547555</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Create Project\" />\r\n    <MESSAGE value=\"Create Packages\" />\r\n    <MESSAGE value=\"first steps 1\" />\r\n    <MESSAGE value=\"first steps 2\" />\r\n    <MESSAGE value=\"first steps 3\" />\r\n    <MESSAGE value=\"register and profile regex added\" />\r\n    <MESSAGE value=\"Buildings added\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Buildings added\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision be34ec37a49d1bb383403668b2aa8b8802748ff7)
++++ b/.idea/workspace.xml	(date 1681463193535)
+@@ -1,17 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Buildings added">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Farm.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Industrinal.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Trap.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" afterDir="false" />
++    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Trap,Farm &amp; TownBuilding updated">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/model/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -40,17 +31,17 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "preferences.lookFeel"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -61,7 +52,7 @@
+       <updated>1681152011108</updated>
+       <workItem from="1681152020128" duration="1348000" />
+       <workItem from="1681158583641" duration="2503000" />
+-      <workItem from="1681205133422" duration="14481000" />
++      <workItem from="1681205133422" duration="14883000" />
+     </task>
+     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
+       <created>1681152307251</created>
+@@ -117,7 +108,13 @@
+       <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
+       <updated>1681379547555</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL‎−۰۰۰۱۰" summary="Trap,Farm &amp; TownBuilding updated">
++      <created>1681383988841</created>
++      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
++      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
++      <updated>1681383988841</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -143,6 +140,7 @@
+     <MESSAGE value="first steps 3" />
+     <MESSAGE value="register and profile regex added" />
+     <MESSAGE value="Buildings added" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Buildings added" />
++    <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
++    <option name="LAST_COMMIT_MESSAGE" value="Trap,Farm &amp; TownBuilding updated" />
+   </component>
+ </project>
+\ No newline at end of file
