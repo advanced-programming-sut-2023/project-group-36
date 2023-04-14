@@ -1,5 +1,6 @@
 package model;
 
+import model.Buildings.BuildingType;
 import model.Peoples.PeopleType;
 
 import java.util.ArrayList;

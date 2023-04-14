@@ -1,0 +1,69 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,25 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="first steps 3">
+-      <change afterPath="$PROJECT_DIR$/src/model/ApplicationManager.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Government.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Map.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Militia.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/NormalPeople.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/People.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Structure.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/GameMenu.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/MainMenu.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/MapMenu.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/ProfileMenu.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/ShopMenu.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/SignupMenu.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+-    </list>
++    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Create primary classes" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -63,7 +45,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1681152011108</updated>
+       <workItem from="1681152020128" duration="1348000" />
+-      <workItem from="1681158583641" duration="2503000" />
++      <workItem from="1681158583641" duration="2898000" />
+     </task>
+     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
+       <created>1681152307251</created>
+@@ -101,7 +83,13 @@
+       <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
+       <updated>1681158705386</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL‎−۰۰۰۰۷" summary="Create primary classes">
++      <created>1681161218601</created>
++      <option name="number" value="LOCAL‎−۰۰۰۰۷" />
++      <option name="presentableId" value="LOCAL‎−۰۰۰۰۷" />
++      <updated>1681161218601</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -125,6 +113,7 @@
+     <MESSAGE value="first steps 1" />
+     <MESSAGE value="first steps 2" />
+     <MESSAGE value="first steps 3" />
+-    <option name="LAST_COMMIT_MESSAGE" value="first steps 3" />
++    <MESSAGE value="Create primary classes" />
++    <option name="LAST_COMMIT_MESSAGE" value="Create primary classes" />
+   </component>
+ </project>
+\ No newline at end of file
