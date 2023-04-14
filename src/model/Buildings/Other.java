@@ -1,5 +1,12 @@
 package model.Buildings;
 
-public class Other extends Structure{
+import model.Block;
+import model.Government;
 
+public class Other extends Structure{
+    public Other(Block block, Government government,int HP) {
+        super.block=block;
+        super.HP=HP;
+        super.government=government;
+    }
 }

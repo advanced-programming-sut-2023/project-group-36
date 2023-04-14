@@ -6,7 +6,7 @@ import model.Peoples.Militia;
 
 import java.util.ArrayList;
 
-public class Structure {
+public abstract class Structure {
     Block block;
     int HP;
     Government government;
