@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Update some classes.">
+      <change afterPath="$PROJECT_DIR$/src/controller/CreateNewGameMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/FoodProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Storge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegisterMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/TradeMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TradeMenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +124,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
       <updated>1681492591254</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL‎−۰۰۰۱۲" summary="Update some classes.">
+      <created>1681665794049</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
+      <updated>1681665794049</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +157,7 @@
     <MESSAGE value="register and profile regex added" />
     <MESSAGE value="Buildings added" />
     <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trap,Farm &amp; TownBuilding updated" />
+    <MESSAGE value="Update some classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update some classes." />
   </component>
 </project>
