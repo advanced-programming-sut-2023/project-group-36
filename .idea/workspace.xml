@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Controller Updated.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/BuildingType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Storge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +17,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -123,7 +119,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
       <updated>1681492591254</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL‎−۰۰۰۱۲" summary="Structures updated">
+      <created>1681495928083</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
+      <updated>1681495928083</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +152,7 @@
     <MESSAGE value="register and profile regex added" />
     <MESSAGE value="Buildings added" />
     <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trap,Farm &amp; TownBuilding updated" />
+    <MESSAGE value="Structures updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structures updated" />
   </component>
 </project>
