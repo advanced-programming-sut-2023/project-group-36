@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Structures updated">
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="some controller added">
+      <change afterPath="$PROJECT_DIR$/src/controller/MapMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/SignUpMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/DefenciveStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Farm_Extraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Industrial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Other.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Other.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Storge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Storge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +46,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -62,6 +66,7 @@
       <workItem from="1681152020128" duration="1348000" />
       <workItem from="1681158583641" duration="2503000" />
       <workItem from="1681205133422" duration="14481000" />
+      <workItem from="1681642019260" duration="773000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -135,7 +140,14 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
       <updated>1681495928083</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="some controller added">
+      <created>1681642377710</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681642377710</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +175,7 @@
     <MESSAGE value="Buildings added" />
     <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
     <MESSAGE value="Structures updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structures updated" />
+    <MESSAGE value="some controller added" />
+    <option name="LAST_COMMIT_MESSAGE" value="some controller added" />
   </component>
 </project>
