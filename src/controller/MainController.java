@@ -6,25 +6,9 @@ import model.Block;
 import java.util.regex.Matcher;
 
 public class MainController {
-    public static String register(Matcher matcher){
-        return "...";
-    }
-
-    public static String randomQuestion(Matcher matcher){
-        return "...";
-    }
-
-    public static String randomPassword(Matcher matcher){
-        return "...";
-    }
-
-    public static String randomSlogan(Matcher matcher){
-        return "...";
-    }
     public static String login(Matcher matcher){
         return "...";
     }
-
     public static String loginLoggedIn(Matcher matcher){
         return "...";
     }
@@ -64,22 +48,6 @@ public class MainController {
     }
 
     public static String openGame(Matcher matcher){
-        return "...";
-    }
-
-    public static String tradeRequest(Matcher matcher){
-        return "...";
-    }
-
-    public static String tradeList(Matcher matcher){
-        return "...";
-    }
-
-    public static String tradeAccept(Matcher matcher){
-        return "...";
-    }
-
-    public static String tradeHistory(Matcher matcher){
         return "...";
     }
 
