@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ApplicationManager {
 
-    private static ArrayList<User> users;
+    private static ArrayList<User> users = new ArrayList<User>();
 
     private static ArrayList<Game> games;
     private static Game currentGame;
@@ -14,6 +14,15 @@ public class ApplicationManager {
     public static User getUserByUsername(String username){
         for (User user : users) {
             if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static User getUserByEmail(String email){
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
                 return user;
             }
         }

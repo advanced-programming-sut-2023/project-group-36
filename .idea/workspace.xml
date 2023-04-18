@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Update some classes.">
-      <change afterPath="$PROJECT_DIR$/src/controller/CreateNewGameMenuController.java" afterDir="false" />
+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController.">
+      <change afterPath="$PROJECT_DIR$/src/model/Tools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/RegisterMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegisterMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/TradeMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TradeMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Types.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SignupMenu.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +51,20 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Stronghold_phase1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,6 +76,7 @@
       <workItem from="1681152020128" duration="1348000" />
       <workItem from="1681158583641" duration="2503000" />
       <workItem from="1681205133422" duration="14481000" />
+      <workItem from="1681835939298" duration="7914000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
       <created>1681152307251</created>
@@ -130,7 +150,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
       <updated>1681665794049</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎−۰۰۰۱۳" summary="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController.">
+      <created>1681666133332</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۳" />
+      <updated>1681666133332</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +184,7 @@
     <MESSAGE value="Buildings added" />
     <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
     <MESSAGE value="Update some classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update some classes." />
+    <MESSAGE value="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController." />
   </component>
 </project>

@@ -15,6 +15,7 @@ public class Types {
     }
 
     private static void addPeopleTypes() {
+        /*
         peopleTypes.add(new PeopleType("Archer","launchers" ,1, 2,2, 4, 0));
         peopleTypes.add(new PeopleType("Crossbowmen","launchers" ,1, 2,2, 4, 0));
         peopleTypes.add(new PeopleType("Spearmen","launchers" ,1, 2,2, 4, 0));
@@ -22,6 +23,7 @@ public class Types {
         peopleTypes.add(new PeopleType("Macemen","launchers" ,1, 2,2, 4, 0));
         peopleTypes.add(new PeopleType("Swordsmen","launchers" ,1, 2,2, 4, 0));
         // ... just for example!
+        */
     }
 
     private static void addBuildingsTypes() {
