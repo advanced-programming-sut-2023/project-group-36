@@ -1,5 +1,7 @@
 package controller;
 
+import model.Government;
+
 import java.util.regex.Matcher;
 
 public class GameController {
@@ -15,6 +17,8 @@ public class GameController {
     }
 
     public static String foodRateSet(Matcher matcher){
+        int rate = Integer.parseInt(matcher.group("rate-number"));
+        Government.se//static???????????????????/////
         return "...";
     }
     public static String foodRateShow(Matcher matcher){
