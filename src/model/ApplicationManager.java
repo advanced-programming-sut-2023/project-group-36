@@ -49,6 +49,10 @@ public class ApplicationManager {
         return users;
     }
 
+    public static User getCurrentUser(){
+        return currentUser;
+    }
+
     public static void login(User user){
         currentUser = user;
     }
