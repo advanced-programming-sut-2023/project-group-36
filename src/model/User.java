@@ -13,7 +13,14 @@ public class User {
     private Game game;
     private int score;
 
-    User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){
+    public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.email = email;
+        this.slogan = slogan;
+        this.questionAnswer = questionAnswer;
+        this.questionNumber = questionNumber;
         score=0;
     }
     public void changeProfile(String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){

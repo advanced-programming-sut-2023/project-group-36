@@ -80,8 +80,13 @@ public class Government{
         popularity += amount;
     }
 
-    public void removeTradMessage(TradeMessage tradeMessage){
-
+    public void delShowedMessages(){
+        for (int i = 0; i < tradeMessages.size(); i++) {
+            if (tradeMessages.get(i).showCondition()){
+                tradeMessages.remove(tradeMessages.get(i));
+                i--;
+            }
+        }
     }
 
     public boolean checkGameOver(){

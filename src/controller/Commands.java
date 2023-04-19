@@ -1,13 +1,11 @@
 package controller;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 public enum Commands {
 
     //REGISTER & LOGIN
-    REGISTER("user create -u (?<username>[^\n]+) -p (?<password>[^\n]+) (?<password confirmation>[^\n]+) –email (?<email>[^\n]+) (-s <slogan>[^\n]+)?"),
-    RANDOM_QUESTION("question pick -q (<question-number>[\\d]+) -a <answer> -c (?<answerConfirm>[^\n]+)"),
-    RANDOM_PASSWORD("user create -u (?<username>[^\n]+) -n (?<nickname>[^\n]+) -p random -e (?<email>[^\n]+)"),
-    RANDOM_SLOGAN("user create -u (?<username>[^\n]+) -p random -s random -n (?<nickname>[^\n]+)"),
+    REGISTER("user create -u (?<username>[^\n]*) -p (?<password>[^\n]*) (?<passwordConfirmation>[^\n]*) -email (?<email>[^\n]*) -n (?<nickname>[^\n]*)(-s (?<slogan>[^\n]*))?"),
+    QUESTION_ANSWER("question pick -q (?<questionNumber>[\\d]+) -a (?<answer>[^\n]+) -c (?<answerConfirm>[^\n]+)\\s*"),
+
     LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)"),
     LOGIN_LOGGED_IN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)--stay-logged-in"),
     FORGET_PASSWORD("forgot my password"),
@@ -66,7 +64,7 @@ public enum Commands {
     SHOP_MENU("shop menu"),
 
     // Trade menu
-    TRADE_REQUEST("trade -t (?<resourceType>[^\n]+) -a (?<resourceAmount>[^\n]+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),
+    TRADE_REQUEST("trade -u (?<username>[^\n]+) -t (?<resourceType>[^\n]+) -a (?<resourceAmount>[^\n]+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),
     TRADE_LIST("trade list"),
     TRADE_ACCEPT("trade accept -i (?<id>\\d+) -m (?<message>[^\n]+)"),
     TRADE_HISTORY("trade history"),
