@@ -1,7 +1,7 @@
 package project.model.Buildings;
 
-import model.Block;
-import model.Government;
+import project.model.Block;
+import project.model.Government;
 
 public class TownBuilding extends Structure {
     String[] TownBuildingStructures={"Hovel","Church","Cathedral"};

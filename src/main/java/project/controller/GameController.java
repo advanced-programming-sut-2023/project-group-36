@@ -1,6 +1,6 @@
 package project.controller;
 
-import model.Government;
+import project.model.Government;
 
 import java.util.regex.Matcher;
 

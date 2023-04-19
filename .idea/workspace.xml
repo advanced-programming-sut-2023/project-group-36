@@ -4,63 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/MainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/ShopMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/SignUpMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/TradeMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/DefenciveStructure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Farm_Extraction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/FoodProcessing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Industrial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Other.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Storage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/TownBuilding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/WeaponSmith.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Militia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/NormalPeople.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Trade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/TradeMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/ShopMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Maven created :)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +44,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681939000910</updated>
-      <workItem from="1681939004206" duration="1180000" />
+      <workItem from="1681939004206" duration="1505000" />
     </task>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
+      <created>1681940400331</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
+      <updated>1681940400331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,5 +71,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Maven created :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maven created :)" />
   </component>
 </project>

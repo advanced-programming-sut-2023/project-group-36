@@ -1,8 +1,8 @@
 package project.model.Buildings;
 
-import model.Block;
-import model.Government;
-import model.Peoples.People;
+import project.model.Block;
+import project.model.Government;
+import project.model.Peoples.People;
 
 public class WeaponSmith extends Structure {
     String[] WeaponSmithStructures={"armourer","blacksmith","Fletcher","Poleturner"};

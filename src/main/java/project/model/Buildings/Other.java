@@ -1,7 +1,7 @@
 package project.model.Buildings;
 
-import model.Block;
-import model.Government;
+import project.model.Block;
+import project.model.Government;
 
 public class Other extends Structure{
     public Other(Block block, Government government,int HP) {

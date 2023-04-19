@@ -1,6 +1,6 @@
 package project.view;
-import controller.Commands;
-import controller.RegisterMenuController;
+import project.controller.Commands;
+import project.controller.RegisterMenuController;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

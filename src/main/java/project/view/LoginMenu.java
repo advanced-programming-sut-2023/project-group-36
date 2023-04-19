@@ -1,6 +1,6 @@
 package project.view;
 
-import controller.Commands;
+import project.controller.Commands;
 
 import java.util.Scanner;
 

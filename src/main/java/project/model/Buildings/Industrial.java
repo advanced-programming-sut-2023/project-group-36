@@ -1,7 +1,7 @@
 package project.model.Buildings;
 
-import model.Block;
-import model.Government;
+import project.model.Block;
+import project.model.Government;
 
 public class Industrial extends Structure {
     String[] IndustrialStuctures={"Market","Ox tether","Woodcutter"};

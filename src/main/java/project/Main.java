@@ -1,9 +1,9 @@
-import controller.RegisterMenuController;
-import model.ApplicationManager;
-import view.LoginMenu;
-import view.RegisterMenu;
+package project;
+import project.model.ApplicationManager;
+import project.view.LoginMenu;
+import project.view.RegisterMenu;
 
-import java.util.regex.Matcher;
+
 
 public class Main {
     public static void main(String[] args) {

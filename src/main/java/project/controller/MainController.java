@@ -1,7 +1,7 @@
 package project.controller;
 
-import model.ApplicationManager;
-import model.Block;
+import project.model.ApplicationManager;
+import project.model.Block;
 
 import java.util.regex.Matcher;
 
