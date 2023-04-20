@@ -13,7 +13,14 @@ public enum Commands {
     //PROFILE
     CHANGE_USERNAME("profile change -u (?<username>[^\n]+)"),
     CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]+)"),
-    CHANGE_PASSWORD("profile change password -o (?<old-password> -n <new-password>\n"),
+    CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]+) -n (<new-password>[^\n]+)"),
+    CHANGE_EMAIL("profile change -e (?<email>[^\n]+)"),
+    CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]+)"),
+    REMOVE_SLOGAN("Profile remove slogan"),
+    DISPLAY_HIGH_SCORE("profile display highscore"),
+    DISPLAY_RANK("profile display rank"),
+    DISPLAY_SLOGAN("profile display slogan"),
+    DISPLAY("profile display"),
 
     //Map menu
     SHOW_MAP("show map -x (?<x>\\d+) -y (?<y>\\d+)"),
