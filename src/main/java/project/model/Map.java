@@ -3,8 +3,10 @@ package project.model;
 import java.util.ArrayList;
 
 public class Map {
-    private Game game;
     private int size;
+
+    private int capacity;
+    private String name;
     private ArrayList<Block> blocks;
 
     public Block getBlockByPosition(int x, int y){
@@ -20,5 +22,18 @@ public class Map {
         for (int i = 0; i < blocks.size(); i++) {
             blocks.get(i).nextTurn();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Map copyMap(){
+        Map CMap = new Map(); //...
+        return CMap;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }

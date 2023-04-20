@@ -28,6 +28,13 @@ public enum Commands {
     LOGOUT("user logout"),
 
 
+    //CreateNewGame Menu
+    ADD_USER("add user (?<username>[^\n]+)"),
+    REMOVE_USER("remove user (?<username>[^\n]+)"),
+    CHOOSE_MAP("choose map (?<mapName>[^\n]+)"),
+    CREATE_MAP("create map"),
+
+
     //Game menu
     SHOW_POPULARITY_FACTORS("show popularity factors"),
     SHOW_POPULARITY("show popularity"),
