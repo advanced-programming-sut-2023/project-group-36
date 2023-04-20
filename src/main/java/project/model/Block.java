@@ -10,6 +10,7 @@ public class Block {
     private int y;
     private String type;
     private Structure thisBlockStructure;
+    private int governmentId = 0;
     private ArrayList<People> peoples;
     public int getX() {
         return x;
@@ -44,5 +45,13 @@ public class Block {
 
     public void underAttack(Government government){
 
+    }
+
+    public int getGovernmentId() {
+        return governmentId;
+    }
+
+    public void setGovernmentId(int governmentId) {
+        this.governmentId = governmentId;
     }
 }

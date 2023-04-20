@@ -7,7 +7,7 @@ import project.model.User;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
-public class CreateNewGameMenuController {
+public class CreateNewGameController {
     private static Map map;
     private static ArrayList<User> users = new ArrayList<>();
 

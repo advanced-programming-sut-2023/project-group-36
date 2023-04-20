@@ -1,7 +1,7 @@
 package project.view;
 
 import project.controller.Commands;
-import project.controller.CreateNewGameMenuController;
+import project.controller.CreateNewGameController;
 
 import java.util.Scanner;
 
@@ -17,20 +17,20 @@ public class CreateNewGameMenu {
         while (inThisMenu) {
             input = scanner.nextLine();
             if (input.matches(regex = Commands.ADD_USER.getRegex())){
-                System.out.println(CreateNewGameMenuController.addUser(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewGameController.addUser(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.REMOVE_USER.getRegex())){
-                System.out.println(CreateNewGameMenuController.removeUser(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewGameController.removeUser(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.CHOOSE_MAP.getRegex())){
-                System.out.println(CreateNewGameMenuController.chooseMap(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewGameController.chooseMap(Menu.getMatcher(input,regex)));
             }
             else if (input.matches("create map")){
                 inThisMenu = false;
                 //...
             }
             else if (input.matches("start game")){
-                result = CreateNewGameMenuController.startGame();
+                result = CreateNewGameController.startGame();
                 if (result==null){
                     inThisMenu = false;
                     GameMenu.run();

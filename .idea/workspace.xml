@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Maven created :)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_4.xml" beforeDir="false" />
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Update CreateNewGameMenu.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,16 +58,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,7 +78,8 @@
       <updated>1681939000910</updated>
       <workItem from="1681939004206" duration="2017000" />
       <workItem from="1681979089598" duration="934000" />
-      <workItem from="1681980275096" duration="3993000" />
+      <workItem from="1681980275096" duration="8320000" />
+      <workItem from="1682003423310" duration="166000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -99,7 +99,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
       <updated>1681979841422</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎−۰۰۰۰۴" summary="Update CreateNewGameMenu.">
+      <created>1681984488419</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۴" />
+      <updated>1681984488419</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Maven created :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maven created :)" />
+    <MESSAGE value="Update CreateNewGameMenu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update CreateNewGameMenu." />
   </component>
 </project>

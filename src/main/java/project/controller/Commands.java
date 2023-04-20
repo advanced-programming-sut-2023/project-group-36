@@ -35,6 +35,9 @@ public enum Commands {
     CREATE_MAP("create map"),
 
 
+    //CreateNewMap Menu
+    SET_GOVERNMENT("set government (?<x>\\d+) (?<y>\\d+)"),
+
     //Game menu
     SHOW_POPULARITY_FACTORS("show popularity factors"),
     SHOW_POPULARITY("show popularity"),
