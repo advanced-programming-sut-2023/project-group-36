@@ -41,4 +41,8 @@ public class Map {
     public void addGovernmentBlock(Block block){
         governmentBlocks.add(block);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

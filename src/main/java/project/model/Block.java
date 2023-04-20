@@ -54,4 +54,16 @@ public class Block {
     public void setGovernmentId(int governmentId) {
         this.governmentId = governmentId;
     }
+
+    public Structure getThisBlockStructure() {
+        return thisBlockStructure;
+    }
+
+    public void setThisBlockStructure(Structure thisBlockStructure) {
+        this.thisBlockStructure = thisBlockStructure;
+    }
+
+    public ArrayList<People> getPeoples() {
+        return peoples;
+    }
 }

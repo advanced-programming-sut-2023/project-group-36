@@ -7,19 +7,17 @@ import project.model.Map;
 
 import java.util.Scanner;
 
-public class CreateNewMapMenu {
+public class EditMapMenu {
     private final static Scanner scanner = Menu.getScanner();
     public static int size;
     public static Map map;
     public static int capacity;
 
-    public static int number;
-
-    public static void run(int size, int capacity){
-        System.out.println("**<< CreateNewMap Menu >>**");
-        CreateNewMapMenu.size = size;
-        CreateNewMapMenu.capacity = capacity;
-        map = new Map();
+    public static void run(int size, int capacity, Map map){
+        System.out.println("**<< EditMap Menu >>**");
+        EditMapMenu.size = size;
+        EditMapMenu.capacity = capacity;
+        EditMapMenu.map = map;
         String input;
         String regex;
         String result;
@@ -27,19 +25,22 @@ public class CreateNewMapMenu {
         while (inThisMenu) {
             input = scanner.nextLine();
             if (input.matches(regex = Commands.SET_MAP_NAME.getRegex())){
-                CreateNewMapController.setMapName(Menu.getMatcher(input,regex));
+
             }
             else if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
-                CreateNewMapController.dropRock(Menu.getMatcher(input,regex));
+
+
             }
             else if (input.matches(regex = Commands.DROP_TREE.getRegex())){
-                CreateNewMapController.dropTree(Menu.getMatcher(input,regex));
+
             }
-            else if (input.matches(regex = Commands.SET_TEXTURE.getRegex())){
-                CreateNewMapController.setTexture(Menu.getMatcher(input,regex));
+
+            else if (input.matches(regex = Commands.DROP_UNIT.getRegex())){
+
             }
-            else if (input.matches(regex = Commands.SET_TEXTURE_RECTANGLE.getRegex())){
-                CreateNewMapController.setTextureRectangle(Menu.getMatcher(input,regex));
+
+            else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
+
             }
 
             else if (input.matches("save map")){

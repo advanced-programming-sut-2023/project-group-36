@@ -36,7 +36,18 @@ public enum Commands {
 
 
     //CreateNewMap Menu
+
+    SET_MAP_NAME("set map name (?<name>\\S+)"),
+    DROP_ROCK("droprock -x (?<x>\\d+) -y (?<y>\\d+) -d (?<direction>[^\n]+)"),
+    DROP_TREE("droptree -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
+    SET_TEXTURE("settexture -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>\\d+)"),
+    SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t [type]"),
+
+    //EditMap Menu
     SET_GOVERNMENT("set government (?<x>\\d+) (?<y>\\d+)"),
+    DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
+    DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
+
 
     //Game menu
     SHOW_POPULARITY_FACTORS("show popularity factors"),
@@ -47,7 +58,6 @@ public enum Commands {
     TAX_RATE_SET("tax rate -r (?<rate-number>\\d+)"),
     TAX_RATE_SHOW("tax rate show"),
     FEAR_RATE_SET("fear rate -r (?<rate-number>\\d+)"),
-    DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
     SELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
     RESELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
     CREATE_UNIT("createunit -t (?<type>.+) -c (?<count>\\d+)"),
@@ -63,12 +73,7 @@ public enum Commands {
     POUR_OIL("pour oil -d (?<direction>\\S+)"),
     DIG_TUNNEL("dig tunnel -x (?<x>\\d+) -y (?<y>\\d+)"),
     DISBAND_UNIT("disband unit"),
-    SET_TEXTURE("settexture -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>\\d+)"),
-    SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t [type]"),
     CLEAR_Block("clear -x (?<x>\\d+) -y (?<y>\\d+)"),
-    DROP_ROCK("droprock -x (?<x>\\d+) -y (?<y>\\d+) -d (?<direction>[^\n])"),
-    DROP_TREE("droptree -x (?<x>\\d+) -y (?<y>\\d+) -t [type]"),
-    DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
     MAIN_MENU("main menu"),
     TRADE_MENU("trade menu"),
     SHOP_MENU("shop menu"),
