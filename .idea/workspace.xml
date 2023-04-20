@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="RegisterMenu updated. (70%)">
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Maven created :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/TradeMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TradeMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Trade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/TradeMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TradeMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Ali" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="localAli" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2OFMhWtUBDgkPQIH2VPUtKtqKv1" />
+  <component name="ProjectId" id="2Of5raolT4ouQPkX24igkUoDo2N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -44,124 +50,33 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Stronghold_phase1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="" />
-      <created>1681152011108</created>
+      <changelist id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="" />
+      <created>1681939000910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1681152011108</updated>
-      <workItem from="1681152020128" duration="1348000" />
-      <workItem from="1681158583641" duration="2503000" />
-      <workItem from="1681205133422" duration="14481000" />
-      <workItem from="1681835939298" duration="9162000" />
-      <workItem from="1681929964961" duration="3105000" />
+      <updated>1681939000910</updated>
+      <workItem from="1681939004206" duration="2017000" />
+      <workItem from="1681979089598" duration="660000" />
     </task>
-    <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
-      <created>1681152307251</created>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
+      <created>1681940400331</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۱" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
-      <updated>1681152307251</updated>
+      <updated>1681940400331</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۲" summary="Create Project">
-      <created>1681152459585</created>
+    <task id="LOCAL‎−۰۰۰۰۲" summary="Maven created :)">
+      <created>1681940785128</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۲" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
-      <updated>1681152459585</updated>
+      <updated>1681940785128</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۳" summary="Create Packages">
-      <created>1681152751396</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۳" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
-      <updated>1681152751396</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۴" summary="first steps 1">
-      <created>1681153036034</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۴" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۴" />
-      <updated>1681153036034</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۵" summary="first steps 2">
-      <created>1681153112600</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۵" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۵" />
-      <updated>1681153112600</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۶" summary="first steps 3">
-      <created>1681158705386</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۶" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
-      <updated>1681158705386</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۷" summary="register and profile regex added">
-      <created>1681207479419</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۷" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۷" />
-      <updated>1681207479419</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۸" summary="register and profile regex added">
-      <created>1681373729710</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۸" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
-      <updated>1681373729710</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۹" summary="register and profile regex added">
-      <created>1681379547555</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۹" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
-      <updated>1681379547555</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۰" summary="Trap,Farm &amp; TownBuilding updated">
-      <created>1681492552351</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
-      <updated>1681492552351</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۱" summary="Trap,Farm &amp; TownBuilding updated">
-      <created>1681492591254</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۱" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
-      <updated>1681492591254</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۲" summary="Update some classes.">
-      <created>1681665794049</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۲" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
-      <updated>1681665794049</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۳" summary="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController.">
-      <created>1681666133332</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۳" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۳" />
-      <updated>1681666133332</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۱۴" summary="RegisterMenu updated. (70%)">
-      <created>1681851696999</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۴" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۴" />
-      <updated>1681851696999</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,17 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create Project" />
-    <MESSAGE value="Create Packages" />
-    <MESSAGE value="first steps 1" />
-    <MESSAGE value="first steps 2" />
-    <MESSAGE value="first steps 3" />
-    <MESSAGE value="register and profile regex added" />
-    <MESSAGE value="Buildings added" />
-    <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
-    <MESSAGE value="Update some classes." />
-    <MESSAGE value="Update RegisterMenuController, TradeMenuController &amp; CreateNewGameMenuController." />
-    <MESSAGE value="RegisterMenu updated. (70%)" />
-    <option name="LAST_COMMIT_MESSAGE" value="RegisterMenu updated. (70%)" />
+    <MESSAGE value="Maven created :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maven created :)" />
   </component>
 </project>
