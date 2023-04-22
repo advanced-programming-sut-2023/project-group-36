@@ -1,8 +1,8 @@
-package project.view;
+package main.java.project.view;
 
 import project.controller.Commands;
 import project.controller.ShopMenuController;
-
+import project.view.Menu;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
