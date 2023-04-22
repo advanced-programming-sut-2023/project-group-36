@@ -1,16 +1,20 @@
 package project.model;
 
+import com.sun.deploy.util.JVMParameters;
+
 import java.util.ArrayList;
 
 public class ApplicationManager {
 
     private static ArrayList<User> users = new ArrayList<User>();
 
-    private static ArrayList<Game> games;
+    private static ArrayList<Game> games = new ArrayList<>();
+
     private static Game currentGame;
     private static User currentUser;
     private static boolean stayLoggedIn;
 
+    private static ArrayList<Map> maps = new ArrayList<>();
     public static User getUserByUsername(String username){
         for (User user : users) {
             if (user.getUsername().equals(username)) {
@@ -24,6 +28,15 @@ public class ApplicationManager {
         for (User user : users) {
             if (user.getEmail().equalsIgnoreCase(email)) {
                 return user;
+            }
+        }
+        return null;
+    }
+
+    public static Map getMapByName(String name){
+        for (int i = 0; i < maps.size(); i++) {
+            if (maps.get(i).getName().equals(name)){
+                return maps.get(i);
             }
         }
         return null;
@@ -67,6 +80,10 @@ public class ApplicationManager {
             currentUser = null;
         }
         // && save date ...
+    }
+
+    public static void setCurrentUser(User user){
+        currentUser = user;
     }
 
 

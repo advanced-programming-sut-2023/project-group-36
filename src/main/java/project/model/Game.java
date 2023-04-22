@@ -13,7 +13,7 @@ public class Game {
         return map;
     }
 
-    Game(ArrayList<Government> governments,Map map){
+    public Game(ArrayList<Government> governments,Map map){
         this.governments = governments;
         this.map = map;
         condition = true;

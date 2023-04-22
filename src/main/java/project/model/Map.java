@@ -3,9 +3,12 @@ package project.model;
 import java.util.ArrayList;
 
 public class Map {
-    private Game game;
     private int size;
+    private int capacity;
+    private String name;
     private ArrayList<Block> blocks;
+
+    private ArrayList<Block> governmentBlocks;
 
     public Block getBlockByPosition(int x, int y){
         for (Block block : blocks) {
@@ -20,5 +23,26 @@ public class Map {
         for (int i = 0; i < blocks.size(); i++) {
             blocks.get(i).nextTurn();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Map copyMap(){
+        Map CMap = new Map(); //...
+        return CMap;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void addGovernmentBlock(Block block){
+        governmentBlocks.add(block);
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
