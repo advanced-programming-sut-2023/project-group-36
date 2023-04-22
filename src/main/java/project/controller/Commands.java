@@ -79,7 +79,7 @@ public enum Commands {
     SHOP_MENU("shop menu"),
 
     // Trade menu
-    TRADE_REQUEST("trade -u (?<username>[^\n]+) -t (?<resourceType>[^\n]+) -a (?<resourceAmount>[^\n]+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),
+    TRADE_REQUEST("trade -u (?<username>[^\n]+) -t (?<resourceType>[^\n]+) -a (?<resourceAmount>\\d+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),
     TRADE_LIST("trade list"),
     TRADE_ACCEPT("trade accept -i (?<id>\\d+) -m (?<message>[^\n]+)"),
     TRADE_HISTORY("trade history"),

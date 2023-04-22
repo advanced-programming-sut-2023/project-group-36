@@ -82,5 +82,9 @@ public class ApplicationManager {
         // && save date ...
     }
 
+    public static void setCurrentUser(User user){
+        currentUser = user;
+    }
+
 
 }

@@ -17,7 +17,7 @@ public class TradeMessage {
     }
 
     public void show (int id){
-        System.out.println(id+". "+sender.getOwner().getUsername()+": "+message+"\n"+"type: "+this.Type(trade.getType())+" price: "+trade.getPrice()+" amount: "+trade.getAmount());
+        System.out.println(id+". "+sender.getOwner().getUsername()+": "+message+"\n"+"type: "+trade.getType()+" price: "+trade.getPrice()+" amount: "+trade.getAmount());
         isShowed = true;
     }
 
@@ -25,11 +25,12 @@ public class TradeMessage {
         return isShowed;
     }
 
-    private String Type(int type) {
-        return "type";
-    }
-
     public void accept() {
         trade.accept();
+        message+=" (is accepted!)";
+    }
+
+    public Trade getTrade() {
+        return trade;
     }
 }
