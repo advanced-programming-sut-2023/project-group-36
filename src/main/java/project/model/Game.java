@@ -13,11 +13,11 @@ public class Game {
         return map;
     }
 
-    public Game(ArrayList<Government> governments,Map map){
+    public Game(Map map, ArrayList<Government> governments){
         this.governments = governments;
         this.map = map;
         condition = true;
-        currentGovernment = governments.get(0);
+        currentGovernment = this.governments.get(0);
     }
 
     public void nextTurn(){

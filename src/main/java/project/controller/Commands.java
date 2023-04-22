@@ -17,7 +17,7 @@ public enum Commands {
     CHANGE_EMAIL("profile change -e (?<email>[^\n]+)"),
     CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]+)"),
     REMOVE_SLOGAN("Profile remove slogan"),
-    DISPLAY_HIGH_SCORE("profile display highscore"),
+    DISPLAY_HIGH_SCORE("profile display highScore"),
     DISPLAY_RANK("profile display rank"),
     DISPLAY_SLOGAN("profile display slogan"),
     DISPLAY("profile display"),
@@ -33,14 +33,15 @@ public enum Commands {
     OPEN_GAME("open game"),
     PROFILE_MENU("profile menu"),
     LOGOUT("user logout"),
+    CREATE_MAP("create map"),
 
 
     //CreateNewGame Menu
     ADD_USER("add user (?<username>[^\n]+)"),
     REMOVE_USER("remove user (?<username>[^\n]+)"),
     CHOOSE_MAP("choose map (?<mapName>[^\n]+)"),
-    CREATE_MAP("create map"),
 
+    MAP_PREPARATION("map preparation"),
 
     //CreateNewMap Menu
 
@@ -51,7 +52,7 @@ public enum Commands {
     SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t [type]"),
 
     //EditMap Menu
-    SET_GOVERNMENT("set government (?<x>\\d+) (?<y>\\d+)"),
+    SET_GOVERNMENT("set government -color(?<color>[a-z]+) -x(?<x>\\d+) -y(?<y>\\d+)"),
     DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
     DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
 

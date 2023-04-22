@@ -9,14 +9,19 @@ import java.util.regex.Matcher;
 
 public class CreateNewGameController {
     private static Map map;
-    private static ArrayList<User> users = new ArrayList<>();
-
+    private static ArrayList<User> users;
+    private static int capacity;
+    public static void setController(Map map, int capacity, ArrayList<User> users){
+        CreateNewGameController.map = map;
+        CreateNewGameController.capacity = capacity;
+        CreateNewGameController.users = users;
+    }
     public static String addUser(Matcher matcher){
         String username = matcher.group("username");
         if (ApplicationManager.getUserByUsername(username)==null){
             return "Error: User not found!";
         }
-        if (users.size()==8){
+        if (users.size()==capacity){
             return "Error: The capacity is full!";
         }
         if (getUserByUsername(username)!=null){
@@ -37,7 +42,7 @@ public class CreateNewGameController {
 
     public static String chooseMap(Matcher matcher){
         String name = matcher.group("mapName");
-        map = ApplicationManager.getMapByName(name);
+        map = ApplicationManager.getMapByName(name).clone();
         if (map==null){
             return "Error: Map not found!";
         }
@@ -64,4 +69,5 @@ public class CreateNewGameController {
         }
         return null;
     }
+
 }

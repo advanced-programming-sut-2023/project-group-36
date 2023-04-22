@@ -19,7 +19,6 @@ public class CreateNewMapMenu {
         System.out.println("**<< CreateNewMap Menu >>**");
         CreateNewMapMenu.size = size;
         CreateNewMapMenu.capacity = capacity;
-        map = new Map();
         String input;
         String regex;
         String result;

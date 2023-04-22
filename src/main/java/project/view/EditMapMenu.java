@@ -3,59 +3,72 @@ package project.view;
 import project.controller.Commands;
 import project.controller.CreateNewGameController;
 import project.controller.CreateNewMapController;
+import project.controller.EditMapController;
+import project.model.Government;
 import project.model.Map;
+import project.model.User;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EditMapMenu {
     private final static Scanner scanner = Menu.getScanner();
-    public static int size;
     public static Map map;
     public static int capacity;
 
-    public static void run(int size, int capacity, Map map){
+    public static ArrayList<String> colors = new ArrayList<>();
+    public static ArrayList<Government> governments = new ArrayList<>();
+    public static Government government;
+    public static int number;
+
+    public static void run(int capacity, Map map, ArrayList<User> users){
         System.out.println("**<< EditMap Menu >>**");
-        EditMapMenu.size = size;
         EditMapMenu.capacity = capacity;
         EditMapMenu.map = map;
+        EditMapMenu.number = 0;
         String input;
         String regex;
         String result;
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
-            if (input.matches(regex = Commands.SET_MAP_NAME.getRegex())){
-
-            }
-            else if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
-
-
+            if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
+                System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.DROP_TREE.getRegex())){
-
+                System.out.println(CreateNewMapController.dropTree(Menu.getMatcher(input,regex)));
             }
-
+            else if (input.matches(regex = Commands.SET_GOVERNMENT.getRegex())) {
+                System.out.println(EditMapController.setGovernment(Menu.getMatcher(input,regex),map,users));
+            }
             else if (input.matches(regex = Commands.DROP_UNIT.getRegex())){
-
+                System.out.println(EditMapController.dropUnit(Menu.getMatcher(input,regex),government));
             }
 
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
-
+                System.out.println(EditMapController.dropBuilding(Menu.getMatcher(input,regex),government));
             }
 
             else if (input.matches("save map")){
-                System.out.println("The map was successfully created.");
-                inThisMenu = false;
-                MainMenu.run();
+                if((result = EditMapController.checkMapPreparation())!=null){
+                    System.out.println(result);
+                }
+                else {
+                    System.out.println("Map preparation done successfully.");
+                    inThisMenu = false;
+                    CreateNewGameMenu.mapPreparation = true;
+                    CreateNewGameMenu.run(number);
+                }
             }
             else if (input.equals("cancel")){
-                System.out.println("Map creation was canceled.");
+                System.out.println("Map preparation was canceled.");
                 inThisMenu = false;
-                MainMenu.run();
+                CreateNewGameMenu.run(CreateNewGameMenu.capacity);
             }
             else {
                 System.out.println("Invalid command!");
             }
         }
     }
+
 }

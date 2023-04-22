@@ -2,14 +2,18 @@ package project.model;
 
 import java.util.ArrayList;
 
-public class Map {
+public class Map implements Cloneable{
     private int size;
-    private int capacity;
     private String name;
+
+    private int capacity = 0;
     private ArrayList<Block> blocks;
 
-    private ArrayList<Block> governmentBlocks;
 
+    Map(int size, String name){
+        this.size = size;
+        this.name = name;
+    }
     public Block getBlockByPosition(int x, int y){
         for (Block block : blocks) {
             if (block.getX() == x && block.getY() == y) {
@@ -29,20 +33,30 @@ public class Map {
         return name;
     }
 
-    public Map copyMap(){
-        Map CMap = new Map(); //...
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Map clone(){
+        Map CMap;
+        try {
+            CMap = (Map) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+        CMap.blocks = new ArrayList<>(this.blocks);
         return CMap;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public int getCapacity() {
         return capacity;
     }
 
-    public void addGovernmentBlock(Block block){
-        governmentBlocks.add(block);
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public int getSize() {
+        return size;
     }
 }

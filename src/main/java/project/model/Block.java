@@ -12,6 +12,8 @@ public class Block {
     private Structure thisBlockStructure;
     private int governmentId = 0;
     private ArrayList<People> peoples;
+    private String color;
+
     public int getX() {
         return x;
     }
@@ -65,5 +67,9 @@ public class Block {
 
     public ArrayList<People> getPeoples() {
         return peoples;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
