@@ -14,6 +14,11 @@ public class Block {
     private ArrayList<People> peoples;
     private String color;
 
+    public Block(int x,int y){
+        this.x = x;
+        this.y = y;
+    }
+
     public int getX() {
         return x;
     }

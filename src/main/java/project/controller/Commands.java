@@ -52,7 +52,7 @@ public enum Commands {
     SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t [type]"),
 
     //EditMap Menu
-    SET_GOVERNMENT("set government -color(?<color>[a-z]+) -x(?<x>\\d+) -y(?<y>\\d+)"),
+    SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),
     DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
     DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
 

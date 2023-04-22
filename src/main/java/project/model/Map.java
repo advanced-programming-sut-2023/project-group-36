@@ -7,10 +7,10 @@ public class Map implements Cloneable{
     private String name;
 
     private int capacity = 0;
-    private ArrayList<Block> blocks;
+    private ArrayList<Block> blocks = new ArrayList<>();
 
 
-    Map(int size, String name){
+    public Map(int size, String name){
         this.size = size;
         this.name = name;
     }
@@ -58,5 +58,15 @@ public class Map implements Cloneable{
 
     public int getSize() {
         return size;
+    }
+
+    public void createBlacks(){
+        Block block;
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++) {
+                block = new Block(i,j);
+                blocks.add(block);
+            }
+        }
     }
 }

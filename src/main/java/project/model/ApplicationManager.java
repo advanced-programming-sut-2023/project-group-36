@@ -54,6 +54,10 @@ public class ApplicationManager {
         return currentGame;
     }
 
+    public static void addMap(Map map) {
+        maps.add(map);
+    }
+
     public void sortUsers(){
         //...
     }

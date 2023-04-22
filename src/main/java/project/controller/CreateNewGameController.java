@@ -3,6 +3,7 @@ package project.controller;
 import project.model.ApplicationManager;
 import project.model.Map;
 import project.model.User;
+import project.view.CreateNewGameMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -22,6 +23,8 @@ public class CreateNewGameController {
             return "Error: User not found!";
         }
         if (users.size()==capacity){
+            System.out.println(capacity);
+            System.out.println(users.size());
             return "Error: The capacity is full!";
         }
         if (getUserByUsername(username)!=null){
@@ -42,10 +45,10 @@ public class CreateNewGameController {
 
     public static String chooseMap(Matcher matcher){
         String name = matcher.group("mapName");
-        map = ApplicationManager.getMapByName(name).clone();
-        if (map==null){
+        if (ApplicationManager.getMapByName(name)==null){
             return "Error: Map not found!";
         }
+        map = ApplicationManager.getMapByName(name).clone();
         return "Map chosen successfully.";
     }
 
