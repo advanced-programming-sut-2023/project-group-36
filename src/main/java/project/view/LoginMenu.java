@@ -16,7 +16,7 @@ public class LoginMenu {
     Matcher matcher;
      Boolean inThisMenu=true;
     int delay=0;
-    System.out.println("**<< LoginMenu Menu >>**");
+    System.out.println("**<< Login Menu >>**");
     while(true){
       String command = scanner.nextLine();
       String output;
