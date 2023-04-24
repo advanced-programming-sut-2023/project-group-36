@@ -10,6 +10,19 @@ public class ApplicationManager {
 
     private static ArrayList<Game> games = new ArrayList<>();
 
+    private int[] pricesOfSalable = {100, 250, 400, 1000};
+/*
+    engineer guild 100 انواع و اجزای قلعه ها
+    Inn 100 فرآوریی غذا
+    Church 250 سازه های شهری
+    Cathedral 1000 سازه های شهری
+    armourer 100 سازه...
+    blacksmith 100 سلاح
+    Fletcher 100 سلاح
+    Poleturner 100 سلاح
+    oil smelter 100 سلاح
+    stable 400 انواع و اجزای قلعه
+*/
     private static Game currentGame;
     private static User currentUser;
     private static boolean stayLoggedIn;
@@ -65,13 +78,10 @@ public class ApplicationManager {
     public static int getRank(User user) {
         sortUsers();
 
-        int rank = 1;
-        for (User user1 : getUsers()) {
-            if (user == user1) {
-                return rank;
+        for (int i = 0; i < getUsers().size(); i++)
+            if (user == getUsers().get(i)) {
+                return i + 1;
             }
-            rank++;
-        }
 
         return 0;
     }
