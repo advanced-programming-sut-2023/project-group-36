@@ -1,4 +1,4 @@
-package project.controller;
+package main.java.project.controller;
 
 import java.util.regex.Matcher;
 

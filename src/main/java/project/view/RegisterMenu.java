@@ -22,7 +22,7 @@ public class RegisterMenu {
             }
             else if (input.equals("login menu")){
                 inThisMenu = false;
-                LoginMenu.run();
+                MainMenu.run();
             }
             else {
                 System.out.println("Invalid command!");

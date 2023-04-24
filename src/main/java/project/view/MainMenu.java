@@ -1,5 +1,7 @@
 package project.view;
 
+import project.model.User;
+
 import java.util.Scanner;
 
 public class MainMenu {

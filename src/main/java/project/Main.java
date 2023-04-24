@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         /*
         Map map = new Map();
         User user1 = new User("ali","123","mosa","123$33","1ww","1",1);
