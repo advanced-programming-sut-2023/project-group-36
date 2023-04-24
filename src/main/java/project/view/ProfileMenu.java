@@ -1,4 +1,4 @@
-package main.java.project.view;
+package project.view;
 import project.controller.Commands;
 import project.view.Menu;
 import main.java.project.controller.ProfileMenuController;
