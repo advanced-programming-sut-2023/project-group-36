@@ -1,40 +1,152 @@
 package project.controller;
 
+import project.model.ApplicationManager;
+import project.model.User;
+
 import java.util.regex.Matcher;
 
 public class ProfileMenuController {
     public static String changeUsername(Matcher matcher) {
-        return "";
+        String username = matcher.group("username");
+        if (username.equals("")) {  //is correct and no error?? f.g matcher.group("username") = null
+            return "The username is empty!";
+        }
+
+        if (!username.matches("[A-Za-z_]+"))
+            return "The username format is invalid";
+
+        ApplicationManager.getCurrentUser().setUsername(username);
+        return "Username changed successfully";
     }
+
     public static String changeNickname(Matcher matcher) {
-        return "";
+        String nickname = matcher.group("nickname");
+
+        if (nickname.equals("")) 
+            return "The nickname us empty!"; ////is correct and no error?? f.g matcher.group("username") = null
+
+        if (!nickname.matches("[A-Za-z_]+"))
+            return "The nickname format is invalid";
+
+        ApplicationManager.getCurrentUser().setNickname(nickname);
+        return "Nickname changed successfully";
     }
-    public static String changePassword(Matcher matcher) {
-        return "";
+    public static String changePassword_1(Matcher matcher) {
+        String oldPassword = matcher.group("old-password");
+        String newPassword = matcher.group("new-password");
+        String userPassword = ApplicationManager.getCurrentUser().getPassword();
+
+        if (oldPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The old password is empty!";
+        if (newPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The new password is empty!";
+
+        if (!userPassword.equals(oldPassword))
+            return "Current password is incorrect!";
+
+        if (!userPassword.equals(newPassword))
+            return "Please enter a new password!";
+
+        if (!(newPassword.length() < 6))
+            return "Password must have at least 6 characters";
+        if (!newPassword.matches(".*[a-z].*"))
+            return "Password must have at least one lower case letter";
+        if (!newPassword.matches(".*[A-Z].*"))
+            return "Password must have at least one capital letter";
+        if (!newPassword.matches(".*[\\d].*"))
+            return "Password must have at least one number";
+        if (!newPassword.matches(".*[\\W].*")) // is it correct?
+            return "Password must have at least one character except numbers and upper and lower case letters";
+
+        // fill out the capcha
+        //...
+
+        // repeat the password
+        return "Please enter your new password again";
     }
-    public static String changeEmail(Matcher matcher) {
-        return "";
+
+    public static String changePassword_2(Matcher matcher, String newPassword) {
+        String repeatingPassword = matcher.group("new-password");
+
+        if (newPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The repeating password is empty!";
+
+        if (!repeatingPassword.equals(newPassword))
+            return "Repeating the password is wrong!";
+
+        ApplicationManager.getCurrentUser().setPassword(newPassword);
+        return "Password changed successfully";
+    }
+
+    public static String changeEmail(Matcher matcher, Matcher matcher1) {
+        String email = matcher.group("email");
+        String part1 = matcher1.group("part1");
+        String part2 = matcher1.group("part2");
+        String part3 = matcher1.group("part3");
+
+        if (email.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The email is empty!";
+        if (part1.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The first part of the email is empty!";
+        }
+        if (part2.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The second part of the email is empty!";
+        }
+        if (part3.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The third part of the email is empty!";
+        }
+
+        if (!part1.matches("[A-Za-z_]+"))
+            return "The format of the first part of the email is invalid!";
+        if (!part2.matches("[A-Za-z_]+"))
+            return "The format of the second part of the email is invalid!";
+        if (!part3.matches("[A-Za-z_]+"))
+            return "The format of the third part of the email is invalid!";
+
+        ApplicationManager.getCurrentUser().setEmail(email);
+        return "Email changed successfully";
     }
     public static String changeSlogan(Matcher matcher) {
-        return "";
+        String slogan = matcher.group("slogan");
+
+        if (slogan.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The slogan is empty!";
+
+        ApplicationManager.getCurrentUser().setSlogan(slogan);
+        return "Slogan changed successfully";
     }
-    public static String removeSlogan(Matcher matcher) {
-        return "";
+    public static String removeSlogan() {
+        ApplicationManager.getCurrentUser().setSlogan("");
+        return "Slogan removed successfully";
     }
 
-    public static String displayHighScore() {
-        return "";
+    public static int displayHighScore() {
+        return ApplicationManager.getCurrentUser().getHighScore();
     }
 
-    public static String displayRank() {
-        return "";
+    public static int displayRank() {
+        return ApplicationManager.getRank(ApplicationManager.getCurrentUser());
     }
 
     public static String displaySlogan() {
-        return "";
+        User user = ApplicationManager.getCurrentUser(); //this error for why???
+        String slogan = user.getSlogan();
+
+        if (slogan.equals("")) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
+            return "Slogan is empty!";
+
+        return slogan;
     }
 
     public static String display() {
-        return "";
+        String result;
+        result = "high score = " + displayHighScore() + "\n";
+        result += "rank: " + displayRank() + "\n";
+        result += "slogan: ";
+
+        if (!displaySlogan().equals("Slogan is empty!"))
+            result += displaySlogan();
+
+        return result;
     }
 }

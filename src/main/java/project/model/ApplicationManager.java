@@ -58,11 +58,25 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    public void sortUsers(){
+    public static void sortUsers(){
         //...
     }
 
-    public ArrayList<User> getUsers(){
+    public static int getRank(User user) {
+        sortUsers();
+
+        int rank = 1;
+        for (User user1 : getUsers()) {
+            if (user == user1) {
+                return rank;
+            }
+            rank++;
+        }
+
+        return 0;
+    }
+
+    public static ArrayList<User> getUsers(){
         return users;
     }
 
