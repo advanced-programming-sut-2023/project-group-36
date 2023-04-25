@@ -55,10 +55,10 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    }
+
 
     public void sortUsers(){
-        //...
+        return;
     }
 
     public ArrayList<User> getUsers(){
@@ -88,6 +88,8 @@ public class ApplicationManager {
     public static void setCurrentUser(User user){
         currentUser = user;
     }
-
+    public static void setUsersList(ArrayList<User> raw){
+       raw= users;
+    }
 
 }
