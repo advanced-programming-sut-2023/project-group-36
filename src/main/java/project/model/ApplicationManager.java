@@ -1,9 +1,11 @@
 package project.model;
+import project.controller.SaveAndLoad;
+
 import java.util.ArrayList;
 
 public class ApplicationManager {
 
-    private static ArrayList<User> users = new ArrayList<User>();
+    private static ArrayList<User> users = new ArrayList<>();
 
     private static ArrayList<Game> games = new ArrayList<>();
 
@@ -55,13 +57,28 @@ public class ApplicationManager {
         maps.add(map);
     }
 
+    public static void start() {
+        SaveAndLoad.GameInitialization();
+    }
+
+    public static void setMapsList(ArrayList<Map> raw) {
+        maps = raw;
+    }
+
+    public static void setGamesList(ArrayList<Game> raw) {
+        games = raw;
+    }
+
+    public static void addGame(Game game) {
+        games.add(game);
+    }
 
 
     public void sortUsers(){
         return;
     }
 
-    public ArrayList<User> getUsers(){
+    public static ArrayList<User> getUsers(){
         return users;
     }
 
@@ -82,6 +99,9 @@ public class ApplicationManager {
         if (!stayLoggedIn){
             currentUser = null;
         }
+        SaveAndLoad.saveUsers(users);
+        SaveAndLoad.saveGames(games);
+        SaveAndLoad.saveMaps(maps);
         // && save date ...
     }
 
@@ -89,7 +109,9 @@ public class ApplicationManager {
         currentUser = user;
     }
     public static void setUsersList(ArrayList<User> raw){
-       raw= users;
+       users = raw;
     }
+
+
 
 }

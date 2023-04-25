@@ -65,6 +65,7 @@ public class Map implements Cloneable{
         for (int i = 1; i <= size; i++) {
             for (int j = 1; j <= size; j++) {
                 block = new Block(i,j);
+                block.setType("land");
                 blocks.add(block);
             }
         }
