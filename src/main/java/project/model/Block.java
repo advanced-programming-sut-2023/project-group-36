@@ -14,6 +14,8 @@ public class Block {
     private ArrayList<People> peoples;
     private String color;
 
+    private String tree;
+
     public Block(int x,int y){
         this.x = x;
         this.y = y;
@@ -76,5 +78,27 @@ public class Block {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public boolean suitableTypeForUnit(String type) {
+        if (type.equals("x") || type.equals("y") || type.equals("z")){
+            return false;
+        }
+        return true;
+    }
+
+    public String getTree() {
+        return tree;
+    }
+
+    public void setTree(String tree) {
+        this.tree = tree;
+    }
+
+    public boolean suitableTypeForTree() {
+        if (type.equals("x") || type.equals("y") || type.equals("z")){
+            return false;
+        }
+        return true;
     }
 }

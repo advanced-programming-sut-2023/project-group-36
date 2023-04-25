@@ -5,7 +5,7 @@ import project.model.Government;
 
 public class NormalPeople extends People {
     private boolean employed;
-    NormalPeople(PeopleType peopleType, Government government, Block block) {
+    public NormalPeople(PeopleType peopleType, Government government, Block block) {
         super(peopleType, government, block);
         employed = false;
     }

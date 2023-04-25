@@ -1,7 +1,4 @@
 package project.model;
-
-import com.sun.deploy.util.JVMParameters;
-
 import java.util.ArrayList;
 
 public class ApplicationManager {
@@ -56,6 +53,10 @@ public class ApplicationManager {
 
     public static void addMap(Map map) {
         maps.add(map);
+    }
+
+    public static void start() {
+
     }
 
     public void sortUsers(){
