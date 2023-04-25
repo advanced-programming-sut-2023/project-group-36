@@ -12,6 +12,7 @@ public class User {
     private String questionAnswer;
     private Game game;
     private int score;
+    private int highScore;
 
     public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){
         this.username = username;
@@ -47,47 +48,45 @@ public class User {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSlogan() {
         return slogan;
     }
 
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+
     public String getEmail() {
         return email;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void addScore(int amount){
-        score+=amount;
-    }
-
-    public String getQuestionAnswer() {
-        return questionAnswer;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setSlogan(String slogan) {
-        this.slogan = slogan;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public int getHighScore() { return highScore; }
+
+    public void addScore(int amount){
+        score+=amount;
     }
 }

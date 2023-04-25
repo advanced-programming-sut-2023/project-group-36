@@ -4,14 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="master update.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +65,15 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -93,15 +91,6 @@
       <workItem from="1682096976743" duration="4040000" />
       <workItem from="1682113162033" duration="345000" />
       <workItem from="1682147999085" duration="8762000" />
-      <workItem from="1682252000839" duration="2445000" />
-      <workItem from="1682262788639" duration="733000" />
-      <workItem from="1682272182790" duration="4516000" />
-      <workItem from="1682413072838" duration="357000" />
-      <workItem from="1682418277766" duration="440000" />
-      <workItem from="1682418846009" duration="291000" />
-      <workItem from="1682419655205" duration="1739000" />
-      <workItem from="1682447400113" duration="4207000" />
-      <workItem from="1682456065168" duration="1946000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -151,17 +140,19 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
       <updated>1682195589208</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۹" summary="Fix some bugs in CreateNewGameMenu and EditMapMenu.">
-      <created>1682198177647</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۹" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
-      <updated>1682198177647</updated>
+    <task id="LOCAL-00009" summary="profile menu and this controller almost complete">
+      <created>1682297649920</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682297649920</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۱۰" summary="Update people, government, randomPassword &amp; EditMapMenu">
-      <created>1682415100052</created>
-      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
-      <updated>1682415100052</updated>
+    <task id="LOCAL-00010" summary="show price list complete">
+      <created>1682302362180</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682302362180</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۱۱" summary="master update.">
       <created>1682418486147</created>
@@ -180,7 +171,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -194,19 +197,5 @@
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
     <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
-    <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
-    <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
-    <MESSAGE value="master update." />
-    <option name="LAST_COMMIT_MESSAGE" value="master update." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ClassCastException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

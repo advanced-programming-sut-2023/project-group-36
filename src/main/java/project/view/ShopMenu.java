@@ -1,8 +1,8 @@
-package main.java.project.view;
+package project.view;
 
 import project.controller.Commands;
 import project.controller.ShopMenuController;
-import project.view.Menu;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -23,13 +23,13 @@ public class ShopMenu {
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.BUY));
             if (matcher != null) {
-                System.out.println(ShopMenuController.buy(matcher));
+                System.out.println(ShopMenuController.buyAndSell(matcher, "buy"));
                 continue;
             }
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.SELL));
             if (matcher != null) {
-                System.out.println(ShopMenuController.sell(matcher));
+                System.out.println(ShopMenuController.buyAndSell(matcher, "sell"));
                 continue;
             }
 
