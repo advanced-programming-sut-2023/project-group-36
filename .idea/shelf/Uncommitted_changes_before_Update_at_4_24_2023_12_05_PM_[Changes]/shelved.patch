@@ -1,0 +1,502 @@
+Index: src/main/java/project/controller/ProfileMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.java.project.controller;\r\n\r\nimport java.util.regex.Matcher;\r\n\r\npublic class ProfileMenuController {\r\n    public static String changeUsername(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n    public static String changeNickname(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n    public static String changePassword(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n    public static String changeEmail(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n    public static String changeSlogan(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n    public static String removeSlogan(Matcher matcher) {\r\n        return \"\";\r\n    }\r\n\r\n    public static String displayHighScore() {\r\n        return \"\";\r\n    }\r\n\r\n    public static String displayRank() {\r\n        return \"\";\r\n    }\r\n\r\n    public static String displaySlogan() {\r\n        return \"\";\r\n    }\r\n\r\n    public static String display() {\r\n        return \"\";\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/controller/ProfileMenuController.java b/src/main/java/project/controller/ProfileMenuController.java
+--- a/src/main/java/project/controller/ProfileMenuController.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/controller/ProfileMenuController.java	(date 1682109360007)
+@@ -1,11 +1,12 @@
+-package main.java.project.controller;
++package project.controller;
++
++import project.view.Menu;
+ 
+ import java.util.regex.Matcher;
+ 
+ public class ProfileMenuController {
+-    public static String changeUsername(Matcher matcher) {
+-        return "";
+-    }
++
++    public static String changeUsername(Matcher matcher) {return "";}
+     public static String changeNickname(Matcher matcher) {
+         return "";
+     }
+Index: src/main/java/project/view/LoginMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.view;\r\n\r\nimport project.controller.Commands;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class LoginMenu {\r\n  private final static Scanner scanner = Menu.getScanner();\r\n\r\n  public static void run(){\r\n    String command = scanner.nextLine();\r\n  }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/view/LoginMenu.java b/src/main/java/project/view/LoginMenu.java
+--- a/src/main/java/project/view/LoginMenu.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/view/LoginMenu.java	(date 1682325343913)
+@@ -1,14 +1,61 @@
+ package project.view;
+ 
+ import project.controller.Commands;
++import project.controller.LoginMenuController;
++import project.controller.RegisterMenuController;
++import project.model.ApplicationManager;
+ 
++import javax.annotation.processing.SupportedSourceVersion;
+ import java.util.Scanner;
++import java.util.regex.Matcher;
+ 
+ public class LoginMenu {
+   private final static Scanner scanner = Menu.getScanner();
+ 
+-  public static void run(){
+-    String command = scanner.nextLine();
++  public static void run() throws InterruptedException {
++    Matcher matcher;
++     Boolean inThisMenu=true;
++    int delay=0;
++    System.out.println("**<< LoginMenu Menu >>**");
++    while(true){
++      String command = scanner.nextLine();
++      String output;
++      if(command.matches(Commands.LOGIN.getRegex()) || command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
++        matcher=Menu.getMatcher(command,Commands.LOGIN.getRegex());
++        output=LoginMenuController.Login(matcher);
++        if(output.contains("match")){
++          delay++;
++          Thread.sleep(delay * 5000);
++          System.out.println("You can now try again now.");
++        }
++        else{
++          delay=0;
++          if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
++            command.matches(Commands.LOGIN_LOGGED_IN.getRegex());
++          }
++          MainMenu.run();
++        }
++      }
++      else if(command.matches(Commands.FORGET_PASSWORD.getRegex())){
++        matcher=Menu.getMatcher(command,Commands.FORGET_PASSWORD.getRegex());
++        output=LoginMenuController.ForgetPassword(matcher);
++        if(output != null)
++          System.out.println(output);
++        else{
++          System.out.println("enter new password:");
++          String newPassword=Menu.getScanner().nextLine();
++          String result=LoginMenuController.passwordWeakCheck(newPassword);
++          System.out.println(result);
++        }
++      }
++      else if(command.equals("user logout")){
++        inThisMenu=false;
++        return;
++      }
++      else{
++        System.out.println("Invalid command");
++      }
++    }
+   }
+ 
+ }
+Index: src/main/java/project/controller/LoginMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.controller;\r\n\r\npublic class LoginMenuController {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/controller/LoginMenuController.java b/src/main/java/project/controller/LoginMenuController.java
+--- a/src/main/java/project/controller/LoginMenuController.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/controller/LoginMenuController.java	(date 1682325198176)
+@@ -1,4 +1,53 @@
+ package project.controller;
++import project.model.ApplicationManager;
++import project.model.User;
++import project.view.Menu;
++
++import java.util.HashMap;
++import java.util.regex.Matcher;
+ 
+ public class LoginMenuController {
++   private static User LoggedUser;
++    public static String Login(Matcher matcher){
++        String username=matcher.group("username");
++        LoggedUser=ApplicationManager.getUserByUsername(username);
++        if(LoggedUser==null)
++            return "Error: username doesn't exist!";
++        String password=matcher.group("password");
++        if(!LoggedUser.getPassword().equals(password))
++            return "Error: password doesn't match!";
++        ApplicationManager.login(LoggedUser);
++        return "User logged in Succesfully!";
++    }
++    public static String ForgetPassword(Matcher matcher){
++        String username=matcher.group("username");
++        LoggedUser=ApplicationManager.getUserByUsername(username);
++        if(LoggedUser==null)
++            return "Error: username doesn't exist!";
++        String answer= Menu.getScanner().next();
++        if(!answer.equals(LoggedUser.getQuestionAnswer()))
++            return "Error: invalid security question answer!";
++        return null;
++    }
++    public static String passwordWeakCheck(String password){
++        if (password.length()<6){
++            return "The password is weak: password length is short!";
++        }
++        if (!password.matches(".*[A-Z].*")){
++            return "The password is weak: at least one capital letter is required!";
++        }
++        if (!password.matches(".*[a-z].*")){
++            return "The password is weak: at least one small letter is required!";
++        }
++        if (!password.matches(".*[0-9].*")){
++            return "The password is weak: at least one number is required!";
++        }
++        if (!password.matches(".*[#*\\-+&^%$@!.(){}].*")){
++            return "The password is weak: at least one special character is required!";
++        }
++        LoggedUser.setPassword(password);
++        return "The password is strong";
++    }
++
++
+ }
+Index: src/main/java/project/view/MainMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.view;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class MainMenu {\r\n    private final static Scanner scanner = Menu.getScanner();\r\n\r\n    public static void run(){\r\n        String command = scanner.nextLine();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/view/MainMenu.java b/src/main/java/project/view/MainMenu.java
+--- a/src/main/java/project/view/MainMenu.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/view/MainMenu.java	(date 1682116114449)
+@@ -1,5 +1,7 @@
+ package project.view;
+ 
++import project.model.User;
++
+ import java.util.Scanner;
+ 
+ public class MainMenu {
+Index: src/main/java/project/view/ProfileMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.java.project.view;\r\nimport project.controller.Commands;\r\nimport project.view.Menu;\r\nimport main.java.project.controller.ProfileMenuController;\r\nimport java.util.Scanner;\r\nimport java.util.regex.Matcher;\r\n\r\npublic class ProfileMenu {\r\n    private final static Scanner scanner = Menu.getScanner();\r\n\r\n    public static void run(){\r\n        while (true) {\r\n            String command = scanner.nextLine();\r\n            Matcher matcher;\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.changeUsername(matcher)); //\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_NICKNAME));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.changeNickname(matcher));\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_PASSWORD));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.changePassword(matcher));\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_EMAIL));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.changeEmail(matcher));\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_SLOGAN));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.changeSlogan(matcher));\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.REMOVE_SLOGAN));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.removeSlogan(matcher));\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_HIGH_SCORE));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.displayHighScore());\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_RANK));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.displayRank());\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_SLOGAN));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.displaySlogan());\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY));\r\n            if (matcher != null) {\r\n                System.out.println(ProfileMenuController.display());\r\n                continue;\r\n            }\r\n\r\n            matcher = Menu.getMatcher(command, String.valueOf(project.controller.Commands.EXIT));\r\n            if (matcher != null)\r\n                break;\r\n\r\n            System.out.println(\"Invalid command!\");\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/view/ProfileMenu.java b/src/main/java/project/view/ProfileMenu.java
+--- a/src/main/java/project/view/ProfileMenu.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/view/ProfileMenu.java	(date 1682109102735)
+@@ -1,7 +1,7 @@
+-package main.java.project.view;
++package project.view;
+ import project.controller.Commands;
+ import project.view.Menu;
+-import main.java.project.controller.ProfileMenuController;
++import project.controller.ProfileMenuController;
+ import java.util.Scanner;
+ import java.util.regex.Matcher;
+ 
+Index: src/main/java/project/model/ApplicationManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.model;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class ApplicationManager {\r\n\r\n    private static ArrayList<User> users = new ArrayList<User>();\r\n\r\n    private static ArrayList<Game> games;\r\n    private static Game currentGame;\r\n    private static User currentUser;\r\n    private static boolean stayLoggedIn;\r\n\r\n    public static User getUserByUsername(String username){\r\n        for (User user : users) {\r\n            if (user.getUsername().equals(username)) {\r\n                return user;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static User getUserByEmail(String email){\r\n        for (User user : users) {\r\n            if (user.getEmail().equalsIgnoreCase(email)) {\r\n                return user;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static void addUser(User user){\r\n        users.add(user);\r\n    }\r\n\r\n    public static void setCurrentGame(Game currentGame) {\r\n        ApplicationManager.currentGame = currentGame;\r\n    }\r\n\r\n    public static Game getCurrentGame() {\r\n        return currentGame;\r\n    }\r\n\r\n    public void sortUsers(){\r\n        //...\r\n    }\r\n\r\n    public ArrayList<User> getUsers(){\r\n        return users;\r\n    }\r\n\r\n    public static User getCurrentUser(){\r\n        return currentUser;\r\n    }\r\n\r\n    public static void login(User user){\r\n        currentUser = user;\r\n    }\r\n\r\n    public static void logout(){\r\n        currentUser = null;\r\n        stayLoggedIn = false;\r\n    }\r\n\r\n    public static void exit(){\r\n        if (!stayLoggedIn){\r\n            currentUser = null;\r\n        }\r\n        // && save date ...\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/model/ApplicationManager.java b/src/main/java/project/model/ApplicationManager.java
+--- a/src/main/java/project/model/ApplicationManager.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/model/ApplicationManager.java	(date 1682116114442)
+@@ -41,6 +41,10 @@
+         return currentGame;
+     }
+ 
++    public static void setStayLoggedIn(boolean stayLoggedIn) {
++        ApplicationManager.stayLoggedIn = stayLoggedIn;
++    }
++
+     public void sortUsers(){
+         //...
+     }
+Index: src/main/java/project/view/RegisterMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.view;\r\nimport project.controller.Commands;\r\nimport project.controller.RegisterMenuController;\r\n\r\nimport java.util.Scanner;\r\nimport java.util.regex.Matcher;\r\n\r\npublic class RegisterMenu {\r\n    private final static Scanner scanner = Menu.getScanner();\r\n\r\n    public static void run(){\r\n        System.out.println(\"**<< Register Menu >>**\");\r\n        String input;\r\n        String result;\r\n        boolean inThisMenu = true;\r\n        while (inThisMenu) {\r\n            input = scanner.nextLine();\r\n            if (input.matches(Commands.REGISTER.getRegex())) {\r\n                Matcher matcher = Menu.getMatcher(input,Commands.REGISTER.getRegex());\r\n                result = RegisterMenuController.register(matcher);\r\n                System.out.println(result);\r\n            }\r\n            else if (input.equals(\"login menu\")){\r\n                inThisMenu = false;\r\n                LoginMenu.run();\r\n            }\r\n            else {\r\n                System.out.println(\"Invalid command!\");\r\n            }\r\n    }\r\n}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/view/RegisterMenu.java b/src/main/java/project/view/RegisterMenu.java
+--- a/src/main/java/project/view/RegisterMenu.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/view/RegisterMenu.java	(date 1682115645359)
+@@ -22,7 +22,7 @@
+             }
+             else if (input.equals("login menu")){
+                 inThisMenu = false;
+-                LoginMenu.run();
++                MainMenu.run();
+             }
+             else {
+                 System.out.println("Invalid command!");
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ /dev/null	(revision 535764724d5413890279d21d8369a115e12c81a5)
+@@ -1,91 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c56c4605-57a2-4f7a-8574-6b44ee110374\" name=\"Changes\" comment=\"Buildings added\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Farm.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Industrinal.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/TownBuilding.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/Trap.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/model/Block.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/Block.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/model/Structure.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/Buildings/Structure.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OFMhWtUBDgkPQIH2VPUtKtqKv1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c56c4605-57a2-4f7a-8574-6b44ee110374\" name=\"Changes\" comment=\"\" />\r\n      <created>1681152011108</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681152011108</updated>\r\n      <workItem from=\"1681152020128\" duration=\"1348000\" />\r\n      <workItem from=\"1681158583641\" duration=\"2503000\" />\r\n      <workItem from=\"1681205133422\" duration=\"14481000\" />\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۱\" summary=\"Create Project\">\r\n      <created>1681152307251</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <updated>1681152307251</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۲\" summary=\"Create Project\">\r\n      <created>1681152459585</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <updated>1681152459585</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۳\" summary=\"Create Packages\">\r\n      <created>1681152751396</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۳\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۳\" />\r\n      <updated>1681152751396</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۴\" summary=\"first steps 1\">\r\n      <created>1681153036034</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۴\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۴\" />\r\n      <updated>1681153036034</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۵\" summary=\"first steps 2\">\r\n      <created>1681153112600</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۵\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۵\" />\r\n      <updated>1681153112600</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۶\" summary=\"first steps 3\">\r\n      <created>1681158705386</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۶\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۶\" />\r\n      <updated>1681158705386</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۷\" summary=\"register and profile regex added\">\r\n      <created>1681207479419</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۷\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۷\" />\r\n      <updated>1681207479419</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۸\" summary=\"register and profile regex added\">\r\n      <created>1681373729710</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۸\" />\r\n      <updated>1681373729710</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۹\" summary=\"register and profile regex added\">\r\n      <created>1681379547555</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۹\" />\r\n      <updated>1681379547555</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Create Project\" />\r\n    <MESSAGE value=\"Create Packages\" />\r\n    <MESSAGE value=\"first steps 1\" />\r\n    <MESSAGE value=\"first steps 2\" />\r\n    <MESSAGE value=\"first steps 3\" />\r\n    <MESSAGE value=\"register and profile regex added\" />\r\n    <MESSAGE value=\"Buildings added\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Buildings added\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision be34ec37a49d1bb383403668b2aa8b8802748ff7)
+-+++ b/.idea/workspace.xml	(date 1681463193535)
+-@@ -1,17 +1,8 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="ChangeListManager">
+--    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Buildings added">
+--      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Farm.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/FoodProccesing.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Industrinal.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/TownBuilding.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/Trap.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/model/Buildings/WeaponSmith.java" afterDir="false" />
+-+    <list default="true" id="c56c4605-57a2-4f7a-8574-6b44ee110374" name="Changes" comment="Trap,Farm &amp; TownBuilding updated">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Block.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/model/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Buildings/Structure.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -40,17 +31,17 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "ASKED_ADD_EXTERNAL_FILES": "true",
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "nodejs_package_manager_path": "npm",
+--    "settings.editor.selected.configurable": "preferences.lookFeel"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+-@@ -61,7 +52,7 @@
+-       <updated>1681152011108</updated>
+-       <workItem from="1681152020128" duration="1348000" />
+-       <workItem from="1681158583641" duration="2503000" />
+--      <workItem from="1681205133422" duration="14481000" />
+-+      <workItem from="1681205133422" duration="14883000" />
+-     </task>
+-     <task id="LOCAL‎−۰۰۰۰۱" summary="Create Project">
+-       <created>1681152307251</created>
+-@@ -117,7 +108,13 @@
+-       <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
+-       <updated>1681379547555</updated>
+-     </task>
+--    <option name="localTasksCounter" value="10" />
+-+    <task id="LOCAL‎−۰۰۰۱۰" summary="Trap,Farm &amp; TownBuilding updated">
+-+      <created>1681383988841</created>
+-+      <option name="number" value="LOCAL‎−۰۰۰۱۰" />
+-+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۰" />
+-+      <updated>1681383988841</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="11" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -143,6 +140,7 @@
+-     <MESSAGE value="first steps 3" />
+-     <MESSAGE value="register and profile regex added" />
+-     <MESSAGE value="Buildings added" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Buildings added" />
+-+    <MESSAGE value="Trap,Farm &amp; TownBuilding updated" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Trap,Farm &amp; TownBuilding updated" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ /dev/null	(revision 535764724d5413890279d21d8369a115e12c81a5)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]" date="1681463272628" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at ۱۴/۰۴/۲۰۲۳ ۱۲:۳۶ بعدازظهر [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2\" name=\"Changes\" comment=\"profile menu complete\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <favorite-branches>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"origin/Ali\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </favorite-branches>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"localAli\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Of5raolT4ouQPkX24igkUoDo2N\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2\" name=\"Changes\" comment=\"\" />\r\n      <created>1681939000910</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681939000910</updated>\r\n      <workItem from=\"1681939004206\" duration=\"2017000\" />\r\n      <workItem from=\"1681979089598\" duration=\"660000\" />\r\n      <workItem from=\"1682019372653\" duration=\"2479000\" />\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۱\" summary=\"Maven created :)\">\r\n      <created>1681940400331</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۱\" />\r\n      <updated>1681940400331</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E−۰۰۰۰۲\" summary=\"Maven created :)\">\r\n      <created>1681940785128</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E−۰۰۰۰۲\" />\r\n      <updated>1681940785128</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"profile menu complete\">\r\n      <created>1682021516332</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682021516332</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/Amir-mohammad\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Maven created :)\" />\r\n    <MESSAGE value=\"profile menu complete\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"profile menu complete\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/.idea/workspace.xml	(date 1682325344045)
+@@ -4,7 +4,20 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="profile menu complete" />
++    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="JCommander library added">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۱۴_۰۴_۲۰۲۳_۱۲_۳۶_بعدازظهر_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -26,7 +39,7 @@
+     </favorite-branches>
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="localAli" />
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -42,20 +55,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -67,6 +81,14 @@
+       <workItem from="1681939004206" duration="2017000" />
+       <workItem from="1681979089598" duration="660000" />
+       <workItem from="1682019372653" duration="2479000" />
++      <workItem from="1682107087869" duration="8458000" />
++      <workItem from="1682119400341" duration="99000" />
++      <workItem from="1682187720537" duration="1478000" />
++      <workItem from="1682249151287" duration="647000" />
++      <workItem from="1682261385002" duration="8000" />
++      <workItem from="1682263365514" duration="457000" />
++      <workItem from="1682316057644" duration="1247000" />
++      <workItem from="1682324413919" duration="930000" />
+     </task>
+     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
+       <created>1681940400331</created>
+Index: src/main/java/project/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package project.model;\r\n\r\npublic class User {\r\n    private String username;\r\n    private String password;\r\n    private String nickname;\r\n    private String email;\r\n    private String slogan;\r\n\r\n    private int questionNumber;\r\n\r\n    private String questionAnswer;\r\n    private Game game;\r\n    private int score;\r\n\r\n    public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){\r\n        this.username = username;\r\n        this.password = password;\r\n        this.nickname = nickname;\r\n        this.email = email;\r\n        this.slogan = slogan;\r\n        this.questionAnswer = questionAnswer;\r\n        this.questionNumber = questionNumber;\r\n        score=0;\r\n    }\r\n    public void changeProfile(String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){\r\n\r\n    }\r\n\r\n    public void startNewGame(Game game){\r\n        this.game = game;\r\n    }\r\n\r\n    public void removeGame(Game game){\r\n        this.game = null;\r\n    }\r\n\r\n    public Game getGame(){\r\n        return game;\r\n    }\r\n\r\n    public int getScore(){\r\n        return score;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public String getPassword() {\r\n        return password;\r\n    }\r\n\r\n    public String getSlogan() {\r\n        return slogan;\r\n    }\r\n\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n\r\n    public String getNickname() {\r\n        return nickname;\r\n    }\r\n\r\n    public void addScore(int amount){\r\n        score+=amount;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/project/model/User.java b/src/main/java/project/model/User.java
+--- a/src/main/java/project/model/User.java	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/src/main/java/project/model/User.java	(date 1682319189854)
+@@ -67,4 +67,27 @@
+         score+=amount;
+     }
+ 
++    public String getQuestionAnswer() {
++        return questionAnswer;
++    }
++
++    public void setNickname(String nickname) {
++        this.nickname = nickname;
++    }
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++
++    public void setSlogan(String slogan) {
++        this.slogan = slogan;
++    }
++
++    public void setUsername(String username) {
++        this.username = username;
++    }
++
++    public void setPassword(String password) {
++        this.password = password;
++    }
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 535764724d5413890279d21d8369a115e12c81a5)
++++ b/.idea/misc.xml	(date 1682088331664)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

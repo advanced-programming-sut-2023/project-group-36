@@ -1,7 +1,7 @@
-package main.java.project.view;
+package project.view;
 import project.controller.Commands;
-import project.controller.ProfileMenuController;
 import project.view.Menu;
+import main.java.project.controller.ProfileMenuController;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 

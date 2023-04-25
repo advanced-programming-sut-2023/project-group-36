@@ -4,22 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Fix some bugs in CreateNewGameMenu and EditMapMenu.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/NormalPeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/NormalPeople.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +41,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2Of5raolT4ouQPkX24igkUoDo2N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -79,12 +56,23 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn verify" />
+      <command value="mvn compile" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -94,16 +82,6 @@
       <option name="presentableId" value="Default" />
       <updated>1681939000910</updated>
       <workItem from="1681939004206" duration="2017000" />
-      <workItem from="1681979089598" duration="934000" />
-      <workItem from="1681980275096" duration="8320000" />
-      <workItem from="1682003423310" duration="9257000" />
-      <workItem from="1682096976743" duration="4040000" />
-      <workItem from="1682113162033" duration="345000" />
-      <workItem from="1682147999085" duration="8762000" />
-      <workItem from="1682252000839" duration="2445000" />
-      <workItem from="1682262788639" duration="733000" />
-      <workItem from="1682272182790" duration="4516000" />
-      <workItem from="1682413072838" duration="357000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -117,49 +95,41 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
       <updated>1681940785128</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۳" summary="Maven created :)">
-      <created>1681979841422</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۳" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
-      <updated>1681979841422</updated>
+    <task id="LOCAL-00003" summary="profile menu complete">
+      <created>1682021516332</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682021516332</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۴" summary="Update CreateNewGameMenu.">
-      <created>1681984488419</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۴" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۴" />
-      <updated>1681984488419</updated>
+    <task id="LOCAL-00004" summary="Login Menu/Controller completed">
+      <created>1682325418894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682325418894</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۵" summary="Update CreateNewMapMenu. (add setGovernment)">
-      <created>1682003839163</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۵" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۵" />
-      <updated>1682003839163</updated>
+    <task id="LOCAL-00005" summary="Jackson library for json added">
+      <created>1682329391079</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682329391079</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۶" summary="Update CreateNewMapMenu &amp; EditMapMenu.">
-      <created>1682023629859</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۶" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
-      <updated>1682023629859</updated>
+    <task id="LOCAL-00006" summary="Gson library for json added">
+      <created>1682339898560</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682339898560</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۷" summary="Update Tools class. (commandFormating and captcha)">
-      <created>1682113439163</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۷" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۷" />
-      <updated>1682113439163</updated>
+    <task id="LOCAL-00007" summary="main menu updated">
+      <created>1682340381422</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682340381422</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۸" summary="Update CreationNewGameMenu &amp; EditMapMenu.">
-      <created>1682195589208</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۸" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۸" />
-      <updated>1682195589208</updated>
-    </task>
-    <task id="LOCAL‎−۰۰۰۰۹" summary="Fix some bugs in CreateNewGameMenu and EditMapMenu.">
-      <created>1682198177647</created>
-      <option name="number" value="LOCAL‎−۰۰۰۰۹" />
-      <option name="presentableId" value="LOCAL‎−۰۰۰۰۹" />
-      <updated>1682198177647</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +140,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Amir-mohammad" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -179,12 +161,5 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Maven created :)" />
-    <MESSAGE value="Update CreateNewGameMenu." />
-    <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
-    <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
-    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
-    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
-    <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
   </component>
 </project>

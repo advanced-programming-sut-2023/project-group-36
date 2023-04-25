@@ -55,8 +55,6 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    public static void start() {
-
     }
 
     public void sortUsers(){
