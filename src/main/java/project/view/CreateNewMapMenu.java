@@ -11,17 +11,13 @@ public class CreateNewMapMenu {
     private final static Scanner scanner = Menu.getScanner();
     public static int size;
     public static Map map;
-    public static int capacity;
 
-    public static int number;
-
-    public static void run(int size, int capacity){
+    public static void run(int size){
         System.out.println("**<< CreateNewMap Menu >>**");
         CreateNewMapMenu.size = size;
-        CreateNewMapMenu.capacity = capacity;
+        map=new Map(size,null);
         String input;
         String regex;
-        String result;
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
