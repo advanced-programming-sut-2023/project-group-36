@@ -6,51 +6,35 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         /*
-        Map map = new Map();
-        User user1 = new User("ali","123","mosa","123$33","1ww","1",1);
-        User user2 = new User("hasan","123","mosa","123$332","1ww","1",1);
+        System.out.println(ApplicationManager.getUsers());
+        Map map = new Map(200,"map1");
+        ApplicationManager.addMap(map);
+        User user1 = new User("ahmad","123","mosa","123$33","1ww","1",1);
+        User user2 = new User("gholi","123","mosa","123$332","1ww","1",1);
         ApplicationManager.addUser(user1);
         ApplicationManager.addUser(user2);
-        Government government1 = new Government(user1);
-        Government government2 = new Government(user2);
+        Government government1 = new Government(user1,"red");
+        Government government2 = new Government(user2,"blue");
         ArrayList<Government> governments = new ArrayList<>();
         governments.add(government1);
         governments.add(government2);
-        Game game = new Game(governments,map);
+        Game game = new Game(map,governments);
+        map.createBlacks();
         ApplicationManager.setCurrentGame(game);
         ApplicationManager.setCurrentUser(user2);
-        TradeMenu.run();
-        RegisterMenu.run();
-         */
-        /*
-        User user1 = new User("ali","123","mosa","123$33","1ww","1",1);
-        User user2 = new User("hasan","123","mosa","123$332","1ww","1",1);
-        User user3 = new User("mosa","123","mosa","123$332","1ww","1",1);
+        ApplicationManager.addGame(game);
+        System.out.println(ApplicationManager.getUsers());
+        */
 
+        ApplicationManager.start();
+        LoginMenu.run();
+        User user1 = new User("ahmad","123","mosa","123$33","1ww","1",1);
+        User user2 = new User("gholi","123","mosa","123$332","1ww","1",1);
         ApplicationManager.addUser(user1);
         ApplicationManager.addUser(user2);
-        ApplicationManager.addUser(user3);
-        Map map = new Map(200,"map1");
-        map.createBlacks();
-        ApplicationManager.addMap(map);
-        CreateNewGameMenu.run(3);
-         */
-        //ApplicationManager.start();
-        //User user1 = new User("ali","123","mosa","123$33","1ww","1",1);
-        //User user2 = new User("hasan","123","mosa","123$332","1ww","1",1);
-        //User user3 = new User("mosa","123","mosa","123$332","1ww","1",1);
-        //LoginMenu.run();
-        //ApplicationManager.addUser(user1);
-        //ApplicationManager.addUser(user2);
-        //ApplicationManager.addUser(user3);
-        //ApplicationManager.exit();
-        //CreateNewMapMenu.run(200);
-
-
-
-
-        //trade -u ali -t type1 -a 12 -p 15 -m salam
+        ApplicationManager.exit();
 
     }
 }

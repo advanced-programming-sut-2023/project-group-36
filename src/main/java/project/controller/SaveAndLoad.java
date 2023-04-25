@@ -1,35 +1,106 @@
 package project.controller;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import project.model.ApplicationManager;
+import project.model.Game;
+import project.model.Map;
 import project.model.User;
-
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class SaveAndLoad {
-    public static String Address="Database/Users.json";
+    public static String Address1="Database/Users.json";
+    public static String Address2="Database/Maps.json";
+    public static String Address3="Database/Games.json";
+
     public static void GameInitialization(){
-        ObjectMapper objectMapper=new ObjectMapper();
-        try{
-            ArrayList <User> raw= objectMapper.readValue(Files.readAllBytes(Paths.get(Address)), new TypeReference<ArrayList<User>>() {
-            });
-            ApplicationManager.setUsersList(raw);
-        }catch (IOException e){
+        loadUsers();
+        loadGames();
+        loadMaps();
+    }
+
+    public static void saveUsers(ArrayList<User> users) {
+        Gson gson = new Gson();
+        String json = gson.toJson(users);
+        try (FileWriter file = new FileWriter(Address1)) {
+            file.write(json);
+        } catch (IOException e) {
+            System.out.println("Error in saving!\nplease try again");
+        }
+    }
+
+    public static void saveMaps(ArrayList<Map> maps) {
+        Gson gson = new Gson();
+        String json = gson.toJson(maps);
+        try (FileWriter file = new FileWriter(Address2)) {
+            file.write(json);
+        } catch (IOException e) {
+            System.out.println("Error in saving!\nplease try again");
+        }
+    }
+
+    public static void saveGames(ArrayList<Game> games) {
+        Gson gson = new Gson();
+        String json = gson.toJson(games);
+        try (FileWriter file = new FileWriter(Address3)) {
+            file.write(json);
+        } catch (IOException e) {
+            System.out.println("Error in saving!\nplease try again");
+        }
+    }
+
+
+
+    public static void loadUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        try (FileReader file = new FileReader(Address1)) {
+            Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
+            Gson gson = new Gson();
+            users = gson.fromJson(file, gameListType);
+            if (users!=null)
+                ApplicationManager.setUsersList(users);
+        }
+        catch (IOException e) {
             System.out.println("Error in loading information!\nThe Data may be deleted!");
         }
-
     }
- public static void UsersSave(ArrayList<User> users){
-     ObjectMapper objectMapper=new ObjectMapper();
-     try{
-         objectMapper.writeValue(new File(Address),users);
-     }catch (IOException e){
-         System.out.println("Error in saving!\nplease try again");
-     }
- }
+
+
+    public static void loadMaps() {
+        ArrayList<Map> maps = new ArrayList<>();
+        try (FileReader file = new FileReader(Address2)) {
+            Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
+            Gson gson = new Gson();
+            maps = gson.fromJson(file, gameListType);
+            if (maps!=null)
+                ApplicationManager.setMapsList(maps);
+
+        }
+        catch (IOException e) {
+            System.out.println("Error in loading information!\nThe Data may be deleted!");
+        }
+    }
+
+    public static void loadGames() {
+        ArrayList<Game> games = new ArrayList<>();
+        try (FileReader file = new FileReader(Address3)) {
+            Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
+            Gson gson = new Gson();
+            games = gson.fromJson(file, gameListType);
+            if (games!=null)
+                ApplicationManager.setGamesList(games);
+        }
+        catch (IOException e) {
+            System.out.println("Error in loading information!\nThe Data may be deleted!");
+        }
+    }
+
 }

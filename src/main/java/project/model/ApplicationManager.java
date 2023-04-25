@@ -1,12 +1,10 @@
 package project.model;
 
-import com.sun.deploy.util.JVMParameters;
-
 import java.util.ArrayList;
 
 public class ApplicationManager {
 
-    private static ArrayList<User> users = new ArrayList<User>();
+    private static ArrayList<User> users = new ArrayList<>();
 
     private static ArrayList<Game> games = new ArrayList<>();
 
@@ -71,8 +69,6 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    public static void sortUsers(){
-        //...
     }
 
     public static int getRank(User user) {
@@ -107,12 +103,16 @@ public class ApplicationManager {
         if (!stayLoggedIn){
             currentUser = null;
         }
+        SaveAndLoad.saveUsers(users);
+        SaveAndLoad.saveGames(games);
+        SaveAndLoad.saveMaps(maps);
         // && save date ...
     }
 
     public static void setCurrentUser(User user){
         currentUser = user;
     }
+
 
 
 }
