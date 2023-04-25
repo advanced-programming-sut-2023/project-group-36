@@ -55,6 +55,10 @@ public class Government{
         return peoples;
     }
 
+    public void addPeople(People people){
+        peoples.add(people);
+    }
+
     public ArrayList<Trade> getTrades() {
         return trades;
     }

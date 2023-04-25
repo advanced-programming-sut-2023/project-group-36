@@ -7,7 +7,7 @@ import project.model.Peoples.PeopleType;
 
 public class FightingForce extends Militia {
 
-    FightingForce(PeopleType peopleType, Government government, Block block) {
+    public FightingForce(PeopleType peopleType, Government government, Block block) {
         super(peopleType, government, block);
     }
 

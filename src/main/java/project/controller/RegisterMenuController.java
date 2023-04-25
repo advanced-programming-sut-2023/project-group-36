@@ -52,8 +52,8 @@ public class RegisterMenuController {
         return "Good";
     }
 
+
     public static String register(Matcher matcher){
-        System.out.println("HI!");
         String username = matcher.group("username");
         String password = matcher.group("password");
         String passwordConfirmation = matcher.group("passwordConfirmation");
@@ -109,13 +109,30 @@ public class RegisterMenuController {
 
 
     private static String randomPassword(){
-        return "A123$3423dA";
+        String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        String specialCharacters = "!@#$%^&*()_+";
+        String numbers = "0123456789";
+        String combinedChars = capitalCaseLetters + lowerCaseLetters + specialCharacters + numbers;
+        Random random = new Random();
+        int length = random.nextInt(25);
+        char[] password = new char[length];
+        password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
+        password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
+        password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
+        password[3] = numbers.charAt(random.nextInt(numbers.length()));
+        for(int i = 4; i< length ; i++) {
+            password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
+        }
+        return String.valueOf(password);
+
     }
 
     private static String randomSlogan(){
         Random random = new Random();
-        System.out.println(random.nextInt());
-        return "...";
+        int number = random.nextInt(4);
+        String[] slogans = {"hard but possible!","powerful!","I'm god!","best!"};
+        return slogans[number];
     }
 
 

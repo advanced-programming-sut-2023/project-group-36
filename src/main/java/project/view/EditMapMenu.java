@@ -42,7 +42,7 @@ public class EditMapMenu {
                 System.out.println(EditMapController.setGovernment(Menu.getMatcher(input,regex),map,users));
             }
             else if (input.matches(regex = Commands.DROP_UNIT.getRegex())){
-                System.out.println(EditMapController.dropUnit(Menu.getMatcher(input,regex),government));
+                System.out.println(EditMapController.dropUnit(Menu.getMatcher(input,regex),government,map));
             }
 
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){

@@ -1,5 +1,4 @@
 package project.controller;
-
 import project.model.ApplicationManager;
 import project.model.Block;
 import project.model.Map;
@@ -45,19 +44,16 @@ public class CreateNewMapController {
         int xNum = Integer.parseInt(x);
         int yNum = Integer.parseInt(y);
         Block block = CreateNewMapMenu.map.getBlockByPosition(xNum,yNum);
-        if (block.getType()!=null || block.getThisBlockStructure()!=null || block.getPeoples()!=null){
+        if (block.getTree()!=null || block.getThisBlockStructure()!=null || block.getPeoples()!=null || !block.suitableTypeForTree()){
             return "Error: You cannot place a tree in this block because the terrain is not suitable or it is full.";
         }
         String[] types = {"desert-shrub","cherry-palm","olive","coconut","date"};
         if (type.equals("random")){
             Random random = new Random();
-            type = String.valueOf(types[random.nextInt()%5]);
+            type = types[random.nextInt() % 5];
         }
-        block.setType("tree"+"|"+type);
+        block.setTree("tree"+"|"+type);
         return "The tree was placed successfully.";
-    }
-    public static String dropUnit(){
-        return "...";
     }
 
     public static String setTexture(Matcher matcher) {
