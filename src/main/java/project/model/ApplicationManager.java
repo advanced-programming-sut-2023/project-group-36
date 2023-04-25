@@ -1,4 +1,7 @@
 package project.model;
+
+import com.sun.deploy.util.JVMParameters;
+
 import java.util.ArrayList;
 
 public class ApplicationManager {
@@ -7,6 +10,19 @@ public class ApplicationManager {
 
     private static ArrayList<Game> games = new ArrayList<>();
 
+    private int[] pricesOfSalable = {100, 250, 400, 1000};
+/*
+    engineer guild 100 انواع و اجزای قلعه ها
+    Inn 100 فرآوریی غذا
+    Church 250 سازه های شهری
+    Cathedral 1000 سازه های شهری
+    armourer 100 سازه...
+    blacksmith 100 سلاح
+    Fletcher 100 سلاح
+    Poleturner 100 سلاح
+    oil smelter 100 سلاح
+    stable 400 انواع و اجزای قلعه
+*/
     private static Game currentGame;
     private static User currentUser;
     private static boolean stayLoggedIn;
@@ -55,13 +71,22 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-
-
-    public void sortUsers(){
-        return;
+    public static void sortUsers(){
+        //...
     }
 
-    public ArrayList<User> getUsers(){
+    public static int getRank(User user) {
+        sortUsers();
+
+        for (int i = 0; i < getUsers().size(); i++)
+            if (user == getUsers().get(i)) {
+                return i + 1;
+            }
+
+        return 0;
+    }
+
+    public static ArrayList<User> getUsers(){
         return users;
     }
 
@@ -88,8 +113,6 @@ public class ApplicationManager {
     public static void setCurrentUser(User user){
         currentUser = user;
     }
-    public static void setUsersList(ArrayList<User> raw){
-       raw= users;
-    }
+
 
 }
