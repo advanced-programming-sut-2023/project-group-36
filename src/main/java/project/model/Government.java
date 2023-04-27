@@ -32,7 +32,7 @@ public class Government{
         this.owner = user;
         this.coins = 1000;
         this.color = color;
-        resourcesType = new String[]{"type1", "type2", "type3", "type4", "type5", "type6", "type7", "type8"}; //
+        resourcesType = new String[]{"type1", "type2", "type3", "type4", "type5", "type6", "type7", "type8"}; //...
         resourceAmount = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
         foodType = new String[]{"type1", "type2", "type3", "type4"}; // 1: bread, 2: meat, 3: apple, 4: meat
         foodAmount = new int[]{0, 0, 0, 0};

@@ -1,5 +1,7 @@
 package project.model;
 
+import project.controller.SaveAndLoad;
+
 import java.util.ArrayList;
 
 public class ApplicationManager {
@@ -69,7 +71,7 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    }
+
 
     public static int getRank(User user) {
         sortUsers();
@@ -80,6 +82,9 @@ public class ApplicationManager {
             }
 
         return 0;
+    }
+
+    private static void sortUsers() {
     }
 
     public static ArrayList<User> getUsers(){
@@ -114,5 +119,15 @@ public class ApplicationManager {
     }
 
 
+    public static void setGamesList(ArrayList<Game> games) {
+        ApplicationManager.games = games;
+    }
 
+    public static void setMapsList(ArrayList<Map> maps) {
+        ApplicationManager.maps = maps;
+    }
+
+    public static void setUsersList(ArrayList<User> users) {
+        ApplicationManager.users = users;
+    }
 }
