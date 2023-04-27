@@ -1,7 +1,7 @@
 package project.view;
+
 import project.controller.Commands;
-import project.view.Menu;
-import main.java.project.controller.ProfileMenuController;
+import project.controller.ProfileMenuController;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -12,6 +12,7 @@ public class ProfileMenu {
         while (true) {
             String command = scanner.nextLine();
             Matcher matcher;
+            Matcher matcher1;
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));
             if (matcher != null) {
@@ -27,13 +28,23 @@ public class ProfileMenu {
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_PASSWORD));
             if (matcher != null) {
-                System.out.println(ProfileMenuController.changePassword(matcher));
+                String result = ProfileMenuController.changePassword_1(matcher);
+                System.out.println(result);
+                if (result.equals("Please enter your new password again")) {
+                    String newPassword = matcher.group("new-password");
+                    command = scanner.nextLine();
+                    matcher = Menu.getMatcher(command, "(?<new-password>[^\n]+)");
+                    assert matcher != null;
+                    System.out.println(ProfileMenuController.changePassword_2(matcher, newPassword));
+                }
                 continue;
             }
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_EMAIL));
             if (matcher != null) {
-                System.out.println(ProfileMenuController.changeEmail(matcher));
+                matcher1 = Menu.getMatcher(matcher.group("email"), String.valueOf(Commands.EMAIL));
+                assert matcher1 != null;
+                System.out.println(ProfileMenuController.changeEmail(matcher, matcher1));
                 continue;
             }
 
@@ -45,7 +56,7 @@ public class ProfileMenu {
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.REMOVE_SLOGAN));
             if (matcher != null) {
-                System.out.println(ProfileMenuController.removeSlogan(matcher));
+                System.out.println(ProfileMenuController.removeSlogan());
                 continue;
             }
 

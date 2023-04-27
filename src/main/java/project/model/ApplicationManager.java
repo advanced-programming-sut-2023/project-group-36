@@ -1,5 +1,4 @@
 package project.model;
-import project.controller.SaveAndLoad;
 
 import java.util.ArrayList;
 
@@ -9,6 +8,19 @@ public class ApplicationManager {
 
     private static ArrayList<Game> games = new ArrayList<>();
 
+    private int[] pricesOfSalable = {100, 250, 400, 1000};
+/*
+    engineer guild 100 انواع و اجزای قلعه ها
+    Inn 100 فرآوریی غذا
+    Church 250 سازه های شهری
+    Cathedral 1000 سازه های شهری
+    armourer 100 سازه...
+    blacksmith 100 سلاح
+    Fletcher 100 سلاح
+    Poleturner 100 سلاح
+    oil smelter 100 سلاح
+    stable 400 انواع و اجزای قلعه
+*/
     private static Game currentGame;
     private static User currentUser;
     private static boolean stayLoggedIn;
@@ -57,25 +69,17 @@ public class ApplicationManager {
         maps.add(map);
     }
 
-    public static void start() {
-        SaveAndLoad.GameInitialization();
     }
 
-    public static void setMapsList(ArrayList<Map> raw) {
-        maps = raw;
-    }
+    public static int getRank(User user) {
+        sortUsers();
 
-    public static void setGamesList(ArrayList<Game> raw) {
-        games = raw;
-    }
+        for (int i = 0; i < getUsers().size(); i++)
+            if (user == getUsers().get(i)) {
+                return i + 1;
+            }
 
-    public static void addGame(Game game) {
-        games.add(game);
-    }
-
-
-    public void sortUsers(){
-        return;
+        return 0;
     }
 
     public static ArrayList<User> getUsers(){
@@ -107,9 +111,6 @@ public class ApplicationManager {
 
     public static void setCurrentUser(User user){
         currentUser = user;
-    }
-    public static void setUsersList(ArrayList<User> raw){
-       users = raw;
     }
 
 
