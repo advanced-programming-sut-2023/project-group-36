@@ -66,6 +66,8 @@ public enum Commands {
     TAX_RATE_SET("tax rate -r (?<rate-number>\\d+)"),
     TAX_RATE_SHOW("tax rate show"),
     FEAR_RATE_SET("fear rate -r (?<rate-number>\\d+)"),
+
+    FEAR_RATE_SHOW("fear rate show"),
     SELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
     RESELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
     CREATE_UNIT("createunit -t (?<type>.+) -c (?<count>\\d+)"),
@@ -81,10 +83,11 @@ public enum Commands {
     POUR_OIL("pour oil -d (?<direction>\\S+)"),
     DIG_TUNNEL("dig tunnel -x (?<x>\\d+) -y (?<y>\\d+)"),
     DISBAND_UNIT("disband unit"),
-    CLEAR_Block("clear -x (?<x>\\d+) -y (?<y>\\d+)"),
-    MAIN_MENU("main menu"),
+    CLEAR_BLOCK("clear -x (?<x>\\d+) -y (?<y>\\d+)"),
     TRADE_MENU("trade menu"),
     SHOP_MENU("shop menu"),
+    MAIN_MENU("main menu"),
+
 
     // Trade menu
     TRADE_REQUEST("trade -u (?<username>[^\n]+) -t (?<resourceType>[^\n]+) -a (?<resourceAmount>\\d+) -p (?<price>\\d+) -m (?<message>[^\n]+)"),

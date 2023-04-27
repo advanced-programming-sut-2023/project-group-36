@@ -1,10 +1,20 @@
 package project.controller;
 
+import project.model.Game;
 import project.model.Government;
+import project.view.GameMenu;
 
 import java.util.regex.Matcher;
 
 public class GameController {
+
+    private static Game game;
+    private static Government currentGovernment;  ///?
+
+    public static void setGame(Game game){
+        GameController.game = game;
+        currentGovernment = game.getCurrentGovernment();
+    }
     public static String showPopularityFactors(Matcher matcher){
         return "...";
     }
@@ -17,8 +27,7 @@ public class GameController {
     }
 
     public static String foodRateSet(Matcher matcher){
-        int rate = Integer.parseInt(matcher.group("rate-number"));
-        //Government.se//static???????????????????/////
+        //int rate = Integer.parseInt(matcher.group("rate-number"));
         return "...";
     }
     public static String foodRateShow(Matcher matcher){
@@ -28,13 +37,15 @@ public class GameController {
     public static String taxRateSet(Matcher matcher){
         return "...";
     }
-    public static String taxRateShow(Matcher matcher){
-        return "...";
-    }
 
     public static String fearRateSet(Matcher matcher){
         return "...";
     }
+
+    public static String taxRateShow(Matcher matcher){
+        return "...";
+    }
+
     public static String dropBuilding(Matcher matcher){
         return "...";
     }
@@ -93,27 +104,7 @@ public class GameController {
         return "...";
     }
 
-    public static String setTexture(Matcher matcher){
-        return "...";
-    }
-
-    public static String setTextureRectangle(Matcher matcher){
-        return "...";
-    }
-
     public static String clearBlock(Matcher matcher){
-        return "...";
-    }
-
-    public static String dropRock(Matcher matcher){
-        return "...";
-    }
-
-    public static String dropTree(Matcher matcher){
-        return "...";
-    }
-
-    public static String dropUnit(Matcher matcher){
         return "...";
     }
 
@@ -130,10 +121,11 @@ public class GameController {
     }
 
 
+    public static String fearRateShow(Matcher matcher) {
+        return "...";
+    }
 
-
-
-
-
-
+    public static void nextTurn() {
+        game.nextTurn();
+    }
 }

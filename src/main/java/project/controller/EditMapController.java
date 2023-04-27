@@ -69,6 +69,7 @@ public class EditMapController {
         if (government==null){
             return "Error: No government selected!";
         }
+        ///....
         return "drop building done successfully.";
     }
 

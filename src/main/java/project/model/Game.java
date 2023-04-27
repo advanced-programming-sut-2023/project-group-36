@@ -9,6 +9,9 @@ public class Game {
     private final Map map;
     private boolean condition;
 
+    private int numberOfPlayers;
+
+
     public Map getMap() {
         return map;
     }
@@ -18,11 +21,13 @@ public class Game {
         this.map = map;
         condition = true;
         currentGovernment = this.governments.get(0);
+        numberOfPlayers = governments.size();
     }
 
     public void nextTurn(){
         mapNextTurn();
         governmentsNextTurn();
+        nextGovernment();
     }
 
     private void governmentsNextTurn(){
@@ -35,7 +40,7 @@ public class Game {
         map.nextTurn();
     }
 
-    private void changeCurrentUser(){
+    private void nextGovernment(){
         int number = governments.indexOf(currentGovernment);
         currentGovernment = governments.get((number%governments.size()));
         //...
