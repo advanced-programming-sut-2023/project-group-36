@@ -12,6 +12,8 @@ public class People {
     private Block block;
     private boolean inMove;
     private Block destination;
+
+    private boolean selected;
     public void startMove(Block block){
         destination = block;
         inMove = true;
@@ -23,6 +25,7 @@ public class People {
         this.government = government;
         inMove = false;
         hitPoint = 25;
+        selected = false;
         // ... for example
     }
 
@@ -66,4 +69,20 @@ public class People {
         return government;
     }
 
+    public void select(){
+        selected = true;
+    }
+
+    public void reSelect(){
+        selected = false;
+    }
+
+    public boolean IsSelected() {
+        return selected;
+    }
+
+    public void stop() {
+        inMove = false;
+        destination = null;
+    }
 }

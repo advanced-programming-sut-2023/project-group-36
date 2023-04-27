@@ -139,4 +139,15 @@ public class Government{
     public void changeCoins(int count) {
         coins+=count;
     }
+
+
+    public ArrayList<People> getSelectedPeoples(){
+        ArrayList<People> selectedPeoples = new ArrayList<>();
+        for (People people : peoples) {
+            if (people.IsSelected()) {
+                selectedPeoples.add(people);
+            }
+        }
+        return selectedPeoples;
+    }
 }

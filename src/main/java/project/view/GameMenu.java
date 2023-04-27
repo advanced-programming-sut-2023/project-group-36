@@ -60,6 +60,9 @@ public class GameMenu {
             else if (input.matches(regex = Commands.REPAIR.getRegex())){
                 GameController.repair(Menu.getMatcher(input,regex));
             }
+
+            ///////////////////// ALI
+
             else if (input.matches(regex = Commands.SELECT_UNIT.getRegex())){
                 GameController.selectUnit(Menu.getMatcher(input,regex));
             }
@@ -93,6 +96,9 @@ public class GameMenu {
             else if (input.matches(regex = Commands.DISBAND_UNIT.getRegex())){
                 GameController.disbandUnit(Menu.getMatcher(input,regex));
             }
+
+            ///////////////////// ALI
+
             else if (input.matches(regex = Commands.CLEAR_BLOCK.getRegex())){
                 GameController.clearBlock(Menu.getMatcher(input,regex));
             }
