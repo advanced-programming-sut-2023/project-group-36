@@ -15,8 +15,6 @@
 
 
 
-![alt text](https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png)
-
 <div style="float: left; margin: 20px;">
-  <img src=https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png alt="alt text" width="500" height="250">
+  <img src=https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png alt="alt text" width="200" height="200">
 </div>
