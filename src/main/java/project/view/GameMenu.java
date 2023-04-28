@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class GameMenu {
     private final static Scanner scanner = Menu.getScanner();
+
     public static void run(Game game){
         System.out.println("**<< Game Menu >>**");
         GameController.setGame(game);
@@ -51,7 +52,7 @@ public class GameMenu {
             else if (input.matches(regex = Commands.SELECT_BUILDING.getRegex())){
                 GameController.selectBuilding(Menu.getMatcher(input,regex));
             }
-            else if (input.matches(regex = Commands.RESELECT_BUILDING.getRegex())){
+            else if (input.matches(regex = Commands.UNSELECT_BUILDING.getRegex())){
                 GameController.reSelectBuilding(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.CREATE_UNIT.getRegex())){
@@ -66,8 +67,8 @@ public class GameMenu {
             else if (input.matches(regex = Commands.SELECT_UNIT.getRegex())){
                 GameController.selectUnit(Menu.getMatcher(input,regex));
             }
-            else if (input.matches(regex = Commands.RESELECT_UNIT.getRegex())){
-                GameController.reSelectUnit(Menu.getMatcher(input,regex));
+            else if (input.matches(regex = Commands.UNSELECT_UNIT.getRegex())){
+                GameController.unSelectUnit(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.MOVE_UNIT.getRegex())){
                 GameController.moveUnit(Menu.getMatcher(input,regex));
@@ -102,18 +103,18 @@ public class GameMenu {
             else if (input.matches(regex = Commands.CLEAR_BLOCK.getRegex())){
                 GameController.clearBlock(Menu.getMatcher(input,regex));
             }
-            else if (input.matches(regex = Commands.TRADE_MENU.getRegex())){
-                GameController.tradeMenu(Menu.getMatcher(input,regex));
+            else if (input.matches("trade menu")){
+                inThisMenu = false;
+                TradeMenu.run();
             }
-            else if (input.matches(regex = Commands.SHOP_MENU.getRegex())){
-                GameController.shopMenu(Menu.getMatcher(input,regex));
+            else if (input.matches("shop menu")){
+                inThisMenu = false;
+                ShopMenu.run();
             }
-            else if (input.matches(regex = Commands.MAIN_MENU.getRegex())){
-                GameController.mainMenu(Menu.getMatcher(input,regex));
+            else if (input.matches("main menu")){
                 inThisMenu = false;
                 MainMenu.run();
             }
-
             else if (input.matches("next turn")){
                 GameController.nextTurn();
             }

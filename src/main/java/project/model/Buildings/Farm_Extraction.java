@@ -16,4 +16,5 @@ public class Farm_Extraction extends Structure{
         super.HP=HP;
         super.government=government;
     }
+
 }

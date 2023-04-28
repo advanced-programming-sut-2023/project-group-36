@@ -25,7 +25,7 @@ public class Government{
     private Map map;
 
     private int coins;
-
+    private People selectedPeople;
 
 
     public Government(User user, String color){
@@ -101,6 +101,7 @@ public class Government{
     }
 
     public void nextTurn(){
+        // food & ...
 
     }
 
@@ -141,13 +142,12 @@ public class Government{
     }
 
 
-    public ArrayList<People> getSelectedPeoples(){
-        ArrayList<People> selectedPeoples = new ArrayList<>();
-        for (People people : peoples) {
-            if (people.IsSelected()) {
-                selectedPeoples.add(people);
-            }
-        }
-        return selectedPeoples;
+
+    public void setSelectedPeople(People people) {
+        selectedPeople = people;
+    }
+
+    public People getSelectedPeople() {
+        return selectedPeople;
     }
 }

@@ -25,7 +25,7 @@ public class Game {
     }
 
     public void nextTurn(){
-        mapNextTurn();
+        map.nextTurn();
         governmentsNextTurn();
         nextGovernment();
     }
@@ -34,10 +34,6 @@ public class Game {
         for (Government government : governments) {
             government.nextTurn();
         }
-    }
-
-    private void mapNextTurn(){
-        map.nextTurn();
     }
 
     private void nextGovernment(){

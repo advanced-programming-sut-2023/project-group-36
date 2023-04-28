@@ -85,4 +85,8 @@ public class People {
         inMove = false;
         destination = null;
     }
+
+    public Block getBlock() {
+        return block;
+    }
 }
