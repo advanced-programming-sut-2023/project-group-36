@@ -3,6 +3,7 @@ package project.view;
 import project.controller.Commands;
 import project.controller.RegisterMenuController;
 import project.controller.TradeMenuController;
+import project.model.ApplicationManager;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -41,7 +42,7 @@ public class TradeMenu {
             }
             else if (input.equals("back")){
                 inThisMenu = false;
-                GameMenu.run();
+                GameMenu.run(ApplicationManager.getCurrentGame());
             }
             else {
                 System.out.println("Invalid command!");

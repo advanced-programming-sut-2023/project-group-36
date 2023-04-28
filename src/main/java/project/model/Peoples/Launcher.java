@@ -18,8 +18,9 @@ public class Launcher extends Militia {
 
     }
 
-    private boolean checkBeingInRadius (){
-        return true;
+
+    public boolean checkInRange(int x, int y) {
+        return true; //......
     }
 
 }

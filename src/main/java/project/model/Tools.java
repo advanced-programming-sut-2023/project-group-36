@@ -185,5 +185,12 @@ public class Tools {
     }
 
 
-
+    public static boolean validType(String[] types, String type) {
+        for (String s : types) {
+            if (s.equals(type)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

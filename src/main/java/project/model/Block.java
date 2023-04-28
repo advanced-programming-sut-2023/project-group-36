@@ -33,7 +33,6 @@ public class Block {
         for (People people : peoples) {
             people.nextTurn();
         }
-        // ...
     }
 
     public void addPeople(People people){
@@ -100,5 +99,11 @@ public class Block {
             return false;
         }
         return true;
+    }
+
+    public void burn() {
+        for (int i = 0; i < peoples.size(); i++) {
+            peoples.get(i).hitPointReduce(10);
+        }
     }
 }

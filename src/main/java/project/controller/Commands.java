@@ -70,11 +70,11 @@ public enum Commands {
 
     FEAR_RATE_SHOW("fear rate show"),
     SELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
-    RESELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
+    UNSELECT_BUILDING("unselect building"),
     CREATE_UNIT("createunit -t (?<type>.+) -c (?<count>\\d+)"),
     REPAIR("repair"),
     SELECT_UNIT("select unit -x (?<x>\\d+) -y (?<y>\\d+)"),
-    RESELECT_UNIT("select unit -x (?<x>\\d+) -y (?<y>\\d+)"),
+    UNSELECT_UNIT("unselect unit"),
     MOVE_UNIT("move unit to -x (?<x>) -y (?<y>)"),
     PATROL_UNIT("patrol unit -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+)"),
     STOP_UNIT("stop unit -x (?<x>) -y (?<y>)"),

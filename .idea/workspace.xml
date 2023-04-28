@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="GameMenu updated, Start GameMenu.">
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="Update GameController. (some people commands)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Engineer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Farm_Extraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Farm_Extraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +84,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="project.model.Peoples" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -98,7 +113,8 @@
       <workItem from="1682419655205" duration="1739000" />
       <workItem from="1682447400113" duration="4207000" />
       <workItem from="1682456065168" duration="2048000" />
-      <workItem from="1682602379469" duration="4146000" />
+      <workItem from="1682602379469" duration="8573000" />
+      <workItem from="1682668516859" duration="4483000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -178,7 +194,19 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۳" />
       <updated>1682608270091</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL‎−۰۰۰۱۴" summary="Some bugs fixed.">
+      <created>1682611009349</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۴" />
+      <updated>1682611009349</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۱۵" summary="Update GameController. (some people commands)">
+      <created>1682616400432</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۵" />
+      <updated>1682616400432</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,10 +234,11 @@
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
-    <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
-    <option name="LAST_COMMIT_MESSAGE" value="GameMenu updated, Start GameMenu." />
+    <MESSAGE value="Some bugs fixed." />
+    <MESSAGE value="Update GameController. (some people commands)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GameController. (some people commands)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
