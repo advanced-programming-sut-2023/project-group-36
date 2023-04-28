@@ -1,9 +1,6 @@
 # پروژه‌ی برنامه‌سازی پیشرفته
-<div style="float: right ; margin: 20px;">
-  <img src=https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png alt="alt text" width="100" height="100">
-</div>
 
-<div style="float: left; margin: 20px;">
+<div style="float: right ; margin: 20px;">
   <img src=https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png alt="alt text" width="100" height="100">
 </div>
 
