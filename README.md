@@ -1,15 +1,4 @@
-# پروژه‌ی برنامه‌سازی پیشرفته
-
-<figure style="text-align: right; margin: 20px;">
-    <img src=file:///C:/Users/m/Downloads/WhatsApp%20Image%202022-09-12%20at%202.56.34%20PM.jpeg alt="alt text">
-    <figcaption>Caption for Image 1</figcaption>
-</figure>
-
-
-<figure style="text-align: left; margin: 20px;">
-    <img src=https://logoyar.com/content/wp-content/uploads/2021/04/sharif-university-logo-600x593.png alt="alt text">
-    <figcaption>Caption for Image 2</figcaption>
-</figure>
+<p style="color: #ff7f50; font-size: 24px; font-weight: bold; font-family: Arial, sans-serif; background-color: #eee; text-decoration: bold;">پروژه‌ی برنامه‌سازی پیشرفته</p>
 
 لطفا نام و نام‌خانوادگی و شماره‌ی دانشجووی اعضای گروه خود را این‌جا وارد کنید:
 
