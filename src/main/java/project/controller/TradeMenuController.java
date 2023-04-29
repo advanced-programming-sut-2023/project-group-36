@@ -16,7 +16,7 @@ public class TradeMenuController {
             return "Error: User not found!";
         }
 
-        if (ApplicationManager.getCurrentGame().getCurrentGovernment().getIndexOfResources(resourceType)==-1){
+        if (ApplicationManager.getCurrentGame().getCurrentGovernment().getResources().validResource(resourceType)){
             return "Error: Invalid resource type!";
         }
         Government requester = ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getCurrentUser());

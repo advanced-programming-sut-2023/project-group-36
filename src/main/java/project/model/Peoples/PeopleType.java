@@ -12,7 +12,9 @@ public class PeopleType {
     public int speed;
     public int launchRadius;
 
-    public PeopleType(String type, String category, int price, int attackPower, int defencePower, int speed, int launchRadius){
+    public String[] equipment;
+
+    public PeopleType(String type, String category, int price, int attackPower, int defencePower, int speed, int launchRadius, String[] equipment){
         this.type = type;
         this.category = category;
         this.price = price;
@@ -20,6 +22,7 @@ public class PeopleType {
         this.defencePower = defencePower;
         this.speed=speed;
         this.launchRadius=launchRadius;
+        this.equipment = equipment;
     }
 
 
