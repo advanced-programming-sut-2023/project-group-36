@@ -1,7 +1,8 @@
 package project;
-import project.model.*;
-import project.view.*;
-import java.util.ArrayList;
+
+import project.model.ApplicationManager;
+import project.model.User;
+import project.view.LoginMenu;
 
 
 public class Main {

@@ -1,4 +1,4 @@
-package main.java.project.controller;
+package project.controller;
 
 import project.model.ApplicationManager;
 import project.model.User;
@@ -23,7 +23,7 @@ public class ProfileMenuController {
         String nickname = matcher.group("nickname");
 
         if (nickname.equals("")) 
-            return "The nickname us empty!"; ////is correct and no error?? f.g matcher.group("username") = null
+            return "The nickname is empty!"; ////is correct and no error?? f.g matcher.group("username") = null
 
         if (!nickname.matches("[A-Za-z_]+"))
             return "The nickname format is invalid";
@@ -44,10 +44,10 @@ public class ProfileMenuController {
         if (!userPassword.equals(oldPassword))
             return "Current password is incorrect!";
 
-        if (!userPassword.equals(newPassword))
+        if (userPassword.equals(newPassword))
             return "Please enter a new password!";
 
-        if (!(newPassword.length() < 6))
+        if (newPassword.length() < 6)
             return "Password must have at least 6 characters";
         if (!newPassword.matches(".*[a-z].*"))
             return "Password must have at least one lower case letter";

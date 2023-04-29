@@ -18,9 +18,9 @@ public class Government{
     private int[]  foodAmount;
 
     private int popularity;
-    private int tax;
-    private int fear;
-    private int foodRate;
+    private int taxRate;
+    private int fearRate;
+    private int feedRate;
     private int religiousPeople;
     private Map map;
 
@@ -34,7 +34,7 @@ public class Government{
         this.color = color;
         resourcesType = new String[]{"type1", "type2", "type3", "type4", "type5", "type6", "type7", "type8"}; //...
         resourceAmount = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-        foodType = new String[]{"type1", "type2", "type3", "type4"}; // 1: bread, 2: meat, 3: apple, 4: meat
+        foodType = new String[]{"bread", "rice", "apple", "meat"}; // 1: bread, 2: rice, 3: apple, 4: meat
         foodAmount = new int[]{0, 0, 0, 0};
     }
 
@@ -67,20 +67,8 @@ public class Government{
         return tradeMessages;
     }
 
-    public int getFear() {
-        return fear;
-    }
-
-    public int getFoodRate() {
-        return foodRate;
-    }
-
     public int getPopularity() {
         return popularity;
-    }
-
-    public int getTax() {
-        return tax;
     }
 
     public void changePopularity(int amount) {
@@ -117,25 +105,46 @@ public class Government{
     public int getAmountOfResources(String type){
         return resourceAmount[getIndexOfResources(type)];
     }
-
     public void changeAmountOfResources(String type, int amount){
         resourceAmount[getIndexOfResources(type)]+=amount;
     }
+
     public int getAmountOfFoods(String type){
         return resourceAmount[getIndexOfResources(type)];
     }
-
     public void changeAmountOfFoods(String type, int amount){
         resourceAmount[getIndexOfResources(type)]+=amount;
     }
 
-    private void addResources(){
+    // Food
+    public void setFeedRate(int foodRate) { this.feedRate = foodRate; }
+    public boolean isFoodExist() {
+        for (int i : foodAmount) {
+            if (i != 0)
+                return true;
+        }
+
+        return false;
     }
 
+    public int getFeedRate() { return feedRate; }
 
+    // Tax
+    public void setTaxRate(int taxRate) { this.taxRate = taxRate; }
+    public int getTaxRate() {
+        return taxRate;
+    }
     public int getCoins() {
         return coins;
     }
+
+    // Fear
+    public int getFearRate() { return fearRate; }
+    public void setFearRate(int fearRate) { this.fearRate = fearRate; }
+
+    private void addResources(){
+    }
+
 
     public void changeCoins(int count) {
         coins+=count;

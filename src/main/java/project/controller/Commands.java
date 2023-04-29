@@ -11,12 +11,12 @@ public enum Commands {
     FORGET_PASSWORD("forgot my password"),
 
     //PROFILE
-    CHANGE_USERNAME("profile change -u (?<username>[^\n]+)"),
-    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]+)"),
-    CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]+) -n (?<new-password>[^\n]+)"),
-    CHANGE_EMAIL("profile change -e (?<email>[^\n]+)"),
-    EMAIL("(?<part1>[^\\n]+)@(?<part2>[^\\n]+)\\.(?<part3>[^\\n]+)"),
-    CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]+)"),
+    CHANGE_USERNAME("profile change -u (?<username>[^\n]*)"),
+    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]*)"),
+    CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]*) -n (?<new-password>[^\n]*)"),
+    CHANGE_EMAIL("profile change -e (?<email>[^\n]*)"),
+    EMAIL("(?<part1>[^\\n]*)@(?<part2>[^\\n]*)\\.(?<part3>[^\\n]*)"),
+    CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]*)"),
     REMOVE_SLOGAN("Profile remove slogan"),
     DISPLAY_HIGH_SCORE("profile display highScore"),
     DISPLAY_RANK("profile display rank"),
@@ -61,14 +61,14 @@ public enum Commands {
     //Game menu
     SHOW_POPULARITY_FACTORS("show popularity factors"),
     SHOW_POPULARITY("show popularity"),
-    SHOW_FOOD("show food list"),
-    FOOD_RATE_SET("food rate -r (?<rate-number>\\d+)"),
+    SHOW_FOOD_LIST("show food list"),
+    FOOD_RATE_SET("food rate -r (?<rate-number>[-]?\\d+)"),
     FOOD_RATE_SHOW("food rate show"),
-    TAX_RATE_SET("tax rate -r (?<rate-number>\\d+)"),
+    TAX_RATE_SET("tax rate -r (?<rate-number>[-]?\\d+)"),
     TAX_RATE_SHOW("tax rate show"),
-    FEAR_RATE_SET("fear rate -r (?<rate-number>\\d+)"),
-
+    FEAR_RATE_SET("fear rate -r (?<rate-number>[-]?\\d+)"),
     FEAR_RATE_SHOW("fear rate show"),
+
     SELECT_BUILDING("select building -x (?<x>\\d+) -y (?<y>\\d+)"),
     UNSELECT_BUILDING("unselect building"),
     CREATE_UNIT("createunit -t (?<type>.+) -c (?<count>\\d+)"),

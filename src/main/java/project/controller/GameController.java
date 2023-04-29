@@ -8,7 +8,6 @@ import project.model.Peoples.Launcher;
 import project.model.Peoples.People;
 import project.model.Tools;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class GameController {
@@ -20,41 +19,80 @@ public class GameController {
         GameController.game = game;
         currentGovernment = game.getCurrentGovernment();
     }
-    public static String showPopularityFactors(Matcher matcher){
-        return "...";
+    public static String showPopularityFactors(){
+        return "Food" + "\n" + "Tax" + "\n" + "Religion" + "\n" + "Fear";
     }
 
-    public static String showPopularity(Matcher matcher){
-        return "...";
-    }
-    public static String showFood(Matcher matcher){
-        return "...";
+    public static int showPopularity(){
+        return currentGovernment.getPopularity();
     }
 
-    public static String foodRateSet(Matcher matcher){
-        //int rate = Integer.parseInt(matcher.group("rate-number"));
-        return "...";
-    }
-    public static String foodRateShow(Matcher matcher){
-        return "...";
+    // Food
+    public static String showFoodList(){
+        String result; //1: bread, 2: rice, 3: apple, 4: meat
+
+        result =  "Bread: " + currentGovernment.getAmountOfFoods("bread") + "\n";
+
+        result += "Rice: "  + currentGovernment.getAmountOfFoods("rice")  + "\n";
+
+        result += "Apple: " + currentGovernment.getAmountOfFoods("apple") + "\n";
+
+        result += "meat: "  + currentGovernment.getAmountOfFoods("meat");
+
+        return result;
     }
 
+    public static String feedRateSet(Matcher matcher){
+        int rate = Integer.parseInt(matcher.group("rate-number"));
+
+        if (rate < -2 || rate > 2)
+            return "The feed rate should be between -2 and 2 !";
+
+        if (!currentGovernment.isFoodExist())
+            return "You don't have any food, so you can't change the feed rate!";
+
+        currentGovernment.setFeedRate(rate);
+        return "The feed rate has been changed successfully";
+    }
+
+    public static String feedRateShow(){
+        return "Feed rate = " + currentGovernment.getFeedRate();
+    }
+
+    // Tax
     public static String taxRateSet(Matcher matcher){
-        return "...";
+        int rate = Integer.parseInt(matcher.group("rate-number"));
+
+        if (rate < -3 || rate > 8)
+            return "The tax rate should be between -3 and 8 !";
+
+        if (currentGovernment.getCoins() == 0)
+            return "You don't have any coin, so you can't change the tax rate!";
+
+        currentGovernment.setTaxRate(rate);
+        return "The tax rate has been changed successfully";
     }
 
-    public static String fearRateShow(Matcher matcher) {
-        return "...";
+    public static String taxRateShow(){
+        return "Fear rate = " + currentGovernment.getTaxRate();
     }
 
+    // Fear
     public static String fearRateSet(Matcher matcher){
-        return "...";
+        int rate = Integer.parseInt(matcher.group("rate-number"));
+
+        if (rate < -5 || rate > 5)
+            return "The fear rate should be between -5 and 5 !";
+
+        currentGovernment.setFearRate(rate);
+        return "The fear rate has been changed successfully";
     }
 
-    public static String taxRateShow(Matcher matcher){
-        return "...";
+    public static String fearRateShow() {
+        return "Fear rate = " + currentGovernment.getFearRate();
     }
 
+    //////////
     public static String dropBuilding(Matcher matcher){
         return "...";
     }

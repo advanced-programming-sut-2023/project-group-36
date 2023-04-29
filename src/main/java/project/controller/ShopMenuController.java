@@ -25,18 +25,18 @@ public class ShopMenuController {
                 "Fletcher 100\n"       +
                 "Poleturner 100\n"     +
                 "oil smelter 100";
-
-        result += "Urban structures" + "\n" +
-                "Church = 250\n"                +
-                "Cathedral 1000\n"              +
-                "armourer = 100\n";
-
-        result += "Types and components of castles" + "\n" +
-                  "engineer guild = 100\n"                     +
-                  "stable = 400\n";
-
-        result += "Food processing:" + "\n" +
-                  "Inn = 100";
+//
+//        result += "Urban structures" + "\n" +
+//                "Church = 250\n"                +
+//                "Cathedral 1000\n"              +
+//                "armourer = 100\n";
+//
+//        result += "Types and components of castles" + "\n" +
+//                  "engineer guild = 100\n"                     +
+//                  "stable = 400\n";
+//
+//        result += "Food processing:" + "\n" +
+//                  "Inn = 100";
 
         return result;
     }
@@ -108,33 +108,33 @@ public class ShopMenuController {
                 sumOfPrice = -100 * amount;
                 index = 7;
                 break;
-            //Urban structures
-            case "Church":
-                sumOfPrice = -250 * amount;
-                index = 8;
-                break;
-            case "Cathedral":
-                sumOfPrice = -1000 * amount;
-                index = 9;
-                break;
-            case "armourer":
-                sumOfPrice = -100 * amount;
-                index = 10;
-                break;
-            //Types and components of castles
-            case "engineer guild":
-                sumOfPrice = -100 * amount;
-                index = 11;
-                break;
-            case "stable":
-                sumOfPrice = -400 * amount;
-                index = 12;
-                break;
-            //Food processing
-            case "Inn":
-                sumOfPrice = -100 * amount;
-                index = 13;
-                break;
+//            //Urban structures
+//            case "Church":
+//                sumOfPrice = -250 * amount;
+//                index = 8;
+//                break;
+//            case "Cathedral":
+//                sumOfPrice = -1000 * amount;
+//                index = 9;
+//                break;
+//            case "armourer":
+//                sumOfPrice = -100 * amount;
+//                index = 10;
+//                break;
+//            //Types and components of castles
+//            case "engineer guild":
+//                sumOfPrice = -100 * amount;
+//                index = 11;
+//                break;
+//            case "stable":
+//                sumOfPrice = -400 * amount;
+//                index = 12;
+//                break;
+//            //Food processing
+//            case "Inn":
+//                sumOfPrice = -100 * amount;
+//                index = 13;
+//                break;
         }
 
         if (index == 0)
@@ -198,33 +198,33 @@ public class ShopMenuController {
                 sumOfPrice = 60 * amount;
                 index = 7;
                 break;
-            //Urban structures
-            case "Church":
-                sumOfPrice = 150 * amount;
-                index = 8;
-                break;
-            case "Cathedral":
-                sumOfPrice = 600 * amount;
-                index = 9;
-                break;
-            case "armourer":
-                sumOfPrice = 60 * amount;
-                index = 10;
-                break;
-            //Types and components of castles
-            case "engineer guild":
-                sumOfPrice = 60 * amount;
-                index = 11;
-                break;
-            case "stable":
-                sumOfPrice = 240 * amount;
-                index = 12;
-                break;
-            //Food processing
-            case "Inn":
-                sumOfPrice = 60 * amount;
-                index = 13;
-                break;
+//            //Urban structures
+//            case "Church":
+//                sumOfPrice = 150 * amount;
+//                index = 8;
+//                break;
+//            case "Cathedral":
+//                sumOfPrice = 600 * amount;
+//                index = 9;
+//                break;
+//            case "armourer":
+//                sumOfPrice = 60 * amount;
+//                index = 10;
+//                break;
+//            //Types and components of castles
+//            case "engineer guild":
+//                sumOfPrice = 60 * amount;
+//                index = 11;
+//                break;
+//            case "stable":
+//                sumOfPrice = 240 * amount;
+//                index = 12;
+//                break;
+//            //Food processing
+//            case "Inn":
+//                sumOfPrice = 60 * amount;
+//                index = 13;
+//                break;
         }
 
         if (index == 0)

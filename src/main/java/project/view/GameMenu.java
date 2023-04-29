@@ -4,9 +4,10 @@ import project.controller.Commands;
 import project.controller.CreateNewMapController;
 import project.controller.GameController;
 import project.model.Game;
-import project.model.Map;
 
+import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 
 public class GameMenu {
     private final static Scanner scanner = Menu.getScanner();
@@ -14,38 +15,46 @@ public class GameMenu {
     public static void run(Game game){
         System.out.println("**<< Game Menu >>**");
         GameController.setGame(game);
+        Matcher matcher;
         String input;
         String regex;
         boolean inThisMenu = true;
         while (inThisMenu) {
+
+            /////////////// Amir mohammad
             input = scanner.nextLine();
             if (input.matches(regex = Commands.SHOW_POPULARITY_FACTORS.getRegex())){
-                GameController.showPopularityFactors(Menu.getMatcher(input, regex));
+                System.out.println(GameController.showPopularityFactors());
             }
             else if (input.matches(regex = Commands.SHOW_POPULARITY.getRegex())){
-                GameController.showPopularity(Menu.getMatcher(input,regex));
+                System.out.println(GameController.showPopularity());
             }
-            else if (input.matches(regex = Commands.SHOW_FOOD.getRegex())){
-                GameController.showFood(Menu.getMatcher(input,regex));
+            else if (input.matches(regex = Commands.SHOW_FOOD_LIST.getRegex())){
+                System.out.println(GameController.showFoodList());
             }
             else if (input.matches(regex = Commands.FOOD_RATE_SET.getRegex())){
-                GameController.foodRateSet(Menu.getMatcher(input,regex));
+                matcher = Menu.getMatcher(input,regex);
+                System.out.println(GameController.feedRateSet(matcher));
             }
             else if (input.matches(regex = Commands.FOOD_RATE_SHOW.getRegex())){
-                GameController.foodRateShow(Menu.getMatcher(input,regex));
+                System.out.println(GameController.feedRateShow());
             }
             else if (input.matches(regex = Commands.TAX_RATE_SET.getRegex())){
-                GameController.taxRateSet(Menu.getMatcher(input,regex));
+                matcher = Menu.getMatcher(input,regex);
+                System.out.println(GameController.taxRateSet(matcher));
             }
             else if (input.matches(regex = Commands.TAX_RATE_SHOW.getRegex())){
-                GameController.taxRateShow(Menu.getMatcher(input,regex));
+                System.out.println(GameController.taxRateShow());
             }
             else if (input.matches(regex = Commands.FEAR_RATE_SET.getRegex())){
-                GameController.fearRateSet(Menu.getMatcher(input,regex));
+                matcher = Menu.getMatcher(input,regex);
+                System.out.println(GameController.fearRateSet(matcher));
             }
             else if (input.matches(regex = Commands.FEAR_RATE_SHOW.getRegex())){
-                GameController.fearRateShow(Menu.getMatcher(input,regex));
+                System.out.println(GameController.fearRateShow());
             }
+
+            /////
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
                 GameController.dropBuilding(Menu.getMatcher(input,regex));
             }
