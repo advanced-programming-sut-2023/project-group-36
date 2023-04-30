@@ -25,7 +25,7 @@ public class LoginMenuController {
         if(LoggedUser==null)
             return "Error: username doesn't exist!";
         String answer= Menu.getScanner().next();
-        if(!answer.equals(LoggedUser.getQuestionAnswer()))
+        if(!answer.equals(LoggedUser.getQuestionNumber()))
             return "Error: invalid security question answer!";
         return null;
     }

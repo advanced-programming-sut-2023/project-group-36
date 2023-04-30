@@ -28,6 +28,10 @@ public class User {
 
     }
 
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
     public void startNewGame(Game game){
         this.game = game;
     }

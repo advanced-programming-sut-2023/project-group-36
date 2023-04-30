@@ -27,6 +27,10 @@ public class ApplicationManager {
     private static User currentUser;
     private static boolean stayLoggedIn;
 
+    public static void setStayLoggedIn(boolean stayLoggedIn) {
+        ApplicationManager.stayLoggedIn = stayLoggedIn;
+    }
+
     private static ArrayList<Map> maps = new ArrayList<>();
     public static User getUserByUsername(String username){
         for (User user : users) {

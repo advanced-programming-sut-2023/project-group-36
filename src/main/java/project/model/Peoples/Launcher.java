@@ -13,6 +13,9 @@ public class Launcher extends Militia {
         super(peopleType, government, block);
         launchRadius = peopleType.launchRadius;
     }
+    public void setLaunchRadius(int increase){
+        launchRadius+=increase;
+    }
 
     public void launch(Block block){
 
