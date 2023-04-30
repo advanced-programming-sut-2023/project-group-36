@@ -15,7 +15,7 @@ public class BuildingType {
 
     // ....
 
-    BuildingType(String type, String category, int HP, int damage, int popularityChange, int rate, int fireRange , int defenceRange, int capacity){ //... need
+    BuildingType(String type, String category,int WoodCost,int GoldCost,int StoneCost, int HP, int damage, int popularityChange, int rate, int fireRange , int defenceRange, int capacity){ //... need
 
     }
 
