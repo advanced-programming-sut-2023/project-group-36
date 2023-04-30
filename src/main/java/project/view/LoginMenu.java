@@ -23,24 +23,25 @@ public class LoginMenu {
       if(command.matches(Commands.LOGIN.getRegex()) || command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
         matcher=Menu.getMatcher(command,Commands.LOGIN.getRegex());
         output=LoginMenuController.Login(matcher);
-        if(output.contains("match")){
+        System.out.println(output);
+        if(output.contains("match!")){
           delay++;
           Thread.sleep(delay * 5000);
           System.out.println("You can now try again now.");
         }
         else{
           delay=0;
-          if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
-            command.matches(Commands.LOGIN_LOGGED_IN.getRegex());
-          }
+          if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex()))
+            ApplicationManager.setStayLoggedIn(true);
           MainMenu.run();
         }
       }
       else if(command.matches(Commands.FORGET_PASSWORD.getRegex())){
         matcher=Menu.getMatcher(command,Commands.FORGET_PASSWORD.getRegex());
         output=LoginMenuController.ForgetPassword(matcher);
-        if(output != null)
+        if(output != null){
           System.out.println(output);
+        }
         else{
           System.out.println("enter new password:");
           String newPassword=Menu.getScanner().nextLine();
@@ -51,6 +52,10 @@ public class LoginMenu {
       else if(command.equals("user logout")){
         inThisMenu=false;
         return;
+      }
+      else if(command.equals("register menu")){
+        inThisMenu=false;
+        RegisterMenu.run();
       }
       else{
         System.out.println("Invalid command");

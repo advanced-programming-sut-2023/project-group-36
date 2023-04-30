@@ -1,4 +1,4 @@
-package main.java.project.controller;
+package project.controller;
 
 import project.model.ApplicationManager;
 import project.model.User;

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Resources {
     ArrayList<Resource> resources = new ArrayList<>();
     public Resources(){
-        resources.add(new Resource("name1",0));
-        resources.add(new Resource("name2",0));
+        resources.add(new Resource("wood",0));
+        resources.add(new Resource("stone",0));
         resources.add(new Resource("name3",0));
         resources.add(new Resource("name4",0));
         resources.add(new Resource("name5",0));
