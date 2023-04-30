@@ -106,4 +106,12 @@ public class Block {
             peoples.get(i).hitPointReduce(10);
         }
     }
+
+    public boolean isPassable(People people) {
+        ArrayList<String> badTypes = new ArrayList<>();
+        badTypes.add("type1");
+        badTypes.add("type2");
+        badTypes.add("type3");
+        return !badTypes.contains(type); ///.....
+    }
 }
