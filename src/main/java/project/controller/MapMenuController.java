@@ -4,6 +4,8 @@ import project.model.ApplicationManager;
 import project.model.Block;
 import project.model.Game;
 import project.model.Map;
+import project.model.Peoples.Militia;
+import project.model.Peoples.People;
 import project.view.GameMenu;
 
 import java.util.regex.Matcher;
@@ -21,8 +23,20 @@ public class MapMenuController {
         for(int i=Math.max(0,x-2);i<x+3;i++){
             for(int j=Math.max(0,y-2);j<y+3;j++){
                 block=CurrentMap.getBlockByPosition(i,j);
-                res+="---------------------";
-                res+="| Type: "+block.getType();
+                res+="----------------------\n";
+                res+="| Type: "+block.getType()+"\n";
+                res+="| Biulding: "+block.getThisBlockStructure().name;
+                res+="| Soldiers: \n";
+                for(People selected:block.getPeoples()){
+                    if(selected instanceof Militia){
+                       res+= "| "+selected.getPeopleType().type+" "+selected.isInMove()+"\n";
+                       res+= "| "+selected.getGovernment().getOwner().getNickname()+"\n";
+
+                    }
+
+                }
+                if(block.getTree() != null)
+                    res+="|   There is a Tree\n";
 
             }
             res+="\n";

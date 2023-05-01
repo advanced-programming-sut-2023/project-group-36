@@ -8,6 +8,7 @@ import project.model.Peoples.NormalPeople;
 import java.util.ArrayList;
 
 public abstract class Structure {
+    public String name;
     Block block;
     int HP;
     Government government;
@@ -21,8 +22,15 @@ public abstract class Structure {
     public int fireRange;
     public int defenceRange;
     public int capacity;
-    ArrayList<Militia> militias;
+    public ArrayList<Militia> militias;
     ArrayList<NormalPeople> normalPeople;
+
+    public BuildingType getBuildingType() {
+        return buildingType;
+    }
+
+    private BuildingType buildingType;
+
 
 
 

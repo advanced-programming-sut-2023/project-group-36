@@ -36,6 +36,10 @@ public class People {
         // ... for example
     }
 
+    public String  isInMove() {
+        if(inMove)
+            return "M";
+        return "S";
 
     public void endMove(){
         destination = null;
@@ -97,7 +101,7 @@ public class People {
         return block;
     }
 
-
+    }
 
     private ArrayList<Block> findPath(Map map, int startX, int startY, int endX, int endY) {
         Point start = new Point(startX,startY);
@@ -152,5 +156,9 @@ public class People {
             neighbors[count++] = new Point(x,y+1);
         }
         return Arrays.copyOf(neighbors, count);
+    }
+
+    public PeopleType getPeopleType() {
+        return peopleType;
     }
 }
