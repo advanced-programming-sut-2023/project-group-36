@@ -37,10 +37,10 @@ public class People {
     }
 
     public String  isInMove() {
-        if(inMove)
+        if (inMove)
             return "M";
         return "S";
-
+    }
     public void endMove(){
         destination = null;
         inMove = false;
@@ -99,8 +99,6 @@ public class People {
 
     public Block getBlock() {
         return block;
-    }
-
     }
 
     private ArrayList<Block> findPath(Map map, int startX, int startY, int endX, int endY) {

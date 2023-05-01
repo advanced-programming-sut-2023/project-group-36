@@ -7,7 +7,7 @@ import project.model.Peoples.NormalPeople;
 
 import java.util.ArrayList;
 
-public abstract class Structure {
+public  class Structure {
     public String name;
     Block block;
     int HP;
@@ -28,7 +28,6 @@ public abstract class Structure {
     public BuildingType getBuildingType() {
         return buildingType;
     }
-
     private BuildingType buildingType;
 
 
