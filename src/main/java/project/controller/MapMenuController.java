@@ -7,6 +7,8 @@ import project.model.Map;
 import project.model.Peoples.Militia;
 import project.model.Peoples.People;
 import project.view.GameMenu;
+import project.view.MapMenu;
+import project.view.Menu;
 
 import java.util.regex.Matcher;
 
@@ -64,9 +66,26 @@ public class MapMenuController {
         return res;
     }
     public static String newCordinates(Matcher matcher){
-        int x,y;
-        x=Integer.parseInt(matcher.group());
-        y=Integer.parseInt(matcher.group());
-        return showMap(x,y);
+        int x=0,y=0;
+        Matcher SeconderyMathcer;
+         SeconderyMathcer=Menu.getMatcher(matcher.group("dir1"),"(?<direction> (?<count>[0-9]*");
+         if(SeconderyMathcer.group("dir1").equals("up"))
+             x-=Integer.parseInt(SeconderyMathcer.group("count"));
+        else if(SeconderyMathcer.group("dir1").equals("down"))
+            x+=Integer.parseInt(SeconderyMathcer.group("count"));
+        if(SeconderyMathcer.group("dir1").equals("right"))
+            y+=Integer.parseInt(SeconderyMathcer.group("count"));
+        else if(SeconderyMathcer.group("dir1").equals("left"))
+            y-=Integer.parseInt(SeconderyMathcer.group("count"));
+        SeconderyMathcer=Menu.getMatcher(matcher.group("dir2"),"(?<direction> (?<count>[0-9]*");
+        if(SeconderyMathcer.group("dir1").equals("up"))
+            x-=Integer.parseInt(SeconderyMathcer.group("count"));
+        else if(SeconderyMathcer.group("dir1").equals("down"))
+            x+=Integer.parseInt(SeconderyMathcer.group("count"));
+        if(SeconderyMathcer.group("dir1").equals("right"))
+            y+=Integer.parseInt(SeconderyMathcer.group("count"));
+        else if(SeconderyMathcer.group("dir1").equals("left"))
+            y-=Integer.parseInt(SeconderyMathcer.group("count"));
+        return showMap(x+ MapMenu.x,y+MapMenu.y);
     }
 }

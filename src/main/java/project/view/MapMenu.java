@@ -8,9 +8,9 @@ import java.util.regex.Matcher;
 
 public class MapMenu {
     private final static Scanner scanner = Menu.getScanner();
-
+    public static int y,x;
     public static void run(){
-        int x,y;
+
         String command,output ;
         Matcher matcher=null,matcher2;
         while (true){
