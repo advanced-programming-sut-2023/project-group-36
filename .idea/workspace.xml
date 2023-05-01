@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="map menu updated">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_24_2023_12_05_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_24_2023_12_05_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="map menu updated,structures updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +211,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682877923847</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="map menu updated,structures updated">
+      <created>1682934308974</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682934308974</updated>
+    </task>
+    <task id="LOCAL-00019" summary="map menu updated,structures updated">
+      <created>1682934476908</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682934476908</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +259,8 @@
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="changing buildings" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing buildings" />
+    <MESSAGE value="map menu updated,structures updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="map menu updated,structures updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

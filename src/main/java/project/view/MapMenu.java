@@ -10,19 +10,27 @@ public class MapMenu {
     private final static Scanner scanner = Menu.getScanner();
 
     public static void run(){
-
+        int x,y;
         String command,output ;
-        Matcher matcher;
+        Matcher matcher=null,matcher2;
         while (true){
             command= scanner.nextLine();
             if((matcher=Menu.getMatcher(command, Commands.SHOW_MAP.getRegex())) != null){
-                    System.out.println(MapMenuController.showMap(matcher));
+                 x=Integer.parseInt(matcher.group("x"))-1;
+                 y=Integer.parseInt(matcher.group("y"))-1;
+                    System.out.println(MapMenuController.showMap(x,y));
             }
             else if((matcher=Menu.getMatcher(command,Commands.SHOW_DETAILS.getRegex())) != null){
-
+                 x=Integer.parseInt(matcher.group("x"))-1;
+                 y=Integer.parseInt(matcher.group("y"))-1;
+                    System.out.println(MapMenuController.showDetails(x,y));
             }
-            else if((matcher=Menu.getMatcher(command,Commands.MAP_TRANSFORMATION.getRegex())) != null){
-
+            else if((matcher2=Menu.getMatcher(command,Commands.MAP_TRANSFORMATION.getRegex())) != null){
+                    if(matcher==null)
+                        System.out.println("you haven't selected a cordinates before!");
+                    else{
+                        System.out.println(MapMenuController.newCordinates(matcher2));
+                    }
             }
             else if(command.equals("exit")){
 
