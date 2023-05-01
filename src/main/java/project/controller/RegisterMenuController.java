@@ -4,6 +4,7 @@ import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 import java.util.regex.Matcher;
 
@@ -53,7 +54,7 @@ public class RegisterMenuController {
     }
 
 
-    public static String register(Matcher matcher){
+    public static String register(Matcher matcher) throws NoSuchAlgorithmException {
         String username = matcher.group("username");
         String password = matcher.group("password");
         String passwordConfirmation = matcher.group("passwordConfirmation");
@@ -94,6 +95,7 @@ public class RegisterMenuController {
         int questionNumber = Integer.parseInt(String.valueOf(result.charAt(0)));
         User user = new User(username, password, nickname, email,slogan, questionAnswer, questionNumber);
         ApplicationManager.addUser(user);
+       user.setPassword(SHA_256Format.sha256(user.getPassword()));
         return "Your registration was successful. To enter, go to the login menu!";
     }
 

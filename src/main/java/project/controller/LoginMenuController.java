@@ -2,7 +2,9 @@ package project.controller;
 import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
+import sun.security.provider.SHA;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 
@@ -29,7 +31,7 @@ public class LoginMenuController {
             return "Error: invalid security question answer!";
         return null;
     }
-    public static String passwordWeakCheck(String password){
+    public static String passwordWeakCheck(String password) throws NoSuchAlgorithmException {
         if (password.length()<6){
             return "The password is weak: password length is short!";
         }
@@ -45,7 +47,7 @@ public class LoginMenuController {
         if (!password.matches(".*[#*\\-+&^%$@!.(){}].*")){
             return "The password is weak: at least one special character is required!";
         }
-        LoggedUser.setPassword(password);
+        LoggedUser.setPassword(SHA_256Format.sha256(password));
         return "The password is strong";
     }
 

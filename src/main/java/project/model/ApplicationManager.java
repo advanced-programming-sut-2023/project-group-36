@@ -134,4 +134,7 @@ public class ApplicationManager {
     public static void setUsersList(ArrayList<User> users) {
         ApplicationManager.users = users;
     }
+
+    public static void start() {
+    }
 }

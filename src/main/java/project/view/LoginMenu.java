@@ -6,13 +6,14 @@ import project.controller.RegisterMenuController;
 import project.model.ApplicationManager;
 
 import javax.annotation.processing.SupportedSourceVersion;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class LoginMenu {
   private final static Scanner scanner = Menu.getScanner();
 
-  public static void run() throws InterruptedException {
+  public static void run() throws InterruptedException, NoSuchAlgorithmException {
     Matcher matcher;
      Boolean inThisMenu=true;
     int delay=0;
@@ -38,6 +39,8 @@ public class LoginMenu {
       }
       else if(command.matches(Commands.FORGET_PASSWORD.getRegex())){
         matcher=Menu.getMatcher(command,Commands.FORGET_PASSWORD.getRegex());
+        String comm=Menu.getScanner().nextLine();
+
         output=LoginMenuController.ForgetPassword(matcher);
         if(output != null){
           System.out.println(output);

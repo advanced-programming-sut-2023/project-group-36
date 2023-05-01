@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Block {
     private int x;
     private int y;
+    private boolean ThereisTunnel;
     private String type;
     private Structure thisBlockStructure;
     private int governmentId = 0;
