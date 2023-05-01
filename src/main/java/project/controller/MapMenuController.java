@@ -10,6 +10,7 @@ import project.view.GameMenu;
 import project.view.MapMenu;
 import project.view.Menu;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 
 public class MapMenuController {
@@ -68,24 +69,38 @@ public class MapMenuController {
     public static String newCordinates(Matcher matcher){
         int x=0,y=0;
         Matcher SeconderyMathcer;
-         SeconderyMathcer=Menu.getMatcher(matcher.group("dir1"),"(?<direction> (?<count>[0-9]*");
-         if(SeconderyMathcer.group("dir1").equals("up"))
-             x-=Integer.parseInt(SeconderyMathcer.group("count"));
-        else if(SeconderyMathcer.group("dir1").equals("down"))
-            x+=Integer.parseInt(SeconderyMathcer.group("count"));
-        if(SeconderyMathcer.group("dir1").equals("right"))
-            y+=Integer.parseInt(SeconderyMathcer.group("count"));
-        else if(SeconderyMathcer.group("dir1").equals("left"))
-            y-=Integer.parseInt(SeconderyMathcer.group("count"));
-        SeconderyMathcer=Menu.getMatcher(matcher.group("dir2"),"(?<direction> (?<count>[0-9]*");
-        if(SeconderyMathcer.group("dir1").equals("up"))
-            x-=Integer.parseInt(SeconderyMathcer.group("count"));
-        else if(SeconderyMathcer.group("dir1").equals("down"))
-            x+=Integer.parseInt(SeconderyMathcer.group("count"));
-        if(SeconderyMathcer.group("dir1").equals("right"))
-            y+=Integer.parseInt(SeconderyMathcer.group("count"));
-        else if(SeconderyMathcer.group("dir1").equals("left"))
-            y-=Integer.parseInt(SeconderyMathcer.group("count"));
-        return showMap(x+ MapMenu.x,y+MapMenu.y);
+         SeconderyMathcer=Menu.getMatcher(matcher.group("dir1"),"(?<direction>[a-z]+ (?<count>[0-9]*");
+         try {
+             if(SeconderyMathcer.group("dir1").equals("up"))
+                 x-=Integer.parseInt(SeconderyMathcer.group("count"));
+             else if(SeconderyMathcer.group("dir1").equals("down"))
+                 x+=Integer.parseInt(SeconderyMathcer.group("count"));
+             if(SeconderyMathcer.group("dir1").equals("right"))
+                 y+=Integer.parseInt(SeconderyMathcer.group("count"));
+             else if(SeconderyMathcer.group("dir1").equals("left"))
+                 y-=Integer.parseInt(SeconderyMathcer.group("count"));
+         }catch (NullPointerException exception){
+             x=0;
+             y=0;
+         }
+         MapMenu.x+=x;
+         MapMenu.y+=y;
+         try{
+             SeconderyMathcer=Menu.getMatcher(matcher.group("dir2"),"(?<direction> (?<count>[0-9]*");
+             if(SeconderyMathcer.group("dir1").equals("up"))
+                 x-=Integer.parseInt(SeconderyMathcer.group("count"));
+             else if(SeconderyMathcer.group("dir1").equals("down"))
+                 x+=Integer.parseInt(SeconderyMathcer.group("count"));
+             if(SeconderyMathcer.group("dir1").equals("right"))
+                 y+=Integer.parseInt(SeconderyMathcer.group("count"));
+             else if(SeconderyMathcer.group("dir1").equals("left"))
+                 y-=Integer.parseInt(SeconderyMathcer.group("count"));
+         }catch (NullPointerException exception){
+             x=0;
+             y=0;
+         }
+        MapMenu.x+=x;
+        MapMenu.y+=y;
+        return showMap(MapMenu.x,MapMenu.y);
     }
 }
