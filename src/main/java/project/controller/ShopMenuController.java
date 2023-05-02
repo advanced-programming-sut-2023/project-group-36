@@ -243,7 +243,7 @@ public class ShopMenuController {
         }
         else {
             type = "type" + index;
-            government.changeAmountOfResources(type, amount);
+            government.changeAmountOfResource(type, amount);
         }
 
         government.changeCoins(sumOfPrice);

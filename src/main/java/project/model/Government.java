@@ -10,11 +10,8 @@ public class Government{
     private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
     private ArrayList<Trade> trades = new ArrayList<>();
     private String color;
-
-    private String[] resourcesType;
-    private int[]  resourceAmount;
-
-    private String[] foodType;
+    private Resources resources;
+    private final String[] foodType;
     private int[]  foodAmount;
 
     private int popularity;
@@ -32,9 +29,7 @@ public class Government{
         this.owner = user;
         this.coins = 1000;
         this.color = color;
-        resourcesType = new String[]{"type1", "type2", "type3", "type4", "type5", "type6", "type7", "type8"}; //...
-        resourceAmount = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-        foodType = new String[]{"bread", "rice", "apple", "meat"}; // 1: bread, 2: rice, 3: apple, 4: meat
+        foodType = new String[]{"type1", "type2", "type3", "type4"}; // 1: bread, 2: meat, 3: apple, 4: meat
         foodAmount = new int[]{0, 0, 0, 0};
     }
 
@@ -93,27 +88,27 @@ public class Government{
 
     }
 
-    public Integer getIndexOfResources(String type){
-        for (int i = 0; i < resourcesType.length; i++) {
-            if (resourcesType[i].equals(type)){
+    public Integer getIndexOfFood(String type){
+        for (int i = 0; i < foodType.length; i++) {
+            if (foodType[i].equals(type)){
                 return i;
             }
         }
         return null;
     }
-
-    public int getAmountOfResources(String type){
-        return resourceAmount[getIndexOfResources(type)];
+    
+    public int getAmountOfResource(String type){
+        return resources.getResourceAmount(type);
     }
-    public void changeAmountOfResources(String type, int amount){
-        resourceAmount[getIndexOfResources(type)]+=amount;
+    public void changeAmountOfResource(String type, int amount){
+        resources.changeResourceAmount(type,amount);
     }
 
     public int getAmountOfFoods(String type){
-        return resourceAmount[getIndexOfResources(type)];
+        return foodAmount[getIndexOfFood(type)];
     }
     public void changeAmountOfFoods(String type, int amount){
-        resourceAmount[getIndexOfResources(type)]+=amount;
+        foodAmount[getIndexOfFood(type)]+=amount;
     }
 
     // Food
@@ -158,5 +153,10 @@ public class Government{
 
     public People getSelectedPeople() {
         return selectedPeople;
+    }
+
+
+    public Resources getResources() {
+        return resources;
     }
 }

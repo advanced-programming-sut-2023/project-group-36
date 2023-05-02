@@ -26,6 +26,7 @@ public enum Commands {
     //Map menu
     SHOW_MAP("show map -x (?<x>\\d+) -y (?<y>\\d+)"),
     MAP_TRANSFORMATION("map (?<dir1>\\S+ (\\d)+)(?<dir2> \\S+ (\\d)+)?(?<dir3> \\S+ (\\d)+)?(?<dir4> \\S+ (\\d)+)?"),
+                       // "map (?<dir1>[a-z]+ [0-9]*) (?<dir2>[a-z]+ [0-9]*)"
     SHOW_DETAILS("show details -x (?<x>\\d+) -y (?<y>\\d+)"),
     EXIT("exit"),
 

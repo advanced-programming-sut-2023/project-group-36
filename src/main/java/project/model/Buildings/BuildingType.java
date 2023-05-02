@@ -12,11 +12,16 @@ public class BuildingType {
     public int defenceRange;
     public int capacity;
 
-
-    // ....
-
-    BuildingType(String type, String category, int HP, int damage, int popularityChange, int rate, int fireRange , int defenceRange, int capacity){ //... need
-
+    public BuildingType(String type, String category, int HP, int damage, int popularityChange, int rate
+            , int fireRange, int defenceRange, int capacity) {
+        this.type = type;
+        this.category = category;
+        this.HP = HP;
+        this.damage = damage;
+        this.popularityChange = popularityChange;
+        this.rate = rate;
+        this.fireRange = fireRange;
+        this.defenceRange = defenceRange;
+        this.capacity = capacity;
     }
-
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Block {
     private int x;
     private int y;
+    private boolean ThereisTunnel;
     private String type;
     private Structure thisBlockStructure;
     private int governmentId = 0;
@@ -105,5 +106,13 @@ public class Block {
         for (int i = 0; i < peoples.size(); i++) {
             peoples.get(i).hitPointReduce(10);
         }
+    }
+
+    public boolean isPassable(People people) {
+        ArrayList<String> badTypes = new ArrayList<>();
+        badTypes.add("type1");
+        badTypes.add("type2");
+        badTypes.add("type3");
+        return !badTypes.contains(type); ///.....
     }
 }

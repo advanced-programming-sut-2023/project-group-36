@@ -20,9 +20,9 @@ public class Trade {
     public void accept(){
         IsAccepted = true;
         requested.changeCoins(price);
-        requested.changeAmountOfResources(type,-amount);
+        requested.changeAmountOfResource(type,-amount);
         requester.changeCoins(-price);
-        requester.changeAmountOfResources(type,amount);
+        requester.changeAmountOfResource(type,amount);
     }
 
     public String getType() {
@@ -39,10 +39,10 @@ public class Trade {
     }
 
     public String check() {
-        if (price>requester.getCoins()){
+        if (price> requester.getCoins()){
             return "Requester coins are insufficient for this trade.";
         }
-        if (amount> requested.getAmountOfResources(type)){
+        if (amount> requested.getAmountOfResource(type)){
             return "The amount of "+type+" recourse of requested government is insufficient.";
         }
         return null;
