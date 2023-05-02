@@ -48,7 +48,7 @@ public class GameController {
         if (rate < -2 || rate > 2)
             return "The feed rate should be between -2 and 2 !";
 
-        if (!currentGovernment.isFoodExist())
+        if (currentGovernment.amountOfFoods() == 0)
             return "You don't have any food, so you can't change the feed rate!";
 
         currentGovernment.setFeedRate(rate);

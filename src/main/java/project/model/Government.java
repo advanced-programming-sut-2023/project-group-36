@@ -3,6 +3,7 @@ package project.model;
 import project.model.Peoples.People;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Government{
     private User owner;
@@ -86,6 +87,50 @@ public class Government{
     public void nextTurn(){
         // food & ...
 
+        // Food +
+        popularity += getAmountOfTypesOfFoods() - 1;
+
+        double foodOfEachPerson = (double) feedRate / 2 + 1;
+        int foodsToBeConsuming = (int) (foodOfEachPerson * peoples.size() + 1); // +1 is to be int
+
+        if (amountOfFoods() <= foodsToBeConsuming) {
+            Arrays.fill(foodAmount, 0);
+            feedRate = -2;
+        }
+        else {
+            int eachFoodToBeConsuming = foodsToBeConsuming / 4;
+            for (int i = 0; i < foodAmount.length; i++) {
+                foodAmount[i] -= eachFoodToBeConsuming;
+            }
+            while (foodsToBeConsuming % 4 != 0) {
+                foodAmount[getIndexOfMaxAmountOfFoods()]--;
+                foodsToBeConsuming--;
+            }
+        }
+
+        popularity += feedRate * 2;
+
+        // Tax -
+    }
+
+    private int getAmountOfTypesOfFoods() {
+        int amountOfTypesOfFoods = 0;
+
+        for (int i : foodAmount) {
+            amountOfTypesOfFoods++;
+        }
+
+        return amountOfTypesOfFoods;
+    }
+
+    private int getIndexOfMaxAmountOfFoods() {
+        int indexOfMax = 0;
+        for (int i = 0; i < foodAmount.length; i++) {
+            if (foodAmount[i] > indexOfMax)
+                indexOfMax = i;
+        }
+
+        return indexOfMax;
     }
 
     public Integer getIndexOfFood(String type){
@@ -113,13 +158,13 @@ public class Government{
 
     // Food
     public void setFeedRate(int foodRate) { this.feedRate = foodRate; }
-    public boolean isFoodExist() {
+    public int amountOfFoods() {
+        int amount = 0;
         for (int i : foodAmount) {
-            if (i != 0)
-                return true;
+            amount += i;
         }
 
-        return false;
+        return amount;
     }
 
     public int getFeedRate() { return feedRate; }
