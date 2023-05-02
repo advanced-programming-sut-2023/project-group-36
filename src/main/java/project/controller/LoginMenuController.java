@@ -10,12 +10,13 @@ import java.util.regex.Matcher;
 
 public class LoginMenuController {
    private static User LoggedUser;
-    public static String Login(Matcher matcher){
+    public static String Login(Matcher matcher) throws NoSuchAlgorithmException {
         String username=matcher.group("username");
         LoggedUser=ApplicationManager.getUserByUsername(username);
         if(LoggedUser==null)
             return "Error: username doesn't exist!";
         String password=matcher.group("password");
+        password=SHA_256Format.sha256(password);
         if(!LoggedUser.getPassword().equals(password))
             return "Error: password doesn't match!";
         ApplicationManager.login(LoggedUser);
