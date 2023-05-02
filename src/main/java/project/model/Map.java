@@ -60,6 +60,10 @@ public class Map implements Cloneable{
         return size;
     }
 
+    public ArrayList<Block> getBlocks() {
+        return blocks;
+    }
+
     public void createBlacks(){
         Block block;
         for (int i = 1; i <= size; i++) {

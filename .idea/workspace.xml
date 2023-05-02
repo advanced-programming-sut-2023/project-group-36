@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="feed complete.">
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="collect tax complete.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at________Changes_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۵_۰۴_۲۰۲۳_۰۱_۴۹_بعدازظهر_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +114,7 @@
       <workItem from="1682722628641" duration="2555000" />
       <workItem from="1682602379469" duration="8573000" />
       <workItem from="1682668516859" duration="4483000" />
+      <workItem from="1683051181490" duration="1312000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -209,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682998951049</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="collect tax complete.">
+      <created>1683003340538</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683003340538</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +255,8 @@
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="GameMenu updated." />
     <MESSAGE value="feed complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="feed complete." />
+    <MESSAGE value="collect tax complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="collect tax complete." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

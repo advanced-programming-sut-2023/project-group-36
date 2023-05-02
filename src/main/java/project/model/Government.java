@@ -135,8 +135,14 @@ public class Government{
         popularity += changeOfPopularity;
 
         // Religion -
+        for (Block block : this.getMap().getBlocks()) {
+            if (block.getThisBlockStructure().name.equals("Church") || block.getThisBlockStructure().name.equals("Cathedral"))
+                popularity += 2;
+        }
+
     }
 
+    // Food functions
     private int getAmountOfTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
@@ -157,6 +163,12 @@ public class Government{
         return indexOfMax;
     }
 
+    // functions of religion
+
+    public Map getMap() {
+        return map;
+    }
+
     public Integer getIndexOfFood(String type){
         for (int i = 0; i < foodType.length; i++) {
             if (foodType[i].equals(type)){
@@ -165,7 +177,7 @@ public class Government{
         }
         return null;
     }
-    
+
     public int getAmountOfResource(String type){
         return resources.getResourceAmount(type);
     }
