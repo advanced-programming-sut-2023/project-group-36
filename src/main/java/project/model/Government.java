@@ -90,8 +90,8 @@ public class Government{
         // Food +
         popularity += getAmountOfTypesOfFoods() - 1;
 
-        double foodOfEachPerson = (double) feedRate / 2 + 1;
-        int foodsToBeConsuming = (int) (foodOfEachPerson * peoples.size() + 1); // +1 is to be int
+        double foodForEachPerson = (double) feedRate / 2 + 1;
+        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int
 
         if (amountOfFoods() <= foodsToBeConsuming) {
             Arrays.fill(foodAmount, 0);
@@ -110,7 +110,31 @@ public class Government{
 
         popularity += feedRate * 2;
 
-        // Tax -
+        // Tax +
+
+        //initialization for taxRate = 0
+        double taxOfEachPerson = 0;
+        int taxesToBeCollected = 0;
+        int changeOfPopularity = 1;
+
+        if (taxRate < 0) {
+            taxOfEachPerson = -0.2 * taxRate - 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;
+            changeOfPopularity = taxRate * -2 + 1;
+        }
+        else if(taxRate > 0) {
+            taxOfEachPerson = 0.2 * taxRate + 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());
+            if (taxRate <= 4)
+                changeOfPopularity = taxRate * 2;
+            else
+                changeOfPopularity = taxRate * 4 - 8;
+        }
+
+        coins += taxesToBeCollected;
+        popularity += changeOfPopularity;
+
+        // Religion -
     }
 
     private int getAmountOfTypesOfFoods() {
