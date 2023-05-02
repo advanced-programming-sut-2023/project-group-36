@@ -38,9 +38,9 @@ public class LoginMenu {
         }
       }
       else if(command.matches(Commands.FORGET_PASSWORD.getRegex())){
-        matcher=Menu.getMatcher(command,Commands.FORGET_PASSWORD.getRegex());
+        System.out.println("Enter your username:");
         String comm=Menu.getScanner().nextLine();
-
+        matcher=Menu.getMatcher(comm,"(?<username>[a-zA-Z0-9_]+");
         output=LoginMenuController.ForgetPassword(matcher);
         if(output != null){
           System.out.println(output);
@@ -50,6 +50,8 @@ public class LoginMenu {
           String newPassword=Menu.getScanner().nextLine();
           String result=LoginMenuController.passwordWeakCheck(newPassword);
           System.out.println(result);
+          if(result.contains("logged"))
+            MainMenu.run();
         }
       }
       else if(command.equals("user logout")){

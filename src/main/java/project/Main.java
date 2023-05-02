@@ -4,9 +4,11 @@ import project.model.ApplicationManager;
 import project.model.User;
 import project.view.LoginMenu;
 
+import java.security.NoSuchAlgorithmException;
+
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException {
 
         /*
         System.out.println(ApplicationManager.getUsers());
