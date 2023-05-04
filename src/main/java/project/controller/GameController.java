@@ -4,6 +4,7 @@ import project.model.Block;
 import project.model.Game;
 import project.model.Government;
 import project.model.Peoples.Engineer;
+import project.model.Peoples.FightingForce;
 import project.model.Peoples.Launcher;
 import project.model.Peoples.People;
 import project.model.Tools;
@@ -92,7 +93,6 @@ public class GameController {
         return "Fear rate = " + currentGovernment.getFearRate();
     }
 
-    //////////
     public static String dropBuilding(Matcher matcher){
         return "...";
     }
@@ -127,7 +127,7 @@ public class GameController {
         currentGovernment.setSelectedPeople(block.getPeoples().get(0));
         return "select!";
     }
-    public static String unSelectUnit(Matcher matcher){
+    public static String unSelectUnit(){
         if (currentGovernment.getSelectedPeople()==null){
             return "You have not selected any units!";
         }
@@ -138,11 +138,16 @@ public class GameController {
     public static String moveUnit(Matcher matcher){
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
-        Block block = game.getMap().getBlockByPosition(x,y);
+        Block block;
+        if ((block = game.getMap().getBlockByPosition(x,y))== null){
+            return "Error: Invalid position!";
+        }
         People selectedPeople = currentGovernment.getSelectedPeople();
+        if (selectedPeople==null){
+            return "No unit selected!";
+        }
         selectedPeople.startMove(block);
-
-        return "...";
+        return "OK!"; //...
     }
     public static String patrolUnit(Matcher matcher){
         int x1 = Integer.parseInt(matcher.group("x1"));
@@ -150,22 +155,42 @@ public class GameController {
         int x2 = Integer.parseInt(matcher.group("x2"));
         int y2 = Integer.parseInt(matcher.group("y2"));
         People selectedPeople = currentGovernment.getSelectedPeople();
-        return "...";
+        Block block1 , block2;
+        if ((block1 = game.getMap().getBlockByPosition(x1,y1))== null || (block2 = game.getMap().getBlockByPosition(x2,y2))== null){
+            return "Error: Invalid position!";
+        }
+        if (selectedPeople==null){
+            return "No unit selected!";
+        }
+        selectedPeople.startPatrol(block1,block2);
+        return "OK!"; //...
     }
 
-    public static String stopUnit(Matcher matcher){
-        int x = Integer.parseInt(matcher.group("x"));
-        int y = Integer.parseInt(matcher.group("y"));
+    public static String stopUnit(){
         People selectedPeople = currentGovernment.getSelectedPeople();
+        if (selectedPeople==null){
+            return "No unit selected!";
+        }
         selectedPeople.stop();
-        return "...";
+        return "OK!";
     }
     public static String setCondition(Matcher matcher){
         return "...";
     }
 
     public static String attackEnemy(Matcher matcher){
-        return "...";
+        int x = Integer.parseInt(matcher.group("x"));
+        int y = Integer.parseInt(matcher.group("y"));
+        Block block;
+        if ((block = game.getMap().getBlockByPosition(x,y))== null){
+            return "Error: Invalid position!";
+        }
+        People selectedPeople = currentGovernment.getSelectedPeople();
+        if (!selectedPeople.getPeopleType().category.equals("fightingForce")){
+            return "Error: The unit you have selected isn't a fightingForce!";
+        }
+        ((FightingForce) selectedPeople).attack(block);
+        return "OK!";
     }
 
     public static String attackLaunch(Matcher matcher){
@@ -220,5 +245,9 @@ public class GameController {
 
     public static void nextTurn() {
         game.nextTurn();
+    }
+
+    public static Game getGame() {
+        return game;
     }
 }

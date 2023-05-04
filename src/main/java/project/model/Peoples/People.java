@@ -1,9 +1,6 @@
 package project.model.Peoples;
 
-import project.model.ApplicationManager;
-import project.model.Block;
-import project.model.Government;
-import project.model.Map;
+import project.model.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,12 +15,22 @@ public class People {
     private int hitPoint;
     private Block block;
     private boolean inMove;
-    private Block destination;
+
+    private boolean inPatrol;
+    private Block destination1;
+    private Block destination2;
 
     private boolean selected;
     public void startMove(Block block){
-        destination = block;
+        destination1 = block;
         inMove = true;
+    }
+
+    public void startPatrol(Block block1 , Block block2){
+        destination1 = block1;
+        destination2 = block2;
+        inPatrol = true;
+        startMove(block1);
     }
 
 
@@ -36,23 +43,30 @@ public class People {
         // ... for example
     }
 
-    public String  isInMove() {
+    public String isInMove() {
         if (inMove)
             return "M";
         return "S";
     }
     public void endMove(){
-        destination = null;
+        if (inPatrol){
+            Block temp = destination1;
+            destination1 = destination2;
+            destination2 = temp;
+            startMove(destination1);
+            return;
+        }
+        destination1 = null;
         inMove = false;
     }
 
     public void thisTurnMove(){
         int num = 0;
-        while (!block.equals(destination) && num<peopleType.speed){
-            block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination.getX(),destination.getY()).get(0);
+        while (!block.equals(destination1) && num<peopleType.speed){
+            block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY()).get(0);
             num ++;
         }
-        if (block.equals(destination)){
+        if (block.equals(destination1)){
             inMove = false;
             endMove();
         }
@@ -94,7 +108,9 @@ public class People {
 
     public void stop() {
         inMove = false;
-        destination = null;
+        inPatrol = false;
+        destination1 = null;
+        destination2 = null;
     }
 
     public Block getBlock() {
@@ -120,11 +136,11 @@ public class People {
                 path.add(currBlock);
                 break;
             }
-            for (Point neighbor : getNeighbors(curr, map)) {
-                Block neighborBlock = map.getBlockByPosition(neighbor.x, neighbor.y);
-                if (!visited[neighbor.x][neighbor.y] && neighborBlock.isPassable(this)) {
-                    visited[neighbor.x][neighbor.y] = true;
-                    queue.add(neighbor);
+            for (Block neighbor : getNeighbors(curr, map)) {
+                Block neighborBlock = map.getBlockByPosition(neighbor.getX(), neighbor.getY());
+                if (!visited[neighbor.getX()][neighbor.getY()] && neighborBlock.isPassable(this)) {
+                    visited[neighbor.getX()][neighbor.getY()] = true;
+                    queue.add(new Point(neighbor.getX(),neighbor.getY()));
                     path.add(neighborBlock);
                 }
             }
@@ -136,25 +152,10 @@ public class People {
         return path;
     }
 
-    private Point[] getNeighbors(Point curr, Map map) {
-        int x = curr.x;
-        int y = curr.y;
-        Point[] neighbors = new Point[4];
-        int count = 0;
-        if (x > 0) {
-            neighbors[count++] = new Point(x-1,y);
-        }
-        if (x < map.getSize()-1) {
-            neighbors[count++] = new Point(x+1,y);
-        }
-        if (y > 0) {
-            neighbors[count++] =new Point(x,y-1);
-        }
-        if (y < map.getSize()-1) {
-            neighbors[count++] = new Point(x,y+1);
-        }
-        return Arrays.copyOf(neighbors, count);
+    private ArrayList<Block> getNeighbors(Point curr, Map map) {
+        return Tools.getBlacksInRadius(map.getSize(), curr.x, curr.y , 1 ,map);
     }
+
 
     public PeopleType getPeopleType() {
         return peopleType;
