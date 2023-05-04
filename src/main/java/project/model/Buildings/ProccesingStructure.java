@@ -4,9 +4,10 @@ import project.model.Block;
 import project.model.Government;
 
 public class ProccesingStructure extends Structure{
-    public ProccesingStructure(Block block, int HP, Government government, int goldCost, int woodCost, int stoneCost, String category
+    public ProccesingStructure(Block block, BuildingType buildingType,int HP, Government government, int goldCost, int woodCost, int stoneCost, String category
             , int popularityChange, int rate, int capacity) {
        super.block = block;
+       super.buildingType=buildingType;
         super.HP = HP;
         super.government = government;
         super.GoldCost = goldCost;

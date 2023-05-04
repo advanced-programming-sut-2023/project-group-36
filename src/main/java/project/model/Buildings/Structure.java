@@ -28,7 +28,7 @@ public  class Structure {
     public BuildingType getBuildingType() {
         return buildingType;
     }
-    private BuildingType buildingType;
+     BuildingType buildingType;
 
 
 

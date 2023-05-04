@@ -3,6 +3,7 @@ package project.controller;
 import project.model.ApplicationManager;
 import project.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 
 public class ProfileMenuController {
@@ -65,7 +66,7 @@ public class ProfileMenuController {
         return "Please enter your new password again";
     }
 
-    public static String changePassword_2(Matcher matcher, String newPassword) {
+    public static String changePassword_2(Matcher matcher, String newPassword) throws NoSuchAlgorithmException {
         String repeatingPassword = matcher.group("new-password");
 
         if (newPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
@@ -73,8 +74,8 @@ public class ProfileMenuController {
 
         if (!repeatingPassword.equals(newPassword))
             return "Repeating the password is wrong!";
-
-        ApplicationManager.getCurrentUser().setPassword(newPassword);
+        newPassword=SHA_256Format.sha256(newPassword)       ;
+    ApplicationManager.getCurrentUser().setPassword(newPassword);
         return "Password changed successfully";
     }
 
