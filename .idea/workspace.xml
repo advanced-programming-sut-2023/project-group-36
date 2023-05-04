@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="feed complete.">
+    <list default="true" id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="login menu completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/DefenciveStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/DefenciveStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +112,10 @@
       <workItem from="1682796332908" duration="2319000" />
       <workItem from="1682875642086" duration="8465000" />
       <workItem from="1682941055089" duration="1494000" />
+      <workItem from="1683020099933" duration="780000" />
+      <workItem from="1683028959623" duration="1813000" />
+      <workItem from="1683130060684" duration="3561000" />
+      <workItem from="1683188455120" duration="3892000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -249,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682939207894</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="login menu completed">
+      <created>1683009377019</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683009377019</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +299,8 @@
     <MESSAGE value="map menu updated,structures updated" />
     <MESSAGE value="map menu &amp; controller updated" />
     <MESSAGE value="map menu completed (not tested)" />
-    <option name="LAST_COMMIT_MESSAGE" value="map menu completed (not tested)" />
+    <MESSAGE value="login menu completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="login menu completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

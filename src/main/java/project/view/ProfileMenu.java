@@ -2,13 +2,15 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ProfileMenuController;
+
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class ProfileMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException {
         while (true) {
             String command = scanner.nextLine();
             Matcher matcher;
