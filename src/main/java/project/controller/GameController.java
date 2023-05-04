@@ -93,6 +93,9 @@ public class GameController {
         return "Fear rate = " + currentGovernment.getFearRate();
     }
 
+
+
+    // Mohammad
     public static String dropBuilding(Matcher matcher){
         return "...";
     }
@@ -104,16 +107,25 @@ public class GameController {
         return "...";
     }
 
-    public static String createUnit(Matcher matcher){
-        return "...";
-    }
     public static String repair(Matcher matcher){
         return "...";
     }
 
+    public static String clearBlock(Matcher matcher){
+        return "...";
+    }
+
+
+    // Mohammad
+
 
 
     ///////////////////// ALI
+
+    public static String createUnit(Matcher matcher){
+        return "...";
+    }
+
     public static String selectUnit(Matcher matcher){
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
@@ -236,16 +248,15 @@ public class GameController {
         return "...";
     }
 
-    ///////////////////// ALI
-
-    public static String clearBlock(Matcher matcher){
-        return "...";
-    }
-
 
     public static void nextTurn() {
         game.nextTurn();
     }
+
+
+    ///////////////////// ALI
+
+
 
     public static Game getGame() {
         return game;
