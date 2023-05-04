@@ -32,7 +32,7 @@ public class Main {
         */
 
         ApplicationManager.start();
-        LoginMenu.run();
+        //LoginMenu.run();
         User user1 = new User("ahmad","123","mosa","123$33","1ww","1",1);
         User user2 = new User("gholi","123","mosa","123$332","1ww","1",1);
         ApplicationManager.addUser(user1);

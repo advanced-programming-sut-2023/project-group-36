@@ -46,7 +46,7 @@ public class CreateNewGameMenu {
                 result = CreateNewGameController.startGame();
                 if (result==null){
                     inThisMenu = false;
-                    GameMenu.run();
+                    //GameMenu.run();
                 }
                 else {
                     System.out.println(result);
