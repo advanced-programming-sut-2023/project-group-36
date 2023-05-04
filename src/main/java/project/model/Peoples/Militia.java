@@ -4,7 +4,6 @@ import project.model.Block;
 import project.model.Government;
 
 public class Militia extends People {
-    private final int attackPower;
     private String state;
 
     // standing
@@ -14,7 +13,6 @@ public class Militia extends People {
 
     Militia(PeopleType peopleType, Government government, Block block) {
         super(peopleType, government, block);
-        attackPower = peopleType.attackPower;
         state = "standing";
     }
 
@@ -24,7 +22,11 @@ public class Militia extends People {
     }
 
     public int getAttackPower() {
-        return attackPower;
+        return getPeopleType().attackPower;
+    }
+
+    public int getDefencePower(){
+        return getPeopleType().defencePower;
     }
 
     public String getState() {
@@ -33,5 +35,17 @@ public class Militia extends People {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public void stateTasks(){
+        if (this instanceof FightingForce){
+            ((FightingForce) this).stateTask();
+        }
+        else if (this instanceof Launcher){
+            ((Launcher) this).stateTask();
+        }
+        else if (this instanceof Engineer){
+            ((Engineer) this).stateTask();
+        }
     }
 }

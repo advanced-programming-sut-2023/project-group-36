@@ -23,7 +23,7 @@ public  class Structure {
     public int defenceRange;
     public int capacity;
     public ArrayList<Militia> militias;
-    ArrayList<NormalPeople> normalPeople;
+    public ArrayList<NormalPeople> normalPeople;
 
     public BuildingType getBuildingType() {
         return buildingType;
@@ -31,6 +31,7 @@ public  class Structure {
      BuildingType buildingType;
 
 
-
-
+    public int getHitPoint() {
+        return HP;
+    }
 }
