@@ -1,4 +1,5 @@
 package project.model;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -192,5 +193,22 @@ public class Tools {
             }
         }
         return false;
+    }
+
+
+
+    public static ArrayList<Block> getBlacksInRadius(int size, int x, int y, int radius, Map map){
+        ArrayList<Block> blocks = new ArrayList<>();
+        int diameter = radius * 2;
+        for (int i = 0; i <= diameter; i++) {
+            for (int j = 0; j <= diameter; j++) {
+                int row = x - radius + i;
+                int column = y - radius + j;
+                if (row >= 0 && row < size && column >= 0 && column < size) {
+                    blocks.add(map.getBlockByPosition(row, column));
+                }
+            }
+        }
+        return  blocks;
     }
 }

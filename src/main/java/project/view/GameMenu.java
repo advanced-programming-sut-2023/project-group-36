@@ -54,7 +54,6 @@ public class GameMenu {
                 System.out.println(GameController.fearRateShow());
             }
 
-            /////
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
                 GameController.dropBuilding(Menu.getMatcher(input,regex));
             }
@@ -77,7 +76,7 @@ public class GameMenu {
                 GameController.selectUnit(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.UNSELECT_UNIT.getRegex())){
-                GameController.unSelectUnit(Menu.getMatcher(input,regex));
+                GameController.unSelectUnit();
             }
             else if (input.matches(regex = Commands.MOVE_UNIT.getRegex())){
                 GameController.moveUnit(Menu.getMatcher(input,regex));
@@ -86,7 +85,7 @@ public class GameMenu {
                 GameController.patrolUnit(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.STOP_UNIT.getRegex())){
-                GameController.stopUnit(Menu.getMatcher(input,regex));
+                GameController.stopUnit();
             }
             else if (input.matches(regex = Commands.SET_CONDITION.getRegex())){
                 GameController.setCondition(Menu.getMatcher(input,regex));

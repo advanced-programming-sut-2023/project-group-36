@@ -7,9 +7,15 @@ public class Militia extends People {
     private final int attackPower;
     private String state;
 
+    // standing
+    // defensive
+    // offensive
+
+
     Militia(PeopleType peopleType, Government government, Block block) {
         super(peopleType, government, block);
         attackPower = peopleType.attackPower;
+        state = "standing";
     }
 
 

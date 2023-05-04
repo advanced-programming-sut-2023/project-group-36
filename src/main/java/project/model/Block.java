@@ -115,4 +115,14 @@ public class Block {
         badTypes.add("type3");
         return !badTypes.contains(type); ///.....
     }
+
+    public ArrayList<People> myEnemies(Government government) {
+        ArrayList<People> enemies = new ArrayList<>();
+        for (People people : peoples) {
+            if (!people.getGovernment().equals(government)) {
+                enemies.add(people);
+            }
+        }
+        return enemies;
+    }
 }
