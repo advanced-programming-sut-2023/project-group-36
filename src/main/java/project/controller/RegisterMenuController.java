@@ -95,7 +95,7 @@ public class RegisterMenuController {
         int questionNumber = Integer.parseInt(String.valueOf(result.charAt(0)));
         User user = new User(username, password, nickname, email,slogan, questionAnswer, questionNumber);
         ApplicationManager.addUser(user);
-       user.setPassword(SHA_256Format.sha256(user.getPassword()));
+        user.setPassword(SHA_256Format.sha256(user.getPassword()));
         return "Your registration was successful. To enter, go to the login menu!";
     }
 

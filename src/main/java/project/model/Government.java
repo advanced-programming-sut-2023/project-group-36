@@ -1,6 +1,9 @@
 package project.model;
 
+import project.controller.GameController;
+import project.model.Buildings.Structure;
 import project.model.Peoples.People;
+import project.view.GameMenu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +11,8 @@ import java.util.Arrays;
 public class Government{
     private User owner;
     private ArrayList<People> peoples = new ArrayList<>();
+
+    private ArrayList<Structure> structures = new ArrayList<>();
     private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
     private ArrayList<Trade> trades = new ArrayList<>();
     private String color;
@@ -23,7 +28,7 @@ public class Government{
     private Map map;
 
     private int coins;
-    private People selectedPeople;
+    private ArrayList<People> selectedPeoples;
 
 
     public Government(User user, String color){
@@ -81,11 +86,14 @@ public class Government{
     }
 
     public boolean checkGameOver(){
-        return false; //
+        int hitpoints = 0;
+        for (Structure structure : structures) {
+            hitpoints += structure.getHitPoint();
+        }
+        return hitpoints <= 0;
     }
 
     public void nextTurn(){
-        // food & ...
 
         // Food +
         popularity += getAmountOfTypesOfFoods() - 1;
@@ -140,7 +148,14 @@ public class Government{
                 popularity += 2;
         }
 
+        if (checkGameOver()){
+            Game game = GameController.getGame();
+            game.removeGovernment(this);
+            User user = this.getOwner();
+            user.addScore(game.getScore());
+        }
     }
+
 
     // Food functions
     private int getAmountOfTypesOfFoods() {
@@ -228,16 +243,21 @@ public class Government{
 
 
 
-    public void setSelectedPeople(People people) {
-        selectedPeople = people;
+    public void setSelectedPeoples(ArrayList<People> peoples) {
+        selectedPeoples = peoples;
     }
 
-    public People getSelectedPeople() {
-        return selectedPeople;
+    public ArrayList<People> getSelectedPeoples() {
+        return selectedPeoples;
     }
 
 
     public Resources getResources() {
         return resources;
     }
+
+    public void removePeople(People people) {
+        peoples.remove(people);
+    }
+
 }

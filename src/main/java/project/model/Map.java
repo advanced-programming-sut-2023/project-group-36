@@ -24,8 +24,8 @@ public class Map implements Cloneable{
     }
 
     public void nextTurn(){
-        for (int i = 0; i < blocks.size(); i++) {
-            blocks.get(i).nextTurn();
+        for (Block block : blocks) {
+            block.nextTurn();
         }
     }
 

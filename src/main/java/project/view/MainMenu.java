@@ -23,10 +23,10 @@ public class MainMenu {
             else if(command.matches(Commands.OPEN_GAME.getRegex())) {
                 matcher = Menu.getMatcher(command, Commands.OPEN_GAME.getRegex());
                 System.out.println();
-                GameMenu.run();
+                //GameMenu.run();
             }
             else if(command.matches(Commands.PROFILE_MENU.getRegex())){
-                ProfileMenu.run();
+                //ProfileMenu.run();
             }
             else if(command.matches(Commands.CREATE_MAP.getRegex())){
 

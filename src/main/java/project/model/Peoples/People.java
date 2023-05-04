@@ -73,12 +73,22 @@ public class People {
     }
 
     public boolean checkIsDead(){
-        return hitPoint <= 0;
+        return (hitPoint <= 0);
     }
 
     public void nextTurn(){
         thisTurnMove();
-        checkIsDead();
+        if(checkIsDead()){
+            death();
+        }
+        if (this instanceof Militia){
+            ((Militia) this).stateTasks();
+        }
+    }
+
+    private void death() {
+        government.removePeople(this);
+        block.removePeople(this);
     }
 
     public void hitPointReduce(int amount){

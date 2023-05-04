@@ -2,13 +2,14 @@ package project.view;
 import project.controller.Commands;
 import project.controller.RegisterMenuController;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class RegisterMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException {
         System.out.println("**<< Register Menu >>**");
         String input;
         String result;

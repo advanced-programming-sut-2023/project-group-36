@@ -1,5 +1,7 @@
 package project.model;
 
+import project.controller.GameController;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -9,7 +11,9 @@ public class Game {
     private final Map map;
     private boolean condition;
 
-    private int numberOfPlayers;
+    private final int numberOfPlayers;
+
+    private int number;
 
 
     public Map getMap() {
@@ -28,6 +32,7 @@ public class Game {
         map.nextTurn();
         governmentsNextTurn();
         nextGovernment();
+        checkEnd();
     }
 
     private void governmentsNextTurn(){
@@ -37,14 +42,16 @@ public class Game {
     }
 
     private void nextGovernment(){
-        int number = governments.indexOf(currentGovernment);
+        number+=1;
         currentGovernment = governments.get((number%governments.size()));
-        //...
     }
 
-    public boolean checkEnd(){
-        condition = false;
-        return false; // ...
+    public void checkEnd(){
+        if (governments.size()==1){
+            condition = false;
+            governments.get(0).getOwner().addScore(getScore());
+            GameController.endGame();
+        }
     }
 
     public Government getGovernmentByUser(User user){
@@ -65,7 +72,12 @@ public class Game {
         user.addScore(governments.size());
     }
 
-    private void removeGovernment(Government government){
+    public void removeGovernment(Government government){
         governments.remove(government);
+    }
+
+
+    public int getScore(){
+        return numberOfPlayers * (numberOfPlayers-governments.size()-1);
     }
 }

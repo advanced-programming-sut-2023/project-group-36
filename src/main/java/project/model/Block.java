@@ -1,6 +1,7 @@
 package project.model;
 
 import project.model.Buildings.Structure;
+import project.model.Peoples.Militia;
 import project.model.Peoples.People;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class Block {
     private int x;
     private int y;
-    private boolean ThereisTunnel;
+    private boolean ThereIsTunnel;
     private String type;
     private Structure thisBlockStructure;
     private int governmentId = 0;
@@ -33,6 +34,34 @@ public class Block {
     public void nextTurn(){
         for (People people : peoples) {
             people.nextTurn();
+        }
+        battles();
+    }
+
+    private void battles() {
+        People people1;
+        People people2;
+        for (int i = 0; i < peoples.size(); i++) {
+            people1 = peoples.get(i);
+            for (int j = i; j < peoples.size(); j++) {
+                people2 = peoples.get(i);
+                if (!people1.getGovernment().equals(people2.getGovernment())){
+                    battleTwoUnit(people1,people2);
+                }
+            }
+        }
+    }
+
+    private void battleTwoUnit(People people1, People people2) {
+        if (people1 instanceof Militia && people2 instanceof Militia) {
+            people1.hitPointReduce(((Militia) people2).getAttackPower() - ((Militia) people1).getDefencePower());
+            people2.hitPointReduce(((Militia) people1).getAttackPower() - ((Militia) people2).getDefencePower());
+        }
+        else if (people2 instanceof Militia) {
+            people1.hitPointReduce(((Militia) people2).getAttackPower());
+        }
+        else if (people1 instanceof Militia) {
+            people2.hitPointReduce(((Militia) people1).getAttackPower());
         }
     }
 
@@ -103,8 +132,8 @@ public class Block {
     }
 
     public void burn() {
-        for (int i = 0; i < peoples.size(); i++) {
-            peoples.get(i).hitPointReduce(10);
+        for (People people : peoples) {
+            people.hitPointReduce(10);
         }
     }
 
