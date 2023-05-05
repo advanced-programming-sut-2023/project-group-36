@@ -62,7 +62,7 @@ public class Types {
         buildingTypes.add(new BuildingType("Fletcher","WeaponBuildings",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Poleturner","WeaponBuildings",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Stockpile","FoodProccessingBuildings",0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Stockpile","Storge",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Quarry","FarmBuildings",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",0,0,0,0,0,0,8,0));
@@ -71,8 +71,9 @@ public class Types {
         buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("CagedWarDogs","Trap",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("SiegeTent","",0,0,0,0,0,0,8,0));
-
+        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Stable","Storge",0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Store","Industry",0,0,0,0,0,0,8,0));
     }
 
     public static PeopleType getPeopleTypeByType(String type){

@@ -8,13 +8,9 @@ import project.model.Peoples.NormalPeople;
 import java.util.ArrayList;
 
 public  class Structure {
-    public String name;
     Block block;
     int HP;
     Government government;
-
-
-    public int capacity;
     public ArrayList<Militia> militias;
     public ArrayList<NormalPeople> normalPeople;
 

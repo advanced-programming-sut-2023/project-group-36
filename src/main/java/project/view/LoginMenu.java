@@ -26,7 +26,7 @@ public class LoginMenu {
         matcher=Menu.getMatcher(command,Commands.LOGIN.getRegex());
         output=LoginMenuController.Login(matcher);
         System.out.println(output);
-        if(output.contains("match!")){
+        if(output.equals("Error: password doesn't match!")){
           delay++;
           Thread.sleep(delay * 5000);
           System.out.println("You can now try again now.");
