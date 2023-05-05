@@ -33,10 +33,16 @@ public class EditMapMenu {
         while (inThisMenu) {
             input = scanner.nextLine();
             if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
-                System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex),map));
             }
             else if (input.matches(regex = Commands.DROP_TREE.getRegex())){
-                System.out.println(CreateNewMapController.dropTree(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.dropTree(Menu.getMatcher(input,regex),map));
+            }
+            else if (input.matches(regex = Commands.SET_TEXTURE.getRegex())){
+                System.out.println(CreateNewMapController.setTexture(Menu.getMatcher(input,regex),map));
+            }
+            else if (input.matches(regex = Commands.SET_TEXTURE_RECTANGLE.getRegex())){
+                System.out.println(CreateNewMapController.setTextureRectangle(Menu.getMatcher(input,regex),map));
             }
             else if (input.matches(regex = Commands.SET_GOVERNMENT.getRegex())) {
                 System.out.println(EditMapController.setGovernment(Menu.getMatcher(input,regex),map,users));
@@ -44,11 +50,9 @@ public class EditMapMenu {
             else if (input.matches(regex = Commands.DROP_UNIT.getRegex())){
                 System.out.println(EditMapController.dropUnit(Menu.getMatcher(input,regex),government,map));
             }
-
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
                 System.out.println(EditMapController.dropBuilding(Menu.getMatcher(input,regex),government));
             }
-
             else if (input.matches("save map")){
                 if((result = EditMapController.checkMapPreparation())!=null){
                     System.out.println(result);

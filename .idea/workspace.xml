@@ -4,11 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb9f942-92be-4d3d-afc1-2b7abd081310" name="Changes" comment="building type changed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +153,6 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="110c5a8b-b53e-4e5d-9c25-8c5c6bf38fb2" name="Changes" comment="" />
       <created>1681939000910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -181,13 +175,6 @@
       <workItem from="1682456065168" duration="2048000" />
       <workItem from="1682602379469" duration="8573000" />
       <workItem from="1682668516859" duration="4554000" />
-      <workItem from="1682796332908" duration="2319000" />
-      <workItem from="1682875642086" duration="8465000" />
-      <workItem from="1682941055089" duration="1494000" />
-      <workItem from="1683020099933" duration="780000" />
-      <workItem from="1683028959623" duration="1813000" />
-      <workItem from="1683130060684" duration="3561000" />
-      <workItem from="1683188455120" duration="3892000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
       <created>1681940400331</created>
@@ -195,17 +182,17 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
       <updated>1681940400331</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۲" summary="Maven created :)">
-      <created>1681940785128</created>
+    <task id="LOCAL‎−۰۰۰۰۲" summary="CAPTCHA was placed for registration.">
+      <created>1683280109878</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۲" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
-      <updated>1681940785128</updated>
+      <updated>1683280109878</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۳" summary="Maven created :)">
-      <created>1681979841422</created>
+    <task id="LOCAL‎−۰۰۰۰۳" summary="Updated new map creation menu and fixed several bugs.">
+      <created>1683286378040</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۳" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
-      <updated>1681979841422</updated>
+      <updated>1683286378040</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۴" summary="Update CreateNewGameMenu.">
       <created>1681984488419</created>
@@ -320,49 +307,6 @@
       <option name="project" value="LOCAL" />
       <updated>1682938730265</updated>
     </task>
-    <task id="LOCAL-00022" summary="map menu completed (not tested)">
-      <created>1682939207894</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1682939207894</updated>
-    </task>
-    <task id="LOCAL-00023" summary="login menu completed">
-      <created>1683009377019</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1683009377019</updated>
-    </task>
-    <task id="LOCAL-00024" summary="buildings updated">
-      <created>1683281924366</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1683281924366</updated>
-    </task>
-    <task id="LOCAL-00025" summary="minor change in password format and database">
-      <created>1683282872324</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1683282872324</updated>
-    </task>
-    <task id="LOCAL-00026" summary="minor change in password format and database">
-      <created>1683283245079</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1683283245079</updated>
-    </task>
-    <task id="LOCAL-00027" summary="building type changed">
-      <created>1683283276763</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1683283276763</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,15 +339,6 @@
     <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
-    <MESSAGE value="changing buildings" />
-    <MESSAGE value="map menu updated,structures updated" />
-    <MESSAGE value="map menu &amp; controller updated" />
-    <MESSAGE value="map menu completed (not tested)" />
-    <MESSAGE value="login menu completed" />
-    <MESSAGE value="buildings updated" />
-    <MESSAGE value="minor change in password format and database" />
-    <MESSAGE value="building type changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="building type changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

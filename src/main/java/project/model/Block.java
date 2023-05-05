@@ -66,6 +66,9 @@ public class Block {
     }
 
     public void addPeople(People people){
+        if (peoples==null){
+            peoples= new ArrayList<>();
+        }
         peoples.add(people);
     }
 

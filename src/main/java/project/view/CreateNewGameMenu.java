@@ -13,8 +13,7 @@ public class CreateNewGameMenu {
     private final static Scanner scanner = Menu.getScanner();
     public static ArrayList<Government> governments = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
-    public static Map map = null;
-    //public static Game game = new Game(map,governments);
+    public static Map map;
     public static boolean mapPreparation = false;
     public static int capacity;
 
@@ -38,15 +37,22 @@ public class CreateNewGameMenu {
                 System.out.println(CreateNewGameController.chooseMap(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(Commands.MAP_PREPARATION.getRegex())){
-                inThisMenu = false;
-                EditMapMenu.run(capacity,map,users);
+                if (map!=null){
+                    inThisMenu = false;
+                    EditMapMenu.run(capacity,map,users);
+                }
+                else if (governments.size()!=capacity) {
+                    System.out.println("Error: You still haven't decided the headquarters of all the governments!");
+                }
+                else {
+                    System.out.println("Error: The map is null!");
+                }
             }
-
             else if (input.matches("start game")){
                 result = CreateNewGameController.startGame();
                 if (result==null){
                     inThisMenu = false;
-                    //GameMenu.run();
+                    GameMenu.run(new Game(map,governments));
                 }
                 else {
                     System.out.println(result);

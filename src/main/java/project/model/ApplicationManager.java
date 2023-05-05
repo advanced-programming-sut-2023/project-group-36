@@ -51,9 +51,9 @@ public class ApplicationManager {
     }
 
     public static Map getMapByName(String name){
-        for (int i = 0; i < maps.size(); i++) {
-            if (maps.get(i).getName().equals(name)){
-                return maps.get(i);
+        for (Map map : maps) {
+            if (map.getName().equals(name)) {
+                return map;
             }
         }
         return null;
@@ -61,7 +61,17 @@ public class ApplicationManager {
 
     public static void addUser(User user){
         users.add(user);
+        SaveAndLoad.save(users,maps,games);
+    }
 
+    public static void addMap(Map map) {
+        maps.add(map);
+        SaveAndLoad.save(users,maps,games);
+    }
+
+    public static void addGame(Game game){
+        games.add(game);
+        SaveAndLoad.save(users,maps,games);
     }
 
     public static void setCurrentGame(Game currentGame) {
@@ -72,15 +82,9 @@ public class ApplicationManager {
         return currentGame;
     }
 
-    public static void addMap(Map map) {
-        maps.add(map);
-    }
-
-
 
     public static int getRank(User user) {
         sortUsers();
-
         for (int i = 0; i < getUsers().size(); i++)
             if (user == getUsers().get(i)) {
                 return i + 1;
@@ -114,7 +118,6 @@ public class ApplicationManager {
             currentUser = null;
         }
         SaveAndLoad.save(users,maps,games);
-        // && save date ...
     }
 
     public static void setCurrentUser(User user){
@@ -135,6 +138,8 @@ public class ApplicationManager {
     }
 
     public static void start() {
+        Types.addPeopleTypes();
+        Types.addBuildingsTypes();
         SaveAndLoad.gameInitialization();
     }
 }
