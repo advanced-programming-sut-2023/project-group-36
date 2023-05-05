@@ -51,7 +51,7 @@ public class MapMenuController {
             return "Invalid cordinates!";
         }
         Block block=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(x,y);
-        res+="| Biulding: "+block.getThisBlockStructure().name+"\n";
+        res+="| Biulding: "+block.getThisBlockStructure().getBuildingType().getType()+"\n";
         res+="| Soldiers: \n";
         if(block.getPeoples().size()>0) {
             for (People selected : block.getPeoples()) {

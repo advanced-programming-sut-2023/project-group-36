@@ -40,39 +40,41 @@ public class Types {
 
     }
 
-    public static void addBuildingsTypes() {
-        buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",25,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Big stone gatehouse","CastleBuildings",25,0,0,0,0,0,10,0));
-        buildingTypes.add(new BuildingType("Keep","CastleBuildings",40,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("DrawBridge","CastleBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("LookoutTower","TowerAndLookouts",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("CircleTower","TowerAndLookouts",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("SquareTower","TowerAndLookouts",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Perimeter tower","TowerAndLookouts",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Turret","TowerAndLookouts",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Armoury","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Barrack","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("EngineerGuild","WeapomBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("KillingPit","Trap",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Hovel","TownBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Church","TownBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Cathedral","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Armourer","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Blacksmith","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Fletcher","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Poleturner","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Stockpile","FoodProccessingBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Quarry","FarmBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Inn","CastleBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Ditch","Trap",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("SiegeTent","",0,0,0,0,0,0,8,0));
 
+    private static void addBuildingsTypes() {
+        buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Big stone gatehouse","CastleBuildings",0,0,0,0,0,0,0,0,10,0));
+        buildingTypes.add(new BuildingType("Keep","CastleBuildings",0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("DrawBridge","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("LookoutTower","TowerAndLookouts",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("CircleTower","TowerAndLookouts",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("SquareTower","TowerAndLookouts",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Perimeter tower","TowerAndLookouts",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Turret","TowerAndLookouts",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Armoury","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Barrack","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("EngineerGuild","WeapomBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("KillingPit","Trap",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Hovel","TownBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Church","TownBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Cathedral","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Armourer","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Blacksmith","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Fletcher","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Poleturner","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Stockpile","Storge",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Quarry","FarmBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Inn","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Ditch","Trap",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Stable","Storge",0,0,0,0,0,0,0,0,8,0));
+        buildingTypes.add(new BuildingType("Store","Industry",0,0,0,0,0,0,0,0,8,0));
     }
 
     public static PeopleType getPeopleTypeByType(String type){

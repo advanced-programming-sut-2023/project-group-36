@@ -2,7 +2,7 @@ package project.controller;
 import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
-import sun.security.provider.SHA;
+
 
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -15,8 +15,7 @@ public class LoginMenuController {
         LoggedUser=ApplicationManager.getUserByUsername(username);
         if(LoggedUser==null)
             return "Error: username doesn't exist!";
-        String password=matcher.group("password");
-        password=SHA_256Format.sha256(password);
+        String password=SHA_256Format.sha256(matcher.group("password"));
         if(!LoggedUser.getPassword().equals(password))
             return "Error: password doesn't match!";
         ApplicationManager.login(LoggedUser);
