@@ -11,6 +11,10 @@ public class ProfileMenu {
     private final static Scanner scanner = Menu.getScanner();
 
     public static void run() throws NoSuchAlgorithmException {
+        System.out.println("**<< Profile Menu >>**");
+        boolean inThisMenu = true;
+        String formattedInput;
+
         while (true) {
             String command = scanner.nextLine();
             Matcher matcher;
@@ -18,7 +22,8 @@ public class ProfileMenu {
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));
             if (matcher != null) {
-                System.out.println(ProfileMenuController.changeUsername(matcher)); //
+                System.out.println("change username");
+                System.out.println(ProfileMenuController.changeUsername(matcher));
                 continue;
             }
 
@@ -87,8 +92,9 @@ public class ProfileMenu {
             }
 
             matcher = Menu.getMatcher(command, String.valueOf(project.controller.Commands.EXIT));
-            if (matcher != null)
+            if (matcher != null){
                 break;
+            }
 
             System.out.println("Invalid command!");
         }

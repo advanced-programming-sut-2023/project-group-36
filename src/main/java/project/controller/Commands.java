@@ -86,9 +86,6 @@ public enum Commands {
     DIG_TUNNEL("dig tunnel -x (?<x>\\d+) -y (?<y>\\d+)"),
     DISBAND_UNIT("disband unit"),
     CLEAR_BLOCK("clear -x (?<x>\\d+) -y (?<y>\\d+)"),
-    TRADE_MENU("trade menu"),
-    SHOP_MENU("shop menu"),
-    MAIN_MENU("main menu"),
 
 
     // Trade menu

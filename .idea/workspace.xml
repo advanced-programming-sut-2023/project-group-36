@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Update EditMapMenu, CreateNewGameMenu , Start Game.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,80 +85,10 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.RegisterTest (1)">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.Main" />
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.RegisterTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="RegisterTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="RegisterTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="testApp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.AppTest.RegisterTest (1)" />
-        <item itemvalue="JUnit.AppTest.RegisterTest" />
-        <item itemvalue="JUnit.AppTest.testApp" />
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Updated new map creation menu and fixed several bugs." />
       <created>1681939000910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -175,12 +111,14 @@
       <workItem from="1682456065168" duration="2048000" />
       <workItem from="1682602379469" duration="8573000" />
       <workItem from="1682668516859" duration="4554000" />
+      <workItem from="1683269388407" duration="6785000" />
+      <workItem from="1683309987507" duration="888000" />
     </task>
-    <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
-      <created>1681940400331</created>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
+      <created>1683228220586</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۱" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
-      <updated>1681940400331</updated>
+      <updated>1683228220586</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۲" summary="CAPTCHA was placed for registration.">
       <created>1683280109878</created>
@@ -272,41 +210,13 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۶" />
       <updated>1682674340660</updated>
     </task>
-    <task id="LOCAL-00017" summary="changing buildings">
-      <created>1682877923847</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1682877923847</updated>
+    <task id="LOCAL‎−۰۰۰۱۷" summary="Add Resource &amp; Resources (classes).">
+      <created>1682802845351</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
+      <updated>1682802845352</updated>
     </task>
-    <task id="LOCAL-00018" summary="map menu updated,structures updated">
-      <created>1682934308974</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1682934308974</updated>
-    </task>
-    <task id="LOCAL-00019" summary="map menu updated,structures updated">
-      <created>1682934476908</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1682934476908</updated>
-    </task>
-    <task id="LOCAL-00020" summary="map menu &amp; controller updated">
-      <created>1682937572099</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1682937572099</updated>
-    </task>
-    <task id="LOCAL-00021" summary="map menu &amp; controller updated">
-      <created>1682938730265</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1682938730265</updated>
-    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,9 +246,12 @@
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
-    <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
+    <MESSAGE value="Some bugs fixed." />
+    <MESSAGE value="CAPTCHA was placed for registration." />
+    <MESSAGE value="Updated new map creation menu and fixed several bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated new map creation menu and fixed several bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
