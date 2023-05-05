@@ -11,8 +11,8 @@ public enum Commands {
     FORGET_PASSWORD("forgot my password"),
 
     //PROFILE
-    CHANGE_USERNAME("profile change -u (?<username>[^\n]*)"),
-    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]*)"),
+    CHANGE_USERNAME("username change -u (?<username>[^\n]*)"),
+    CHANGE_NICKNAME("nickname change -n (?<nickname>[^\n]*)"),
     CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]*) -n (?<new-password>[^\n]*)"),
     CHANGE_EMAIL("profile change -e (?<email>[^\n]*)"),
     EMAIL("(?<part1>[^\\n]*)@(?<part2>[^\\n]*)\\.(?<part3>[^\\n]*)"),
@@ -56,7 +56,7 @@ public enum Commands {
     //EditMap Menu
     SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),
     DROP_UNIT("dropunit -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
-    DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
+    DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (<type>[^\n]+)"),
 
 
     //Game menu
