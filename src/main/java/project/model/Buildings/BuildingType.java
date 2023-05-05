@@ -2,18 +2,65 @@ package project.model.Buildings;
 
 public class BuildingType {
 
-    public String type;
-    public String category;
-    public int HP;
-    public int damage;
-    public int popularityChange;
-    public int rate;
-    public int fireRange;
-    public int defenceRange;
-    public int capacity;
+    private String type;
+    private String category;
+    private int HP;
+    private int damage;
+    private int popularityChange;
+    private int rate;
+    private int fireRange;
+    private int defenceRange;
+    private int NormalPeopleCapacity;
+    private int MilitiaCapacity;
+
+    public int getNormalPeopleCapacity() {
+        return NormalPeopleCapacity;
+    }
+
+    public int getMilitiaCapacity() {
+        return MilitiaCapacity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getPopularityChange() {
+        return popularityChange;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public int getFireRange() {
+        return fireRange;
+    }
+
+    public int getDefenceRange() {
+        return defenceRange;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    private int capacity;
 
     public BuildingType(String type, String category, int HP, int damage, int popularityChange, int rate
-            , int fireRange, int defenceRange, int capacity) {
+            , int fireRange, int defenceRange,int normalPeopleCapacity,int militiaCapacity) {
         this.type = type;
         this.category = category;
         this.HP = HP;
@@ -22,6 +69,8 @@ public class BuildingType {
         this.rate = rate;
         this.fireRange = fireRange;
         this.defenceRange = defenceRange;
-        this.capacity = capacity;
+        this.NormalPeopleCapacity=normalPeopleCapacity;
+        this.MilitiaCapacity=normalPeopleCapacity;
+
     }
 }
