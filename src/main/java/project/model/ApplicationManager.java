@@ -61,6 +61,7 @@ public class ApplicationManager {
 
     public static void addUser(User user){
         users.add(user);
+
     }
 
     public static void setCurrentGame(Game currentGame) {
@@ -112,9 +113,7 @@ public class ApplicationManager {
         if (!stayLoggedIn){
             currentUser = null;
         }
-        SaveAndLoad.saveUsers(users);
-        SaveAndLoad.saveGames(games);
-        SaveAndLoad.saveMaps(maps);
+        SaveAndLoad.save(users,maps,games);
         // && save date ...
     }
 
@@ -136,5 +135,6 @@ public class ApplicationManager {
     }
 
     public static void start() {
+        SaveAndLoad.gameInitialization();
     }
 }

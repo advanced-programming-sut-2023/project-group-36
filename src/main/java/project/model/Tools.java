@@ -1,53 +1,102 @@
 package project.model;
-import java.awt.*;
+import project.controller.CommandFormat;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Tools {
-    
-    public static ArrayList<String> splitString(String input) {
+
+
+
+    public static String passwordWeakCheck(String password){
+        if (password.length()<6){
+            return "The password is weak: password length is short!";
+        }
+        if (!password.matches(".*[A-Z].*")){
+            return "The password is weak: at least one capital letter is required!";
+        }
+        if (!password.matches(".*[a-z].*")){
+            return "The password is weak: at least one small letter is required!";
+        }
+        if (!password.matches(".*[0-9].*")){
+            return "The password is weak: at least one number is required!";
+        }
+        if (!password.matches(".*[#*\\-+&^%$@!.(){}].*")){
+            return "The password is weak: at least one special character is required!";
+        }
+        return "Good";
+    }
+
+
+    private static ArrayList<String> splitString(String input) {
         ArrayList<String> parts = new ArrayList<>();
         Matcher m = Pattern.compile("([^\"]\\S*|\".+?\")\\s*").matcher(input);
         while (m.find()) {
-            parts.add(m.group(1).replace("\"", ""));
+            parts.add(m.group(1).replace("\"", "").trim());
         }
         return parts;
     }
 
-    public static String removeString(String str1, String str2) {
+    private static String removeString(String str1, String str2) {
         if (str2.startsWith(str1)) {
             return str2.substring(str1.length());
         } 
         else {
-            return "Error";
+            return null;
         }
     }
 
-    public static String commandFormating(ArrayList<String> arr1, ArrayList<String> arr2) {
-        String result = new String();
-        ArrayList<String> arr3 = new ArrayList<>();
-        for (int i = 0; i < arr1.size(); i++) {
-            for (int j = 0; j < arr2.size(); j++) {
-                if (arr1.get(i).equals(arr2.get(j))) {
-                    arr3.add(arr1.get(i));
+    private static String commandFormatting(ArrayList<String> flags, ArrayList<String> parts, String start) {
+        String result = start + " ";
+        ArrayList<String> availableFlags = new ArrayList<>();
+        for (String flag : flags) {
+            for (String part : parts) {
+                if (part.equals(flag)) {
+                    availableFlags.add(part);
                     break;
                 }
             }
         }
-        for (int i = 0; i < arr3.size(); i++) {
-            String item = arr3.get(i);
-            int index = arr2.indexOf(item);
-            result+=item+" ";
-            if (index != -1 && index < arr2.size() - 1 && !arr3.contains(arr2.get(index + 1))) {
-                result+=(arr2.get(index+1)+" ");
+        System.out.println(flags);
+        System.out.println(parts);
+        System.out.println(availableFlags);
+        for (int i = 0; i < availableFlags.size(); i++) {
+            String flag = availableFlags.get(i);
+            int index = parts.indexOf(flag);
+            result += availableFlags.get(i) + " ";
+            if (index != -1 && index < parts.size() - 1 && !availableFlags.contains(parts.get(index + 1))) {
+                result+= parts.get(index + 1) + " ";
+                parts.remove(index);
+                parts.remove(index);
             } 
             else {
-                result+=("");
+                result+="";
             }
         }
+        System.out.println(flags);
+        System.out.println(parts);
+        System.out.println(availableFlags);
+        if (parts.size()!=0){
+            result = start;
+        }
         return result;
+    }
+
+
+    public static String inputFormatting(String input , CommandFormat commandFormat){
+        String start = commandFormat.getStart();
+        String[] flagsArray = commandFormat.getFlags();
+        if (!input.matches(start+".+")){
+            return null;
+        }
+        ArrayList<String> parts = splitString(removeString(start,input));
+        ArrayList<String> flags = new ArrayList<>();
+        Collections.addAll(flags, flagsArray);
+        return commandFormatting(flags,parts,start);
+
     }
 
     private static String[] print0_9AsciiArt(int number) {
@@ -170,9 +219,9 @@ public class Tools {
     }      
     private static void printCaptcha(ArrayList<Integer> nums){
         for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < nums.size(); j++) {
+            for (Integer num : nums) {
                 System.out.print(getRandomString(2));
-                System.out.print(print0_9AsciiArt(nums.get(j))[i]);
+                System.out.print(print0_9AsciiArt(num)[i]);
                 System.out.print(getRandomString(2));
             }
             System.out.println();

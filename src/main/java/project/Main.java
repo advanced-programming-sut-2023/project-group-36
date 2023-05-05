@@ -3,6 +3,7 @@ package project;
 import project.model.ApplicationManager;
 import project.model.User;
 import project.view.LoginMenu;
+import project.view.RegisterMenu;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -32,12 +33,12 @@ public class Main {
         */
 
         ApplicationManager.start();
-        //LoginMenu.run();
         User user1 = new User("ahmad","123","mosa","123$33","1ww","1",1);
         User user2 = new User("gholi","123","mosa","123$332","1ww","1",1);
         ApplicationManager.addUser(user1);
         ApplicationManager.addUser(user2);
+        RegisterMenu.run();
         ApplicationManager.exit();
-
+        //user create -u ali -p ggf -s fd -n salam -c "dfgf irsgk" -email sdf
     }
 }
