@@ -3,7 +3,7 @@ package project.controller;
 public enum Commands {
 
     //REGISTER & LOGIN
-    REGISTER("user create -u (?<username>[^\n]*) -p (?<password>[^\n]*) (?<passwordConfirmation>[^\n]*) -email (?<email>[^\n]*) -n (?<nickname>[^\n]*)(-s (?<slogan>[^\n]*))?"),
+    REGISTER("user create -u (?<username>[^\n]*) -p (?<password>[^\n]*) -c (?<passwordConfirmation>[^\n]*) -email (?<email>[^\n]*) -n (?<nickname>[^\n]*)(-s (?<slogan>[^\n]*))?"),
     QUESTION_ANSWER("question pick -q (?<questionNumber>[\\d]+) -a (?<answer>[^\n]+) -c (?<answerConfirm>[^\n]+)\\s*"),
 
     LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)"),

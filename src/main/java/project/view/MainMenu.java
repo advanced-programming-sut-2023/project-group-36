@@ -11,8 +11,8 @@ public class MainMenu {
 
     public static void run(){
         Matcher matcher;
-        Boolean inThisMenu=true;
-        System.out.println("**<< LoginMenu Menu >>**");
+        boolean inThisMenu=true;
+        System.out.println("**<< MainMenu >>**");
         while(true) {
             String command = scanner.nextLine();
             String output;

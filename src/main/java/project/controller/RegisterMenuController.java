@@ -1,6 +1,7 @@
 package project.controller;
 
 import project.model.ApplicationManager;
+import project.model.Tools;
 import project.model.User;
 import project.view.Menu;
 
@@ -10,24 +11,6 @@ import java.util.regex.Matcher;
 
 public class RegisterMenuController {
 
-    private static String passwordWeakCheck(String password){
-        if (password.length()<6){
-            return "The password is weak: password length is short!";
-        }
-        if (!password.matches(".*[A-Z].*")){
-            return "The password is weak: at least one capital letter is required!";
-        }
-        if (!password.matches(".*[a-z].*")){
-            return "The password is weak: at least one small letter is required!";
-        }
-        if (!password.matches(".*[0-9].*")){
-            return "The password is weak: at least one number is required!";
-        }
-        if (!password.matches(".*[#*\\-+&^%$@!.(){}].*")){
-            return "The password is weak: at least one special character is required!";
-        }
-        return "Good";
-    }
     private static String SuggestUsername(String username) {
         String suggested = username;
         int number = 1;
@@ -75,8 +58,8 @@ public class RegisterMenuController {
         if (!result.equals("Good")){
             return result;
         }
-        if (!passwordWeakCheck(password).equals("Good")){
-            return passwordWeakCheck(password);
+        if (!Tools.passwordWeakCheck(password).equals("Good")){
+            return Tools.passwordWeakCheck(password);
         }
         if (!password.equals(passwordConfirmation)){
             return "Error: password and confirmation password are not the same!";

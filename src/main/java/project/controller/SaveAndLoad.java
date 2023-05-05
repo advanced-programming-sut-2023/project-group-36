@@ -21,10 +21,16 @@ public class SaveAndLoad {
     public static String Address2="Database/Maps.json";
     public static String Address3="Database/Games.json";
 
-    public static void GameInitialization(){
+    public static void gameInitialization(){
         loadUsers();
         loadGames();
         loadMaps();
+    }
+
+    public static void save(ArrayList<User> users,ArrayList<Map> maps,ArrayList<Game> games){
+        SaveAndLoad.saveUsers(users);
+        SaveAndLoad.saveGames(games);
+        SaveAndLoad.saveMaps(maps);
     }
 
     public static void saveUsers(ArrayList<User> users) {
@@ -59,7 +65,7 @@ public class SaveAndLoad {
 
 
 
-    public static void loadUsers() {
+    private static void loadUsers() {
         ArrayList<User> users = new ArrayList<>();
         try (FileReader file = new FileReader(Address1)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
@@ -74,7 +80,7 @@ public class SaveAndLoad {
     }
 
 
-    public static void loadMaps() {
+    private static void loadMaps() {
         ArrayList<Map> maps = new ArrayList<>();
         try (FileReader file = new FileReader(Address2)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
@@ -89,7 +95,7 @@ public class SaveAndLoad {
         }
     }
 
-    public static void loadGames() {
+    private static void loadGames() {
         ArrayList<Game> games = new ArrayList<>();
         try (FileReader file = new FileReader(Address3)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();

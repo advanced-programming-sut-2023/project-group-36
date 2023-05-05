@@ -4,6 +4,7 @@ import project.controller.Commands;
 import project.controller.LoginMenuController;
 import project.controller.RegisterMenuController;
 import project.model.ApplicationManager;
+import project.model.Tools;
 
 import javax.annotation.processing.SupportedSourceVersion;
 import java.security.NoSuchAlgorithmException;
@@ -14,10 +15,10 @@ public class LoginMenu {
   private final static Scanner scanner = Menu.getScanner();
 
   public static void run() throws InterruptedException, NoSuchAlgorithmException {
-    Matcher matcher;
-     Boolean inThisMenu=true;
-    int delay=0;
-    System.out.println("**<< Login Menu >>**");
+     Matcher matcher;
+     boolean inThisMenu=true;
+     int delay=0;
+     System.out.println("**<< Login Menu >>**");
     while(inThisMenu){
       String command = scanner.nextLine();
       String output;
@@ -48,7 +49,7 @@ public class LoginMenu {
         else{
           System.out.println("enter new password:");
           String newPassword=Menu.getScanner().nextLine();
-          String result=LoginMenuController.passwordWeakCheck(newPassword);
+          String result= Tools.passwordWeakCheck(newPassword);
           System.out.println(result);
           if(result.contains("logged"))
             MainMenu.run();
