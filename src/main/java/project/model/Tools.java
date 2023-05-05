@@ -227,11 +227,15 @@ public class Tools {
             System.out.println();
         }
     }
-    public static ArrayList<Integer> captcha(){
-        ArrayList<Integer> numbers = new ArrayList<>();
+    public static String captcha(){
+        ArrayList<Integer> numbers;
         numbers = getRandomNumbers();
         printCaptcha(numbers);
-        return numbers;
+        String string = new String();
+        for (Integer number : numbers) {
+            string += number;
+        }
+        return string;
     }
 
 

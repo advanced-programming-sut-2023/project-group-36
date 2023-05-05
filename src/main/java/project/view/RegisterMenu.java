@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 public class RegisterMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run() throws NoSuchAlgorithmException {
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< Register Menu >>**");
         String input;
         String result;
@@ -31,7 +31,7 @@ public class RegisterMenu {
             }
             else if (input.equals("login menu")){
                 inThisMenu = false;
-                MainMenu.run();
+                LoginMenu.run();
             }
             else {
                 System.out.println("Invalid command!");

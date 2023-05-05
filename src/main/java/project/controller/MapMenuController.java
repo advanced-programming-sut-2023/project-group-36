@@ -32,7 +32,7 @@ public class MapMenuController {
                 res+="\n";
                 res+="|  ";
                 if(block.getThisBlockStructure() != null){
-                    if(block.getThisBlockStructure().getBuildingType().category.equals("Castle Buildings"))
+                    if(block.getThisBlockStructure().getBuildingType().getCategory().equals("Castle Buildings"))
                         res+="W";
                     else
                         res+="B";

@@ -6,6 +6,7 @@ import project.model.User;
 import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 
@@ -76,6 +77,13 @@ public class RegisterMenuController {
         }
         String questionAnswer = result.substring(1);
         int questionNumber = Integer.parseInt(String.valueOf(result.charAt(0)));
+        String captchaNumbers = Tools.captcha();
+        System.out.println(captchaNumbers);
+        while (!Menu.getScanner().nextLine().equals(captchaNumbers)){
+            System.out.println("Error: You entered the CAPTCHA code incorrectly.");
+            captchaNumbers = Tools.captcha();
+        }
+
         User user = new User(username, password, nickname, email,slogan, questionAnswer, questionNumber);
         ApplicationManager.addUser(user);
         user.setPassword(SHA_256Format.sha256(user.getPassword()));

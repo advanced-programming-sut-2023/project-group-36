@@ -13,7 +13,7 @@ public class MainMenu {
         Matcher matcher;
         boolean inThisMenu=true;
         System.out.println("**<< MainMenu >>**");
-        while(true) {
+        while(inThisMenu) {
             String command = scanner.nextLine();
             String output;
             if (command.matches(Commands.START_GAME.getRegex())) {
@@ -22,14 +22,17 @@ public class MainMenu {
             }
             else if(command.matches(Commands.OPEN_GAME.getRegex())) {
                 matcher = Menu.getMatcher(command, Commands.OPEN_GAME.getRegex());
+                inThisMenu=false;
                 System.out.println();
                 //GameMenu.run();
             }
             else if(command.matches(Commands.PROFILE_MENU.getRegex())){
+                inThisMenu=false;
                 //ProfileMenu.run();
             }
             else if(command.matches(Commands.CREATE_MAP.getRegex())){
-
+                inThisMenu=false;
+                //createMap.run();
             }
             else if(command.matches(Commands.LOGOUT.getRegex())){
                 inThisMenu=false;

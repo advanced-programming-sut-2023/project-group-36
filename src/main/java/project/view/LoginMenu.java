@@ -56,7 +56,6 @@ public class LoginMenu {
         }
       }
       else if(command.equals("user logout")){
-        inThisMenu=false;
         return;
       }
       else if(command.equals("register menu")){
