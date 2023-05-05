@@ -6,15 +6,15 @@ import project.model.Peoples.PeopleType;
 import java.util.ArrayList;
 
 public class Types {
-    private static ArrayList<PeopleType> peopleTypes;
-    private static ArrayList<BuildingType> buildingTypes;
+    private static ArrayList<PeopleType> peopleTypes = new ArrayList<>();
+    private static ArrayList<BuildingType> buildingTypes = new ArrayList<>();
 
     public static void run(){
         addPeopleTypes();
         addBuildingsTypes();
     }
 
-    private static void addPeopleTypes() {
+    public static void addPeopleTypes() {
 
         peopleTypes.add(new PeopleType("Archer","launchers" ,8, 2,2, 4, 2, new String[]{"type1", "type2"}));
         peopleTypes.add(new PeopleType("Crossbowmen","launchers" ,9, 2,3, 4, 5, new String[]{"type1", "type2"}));
@@ -40,7 +40,7 @@ public class Types {
 
     }
 
-    private static void addBuildingsTypes() {
+    public static void addBuildingsTypes() {
         buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",25,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Big stone gatehouse","CastleBuildings",25,0,0,0,0,0,10,0));
         buildingTypes.add(new BuildingType("Keep","CastleBuildings",40,0,0,0,0,0,0,0));

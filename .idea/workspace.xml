@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="CAPTCHA was placed for registration.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Updated new map creation menu and fixed several bugs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Maps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Maps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +94,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="efb9f942-92be-4d3d-afc1-2b7abd081310" name="Changes" comment="Some bugs fixed." />
+      <changelist id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Updated new map creation menu and fixed several bugs." />
       <created>1681939000910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -113,6 +118,7 @@
       <workItem from="1682602379469" duration="8573000" />
       <workItem from="1682668516859" duration="4554000" />
       <workItem from="1683269388407" duration="6785000" />
+      <workItem from="1683309987507" duration="888000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -126,11 +132,11 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
       <updated>1683280109878</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۳" summary="Maven created :)">
-      <created>1681979841422</created>
+    <task id="LOCAL‎−۰۰۰۰۳" summary="Updated new map creation menu and fixed several bugs.">
+      <created>1683286378040</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۳" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
-      <updated>1681979841422</updated>
+      <updated>1683286378040</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۴" summary="Update CreateNewGameMenu.">
       <created>1681984488419</created>
@@ -216,7 +222,7 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
       <updated>1682802845352</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +256,8 @@
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="CAPTCHA was placed for registration." />
-    <option name="LAST_COMMIT_MESSAGE" value="CAPTCHA was placed for registration." />
+    <MESSAGE value="Updated new map creation menu and fixed several bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated new map creation menu and fixed several bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

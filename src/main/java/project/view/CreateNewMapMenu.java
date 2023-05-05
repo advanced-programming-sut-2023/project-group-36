@@ -35,16 +35,16 @@ public class CreateNewMapMenu {
                 System.out.println(CreateNewMapController.setMapName(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
-                System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex),map));
             }
             else if (input.matches(regex = Commands.DROP_TREE.getRegex())){
-                System.out.println(CreateNewMapController.dropTree(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.dropTree(Menu.getMatcher(input,regex),map));
             }
             else if (input.matches(regex = Commands.SET_TEXTURE.getRegex())){
-                System.out.println(CreateNewMapController.setTexture(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.setTexture(Menu.getMatcher(input,regex),map));
             }
             else if (input.matches(regex = Commands.SET_TEXTURE_RECTANGLE.getRegex())){
-                System.out.println(CreateNewMapController.setTextureRectangle(Menu.getMatcher(input,regex)));
+                System.out.println(CreateNewMapController.setTextureRectangle(Menu.getMatcher(input,regex),map));
             }
 
             else if (input.matches("save map")){

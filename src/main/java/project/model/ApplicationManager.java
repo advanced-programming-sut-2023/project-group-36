@@ -138,6 +138,8 @@ public class ApplicationManager {
     }
 
     public static void start() {
+        Types.addPeopleTypes();
+        Types.addBuildingsTypes();
         SaveAndLoad.gameInitialization();
     }
 }

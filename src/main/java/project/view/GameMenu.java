@@ -1,17 +1,14 @@
 package project.view;
 
 import project.controller.Commands;
-import project.controller.CreateNewMapController;
 import project.controller.GameController;
 import project.model.Game;
 
-import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class GameMenu {
     private final static Scanner scanner = Menu.getScanner();
-
     public static void run(Game game){
         System.out.println("**<< Game Menu >>**");
         GameController.setGame(game);
@@ -54,6 +51,10 @@ public class GameMenu {
                 System.out.println(GameController.fearRateShow());
             }
 
+            /////////////// Amir Mohammad
+
+            ////////////// Mohammad
+
             else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
                 GameController.dropBuilding(Menu.getMatcher(input,regex));
             }
@@ -69,6 +70,8 @@ public class GameMenu {
             else if (input.matches(regex = Commands.REPAIR.getRegex())){
                 GameController.repair(Menu.getMatcher(input,regex));
             }
+
+            ////////////// Mohammad
 
             ///////////////////// ALI
 

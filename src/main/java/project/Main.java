@@ -43,7 +43,8 @@ public class Main {
         //ApplicationManager.addUser(user3);
         //RegisterMenu.run();
         //LoginMenu.run();
-        CreateNewMapMenu.run();
+        //CreateNewMapMenu.run();
+        CreateNewGameMenu.run(3);
         ApplicationManager.exit();
         //user create -u ali -p ggf -s fd -n salam -c "dfgf irsgk" -email sdf
     }

@@ -55,7 +55,7 @@ public enum Commands {
 
     //EditMap Menu
     SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),
-    DROP_UNIT("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
+    DROP_UNIT("dropunit -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
     DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -type (<type>[^\n]+)"),
 
 

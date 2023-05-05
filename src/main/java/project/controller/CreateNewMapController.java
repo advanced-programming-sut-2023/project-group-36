@@ -19,13 +19,13 @@ public class CreateNewMapController {
         return "Map name set successfully.";
     }
 
-    public static String dropRock(Matcher matcher){
+    public static String dropRock(Matcher matcher, Map map){
         String x = matcher.group("x");
         String y = matcher.group("y");
         String direction = matcher.group("direction");
         int xNum = Integer.parseInt(x);
         int yNum = Integer.parseInt(y);
-        Block block = CreateNewMapMenu.map.getBlockByPosition(xNum,yNum);
+        Block block = map.getBlockByPosition(xNum,yNum);
         if (block.getType()!=null || block.getThisBlockStructure()!=null || block.getPeoples()!=null){
             return "Error: You cannot place a rock in this block because the terrain is not suitable or it is full.";
         }
@@ -37,13 +37,13 @@ public class CreateNewMapController {
         block.setType("rock"+direction);
         return "The rock was placed successfully.";
     }
-    public static String dropTree(Matcher matcher){
+    public static String dropTree(Matcher matcher,Map map){
         String x = matcher.group("x");
         String y = matcher.group("y");
         String type = matcher.group("type");
         int xNum = Integer.parseInt(x);
         int yNum = Integer.parseInt(y);
-        Block block = CreateNewMapMenu.map.getBlockByPosition(xNum,yNum);
+        Block block = map.getBlockByPosition(xNum,yNum);
         if (block.getTree()!=null || block.getThisBlockStructure()!=null || block.getPeoples()!=null || !block.suitableTypeForTree()){
             return "Error: You cannot place a tree in this block because the terrain is not suitable or it is full.";
         }
@@ -56,11 +56,11 @@ public class CreateNewMapController {
         return "The tree was placed successfully.";
     }
 
-    public static String setTexture(Matcher matcher) {
+    public static String setTexture(Matcher matcher,Map map) {
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
         String type = matcher.group("type");
-        Block block = CreateNewMapMenu.map.getBlockByPosition(x,y);
+        Block block = map.getBlockByPosition(x,y);
         if (block.getThisBlockStructure()!=null || block.getPeoples()!=null){
             return "Error: You cannot change the gender of this block ("+x+","+y+") because it contains buildings or people.";
         }
@@ -73,7 +73,7 @@ public class CreateNewMapController {
         return "Block ("+x+","+y+") type has been changed successfully.";
     }
 
-    public static String setTextureRectangle(Matcher matcher) {
+    public static String setTextureRectangle(Matcher matcher,Map map) {
         int x1 = Integer.parseInt(matcher.group("x1"));
         int y1 = Integer.parseInt(matcher.group("y1"));
         int x2 = Integer.parseInt(matcher.group("x2"));
@@ -83,7 +83,7 @@ public class CreateNewMapController {
         for (int x = x1; x <= x2; x++) {
             for (int y = y1; y <=y2 ; y++) {
                 input = "settexture -x "+x+" -y "+y+" -t "+type;
-                System.out.println(setTexture(Menu.getMatcher(input,Commands.SET_TEXTURE.getRegex())));
+                System.out.println(setTexture(Menu.getMatcher(input,Commands.SET_TEXTURE.getRegex()),map));
             }
         }
         return "Blocks that could be changed were changed and those that could not be changed remained intact.";

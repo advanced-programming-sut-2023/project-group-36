@@ -6,6 +6,7 @@ import project.model.User;
 import project.view.CreateNewGameMenu;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Matcher;
 
 public class CreateNewGameController {
@@ -49,6 +50,13 @@ public class CreateNewGameController {
             return "Error: Map not found!";
         }
         map = ApplicationManager.getMapByName(name).clone();
+        CreateNewGameMenu.map = map;
+        System.out.println(map);
+        System.out.println(map.getName());
+        System.out.println(map.getSize());
+        System.out.println(map.getCapacity());
+        System.out.println(map.getBlockByPosition(12,12));
+
         return "Map chosen successfully.";
     }
 

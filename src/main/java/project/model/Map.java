@@ -6,13 +6,14 @@ public class Map implements Cloneable{
     private int size;
     private String name;
 
-    private int capacity = 0;
+    private int capacity;
     private ArrayList<Block> blocks = new ArrayList<>();
 
 
     public Map(int size, String name){
         this.size = size;
         this.name = name;
+        capacity = 0;
         createBlacks();
     }
     public Block getBlockByPosition(int x, int y){
@@ -49,8 +50,8 @@ public class Map implements Cloneable{
         return CMap;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void addGovernment(int capacity) {
+        capacity += 1;
     }
 
     public int getCapacity() {

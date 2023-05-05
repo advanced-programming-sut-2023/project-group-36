@@ -60,8 +60,8 @@ public class EditMapController {
         else {
             people = new NormalPeople(peopleType,government,block);
         }
-        block.addPeople(people);
         government.addPeople(people);
+        block.addPeople(people);
         return "drop unit done successfully.";
     }
 
