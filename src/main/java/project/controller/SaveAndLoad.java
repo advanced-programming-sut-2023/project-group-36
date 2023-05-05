@@ -1,22 +1,43 @@
 package project.controller;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import project.model.ApplicationManager;
 import project.model.Game;
 import project.model.Map;
 import project.model.User;
-import java.io.File;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class SaveAndLoad {
+    public static String getAddress1() {
+        return Address1;
+    }
+
+    public static void setAddress1(String address1) {
+        Address1 = address1;
+    }
+
+    public static String getAddress2() {
+        return Address2;
+    }
+
+    public static void setAddress2(String address2) {
+        Address2 = address2;
+    }
+
+    public static String getAddress3() {
+        return Address3;
+    }
+
+    public static void setAddress3(String address3) {
+        Address3 = address3;
+    }
+
     public static String Address1="Database/Users.json";
     public static String Address2="Database/Maps.json";
     public static String Address3="Database/Games.json";
