@@ -18,12 +18,12 @@ public class MapMenu {
             if((matcher=Menu.getMatcher(command, Commands.SHOW_MAP.getRegex())) != null){
                  x=Integer.parseInt(matcher.group("x"))-1;
                  y=Integer.parseInt(matcher.group("y"))-1;
-                    System.out.println(MapMenuController.showMap(x,y));
+                 System.out.println(MapMenuController.showMap(x,y));
             }
             else if((matcher=Menu.getMatcher(command,Commands.SHOW_DETAILS.getRegex())) != null){
                  x=Integer.parseInt(matcher.group("x"))-1;
                  y=Integer.parseInt(matcher.group("y"))-1;
-                    System.out.println(MapMenuController.showDetails(x,y));
+                 System.out.println(MapMenuController.showDetails(x,y));
             }
             else if((matcher2=Menu.getMatcher(command,Commands.MAP_TRANSFORMATION.getRegex())) != null){
                     if(matcher==null)

@@ -1,42 +1,47 @@
 package project.view;
 
 import project.controller.Commands;
+import project.model.ApplicationManager;
 import project.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class MainMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
         Matcher matcher;
         boolean inThisMenu=true;
         System.out.println("**<< MainMenu >>**");
         while(inThisMenu) {
             String command = scanner.nextLine();
-            String output;
             if (command.matches(Commands.START_GAME.getRegex())) {
                 matcher=Menu.getMatcher(command,Commands.START_GAME.getRegex());
-                System.out.println();
+                int count = Integer.parseInt(matcher.group("usersNumber"));
+                if (count<2 || count>8){
+                    System.out.println("Error: Invalid number!");
+                    continue;
+                }
+                CreateNewGameMenu.run(count);
             }
             else if(command.matches(Commands.OPEN_GAME.getRegex())) {
-                matcher = Menu.getMatcher(command, Commands.OPEN_GAME.getRegex());
                 inThisMenu=false;
-                System.out.println();
-                //GameMenu.run();
+                GameMenu.run(ApplicationManager.getCurrentUser().getGame());
             }
             else if(command.matches(Commands.PROFILE_MENU.getRegex())){
                 inThisMenu=false;
-                //ProfileMenu.run();
+                ProfileMenu.run();
             }
             else if(command.matches(Commands.CREATE_MAP.getRegex())){
                 inThisMenu=false;
-                //createMap.run();
+                CreateNewMapMenu.run();
             }
             else if(command.matches(Commands.LOGOUT.getRegex())){
                 inThisMenu=false;
-                return;
+                ApplicationManager.setCurrentUser(null);
+                LoginMenu.run();
             }
             else {
                 System.out.println("Invalid command!");

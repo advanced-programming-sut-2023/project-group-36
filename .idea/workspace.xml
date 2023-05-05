@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb9f942-92be-4d3d-afc1-2b7abd081310" name="Changes" comment="junit-jupiter added&#10;1 testcase written">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -208,11 +198,11 @@
       <workItem from="1683130060684" duration="3561000" />
       <workItem from="1683188455120" duration="3892000" />
     </task>
-    <task id="LOCAL‎−۰۰۰۰۱" summary="Maven created :)">
-      <created>1681940400331</created>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
+      <created>1683228220586</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۱" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
-      <updated>1681940400331</updated>
+      <updated>1683228220586</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۲" summary="Maven created :)">
       <created>1681940785128</created>
@@ -304,40 +294,11 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۶" />
       <updated>1682674340660</updated>
     </task>
-    <task id="LOCAL-00017" summary="changing buildings">
-      <created>1682877923847</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1682877923847</updated>
-    </task>
-    <task id="LOCAL-00018" summary="map menu updated,structures updated">
-      <created>1682934308974</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1682934308974</updated>
-    </task>
-    <task id="LOCAL-00019" summary="map menu updated,structures updated">
-      <created>1682934476908</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1682934476908</updated>
-    </task>
-    <task id="LOCAL-00020" summary="map menu &amp; controller updated">
-      <created>1682937572099</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1682937572099</updated>
-    </task>
-    <task id="LOCAL-00021" summary="map menu &amp; controller updated">
-      <created>1682938730265</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1682938730265</updated>
+    <task id="LOCAL‎−۰۰۰۱۷" summary="Add Resource &amp; Resources (classes).">
+      <created>1682802845351</created>
+      <option name="number" value="LOCAL‎−۰۰۰۱۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
+      <updated>1682802845352</updated>
     </task>
     <task id="LOCAL-00022" summary="map menu completed (not tested)">
       <created>1682939207894</created>
@@ -411,7 +372,6 @@
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
-    <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="changing buildings" />
