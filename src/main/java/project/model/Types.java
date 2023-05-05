@@ -41,7 +41,7 @@ public class Types {
     }
 
 
-    private static void addBuildingsTypes() {
+    public static void addBuildingsTypes() {
         buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("Big stone gatehouse","CastleBuildings",0,0,0,0,0,0,0,0,10,0));
         buildingTypes.add(new BuildingType("Keep","CastleBuildings",0,0,0,0,0,0,0,0,0,0));
