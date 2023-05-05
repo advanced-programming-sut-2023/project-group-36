@@ -144,7 +144,7 @@ public class Government{
 
         // Religion -
         for (Block block : this.getMap().getBlocks()) {
-            if (block.getThisBlockStructure().name.equals("Church") || block.getThisBlockStructure().name.equals("Cathedral"))
+            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral"))
                 popularity += 2;
         }
 
