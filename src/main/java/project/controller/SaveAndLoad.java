@@ -66,7 +66,7 @@ public class SaveAndLoad {
 
 
     private static void loadUsers() {
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> users;
         try (FileReader file = new FileReader(Address1)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
             Gson gson = new Gson();
@@ -81,9 +81,9 @@ public class SaveAndLoad {
 
 
     private static void loadMaps() {
-        ArrayList<Map> maps = new ArrayList<>();
+        ArrayList<Map> maps;
         try (FileReader file = new FileReader(Address2)) {
-            Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
+            Type gameListType = new TypeToken<ArrayList<Map>>(){}.getType();
             Gson gson = new Gson();
             maps = gson.fromJson(file, gameListType);
             if (maps!=null)
@@ -96,7 +96,7 @@ public class SaveAndLoad {
     }
 
     private static void loadGames() {
-        ArrayList<Game> games = new ArrayList<>();
+        ArrayList<Game> games;
         try (FileReader file = new FileReader(Address3)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
             Gson gson = new Gson();

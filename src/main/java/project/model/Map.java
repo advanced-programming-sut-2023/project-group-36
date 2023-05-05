@@ -13,6 +13,7 @@ public class Map implements Cloneable{
     public Map(int size, String name){
         this.size = size;
         this.name = name;
+        createBlacks();
     }
     public Block getBlockByPosition(int x, int y){
         for (Block block : blocks) {
