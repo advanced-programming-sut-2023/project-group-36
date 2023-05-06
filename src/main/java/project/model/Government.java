@@ -96,37 +96,19 @@ public class Government{
     public void nextTurn(){
         // food & ...
 
-        // Food +
+        // Feed +
         checkTheFoodFactor();
 
         // Tax +
 
         //initialization for taxRate = 0
-        double taxOfEachPerson = 0;
-        int taxesToBeCollected = 0;
-        int changeOfPopularity = 1;
-
-        if (taxRate < 0) {
-            taxOfEachPerson = -0.2 * taxRate - 0.4;
-            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;
-            changeOfPopularity = taxRate * -2 + 1;
-        }
-        else if(taxRate > 0) {
-            taxOfEachPerson = 0.2 * taxRate + 0.4;
-            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());
-            if (taxRate <= 4)
-                changeOfPopularity = taxRate * 2;
-            else
-                changeOfPopularity = taxRate * 4 - 8;
-        }
-
-        coins += taxesToBeCollected;
-        popularity += changeOfPopularity;
+        checkTheTaxFactor();
 
         // Religion +
         for (Block block : this.getMap().getBlocks()) {
-            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral"))
+            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
                 popularity += 2;
+            }
         }
 
         // Fear -
@@ -148,10 +130,12 @@ public class Government{
             game.removeGovernment(this);
             User user = this.getOwner();
             user.addScore(game.getScore());
+
         }
     }
 
     // Food functions
+
     private int getAmountOfAllTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
@@ -161,7 +145,6 @@ public class Government{
 
         return amountOfTypesOfFoods;
     }
-
     private int getIndexOfMaxAmountOfFoods() {
         int indexOfMax = 0;
         for (int i = 0; i < foodAmount.length; i++) {
@@ -172,8 +155,8 @@ public class Government{
         return indexOfMax;
     }
 
-    // functions of religion
 
+    // functions of religion
     public Map getMap() {
         return map;
     }
@@ -190,18 +173,19 @@ public class Government{
     public int getAmountOfResource(String type){
         return resources.getResourceAmount(type);
     }
+
     public void changeAmountOfResource(String type, int amount){
         resources.changeResourceAmount(type,amount);
     }
-
     public int getAmountOfFoods(String type){
         return foodAmount[getIndexOfFood(type)];
     }
+
     public void changeAmountOfFoods(String type, int amount){
         foodAmount[getIndexOfFood(type)]+=amount;
     }
-
     // Food
+
     public void setFeedRate(int foodRate) { this.feedRate = foodRate; }
     public int amountOfFoods() {
         int amount = 0;
@@ -211,10 +195,10 @@ public class Government{
 
         return amount;
     }
-
     public int getFeedRate() { return feedRate; }
 
     // Tax
+
     public void setTaxRate(int taxRate) { this.taxRate = taxRate; }
     public int getTaxRate() {
         return taxRate;
@@ -222,11 +206,10 @@ public class Government{
     public int getCoins() {
         return coins;
     }
-
     // Fear
+
     public int getFearRate() { return fearRate; }
     public void setFearRate(int fearRate) { this.fearRate = fearRate; }
-
     private void addResources(){
     }
 
@@ -257,6 +240,7 @@ public class Government{
 
 
     //next turn function
+
     private void checkTheFoodFactor() {
         changePopularity(getAmountOfAllTypesOfFoods() - 1);
 
@@ -281,4 +265,26 @@ public class Government{
         changePopularity(feedRate * 2);
     }
 
+    private void checkTheTaxFactor() {
+        double taxOfEachPerson = 0;
+        int taxesToBeCollected = 0;
+        int changeOfPopularity = 1;
+
+        if (taxRate < 0) {
+            taxOfEachPerson = -0.2 * taxRate - 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;
+            changeOfPopularity = taxRate * -2 + 1;
+        }
+        else if(taxRate > 0) {
+            taxOfEachPerson = 0.2 * taxRate + 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());
+            if (taxRate <= 4)
+                changeOfPopularity = taxRate * 2;
+            else
+                changeOfPopularity = taxRate * 4 - 8;
+        }
+
+        coins += taxesToBeCollected;
+        changePopularity(changeOfPopularity);
+    }
 }

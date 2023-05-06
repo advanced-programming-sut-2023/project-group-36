@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="map menu completed (not tested)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="feed updated">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -384,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683283276763</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feed updated">
+      <created>1683397442518</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1683397442518</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +430,8 @@
     <MESSAGE value="buildings updated" />
     <MESSAGE value="minor change in password format and database" />
     <MESSAGE value="building type changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="building type changed" />
+    <MESSAGE value="feed updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="feed updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
