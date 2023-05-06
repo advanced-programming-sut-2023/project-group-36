@@ -94,29 +94,10 @@ public class Government{
     }
 
     public void nextTurn(){
+        // food & ...
 
         // Food +
-        popularity += getAmountOfTypesOfFoods() - 1;
-
-        double foodForEachPerson = (double) feedRate / 2 + 1;
-        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int
-
-        if (amountOfFoods() <= foodsToBeConsuming) {
-            Arrays.fill(foodAmount, 0);
-            feedRate = -2;
-        }
-        else {
-            int eachFoodToBeConsuming = foodsToBeConsuming / 4;
-            for (int i = 0; i < foodAmount.length; i++) {
-                foodAmount[i] -= eachFoodToBeConsuming;
-            }
-            while (foodsToBeConsuming % 4 != 0) {
-                foodAmount[getIndexOfMaxAmountOfFoods()]--;
-                foodsToBeConsuming--;
-            }
-        }
-
-        popularity += feedRate * 2;
+        checkTheFoodFactor();
 
         // Tax +
 
@@ -142,11 +123,25 @@ public class Government{
         coins += taxesToBeCollected;
         popularity += changeOfPopularity;
 
-        // Religion -
+        // Religion +
         for (Block block : this.getMap().getBlocks()) {
             if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral"))
                 popularity += 2;
         }
+
+        // Fear -
+
+
+        // Population growth
+        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
+            //people ++
+        }
+        // Population death
+        if (getAmountOfAllTypesOfFoods() == 0) {
+            // people--: first
+        }
+
+
 
         if (checkGameOver()){
             Game game = GameController.getGame();
@@ -156,9 +151,8 @@ public class Government{
         }
     }
 
-
     // Food functions
-    private int getAmountOfTypesOfFoods() {
+    private int getAmountOfAllTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
         for (int i : foodAmount) {
@@ -258,6 +252,33 @@ public class Government{
 
     public void removePeople(People people) {
         peoples.remove(people);
+    }
+
+
+
+    //next turn function
+    private void checkTheFoodFactor() {
+        changePopularity(getAmountOfAllTypesOfFoods() - 1);
+
+        double foodForEachPerson = (double) feedRate / 2 + 1;
+        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int
+
+        if (amountOfFoods() <= foodsToBeConsuming) {
+            Arrays.fill(foodAmount, 0);
+            feedRate = -2;
+        }
+        else {
+            int eachFoodToBeConsuming = foodsToBeConsuming / 4;
+            for (int i = 0; i < foodAmount.length; i++) {
+                foodAmount[i] -= eachFoodToBeConsuming;
+            }
+            while (foodsToBeConsuming % 4 != 0) {
+                foodAmount[getIndexOfMaxAmountOfFoods()]--;
+                foodsToBeConsuming--;
+            }
+        }
+
+        changePopularity(feedRate * 2);
     }
 
 }
