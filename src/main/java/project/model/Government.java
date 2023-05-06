@@ -1,12 +1,19 @@
 package project.model;
 
 import project.controller.GameController;
+import project.model.Buildings.BuildingType;
 import project.model.Buildings.Structure;
+import project.model.Peoples.NormalPeople;
 import project.model.Peoples.People;
+import project.model.Peoples.PeopleType;
 import project.view.GameMenu;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+
+
+
+//??
+
 
 public class Government{
     private User owner;
@@ -262,16 +269,31 @@ public class Government{
 
     // change population
     private void changePopulation() {
-        // Population growth
-        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
-            //people ++
+        // people growth + ?
+        // create a people||
+        int amountOfPeopleMostAdding = getAmountOfAllTypesOfFoods() / peoples.size();
+        for (Structure structure : structures) {
+            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
+            BuildingType buildingType = structure.getBuildingType();
+            for (int i = 0; i < amountOfPeopleMostAdding; i++) {
+                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() > 0)  {
+                    NormalPeople normalPeople = new NormalPeople(peopleType, this, structure.getBlock());
+                    /*!!!!!*/                    peoples.add(normalPeople); // nothing another ????
+                    buildingType.changeNormalPeopleCapacity(-1);
+                }
+            }
         }
+
         // Population death
         if (getAmountOfAllTypesOfFoods() == 0) {
             // people--: first
         }
     }
 
+
+    // *Auxiliary functions* //
+
+    // Food functions
     private int getAmountOfAllTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
@@ -281,7 +303,6 @@ public class Government{
 
         return amountOfTypesOfFoods;
     }
-    // Food functions
 
     private int getIndexOfMaxAmountOfFoods() {
         int indexOfMax = 0;
@@ -309,3 +330,4 @@ public class Government{
 
     //
 }
+
