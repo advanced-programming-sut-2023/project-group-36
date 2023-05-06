@@ -100,7 +100,6 @@ public class Government{
         checkTheFoodFactor();
 
         // Tax +
-
         //initialization for taxRate = 0
         checkTheTaxFactor();
 
@@ -108,19 +107,12 @@ public class Government{
         checkTheReligionFactor();
 
         // Fear -
+        checkTheFearFactor();
 
+        // change population
+        changePopulation();
 
-        // Population growth
-        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
-            //people ++
-        }
-        // Population death
-        if (getAmountOfAllTypesOfFoods() == 0) {
-            // people--: first
-        }
-
-
-
+        // game over
         if (checkGameOver()){
             Game game = GameController.getGame();
             game.removeGovernment(this);
@@ -131,45 +123,11 @@ public class Government{
     }
 
 
-    // Food functions
-    private int getAmountOfAllTypesOfFoods() {
-        int amountOfTypesOfFoods = 0;
 
-        for (int i : foodAmount) {
-            amountOfTypesOfFoods++;
-        }
-
-        return amountOfTypesOfFoods;
-    }
-
-    private int getIndexOfMaxAmountOfFoods() {
-        int indexOfMax = 0;
-        for (int i = 0; i < foodAmount.length; i++) {
-            if (foodAmount[i] > indexOfMax)
-                indexOfMax = i;
-        }
-
-        return indexOfMax;
-    }
-
-    // functions of religion
-
-    public Map getMap() {
-        return map;
-    }
-    public Integer getIndexOfFood(String type){
-        for (int i = 0; i < foodType.length; i++) {
-            if (foodType[i].equals(type)){
-                return i;
-            }
-        }
-        return null;
-    }
 
     public int getAmountOfResource(String type){
         return resources.getResourceAmount(type);
     }
-
     public void changeAmountOfResource(String type, int amount){
         resources.changeResourceAmount(type,amount);
     }
@@ -177,6 +135,7 @@ public class Government{
     public int getAmountOfFoods(String type){
         return foodAmount[getIndexOfFood(type)];
     }
+
     public void changeAmountOfFoods(String type, int amount){
         foodAmount[getIndexOfFood(type)]+=amount;
     }
@@ -203,9 +162,9 @@ public class Government{
     public int getCoins() {
         return coins;
     }
+
     // Fear
     public int getFearRate() { return fearRate; }
-
     public void setFearRate(int fearRate) { this.fearRate = fearRate; }
     private void addResources(){
     }
@@ -213,7 +172,6 @@ public class Government{
     public void changeCoins(int count) {
         coins+=count;
     }
-
 
 
     public void setSelectedPeoples(ArrayList<People> peoples) {
@@ -236,8 +194,9 @@ public class Government{
 
 
 
-    //next turn function
 
+
+    //next turn function
     //food
     private void checkTheFoodFactor() {
         changePopularity(getAmountOfAllTypesOfFoods() - 1);
@@ -296,4 +255,57 @@ public class Government{
         }
     }
 
+    //fear
+    private void checkTheFearFactor() {
+
+    }
+
+    // change population
+    private void changePopulation() {
+        // Population growth
+        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
+            //people ++
+        }
+        // Population death
+        if (getAmountOfAllTypesOfFoods() == 0) {
+            // people--: first
+        }
+    }
+
+    private int getAmountOfAllTypesOfFoods() {
+        int amountOfTypesOfFoods = 0;
+
+        for (int i : foodAmount) {
+            amountOfTypesOfFoods++;
+        }
+
+        return amountOfTypesOfFoods;
+    }
+    // Food functions
+
+    private int getIndexOfMaxAmountOfFoods() {
+        int indexOfMax = 0;
+        for (int i = 0; i < foodAmount.length; i++) {
+            if (foodAmount[i] > indexOfMax)
+                indexOfMax = i;
+        }
+
+        return indexOfMax;
+    }
+    // functions of religion
+
+    public Map getMap() {
+        return map;
+    }
+
+    public Integer getIndexOfFood(String type){
+        for (int i = 0; i < foodType.length; i++) {
+            if (foodType[i].equals(type)){
+                return i;
+            }
+        }
+        return null;
+    }
+
+    //
 }
