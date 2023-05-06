@@ -1,11 +1,8 @@
 package project;
 
 import project.model.ApplicationManager;
-import project.model.User;
 import project.view.CreateNewGameMenu;
-import project.view.CreateNewMapMenu;
 import project.view.LoginMenu;
-import project.view.RegisterMenu;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -35,6 +32,7 @@ public class Main {
         */
 
         ApplicationManager.start();
+
         //User user1 = new User("ali","#Group36","hashem","ali.group36@sharif.ir","Fight for what's right, not what's easy","hichi",1);
         //User user2 = new User("mohammad","#Group36","mozar","mohammad.group36@sharif.ir","Fight for what's right, not what's easy","hichi",1);
         //User user3 = new User("amir-mohammad","#Group36","rashid","amir.group36@sharif.ir","Fight for what's right, not what's easy","hichi",1);
@@ -42,7 +40,7 @@ public class Main {
         //ApplicationManager.addUser(user2);
         //ApplicationManager.addUser(user3);
         RegisterMenu.run();
-        //LoginMenu.run();
+        LoginMenu.run();
         //CreateNewMapMenu.run();
         //CreateNewGameMenu.run(3);
         ApplicationManager.exit();

@@ -2,12 +2,17 @@ package project;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import project.controller.Commands;
+import project.controller.LoginMenuController;
 import project.controller.SHA_256Format;
 import project.controller.SaveAndLoad;
 import project.model.ApplicationManager;
 import project.model.User;
+import project.view.Menu;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
 
 public class AppTest {
     @Test
@@ -34,5 +39,12 @@ public class AppTest {
         SaveAndLoad.gameInitialization();
         ArrayList<User> usersToTest= ApplicationManager.getUsers();
         Assertions.assertEquals(usersToTest,users);
+    }
+        @Test
+        public void TestWithMock() throws NoSuchAlgorithmException {
+        Matcher matcher= Menu.getMatcher("user login -u ahmad -p 123", Commands.LOGIN.getRegex());
+            String out=LoginMenuController.Login(matcher);
+        Assertions.assertEquals("User logged in Successfully!",out);
+
     }
 }
