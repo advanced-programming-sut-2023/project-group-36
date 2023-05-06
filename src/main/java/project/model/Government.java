@@ -94,71 +94,45 @@ public class Government{
     }
 
     public void nextTurn(){
+        // food & ...
 
-        // Food +
-        popularity += getAmountOfTypesOfFoods() - 1;
-
-        double foodForEachPerson = (double) feedRate / 2 + 1;
-        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int
-
-        if (amountOfFoods() <= foodsToBeConsuming) {
-            Arrays.fill(foodAmount, 0);
-            feedRate = -2;
-        }
-        else {
-            int eachFoodToBeConsuming = foodsToBeConsuming / 4;
-            for (int i = 0; i < foodAmount.length; i++) {
-                foodAmount[i] -= eachFoodToBeConsuming;
-            }
-            while (foodsToBeConsuming % 4 != 0) {
-                foodAmount[getIndexOfMaxAmountOfFoods()]--;
-                foodsToBeConsuming--;
-            }
-        }
-
-        popularity += feedRate * 2;
+        // Feed +
+        checkTheFoodFactor();
 
         // Tax +
 
         //initialization for taxRate = 0
-        double taxOfEachPerson = 0;
-        int taxesToBeCollected = 0;
-        int changeOfPopularity = 1;
+        checkTheTaxFactor();
 
-        if (taxRate < 0) {
-            taxOfEachPerson = -0.2 * taxRate - 0.4;
-            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;
-            changeOfPopularity = taxRate * -2 + 1;
+        // Religion +
+        checkTheReligionFactor();
+
+        // Fear -
+
+
+        // Population growth
+        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
+            //people ++
         }
-        else if(taxRate > 0) {
-            taxOfEachPerson = 0.2 * taxRate + 0.4;
-            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());
-            if (taxRate <= 4)
-                changeOfPopularity = taxRate * 2;
-            else
-                changeOfPopularity = taxRate * 4 - 8;
+        // Population death
+        if (getAmountOfAllTypesOfFoods() == 0) {
+            // people--: first
         }
 
-        coins += taxesToBeCollected;
-        popularity += changeOfPopularity;
 
-        // Religion -
-        for (Block block : this.getMap().getBlocks()) {
-            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral"))
-                popularity += 2;
-        }
 
         if (checkGameOver()){
             Game game = GameController.getGame();
             game.removeGovernment(this);
             User user = this.getOwner();
             user.addScore(game.getScore());
+
         }
     }
 
 
     // Food functions
-    private int getAmountOfTypesOfFoods() {
+    private int getAmountOfAllTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
         for (int i : foodAmount) {
@@ -183,7 +157,6 @@ public class Government{
     public Map getMap() {
         return map;
     }
-
     public Integer getIndexOfFood(String type){
         for (int i = 0; i < foodType.length; i++) {
             if (foodType[i].equals(type)){
@@ -196,6 +169,7 @@ public class Government{
     public int getAmountOfResource(String type){
         return resources.getResourceAmount(type);
     }
+
     public void changeAmountOfResource(String type, int amount){
         resources.changeResourceAmount(type,amount);
     }
@@ -209,6 +183,7 @@ public class Government{
 
     // Food
     public void setFeedRate(int foodRate) { this.feedRate = foodRate; }
+
     public int amountOfFoods() {
         int amount = 0;
         for (int i : foodAmount) {
@@ -217,25 +192,23 @@ public class Government{
 
         return amount;
     }
-
     public int getFeedRate() { return feedRate; }
 
     // Tax
     public void setTaxRate(int taxRate) { this.taxRate = taxRate; }
+
     public int getTaxRate() {
         return taxRate;
     }
     public int getCoins() {
         return coins;
     }
-
     // Fear
     public int getFearRate() { return fearRate; }
-    public void setFearRate(int fearRate) { this.fearRate = fearRate; }
 
+    public void setFearRate(int fearRate) { this.fearRate = fearRate; }
     private void addResources(){
     }
-
 
     public void changeCoins(int count) {
         coins+=count;
@@ -258,6 +231,69 @@ public class Government{
 
     public void removePeople(People people) {
         peoples.remove(people);
+    }
+
+
+
+
+    //next turn function
+
+    //food
+    private void checkTheFoodFactor() {
+        changePopularity(getAmountOfAllTypesOfFoods() - 1);
+
+        double foodForEachPerson = (double) feedRate / 2 + 1;
+        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int
+
+        if (amountOfFoods() <= foodsToBeConsuming) {
+            Arrays.fill(foodAmount, 0);
+            feedRate = -2;
+        }
+        else {
+            int eachFoodToBeConsuming = foodsToBeConsuming / 4;
+            for (int i = 0; i < foodAmount.length; i++) {
+                foodAmount[i] -= eachFoodToBeConsuming;
+            }
+            while (foodsToBeConsuming % 4 != 0) {
+                foodAmount[getIndexOfMaxAmountOfFoods()]--;
+                foodsToBeConsuming--;
+            }
+        }
+
+        changePopularity(feedRate * 2);
+    }
+
+    //tax
+    private void checkTheTaxFactor() {
+        double taxOfEachPerson = 0;
+        int taxesToBeCollected = 0;
+        int changeOfPopularity = 1;
+
+        if (taxRate < 0) {
+            taxOfEachPerson = -0.2 * taxRate - 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;
+            changeOfPopularity = taxRate * -2 + 1;
+        }
+        else if(taxRate > 0) {
+            taxOfEachPerson = 0.2 * taxRate + 0.4;
+            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());
+            if (taxRate <= 4)
+                changeOfPopularity = taxRate * 2;
+            else
+                changeOfPopularity = taxRate * 4 - 8;
+        }
+
+        coins += taxesToBeCollected;
+        changePopularity(changeOfPopularity);
+    }
+
+    //religion
+    private void checkTheReligionFactor() {
+        for (Block block : this.getMap().getBlocks()) {
+            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
+                popularity += 2;
+            }
+        }
     }
 
 }
