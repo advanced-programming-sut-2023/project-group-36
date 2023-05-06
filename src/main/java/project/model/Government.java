@@ -105,11 +105,7 @@ public class Government{
         checkTheTaxFactor();
 
         // Religion +
-        for (Block block : this.getMap().getBlocks()) {
-            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
-                popularity += 2;
-            }
-        }
+        checkTheReligionFactor();
 
         // Fear -
 
@@ -134,8 +130,8 @@ public class Government{
         }
     }
 
-    // Food functions
 
+    // Food functions
     private int getAmountOfAllTypesOfFoods() {
         int amountOfTypesOfFoods = 0;
 
@@ -145,6 +141,7 @@ public class Government{
 
         return amountOfTypesOfFoods;
     }
+
     private int getIndexOfMaxAmountOfFoods() {
         int indexOfMax = 0;
         for (int i = 0; i < foodAmount.length; i++) {
@@ -155,12 +152,11 @@ public class Government{
         return indexOfMax;
     }
 
-
     // functions of religion
+
     public Map getMap() {
         return map;
     }
-
     public Integer getIndexOfFood(String type){
         for (int i = 0; i < foodType.length; i++) {
             if (foodType[i].equals(type)){
@@ -177,16 +173,17 @@ public class Government{
     public void changeAmountOfResource(String type, int amount){
         resources.changeResourceAmount(type,amount);
     }
+
     public int getAmountOfFoods(String type){
         return foodAmount[getIndexOfFood(type)];
     }
-
     public void changeAmountOfFoods(String type, int amount){
         foodAmount[getIndexOfFood(type)]+=amount;
     }
-    // Food
 
+    // Food
     public void setFeedRate(int foodRate) { this.feedRate = foodRate; }
+
     public int amountOfFoods() {
         int amount = 0;
         for (int i : foodAmount) {
@@ -198,8 +195,8 @@ public class Government{
     public int getFeedRate() { return feedRate; }
 
     // Tax
-
     public void setTaxRate(int taxRate) { this.taxRate = taxRate; }
+
     public int getTaxRate() {
         return taxRate;
     }
@@ -207,12 +204,11 @@ public class Government{
         return coins;
     }
     // Fear
-
     public int getFearRate() { return fearRate; }
+
     public void setFearRate(int fearRate) { this.fearRate = fearRate; }
     private void addResources(){
     }
-
 
     public void changeCoins(int count) {
         coins+=count;
@@ -239,8 +235,10 @@ public class Government{
 
 
 
+
     //next turn function
 
+    //food
     private void checkTheFoodFactor() {
         changePopularity(getAmountOfAllTypesOfFoods() - 1);
 
@@ -265,6 +263,7 @@ public class Government{
         changePopularity(feedRate * 2);
     }
 
+    //tax
     private void checkTheTaxFactor() {
         double taxOfEachPerson = 0;
         int taxesToBeCollected = 0;
@@ -287,4 +286,14 @@ public class Government{
         coins += taxesToBeCollected;
         changePopularity(changeOfPopularity);
     }
+
+    //religion
+    private void checkTheReligionFactor() {
+        for (Block block : this.getMap().getBlocks()) {
+            if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
+                popularity += 2;
+            }
+        }
+    }
+
 }
