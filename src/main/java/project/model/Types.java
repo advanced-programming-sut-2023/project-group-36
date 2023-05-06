@@ -65,17 +65,21 @@ public class Types {
         buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Stockpile","Storge",0,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Quarry","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",20,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Inn","CastleBuildings",20,0,100,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Ditch","Trap",0,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",10,0,0,0,0,0,0,0,8,0));
         buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("Stable","Storge",0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",10,0,100,10000,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,50));
+        buildingTypes.add(new BuildingType("Stable","Storge",20,0,100,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Store","Industry",20,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("OilSmelter","Industry",0,10,100,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("IronMine","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("WoodCutter","FarmBuildings",3,0,0,0,0,0,0,0,0,0));
+
+
     }
 
     public static PeopleType getPeopleTypeByType(String type){
