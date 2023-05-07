@@ -4,7 +4,7 @@ import project.model.Block;
 import project.model.Government;
 
 public class TownBuilding extends Structure {
-    String[] TownBuildingStructures={"Hovel","Church","Cathedral"};
+    static String[] TownBuildingStructures={"Hovel","Church","Cathedral"};
     int popularityChange;
 
     public TownBuilding(int popularityChange, Block block, Government government,int HP,BuildingType buildingType) {

@@ -6,6 +6,8 @@ import project.model.Peoples.Launcher;
 import project.model.Peoples.Militia;
 
 public class DefenciveStructure extends Structure {
+    String[] DefenciveStructures = {"Small stone gatehouse", "big stone gatehouse", "Drawbridge", "lookout tower", "perimeter tower",
+                                    "turret","defence tower","square tower","circle tower"};
     int fire_range;
     int defence_range;
 

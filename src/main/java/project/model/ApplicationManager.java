@@ -3,7 +3,10 @@ package project.model;
 import project.controller.SaveAndLoad;
 
 import java.util.ArrayList;
-
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.Security;
 public class ApplicationManager {
 
     private static ArrayList<User> users = new ArrayList<>();
@@ -27,10 +30,6 @@ public class ApplicationManager {
     private static User currentUser;
     private static boolean stayLoggedIn;
 
-    public static void setStayLoggedIn(boolean stayLoggedIn) {
-        ApplicationManager.stayLoggedIn = stayLoggedIn;
-    }
-
     private static ArrayList<Map> maps = new ArrayList<>();
     public static User getUserByUsername(String username){
         for (User user : users) {
@@ -51,9 +50,9 @@ public class ApplicationManager {
     }
 
     public static Map getMapByName(String name){
-        for (Map map : maps) {
-            if (map.getName().equals(name)) {
-                return map;
+        for (int i = 0; i < maps.size(); i++) {
+            if (maps.get(i).getName().equals(name)){
+                return maps.get(i);
             }
         }
         return null;
@@ -61,17 +60,6 @@ public class ApplicationManager {
 
     public static void addUser(User user){
         users.add(user);
-        SaveAndLoad.save(users,maps,games);
-    }
-
-    public static void addMap(Map map) {
-        maps.add(map);
-        SaveAndLoad.save(users,maps,games);
-    }
-
-    public static void addGame(Game game){
-        games.add(game);
-        SaveAndLoad.save(users,maps,games);
     }
 
     public static void setCurrentGame(Game currentGame) {
@@ -82,9 +70,12 @@ public class ApplicationManager {
         return currentGame;
     }
 
-
+    public static void addMap(Map map) {
+        maps.add(map);
+    }
     public static int getRank(User user) {
         sortUsers();
+
         for (int i = 0; i < getUsers().size(); i++)
             if (user == getUsers().get(i)) {
                 return i + 1;
@@ -112,19 +103,6 @@ public class ApplicationManager {
         currentUser = null;
         stayLoggedIn = false;
     }
-
-    public static void exit(){
-        if (!stayLoggedIn){
-            currentUser = null;
-        }
-        SaveAndLoad.save(users,maps,games);
-    }
-
-    public static void setCurrentUser(User user){
-        currentUser = user;
-    }
-
-
     public static void setGamesList(ArrayList<Game> games) {
         ApplicationManager.games = games;
     }
@@ -136,10 +114,20 @@ public class ApplicationManager {
     public static void setUsersList(ArrayList<User> users) {
         ApplicationManager.users = users;
     }
-
-    public static void start() {
-        Types.addPeopleTypes();
-        Types.addBuildingsTypes();
-        SaveAndLoad.gameInitialization();
+    public static void exit(){
+        if (!stayLoggedIn){
+            currentUser = null;
+        }
+        SaveAndLoad.saveUsers(users);
+        SaveAndLoad.saveGames(games);
+        SaveAndLoad.saveMaps(maps);
+        // && save date ...
     }
+
+    public static void setCurrentUser(User user){
+        currentUser = user;
+    }
+
+
+
 }
