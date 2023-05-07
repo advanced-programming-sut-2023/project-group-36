@@ -16,15 +16,12 @@ public class RegisterMenu {
         System.out.println("**<< Register Menu >>**");
         String input;
         String result;
-        String formattedInput;
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
-            if ((formattedInput = Tools.inputFormatting(input, CommandFormat.REGISTER))!=null){
-                input = formattedInput;
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
             }
-            System.out.println(input);
-            System.out.println(formattedInput);
             if (input.matches(Commands.REGISTER.getRegex())) {
                 Matcher matcher = Menu.getMatcher(input,Commands.REGISTER.getRegex());
                 result = RegisterMenuController.register(matcher);

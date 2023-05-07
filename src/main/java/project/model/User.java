@@ -108,4 +108,8 @@ public class User {
     public int hashCode() {
         return Objects.hash(username, password, nickname, email, slogan, questionNumber, questionAnswer);
     }
+
+    public String getQuestionAnswer() {
+        return questionAnswer;
+    }
 }

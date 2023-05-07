@@ -3,6 +3,8 @@ package project.view;
 import project.controller.Commands;
 import project.controller.GameController;
 import project.model.Game;
+import project.model.Tools;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -18,8 +20,13 @@ public class GameMenu {
         boolean inThisMenu = true;
         while (inThisMenu) {
 
-            /////////////// Amir mohammad
             input = scanner.nextLine();
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
+            }
+
+            /////////////// Amir mohammad
+
             if (input.matches(regex = Commands.SHOW_POPULARITY_FACTORS.getRegex())){
                 System.out.println(GameController.showPopularityFactors());
             }

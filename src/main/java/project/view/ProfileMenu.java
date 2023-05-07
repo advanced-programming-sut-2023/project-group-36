@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ProfileMenuController;
+import project.model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -17,8 +18,10 @@ public class ProfileMenu {
 
         while (true) {
             String command = scanner.nextLine();
+            if (Tools.inputCheckFormat(command)!=null){
+                command = Tools.inputCheckFormat(command);
+            }
             Matcher matcher;
-            Matcher matcher1;
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));
             if (matcher != null) {
@@ -49,9 +52,7 @@ public class ProfileMenu {
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_EMAIL));
             if (matcher != null) {
-                matcher1 = Menu.getMatcher(matcher.group("email"), String.valueOf(Commands.EMAIL));
-                assert matcher1 != null;
-                System.out.println(ProfileMenuController.changeEmail(matcher, matcher1));
+                System.out.println(ProfileMenuController.changeEmail(matcher));
                 continue;
             }
 

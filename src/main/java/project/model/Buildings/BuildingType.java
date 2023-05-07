@@ -52,7 +52,7 @@ public class BuildingType {
     public int getDefenceRange() {
         return defenceRange;
     }
-    public boolean is
+    public boolean isTunnel;
 
     public void changeNormalPeopleCapacity(int amount) {
         this.NormalPeopleCapacity += amount;

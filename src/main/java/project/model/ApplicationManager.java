@@ -3,17 +3,19 @@ package project.model;
 import project.controller.SaveAndLoad;
 
 import java.util.ArrayList;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.Security;
+
 public class ApplicationManager {
 
     private static ArrayList<User> users = new ArrayList<>();
-
     private static ArrayList<Game> games = new ArrayList<>();
 
-    private int[] pricesOfSalable = {100, 250, 400, 1000};
+    private static ArrayList<Map> maps = new ArrayList<>();
+
+    private static Game currentGame;
+    private static User currentUser;
+    private static boolean stayLoggedIn;
+
+    private final int[] pricesOfSalable = {100, 250, 400, 1000};
 /*
     engineer guild 100 انواع و اجزای قلعه ها
     Inn 100 فرآوریی غذا
@@ -26,11 +28,7 @@ public class ApplicationManager {
     oil smelter 100 سلاح
     stable 400 انواع و اجزای قلعه
 */
-    private static Game currentGame;
-    private static User currentUser;
-    private static boolean stayLoggedIn;
 
-    private static ArrayList<Map> maps = new ArrayList<>();
     public static User getUserByUsername(String username){
         for (User user : users) {
             if (user.getUsername().equals(username)) {
@@ -50,9 +48,9 @@ public class ApplicationManager {
     }
 
     public static Map getMapByName(String name){
-        for (int i = 0; i < maps.size(); i++) {
-            if (maps.get(i).getName().equals(name)){
-                return maps.get(i);
+        for (Map map : maps) {
+            if (map.getName().equals(name)) {
+                return map;
             }
         }
         return null;
@@ -60,6 +58,17 @@ public class ApplicationManager {
 
     public static void addUser(User user){
         users.add(user);
+        save();
+    }
+
+    public static void addMap(Map map) {
+        maps.add(map);
+        save();
+    }
+
+    public static void addGame(Game game){
+        games.add(game);
+        save();
     }
 
     public static void setCurrentGame(Game currentGame) {
@@ -70,26 +79,18 @@ public class ApplicationManager {
         return currentGame;
     }
 
-    public static void addMap(Map map) {
-        maps.add(map);
-    }
     public static int getRank(User user) {
         sortUsers();
-
-        for (int i = 0; i < getUsers().size(); i++)
-            if (user == getUsers().get(i)) {
+        for (int i = 0; i < users.size(); i++)
+            if (user .equals(users.get(i))) {
                 return i + 1;
             }
-
         return 0;
     }
 
     private static void sortUsers() {
     }
 
-    public static ArrayList<User> getUsers(){
-        return users;
-    }
 
     public static User getCurrentUser(){
         return currentUser;
@@ -118,10 +119,7 @@ public class ApplicationManager {
         if (!stayLoggedIn){
             currentUser = null;
         }
-        SaveAndLoad.saveUsers(users);
-        SaveAndLoad.saveGames(games);
-        SaveAndLoad.saveMaps(maps);
-        // && save date ...
+        save();
     }
 
     public static void setCurrentUser(User user){
@@ -129,5 +127,17 @@ public class ApplicationManager {
     }
 
 
+    public static void start() {
+        Types.addPeopleTypes();
+        Types.addBuildingsTypes();
+        SaveAndLoad.gameInitialization();
+    }
 
+    public static void save(){
+        SaveAndLoad.save(users,maps,games);
+    }
+
+    public static void setStayLoggedIn(boolean b) {
+        stayLoggedIn = true;
+    }
 }

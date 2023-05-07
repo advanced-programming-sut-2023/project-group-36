@@ -2,10 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.CreateNewGameController;
-import project.model.Game;
-import project.model.Government;
-import project.model.Map;
-import project.model.User;
+import project.model.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -29,6 +26,9 @@ public class CreateNewGameMenu {
         CreateNewGameController.setController(map,capacity,users);
         while (inThisMenu) {
             input = scanner.nextLine();
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
+            }
             if (input.matches(regex = Commands.ADD_USER.getRegex())){
                 System.out.println(CreateNewGameController.addUser(Menu.getMatcher(input,regex)));
             }

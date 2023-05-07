@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ShopMenuController;
+import project.model.Tools;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -13,6 +14,10 @@ public class ShopMenu {
 
         while (true) {
             String command = scanner.nextLine();
+            if (Tools.inputCheckFormat(command)!=null){
+                command = Tools.inputCheckFormat(command);
+            }
+
             Matcher matcher;
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.SHOW_PRICE_LIST));

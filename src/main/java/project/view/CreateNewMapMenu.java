@@ -4,6 +4,7 @@ import project.controller.Commands;
 import project.controller.CreateNewMapController;
 import project.model.ApplicationManager;
 import project.model.Map;
+import project.model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -31,6 +32,9 @@ public class CreateNewMapMenu {
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
+            }
             if (input.matches(regex = Commands.SET_MAP_NAME.getRegex())){
                 System.out.println(CreateNewMapController.setMapName(Menu.getMatcher(input,regex)));
             }

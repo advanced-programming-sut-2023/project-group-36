@@ -19,6 +19,9 @@ public class LoginMenu {
      System.out.println("**<< Login Menu >>**");
     while(inThisMenu){
       String command = scanner.nextLine();
+      if (Tools.inputCheckFormat(command)!=null){
+        command = Tools.inputCheckFormat(command);
+      }
       String output;
       if(command.matches(Commands.LOGIN.getRegex()) || command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
         matcher=Menu.getMatcher(command,Commands.LOGIN.getRegex());
@@ -31,8 +34,10 @@ public class LoginMenu {
         }
         else{
           delay=0;
-          if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex()))
+          if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
             ApplicationManager.setStayLoggedIn(true);
+          }
+          inThisMenu = false;
           MainMenu.run();
         }
       }

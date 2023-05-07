@@ -3,6 +3,7 @@ package project.view;
 import project.controller.Commands;
 import project.controller.TradeMenuController;
 import project.model.ApplicationManager;
+import project.model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -20,6 +21,9 @@ public class TradeMenu {
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
+            }
             if (input.matches(Commands.TRADE_REQUEST.getRegex())) {
                 Matcher matcher = Menu.getMatcher(input,Commands.TRADE_REQUEST.getRegex());
                 result = TradeMenuController.tradeRequest(matcher);

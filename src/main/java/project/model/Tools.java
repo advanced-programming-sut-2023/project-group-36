@@ -61,9 +61,6 @@ public class Tools {
                 }
             }
         }
-        System.out.println(flags);
-        System.out.println(parts);
-        System.out.println(availableFlags);
         for (int i = 0; i < availableFlags.size(); i++) {
             String flag = availableFlags.get(i);
             int index = parts.indexOf(flag);
@@ -77,9 +74,6 @@ public class Tools {
                 result+="";
             }
         }
-        System.out.println(flags);
-        System.out.println(parts);
-        System.out.println(availableFlags);
         if (parts.size()!=0){
             result = start;
         }
@@ -100,6 +94,88 @@ public class Tools {
 
     }
 
+
+    public static String inputCheckFormat(String input) {
+        String formattedInput;
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.REGISTER)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.QUESTION_ANSWER)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.LOGIN)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.LOGIN_LOGGED_IN)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.CHANGE_PASSWORD)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DROP_ROCK)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DROP_TREE)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE_RECTANGLE)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_GOVERNMENT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DROP_UNIT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DROP_BUILDING)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SHOW_MAP)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SHOW_DETAILS)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SELECT_BUILDING)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SELECT_UNIT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.MOVE_UNIT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.PATROL_UNIT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.STOP_UNIT)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.ATTACK_ENEMY)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.ATTACK_LAUNCH)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DIG_TUNNEL)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.CLEAR_BLOCK)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.BUY)) != null) {
+            return formattedInput;
+        }
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SELL)) != null) {
+            return formattedInput;
+        }
+        return null;
+    }
+
+
     private static String[] print0_9AsciiArt(int number) {
         String[] asciiForm = new String[7];
         switch (number) {
@@ -107,7 +183,7 @@ public class Tools {
                 asciiForm[0]=getRandomString(8);
                 asciiForm[1]="..####..";
                 asciiForm[2]=".##..##.";
-                asciiForm[3]=".######.";
+                asciiForm[3]=".##..##.";
                 asciiForm[4]=".##..##.";
                 asciiForm[5]="..####..";
                 asciiForm[6]=getRandomString(8);

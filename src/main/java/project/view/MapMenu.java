@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.MapMenuController;
+import project.model.Tools;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -15,6 +16,10 @@ public class MapMenu {
         Matcher matcher=null,matcher2;
         while (true){
             command= scanner.nextLine();
+            if (Tools.inputCheckFormat(command)!=null){
+                command = Tools.inputCheckFormat(command);
+            }
+
             if((matcher=Menu.getMatcher(command, Commands.SHOW_MAP.getRegex())) != null){
                  x=Integer.parseInt(matcher.group("x"))-1;
                  y=Integer.parseInt(matcher.group("y"))-1;

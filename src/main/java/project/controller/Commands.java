@@ -7,7 +7,7 @@ public enum Commands {
     QUESTION_ANSWER("question pick -q (?<questionNumber>[\\d]+) -a (?<answer>[^\n]+) -c (?<answerConfirm>[^\n]+)\\s*"),
 
     LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)"),
-    LOGIN_LOGGED_IN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)--stay-logged-in"),
+    LOGIN_LOGGED_IN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+) --stay-logged-in"),
     FORGET_PASSWORD("forgot my password"),
 
     //PROFILE
@@ -15,7 +15,6 @@ public enum Commands {
     CHANGE_NICKNAME("nickname change -n (?<nickname>[^\n]*)"),
     CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]*) -n (?<new-password>[^\n]*)"),
     CHANGE_EMAIL("profile change -e (?<email>[^\n]*)"),
-    EMAIL("(?<part1>[^\\n]*)@(?<part2>[^\\n]*)\\.(?<part3>[^\\n]*)"),
     CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]*)"),
     REMOVE_SLOGAN("Profile remove slogan"),
     DISPLAY_HIGH_SCORE("profile display highScore"),

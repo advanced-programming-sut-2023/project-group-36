@@ -5,6 +5,7 @@ import project.controller.CreateNewMapController;
 import project.controller.EditMapController;
 import project.model.Government;
 import project.model.Map;
+import project.model.Tools;
 import project.model.User;
 
 import java.security.NoSuchAlgorithmException;
@@ -32,6 +33,9 @@ public class EditMapMenu {
         boolean inThisMenu = true;
         while (inThisMenu) {
             input = scanner.nextLine();
+            if (Tools.inputCheckFormat(input)!=null){
+                input = Tools.inputCheckFormat(input);
+            }
             if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
                 System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex),map));
             }

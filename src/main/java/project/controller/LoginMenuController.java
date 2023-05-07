@@ -23,10 +23,11 @@ public class LoginMenuController {
     public static String ForgetPassword(Matcher matcher){
         String username=matcher.group("username");
         LoggedUser=ApplicationManager.getUserByUsername(username);
-        if(LoggedUser==null)
+        if(LoggedUser==null){
             return "Error: username doesn't exist!";
-        String answer= Menu.getScanner().next();
-        if(!answer.equals(LoggedUser.getQuestionNumber()))
+        }
+        String answer= Menu.getScanner().nextLine();
+        if(!answer.equals(LoggedUser.getQuestionAnswer()))
             return "Error: invalid security question answer!";
         return null;
     }

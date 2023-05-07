@@ -7,7 +7,7 @@ public class Resources {
     public Resources(){
         resources.add(new Resource("wood",0));
         resources.add(new Resource("stone",0));
-        resources.add(new Resource("name3",0));
+        resources.add(new Resource("iron",0));
         resources.add(new Resource("name4",0));
         resources.add(new Resource("name5",0));
         resources.add(new Resource("name6",0));
