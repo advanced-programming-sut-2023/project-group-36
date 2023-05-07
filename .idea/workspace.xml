@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="project updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
+    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="change username test added">
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +84,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.changeUsername">
+  <component name="RunManager" selected="JUnit.AppTest.changeNickname">
     <configuration name="AppTest.RegisterTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -98,22 +96,6 @@
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
       <option name="METHOD_NAME" value="RegisterTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="RegisterTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,6 +133,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.changeNickname" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="changeNickname" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.changeUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -169,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.changeNickname" />
         <item itemvalue="JUnit.AppTest.changeUsername" />
         <item itemvalue="JUnit.AppTest.TestWithMock" />
         <item itemvalue="JUnit.AppTest.UserInitilazeTest" />
         <item itemvalue="JUnit.AppTest.RegisterTest (1)" />
-        <item itemvalue="JUnit.AppTest.RegisterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -458,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683419726475</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="change username test added">
+      <created>1683425081648</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1683425081648</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +482,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
@@ -502,7 +506,8 @@
     <MESSAGE value="buildingType updated" />
     <MESSAGE value="Structure updated" />
     <MESSAGE value="project updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="project updated" />
+    <MESSAGE value="change username test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="change username test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
