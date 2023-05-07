@@ -20,20 +20,19 @@ public class ProfileMenu {
             Matcher matcher;
             Matcher matcher1;
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_USERNAME.getRegex());
             if (matcher != null) {
-                System.out.println("change username");
                 System.out.println(ProfileMenuController.changeUsername(matcher));
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_NICKNAME));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_NICKNAME.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.changeNickname(matcher));
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_PASSWORD));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_PASSWORD.getRegex());
             if (matcher != null) {
                 String result = ProfileMenuController.changePassword_1(matcher);
                 System.out.println(result);
@@ -47,7 +46,7 @@ public class ProfileMenu {
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_EMAIL));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_EMAIL.getRegex());
             if (matcher != null) {
                 matcher1 = Menu.getMatcher(matcher.group("email"), String.valueOf(Commands.EMAIL));
                 assert matcher1 != null;
@@ -55,43 +54,43 @@ public class ProfileMenu {
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_SLOGAN));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_SLOGAN.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.changeSlogan(matcher));
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.REMOVE_SLOGAN));
+            matcher = Menu.getMatcher(command, Commands.REMOVE_SLOGAN.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.removeSlogan());
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_HIGH_SCORE));
+            matcher = Menu.getMatcher(command, Commands.DISPLAY_HIGH_SCORE.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.displayHighScore());
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_RANK));
+            matcher = Menu.getMatcher(command, Commands.DISPLAY_RANK.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.displayRank());
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY_SLOGAN));
+            matcher = Menu.getMatcher(command, Commands.DISPLAY_SLOGAN.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.displaySlogan());
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.DISPLAY));
+            matcher = Menu.getMatcher(command, Commands.DISPLAY.getRegex());
             if (matcher != null) {
                 System.out.println(ProfileMenuController.display());
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(project.controller.Commands.EXIT));
+            matcher = Menu.getMatcher(command, Commands.EXIT.getRegex());
             if (matcher != null){
                 break;
             }

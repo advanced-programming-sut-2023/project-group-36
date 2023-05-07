@@ -4,34 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="Structure updated">
+    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="project updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SHA_256Format.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SHA_256Format.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Engineer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Engineer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,20 +86,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.UserInitilazeTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.Main" />
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AppTest.changeUsername">
     <configuration name="AppTest.RegisterTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -156,6 +119,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.TestWithMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="TestWithMock" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.UserInitilazeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -172,7 +151,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.testApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.changeUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -182,7 +161,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="testApp" />
+      <option name="METHOD_NAME" value="changeUsername" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -190,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.changeUsername" />
+        <item itemvalue="JUnit.AppTest.TestWithMock" />
         <item itemvalue="JUnit.AppTest.UserInitilazeTest" />
         <item itemvalue="JUnit.AppTest.RegisterTest (1)" />
         <item itemvalue="JUnit.AppTest.RegisterTest" />
-        <item itemvalue="JUnit.AppTest.testApp" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -472,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683417805791</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="project updated">
+      <created>1683419726475</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683419726475</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
     <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
@@ -516,7 +501,8 @@
     <MESSAGE value="Government updated" />
     <MESSAGE value="buildingType updated" />
     <MESSAGE value="Structure updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structure updated" />
+    <MESSAGE value="project updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="project updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,6 +511,11 @@
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
