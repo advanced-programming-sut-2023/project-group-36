@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="change username test added">
+    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="change nickname test added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,23 +85,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.changeNickname">
-    <configuration name="AppTest.RegisterTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="RegisterTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AppTest.changeSlogan">
     <configuration name="AppTest.TestWithMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -149,6 +134,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.changeSlogan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="changeSlogan" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.changeUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -167,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.changeSlogan" />
         <item itemvalue="JUnit.AppTest.changeNickname" />
         <item itemvalue="JUnit.AppTest.changeUsername" />
         <item itemvalue="JUnit.AppTest.TestWithMock" />
         <item itemvalue="JUnit.AppTest.UserInitilazeTest" />
-        <item itemvalue="JUnit.AppTest.RegisterTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -463,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683425081648</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="change nickname test added">
+      <created>1683425515586</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1683425515586</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
@@ -507,7 +514,8 @@
     <MESSAGE value="Structure updated" />
     <MESSAGE value="project updated" />
     <MESSAGE value="change username test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="change username test added" />
+    <MESSAGE value="change nickname test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="change nickname test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -516,11 +524,6 @@
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

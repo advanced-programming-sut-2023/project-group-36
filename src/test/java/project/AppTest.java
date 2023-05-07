@@ -47,7 +47,7 @@ public class AppTest {
     }
 
     @Test
-    public void changeUsername() throws NoSuchAlgorithmException {
+    public void changeUsername(){
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -u amir";
@@ -56,5 +56,31 @@ public class AppTest {
 
         Assertions.assertEquals(result, "Username changed successfully");
         Assertions.assertEquals(user.getUsername(), "amir");
+    }
+
+    @Test
+    public void changeNickname() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+        String result = ProfileMenuController.changeNickname(matcher);
+
+        Assertions.assertEquals(result, "Nickname changed successfully");
+        Assertions.assertEquals(user.getNickname(), "amir");
+    }
+
+    //change pass
+
+    @Test
+    public void changeSlogan() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change slogan -s amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+        String result = ProfileMenuController.changeSlogan(matcher);
+
+        Assertions.assertEquals(result, "Slogan changed successfully");
+        Assertions.assertEquals(user.getSlogan(), "amir");
     }
 }
