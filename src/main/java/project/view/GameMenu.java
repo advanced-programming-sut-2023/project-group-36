@@ -3,13 +3,13 @@ package project.view;
 import project.controller.Commands;
 import project.controller.GameController;
 import project.model.Game;
-
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class GameMenu {
     private final static Scanner scanner = Menu.getScanner();
-    public static void run(Game game){
+    public static void run(Game game) throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< Game Menu >>**");
         GameController.setGame(game);
         Matcher matcher;

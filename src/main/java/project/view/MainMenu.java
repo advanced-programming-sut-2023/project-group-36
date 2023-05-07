@@ -2,7 +2,6 @@ package project.view;
 
 import project.controller.Commands;
 import project.model.ApplicationManager;
-import project.model.User;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

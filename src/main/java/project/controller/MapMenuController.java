@@ -2,15 +2,12 @@ package project.controller;
 
 import project.model.ApplicationManager;
 import project.model.Block;
-import project.model.Game;
 import project.model.Map;
 import project.model.Peoples.Militia;
 import project.model.Peoples.People;
-import project.view.GameMenu;
 import project.view.MapMenu;
 import project.view.Menu;
 
-import java.io.IOException;
 import java.util.regex.Matcher;
 
 public class MapMenuController {

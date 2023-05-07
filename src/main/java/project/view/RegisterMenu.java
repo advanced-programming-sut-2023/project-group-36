@@ -1,4 +1,5 @@
 package project.view;
+
 import project.controller.CommandFormat;
 import project.controller.Commands;
 import project.controller.RegisterMenuController;

@@ -6,7 +6,7 @@ import project.model.Buildings.Structure;
 import project.model.Peoples.NormalPeople;
 import project.model.Peoples.People;
 import project.model.Peoples.PeopleType;
-import project.view.GameMenu;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

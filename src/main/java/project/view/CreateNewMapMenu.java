@@ -1,18 +1,18 @@
 package project.view;
 
 import project.controller.Commands;
-import project.controller.CreateNewGameController;
 import project.controller.CreateNewMapController;
 import project.model.ApplicationManager;
 import project.model.Map;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class CreateNewMapMenu {
     private final static Scanner scanner = Menu.getScanner();
     public static Map map;
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< CreateNewMap Menu >>**");
         System.out.println("Choose map size:(enter 0 for cancel)\n1. 200x200\n2. 400x400");
         int size = Menu.getScanner().nextInt();

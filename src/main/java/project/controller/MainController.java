@@ -1,8 +1,5 @@
 package project.controller;
 
-import project.model.ApplicationManager;
-import project.model.Block;
-
 import java.util.regex.Matcher;
 
 public class MainController {

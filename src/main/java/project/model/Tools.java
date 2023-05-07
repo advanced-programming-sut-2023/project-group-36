@@ -1,4 +1,5 @@
 package project.model;
+
 import project.controller.CommandFormat;
 
 import java.util.ArrayList;

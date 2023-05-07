@@ -6,7 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="Structure updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/LoginMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/RegisterMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SHA_256Format.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SHA_256Format.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/SaveAndLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/ProccesingStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Engineer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Engineer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/FightingForce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewGameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/CreateNewMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/RegisterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/TradeMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +66,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -439,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683411667919</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Structure updated">
+      <created>1683417805791</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1683417805791</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

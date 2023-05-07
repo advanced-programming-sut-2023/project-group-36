@@ -1,13 +1,13 @@
 package project.view;
 
 import project.controller.Commands;
-import project.controller.CreateNewGameController;
 import project.controller.CreateNewMapController;
 import project.controller.EditMapController;
 import project.model.Government;
 import project.model.Map;
 import project.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +21,7 @@ public class EditMapMenu {
     public static Government government;
     public static int number;
 
-    public static void run(int capacity, Map map, ArrayList<User> users){
+    public static void run(int capacity, Map map, ArrayList<User> users) throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< EditMap Menu >>**");
         EditMapMenu.capacity = capacity;
         EditMapMenu.map = map;

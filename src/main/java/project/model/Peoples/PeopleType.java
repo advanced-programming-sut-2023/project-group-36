@@ -1,7 +1,5 @@
 package project.model.Peoples;
 
-import java.util.ArrayList;
-
 public class PeopleType {
     public String type;
 

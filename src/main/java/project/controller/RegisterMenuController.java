@@ -6,7 +6,6 @@ import project.model.User;
 import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 

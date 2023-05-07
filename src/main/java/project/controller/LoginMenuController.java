@@ -1,11 +1,10 @@
 package project.controller;
+
 import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
 
-
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 
 public class LoginMenuController {

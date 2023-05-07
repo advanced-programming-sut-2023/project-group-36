@@ -5,7 +5,6 @@ import project.model.Block;
 import project.model.Game;
 import project.model.Government;
 import project.model.Tools;
-import project.view.GameMenu;
 
 import java.util.ArrayList;
 

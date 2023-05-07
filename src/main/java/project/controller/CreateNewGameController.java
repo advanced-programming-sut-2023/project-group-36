@@ -6,7 +6,6 @@ import project.model.User;
 import project.view.CreateNewGameMenu;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.regex.Matcher;
 
 public class CreateNewGameController {

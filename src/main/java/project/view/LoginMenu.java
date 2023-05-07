@@ -2,11 +2,9 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.LoginMenuController;
-import project.controller.RegisterMenuController;
 import project.model.ApplicationManager;
 import project.model.Tools;
 
-import javax.annotation.processing.SupportedSourceVersion;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;

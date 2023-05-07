@@ -4,8 +4,6 @@ import project.controller.GameController;
 import project.model.Block;
 import project.model.Game;
 import project.model.Government;
-import project.model.Peoples.Militia;
-import project.model.Peoples.PeopleType;
 import project.model.Tools;
 
 import java.util.ArrayList;

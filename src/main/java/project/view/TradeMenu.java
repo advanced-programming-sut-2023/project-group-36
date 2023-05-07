@@ -1,10 +1,10 @@
 package project.view;
 
 import project.controller.Commands;
-import project.controller.RegisterMenuController;
 import project.controller.TradeMenuController;
 import project.model.ApplicationManager;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
@@ -12,7 +12,7 @@ public class TradeMenu {
     private final static Scanner scanner = Menu.getScanner();
 
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< Trade Menu >>**");
         TradeMenuController.tradeShowNotifications();
         String input;

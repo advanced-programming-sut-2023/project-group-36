@@ -1,8 +1,8 @@
 package project;
 
 import project.model.ApplicationManager;
-import project.view.CreateNewGameMenu;
 import project.view.LoginMenu;
+import project.view.RegisterMenu;
 
 import java.security.NoSuchAlgorithmException;
 

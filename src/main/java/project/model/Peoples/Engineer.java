@@ -3,8 +3,6 @@ package project.model.Peoples;
 import project.controller.GameController;
 import project.model.*;
 
-import java.util.ArrayList;
-
 public class Engineer extends Militia{
 
     private boolean oil;

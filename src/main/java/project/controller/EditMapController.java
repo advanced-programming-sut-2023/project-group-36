@@ -3,10 +3,8 @@ package project.controller;
 import project.model.*;
 import project.model.Peoples.*;
 import project.view.CreateNewGameMenu;
-import project.view.CreateNewMapMenu;
 import project.view.EditMapMenu;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 

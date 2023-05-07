@@ -6,6 +6,8 @@ import project.model.Game;
 import project.model.Government;
 import project.model.Map;
 import project.model.User;
+
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class CreateNewGameMenu {
     public static boolean mapPreparation = false;
     public static int capacity;
 
-    public static void run(int count){
+    public static void run(int count) throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< CreateNewGame Menu >>**");
         String input;
         String regex;
