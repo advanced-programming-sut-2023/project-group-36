@@ -270,12 +270,11 @@ public class Government{
     // change population
     private void changePopulation() {
         // people growth + ?
-        // create a people||
-        int amountOfPeopleMostAdding = getAmountOfAllTypesOfFoods() / peoples.size();
+        int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();
         for (Structure structure : structures) {
             /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
             BuildingType buildingType = structure.getBuildingType();
-            for (int i = 0; i < amountOfPeopleMostAdding; i++) {
+            for (int i = 0; i < amountOfPeopleToBeAdded; i++) {
                 if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() > 0)  {
                     NormalPeople normalPeople = new NormalPeople(peopleType, this, structure.getBlock());
                     /*!!!!!*/                    peoples.add(normalPeople); // nothing another ????
@@ -284,9 +283,21 @@ public class Government{
             }
         }
 
-        // Population death
-        if (getAmountOfAllTypesOfFoods() == 0) {
-            // people--: first
+        // Population death + ?
+        int amountOfPeopleWhoMostToReduced = peoples.size() / getAmountOfAllTypesOfFoods();
+        for (Structure structure : structures) {
+            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
+            BuildingType buildingType = structure.getBuildingType();
+            for (int i = 0; i < amountOfPeopleWhoMostToReduced; i++) {
+                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() != 0)  {
+                    for (People people : peoples) {
+                        if (people instanceof NormalPeople && peoples.contains(people)) {
+                            /*!!!!!*/                    peoples.remove(people); // nothing another ????
+                            buildingType.changeNormalPeopleCapacity(-1);
+                        }
+                    }
+                }
+            }
         }
     }
 
