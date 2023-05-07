@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="feed updated">
+    <list default="true" id="68b2825a-2f14-4517-89e1-f47ff40a8f86" name="Changes" comment="Structure updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -389,7 +390,56 @@
       <option name="project" value="LOCAL" />
       <updated>1683397442518</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="tax updated">
+      <created>1683399518668</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1683399518668</updated>
+    </task>
+    <task id="LOCAL-00030" summary="religion updated">
+      <created>1683399660908</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1683399660908</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Government updated">
+      <created>1683400272857</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683400272857</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Government updated">
+      <created>1683400696208</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683400696208</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Government updated">
+      <created>1683409512624</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683409512624</updated>
+    </task>
+    <task id="LOCAL-00034" summary="buildingType updated">
+      <created>1683409568586</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1683409568586</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Structure updated">
+      <created>1683411667919</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683411667919</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,9 +458,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Maven created :)" />
-    <MESSAGE value="Update CreateNewGameMenu." />
-    <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
     <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
@@ -431,7 +478,12 @@
     <MESSAGE value="minor change in password format and database" />
     <MESSAGE value="building type changed" />
     <MESSAGE value="feed updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="feed updated" />
+    <MESSAGE value="tax updated" />
+    <MESSAGE value="religion updated" />
+    <MESSAGE value="Government updated" />
+    <MESSAGE value="buildingType updated" />
+    <MESSAGE value="Structure updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structure updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

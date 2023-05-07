@@ -1,12 +1,19 @@
 package project.model;
 
 import project.controller.GameController;
+import project.model.Buildings.BuildingType;
 import project.model.Buildings.Structure;
+import project.model.Peoples.NormalPeople;
 import project.model.Peoples.People;
+import project.model.Peoples.PeopleType;
 import project.view.GameMenu;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+
+
+
+//??
+
 
 public class Government{
     private User owner;
@@ -100,7 +107,6 @@ public class Government{
         checkTheFoodFactor();
 
         // Tax +
-
         //initialization for taxRate = 0
         checkTheTaxFactor();
 
@@ -108,19 +114,12 @@ public class Government{
         checkTheReligionFactor();
 
         // Fear -
+        checkTheFearFactor();
 
+        // change population
+        changePopulation();
 
-        // Population growth
-        if (getAmountOfAllTypesOfFoods() >= 2 * peoples.size()) {
-            //people ++
-        }
-        // Population death
-        if (getAmountOfAllTypesOfFoods() == 0) {
-            // people--: first
-        }
-
-
-
+        // game over
         if (checkGameOver()){
             Game game = GameController.getGame();
             game.removeGovernment(this);
@@ -131,45 +130,11 @@ public class Government{
     }
 
 
-    // Food functions
-    private int getAmountOfAllTypesOfFoods() {
-        int amountOfTypesOfFoods = 0;
 
-        for (int i : foodAmount) {
-            amountOfTypesOfFoods++;
-        }
-
-        return amountOfTypesOfFoods;
-    }
-
-    private int getIndexOfMaxAmountOfFoods() {
-        int indexOfMax = 0;
-        for (int i = 0; i < foodAmount.length; i++) {
-            if (foodAmount[i] > indexOfMax)
-                indexOfMax = i;
-        }
-
-        return indexOfMax;
-    }
-
-    // functions of religion
-
-    public Map getMap() {
-        return map;
-    }
-    public Integer getIndexOfFood(String type){
-        for (int i = 0; i < foodType.length; i++) {
-            if (foodType[i].equals(type)){
-                return i;
-            }
-        }
-        return null;
-    }
 
     public int getAmountOfResource(String type){
         return resources.getResourceAmount(type);
     }
-
     public void changeAmountOfResource(String type, int amount){
         resources.changeResourceAmount(type,amount);
     }
@@ -177,6 +142,7 @@ public class Government{
     public int getAmountOfFoods(String type){
         return foodAmount[getIndexOfFood(type)];
     }
+
     public void changeAmountOfFoods(String type, int amount){
         foodAmount[getIndexOfFood(type)]+=amount;
     }
@@ -203,9 +169,9 @@ public class Government{
     public int getCoins() {
         return coins;
     }
+
     // Fear
     public int getFearRate() { return fearRate; }
-
     public void setFearRate(int fearRate) { this.fearRate = fearRate; }
     private void addResources(){
     }
@@ -213,7 +179,6 @@ public class Government{
     public void changeCoins(int count) {
         coins+=count;
     }
-
 
 
     public void setSelectedPeoples(ArrayList<People> peoples) {
@@ -236,8 +201,9 @@ public class Government{
 
 
 
-    //next turn function
 
+
+    //next turn function
     //food
     private void checkTheFoodFactor() {
         changePopularity(getAmountOfAllTypesOfFoods() - 1);
@@ -296,4 +262,83 @@ public class Government{
         }
     }
 
+    //fear
+    private void checkTheFearFactor() {
+
+    }
+
+    // change population
+    private void changePopulation() {
+        // people growth + ?
+        int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();
+        for (Structure structure : structures) {
+            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
+            BuildingType buildingType = structure.getBuildingType();
+            for (int i = 0; i < amountOfPeopleToBeAdded; i++) {
+                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() > 0)  {
+                    NormalPeople normalPeople = new NormalPeople(peopleType, this, structure.getBlock());
+                    /*!!!!!*/                    peoples.add(normalPeople); // nothing another ????
+                    buildingType.changeNormalPeopleCapacity(-1);
+                }
+            }
+        }
+
+        // Population death + ?
+        int amountOfPeopleWhoMostToReduced = peoples.size() / getAmountOfAllTypesOfFoods();
+        for (Structure structure : structures) {
+            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
+            BuildingType buildingType = structure.getBuildingType();
+            for (int i = 0; i < amountOfPeopleWhoMostToReduced; i++) {
+                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() != 0)  {
+                    for (People people : peoples) {
+                        if (people instanceof NormalPeople && peoples.contains(people)) {
+                            /*!!!!!*/                    peoples.remove(people); // nothing another ????
+                            buildingType.changeNormalPeopleCapacity(-1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    // *Auxiliary functions* //
+
+    // Food functions
+    private int getAmountOfAllTypesOfFoods() {
+        int amountOfTypesOfFoods = 0;
+
+        for (int i : foodAmount) {
+            amountOfTypesOfFoods++;
+        }
+
+        return amountOfTypesOfFoods;
+    }
+
+    private int getIndexOfMaxAmountOfFoods() {
+        int indexOfMax = 0;
+        for (int i = 0; i < foodAmount.length; i++) {
+            if (foodAmount[i] > indexOfMax)
+                indexOfMax = i;
+        }
+
+        return indexOfMax;
+    }
+    // functions of religion
+
+    public Map getMap() {
+        return map;
+    }
+
+    public Integer getIndexOfFood(String type){
+        for (int i = 0; i < foodType.length; i++) {
+            if (foodType[i].equals(type)){
+                return i;
+            }
+        }
+        return null;
+    }
+
+    //
 }
+
