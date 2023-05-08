@@ -1,6 +1,7 @@
 package project.controller;
 
 import project.model.*;
+import project.model.Buildings.BuildingType;
 import project.model.Peoples.*;
 import project.view.CreateNewGameMenu;
 import project.view.EditMapMenu;
@@ -67,7 +68,15 @@ public class EditMapController {
         if (government==null){
             return "Error: No government selected!";
         }
-        ///....
+        int Xcordinate=Integer.parseInt(matcher.group("x"));
+        int Ycordinate=Integer.parseInt(matcher.group("y"));
+        String type=matcher.group("type");
+        if(Xcordinate>EditMapMenu.capacity || Ycordinate>EditMapMenu.capacity)
+            return "Invalid cordinates!";
+        BuildingType buildingType=Types.getBuildingTypeByType(type);
+        if(buildingType.equals(null))
+            return "Invalid Building name!";
+
         return "drop building done successfully.";
     }
 
