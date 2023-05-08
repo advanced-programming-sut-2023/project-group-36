@@ -68,6 +68,8 @@ public class EditMapController {
         if (government==null){
             return "Error: No government selected!";
         }
+        if(checkMapPreparation().equals(null))
+            return checkMapPreparation();
         int Xcordinate=Integer.parseInt(matcher.group("x"));
         int Ycordinate=Integer.parseInt(matcher.group("y"));
         String type=matcher.group("type");
@@ -76,7 +78,13 @@ public class EditMapController {
         BuildingType buildingType=Types.getBuildingTypeByType(type);
         if(buildingType.equals(null))
             return "Invalid Building name!";
-
+        Map currentMap=ApplicationManager.getCurrentGame().getMap();
+        Block currentBlock = currentMap.getBlockByPosition(Xcordinate,Ycordinate);
+        if(!currentBlock.getThisBlockStructure().equals(null))
+            return "This Block has already been occupied by anoother structure!";
+        if(!checkBuildingPrerequisite(type).equals(null)){
+            return checkBuildingPrerequisite(type);
+        }
         return "drop building done successfully.";
     }
 
@@ -86,5 +94,16 @@ public class EditMapController {
             return "You still haven't decided the headquarters of all the governments!";
         }
         return null;
+    }
+    public static String checkBuildingPrerequisite(String type){
+        switch (type){
+            case "SmallGateHouse":
+                break;
+            case "BigGateHouse":
+                break;
+            case "":
+                break;
+        }
+       return null;
     }
 }
