@@ -98,11 +98,13 @@ public class EditMapController {
     public static String checkBuildingPrerequisite(String type){
         switch (type){
             case "SmallGateHouse":
-                break;
+                return null;
             case "BigGateHouse":
-                break;
-            case "":
-                break;
+                return null;
+            case "CircleTower":
+            case "LookoutTower":
+            case "DrawBridge":
+
         }
        return null;
     }
