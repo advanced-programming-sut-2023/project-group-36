@@ -98,5 +98,17 @@ public class AppTest {
         Assertions.assertEquals(user.getEmail(), "amir@gmail.com");
     }
 
+    @Test
+    public void removeSlogan() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile remove slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.REMOVE_SLOGAN.getRegex());
+        String result = ProfileMenuController.removeSlogan();
+
+        Assertions.assertEquals(result, "Slogan removed successfully");
+        Assertions.assertEquals(user.getSlogan(), "");
+    }
+
 
 }

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Commands updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change email test added">
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +80,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AppTest.removeSlogan">
     <configuration name="AppTest.changeEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -94,6 +92,22 @@
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
       <option name="METHOD_NAME" value="changeEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.removeSlogan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="removeSlogan" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,6 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.removeSlogan" />
         <item itemvalue="JUnit.AppTest.changeEmail" />
       </list>
     </recent_temporary>
@@ -147,7 +162,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="2136000" />
+      <workItem from="1683676781530" duration="2456000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -307,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683677808249</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="change email test added">
+      <created>1683679401003</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683679401003</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +348,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Maven created :)" />
     <MESSAGE value="Update CreateNewGameMenu." />
     <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
@@ -351,7 +372,8 @@
     <MESSAGE value="ProfileMenuController updated" />
     <MESSAGE value="ProfileMenu updated" />
     <MESSAGE value="Commands updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commands updated" />
+    <MESSAGE value="change email test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="change email test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
