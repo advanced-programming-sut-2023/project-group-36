@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="changeUsernameInvalidUsernameFormatTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="changeSloganMachTest added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.changeSloganMachTest">
+  <component name="RunManager" selected="JUnit.AppTest.EmptySloganTest">
     <configuration name="AppTest.EmptyNicknameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -95,6 +95,22 @@
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
       <option name="METHOD_NAME" value="EmptyNicknameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.EmptySloganTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="EmptySloganTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,29 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.changeUsernameInvalidUsernameFormatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="changeUsernameInvalidUsernameFormatTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.EmptySloganTest" />
         <item itemvalue="JUnit.AppTest.changeSloganMachTest" />
         <item itemvalue="JUnit.AppTest.InvalidNicknameFormatTest" />
         <item itemvalue="JUnit.AppTest.EmptyNicknameTest" />
         <item itemvalue="JUnit.AppTest.changeNicknameMachTest" />
-        <item itemvalue="JUnit.AppTest.changeUsernameInvalidUsernameFormatTest" />
       </list>
     </recent_temporary>
   </component>
@@ -336,7 +336,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683751579246</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="change nickname complete">
+      <created>1683752065752</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683752065752</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changeSloganMachTest added">
+      <created>1683752192733</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683752192733</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +391,9 @@
     <MESSAGE value="changeUsernameEmptyUsernameTest" />
     <MESSAGE value="changeUsernameEmptyUsernameTest added" />
     <MESSAGE value="changeUsernameInvalidUsernameFormatTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeUsernameInvalidUsernameFormatTest added" />
+    <MESSAGE value="change nickname complete" />
+    <MESSAGE value="changeSloganMachTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="changeSloganMachTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

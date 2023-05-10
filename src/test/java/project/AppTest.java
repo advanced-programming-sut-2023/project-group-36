@@ -148,6 +148,17 @@ public class AppTest {
         Assertions.assertNull(matcher);
     }
     @Test
+    public void EmptySloganTest() {
+        String testCommand = "profile change slogan -s ";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeSlogan(matcher);
+
+        Assertions.assertEquals(result, "The slogan is empty!");
+    }
+    @Test
     public void changeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
