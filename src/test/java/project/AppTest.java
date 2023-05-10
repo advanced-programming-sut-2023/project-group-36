@@ -40,11 +40,13 @@ public class AppTest {
         ArrayList<User> usersToTest= ApplicationManager.getUsers();
         Assertions.assertEquals(usersToTest,users);
     }
-        @Test
-        public void TestWithMock() throws NoSuchAlgorithmException {
-        Matcher matcher= Menu.getMatcher("user login -u ahmad -p 123", Commands.LOGIN.getRegex());
-            String out=LoginMenuController.Login(matcher);
-        Assertions.assertEquals("User logged in Successfully!",out);
+    @Test
+    public void TestWithMock() throws NoSuchAlgorithmException {
+    Matcher matcher= Menu.getMatcher("user login -u ahmad -p 123", Commands.LOGIN.getRegex());
+        String out=LoginMenuController.Login(matcher);
+    Assertions.assertEquals("User logged in Successfully!",out);
 
     }
+
+
 }

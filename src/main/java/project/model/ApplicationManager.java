@@ -140,4 +140,8 @@ public class ApplicationManager {
     public static void setStayLoggedIn(boolean b) {
         stayLoggedIn = true;
     }
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
 }
