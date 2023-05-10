@@ -28,7 +28,7 @@ public class AppTest {
     }
 
     @Test
-    public void UserInitilazeTest() {
+    public void UserInitializeTest() {
         ArrayList<User> users = new ArrayList<>();
         users.add(new User("1", "1", "1", "1", "1", "1", 1));
         users.add(new User("2", "2", "2", "2", "2", "2", 2));
@@ -49,7 +49,7 @@ public class AppTest {
     }
 
     @Test
-    public void changeUsername() {
+    public void changeUsernameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -u amir";
@@ -64,7 +64,7 @@ public class AppTest {
     }
 
     @Test
-    public void changeNickname() {
+    public void changeNicknameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -n amir";
@@ -79,7 +79,7 @@ public class AppTest {
     }
 
     @Test
-    public void changeSlogan() {
+    public void changeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change slogan -s amir";
@@ -94,7 +94,7 @@ public class AppTest {
     }
 
     @Test
-    public void changeEmail() {
+    public void changeEmailTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -e amir@gmail.com";
@@ -115,7 +115,7 @@ public class AppTest {
     }
 
     @Test
-    public void removeSlogan() {
+    public void removeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile remove slogan";
@@ -130,7 +130,7 @@ public class AppTest {
     }
 
     @Test
-    public void displayHighScore() {
+    public void displayHighScoreTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display highScore";
@@ -145,7 +145,7 @@ public class AppTest {
 
     // have a bag in sort!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Test
-    public void displayRank() {
+    public void displayRankTest() {
         User user = new User("1","1","1","1","1","1",1);
         User user1 = new User("1","1","1","1","1","1",1);
         user1.addScore(2);
@@ -163,7 +163,7 @@ public class AppTest {
     }
 
     @Test
-    public void displaySlogan() {
+    public void displaySloganTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display slogan";
@@ -177,7 +177,7 @@ public class AppTest {
     }
 
     @Test
-    public void display() {
+    public void displayTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display";
