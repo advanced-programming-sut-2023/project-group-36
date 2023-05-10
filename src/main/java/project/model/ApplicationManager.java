@@ -3,6 +3,7 @@ package project.model;
 import project.controller.SaveAndLoad;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ApplicationManager {
 
@@ -80,12 +81,12 @@ public class ApplicationManager {
     }
 
     public static int getRank(User user) {
+        if (users.size() == 0)
+            return 0;
+
         sortUsers();
-        for (int i = 0; i < users.size(); i++)
-            if (user .equals(users.get(i))) {
-                return i + 1;
-            }
-        return 0;
+        return users.indexOf(user) + 1;
+
     }
 
     private static void sortUsers() {
@@ -97,9 +98,7 @@ public class ApplicationManager {
                 user = users.get(j);
                 user1 = users.get(j + 1);
                 if (user.getScore() < user1.getScore()) {
-                    user2 = user;
-                    user = user1;
-                    user1 = user2;
+                    Collections.swap(users, users.indexOf(user), users.indexOf(user1));
                 }
             }
         }
