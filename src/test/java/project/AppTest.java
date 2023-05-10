@@ -51,17 +51,14 @@ public class AppTest {
 
     // change username
 
-
     @Test
     public void changeUsernameMachTest() {
         String testCommand = "profil change -u amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
         Assertions.assertNull(matcher);
     }
-
-
     @Test
-    public void changeUsernameEmptyUsernameTest() {
+    public void EmptyUsernameTest() {
         String testCommand = "profile change -u ";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
         String result = null;
@@ -71,9 +68,8 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The username is empty!");
     }
-
     @Test
-    public void changeUsernameInvalidUsernameFormatTest() {
+    public void InvalidUsernameFormatTest() {
         String testCommand = "profile change -u @amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
         String result = null;
@@ -83,7 +79,6 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The username format is invalid");
     }
-
     @Test
     public void changeUsernameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
@@ -99,6 +94,36 @@ public class AppTest {
         Assertions.assertEquals(user.getUsername(), "amir");
     }
 
+    // change nickname
+
+    @Test
+    public void changeNicknameMachTest() {
+        String testCommand = "profile chage -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+        Assertions.assertNull(matcher);
+    }
+    @Test
+    public void EmptyNicknameTest() {
+        String testCommand = "profile change -n ";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeNickname(matcher);
+
+        Assertions.assertEquals(result, "The nickname is empty!");
+    }
+    @Test
+    public void InvalidNicknameFormatTest() {
+        String testCommand = "profile change -n #amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeNickname(matcher);
+
+        Assertions.assertEquals(result, "The nickname format is invalid");
+    }
     @Test
     public void changeNicknameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
