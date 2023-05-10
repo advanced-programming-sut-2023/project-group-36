@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Structure updated">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change population completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +217,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="9670000" />
+      <workItem from="1683676781530" duration="9924000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -462,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683686174412</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="change population completed">
+      <created>1683687218734</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683687218734</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +487,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="GameMenu updated, Start GameMenu." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="Some bugs fixed." />
@@ -506,7 +511,8 @@
     <MESSAGE value="display test added" />
     <MESSAGE value="AppTest updated" />
     <MESSAGE value="Structure updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structure updated" />
+    <MESSAGE value="change population completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="change population completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
