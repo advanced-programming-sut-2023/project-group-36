@@ -225,8 +225,41 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
-
         Assertions.assertEquals(result, "The format of the first part of the email is invalid!");
+    }
+    @Test
+    public void invalidPart2Test() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -e amir@gma%il.com";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Matcher matcher1;
+        String result = null;
+
+        if (matcher != null) {
+            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+            assert matcher1 != null;
+            result = ProfileMenuController.changeEmail(matcher, matcher1);
+        }
+
+        Assertions.assertEquals(result, "The format of the second part of the email is invalid!");
+    }
+    @Test
+    public void invalidPart3Test() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -e amir@gmail.c!om";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Matcher matcher1;
+        String result = null;
+
+        if (matcher != null) {
+            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+            assert matcher1 != null;
+            result = ProfileMenuController.changeEmail(matcher, matcher1);
+        }
+
+        Assertions.assertEquals(result, "The format of the third part of the email is invalid!");
     }
     @Test
     public void changeEmailTest() {
