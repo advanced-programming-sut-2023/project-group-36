@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 public class ProfileMenuController {
     public static String changeUsername(Matcher matcher) {
         String username = matcher.group("username");
-        if (username.equals("")) {  //is correct and no error?? f.g matcher.group("username") = null
+        if (username.equals("")) {
             return "The username is empty!";
         }
 
@@ -24,7 +24,7 @@ public class ProfileMenuController {
         String nickname = matcher.group("nickname");
 
         if (nickname.equals("")) 
-            return "The nickname is empty!"; ////is correct and no error?? f.g matcher.group("username") = null
+            return "The nickname is empty!";
 
         if (!nickname.matches("[A-Za-z_]+"))
             return "The nickname format is invalid";
@@ -37,9 +37,9 @@ public class ProfileMenuController {
         String newPassword = matcher.group("new-password");
         String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
-        if (oldPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+        if (oldPassword.equals(""))
             return "The old password is empty!";
-        if (newPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+        if (newPassword.equals(""))
             return "The new password is empty!";
 
         if (!userPassword.equals(oldPassword))
@@ -69,7 +69,7 @@ public class ProfileMenuController {
     public static String changePassword_2(Matcher matcher, String newPassword) throws NoSuchAlgorithmException {
         String repeatingPassword = matcher.group("new-password");
 
-        if (newPassword.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+        if (newPassword.equals(""))
             return "The repeating password is empty!";
 
         if (!repeatingPassword.equals(newPassword))
@@ -85,15 +85,15 @@ public class ProfileMenuController {
         String part2 = matcher1.group("part2");
         String part3 = matcher1.group("part3");
 
-        if (email.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+        if (email.equals(""))
             return "The email is empty!";
-        if (part1.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+        if (part1.equals("")) {
             return "The first part of the email is empty!";
         }
-        if (part2.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+        if (part2.equals("")) {
             return "The second part of the email is empty!";
         }
-        if (part3.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+        if (part3.equals("")) {
             return "The third part of the email is empty!";
         }
 
@@ -111,7 +111,7 @@ public class ProfileMenuController {
     public static String changeSlogan(Matcher matcher) {
         String slogan = matcher.group("slogan");
 
-        if (slogan.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+        if (slogan.equals(""))
             return "The slogan is empty!";
 
         ApplicationManager.getCurrentUser().setSlogan(slogan);

@@ -48,6 +48,18 @@ public class AppTest {
 
     }
 
+
+    // change username
+
+
+    @Test
+    public void changeUsernameMachTest() {
+        String testCommand = "profil change -u amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
+        Assertions.assertNull(matcher);
+    }
+
+
     @Test
     public void changeUsernameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
