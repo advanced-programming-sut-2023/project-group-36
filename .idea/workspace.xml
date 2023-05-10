@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="emptyPart3Test added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="invalidPart2Test and invalidPart3Test added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -392,7 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683754853676</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="invalidPart1Test added">
+      <created>1683755002795</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683755002795</updated>
+    </task>
+    <task id="LOCAL-00018" summary="invalidPart2Test and invalidPart3Test added">
+      <created>1683755129499</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683755129499</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,8 +425,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
-    <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
@@ -436,7 +448,9 @@
     <MESSAGE value="emptyPart1Test added" />
     <MESSAGE value="emptyPart2Test added" />
     <MESSAGE value="emptyPart3Test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="emptyPart3Test added" />
+    <MESSAGE value="invalidPart1Test added" />
+    <MESSAGE value="invalidPart2Test and invalidPart3Test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="invalidPart2Test and invalidPart3Test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

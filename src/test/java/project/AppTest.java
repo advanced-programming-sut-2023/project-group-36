@@ -55,6 +55,8 @@ public class AppTest {
     public void changeUsernameMachTest() {
         String testCommand = "profil change -u amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
+
+
         Assertions.assertNull(matcher);
     }
     @Test
@@ -66,6 +68,7 @@ public class AppTest {
         if (matcher != null)
             result = ProfileMenuController.changeUsername(matcher);
 
+
         Assertions.assertEquals(result, "The username is empty!");
     }
     @Test
@@ -76,6 +79,7 @@ public class AppTest {
 
         if (matcher != null)
             result = ProfileMenuController.changeUsername(matcher);
+
 
         Assertions.assertEquals(result, "The username format is invalid");
     }
@@ -90,6 +94,7 @@ public class AppTest {
         if (matcher != null)
             result = ProfileMenuController.changeUsername(matcher);
 
+
         Assertions.assertEquals(result, "Username changed successfully");
         Assertions.assertEquals(user.getUsername(), "amir");
     }
@@ -100,6 +105,8 @@ public class AppTest {
     public void changeNicknameMachTest() {
         String testCommand = "profile chage -n amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+
+
         Assertions.assertNull(matcher);
     }
     @Test
@@ -111,6 +118,7 @@ public class AppTest {
         if (matcher != null)
             result = ProfileMenuController.changeNickname(matcher);
 
+
         Assertions.assertEquals(result, "The nickname is empty!");
     }
     @Test
@@ -121,6 +129,7 @@ public class AppTest {
 
         if (matcher != null)
             result = ProfileMenuController.changeNickname(matcher);
+
 
         Assertions.assertEquals(result, "The nickname format is invalid");
     }
@@ -135,6 +144,7 @@ public class AppTest {
         if (matcher != null)
             result= ProfileMenuController.changeNickname(matcher);
 
+
         Assertions.assertEquals(result, "Nickname changed successfully");
         Assertions.assertEquals(user.getNickname(), "amir");
     }
@@ -145,6 +155,8 @@ public class AppTest {
     public void changeEmailMachTest() {
         String testCommand = "profile change -n amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+
+
         Assertions.assertNull(matcher);
     }
     @Test
@@ -156,6 +168,7 @@ public class AppTest {
         if (matcher != null) {
             result = ProfileMenuController.changeEmail(matcher, null);
         }
+
 
         Assertions.assertEquals(result, "The email is empty!");
     }
@@ -174,6 +187,7 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
+
         Assertions.assertEquals(result, "The first part of the email is empty!");
     }
     @Test
@@ -190,6 +204,7 @@ public class AppTest {
             assert matcher1 != null;
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
+
 
         Assertions.assertEquals(result, "The second part of the email is empty!");
     }
@@ -208,6 +223,7 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
+
         Assertions.assertEquals(result, "The third part of the email is empty!");
     }
     @Test
@@ -224,6 +240,7 @@ public class AppTest {
             assert matcher1 != null;
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
+
 
         Assertions.assertEquals(result, "The format of the first part of the email is invalid!");
     }
@@ -242,6 +259,7 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
+
         Assertions.assertEquals(result, "The format of the second part of the email is invalid!");
     }
     @Test
@@ -258,6 +276,7 @@ public class AppTest {
             assert matcher1 != null;
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
+
 
         Assertions.assertEquals(result, "The format of the third part of the email is invalid!");
     }
@@ -287,6 +306,8 @@ public class AppTest {
     public void changeSloganMachTest() {
         String testCommand = "profile change s amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+
+
         Assertions.assertNull(matcher);
     }
     @Test
@@ -297,6 +318,7 @@ public class AppTest {
 
         if (matcher != null)
             result = ProfileMenuController.changeSlogan(matcher);
+
 
         Assertions.assertEquals(result, "The slogan is empty!");
     }
@@ -312,10 +334,21 @@ public class AppTest {
         if (matcher != null)
             result = ProfileMenuController.changeSlogan(matcher);
 
+
         Assertions.assertEquals(result, "Slogan changed successfully");
         Assertions.assertEquals(user.getSlogan(), "amir");
     }
 
+    // remove slogan
+
+    @Test
+    public void removeSloganMachTest() {
+        String testCommand = "profile remove slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+
+
+        Assertions.assertNull(matcher);
+    }
     @Test
     public void removeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
@@ -326,6 +359,7 @@ public class AppTest {
 
         if (matcher != null)
             result = ProfileMenuController.removeSlogan();
+
 
         Assertions.assertEquals(result, "Slogan removed successfully");
         Assertions.assertEquals(user.getSlogan(), "");
