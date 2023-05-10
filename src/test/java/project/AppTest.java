@@ -54,7 +54,10 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -u amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
-        String result = ProfileMenuController.changeUsername(matcher);
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeUsername(matcher);
 
         Assertions.assertEquals(result, "Username changed successfully");
         Assertions.assertEquals(user.getUsername(), "amir");
@@ -66,9 +69,13 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -n amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
-        String result = ProfileMenuController.changeNickname(matcher);
+        String result = null;
+
+        if (matcher != null)
+            result= ProfileMenuController.changeNickname(matcher);
 
         Assertions.assertEquals(result, "Nickname changed successfully");
+        Assertions.assertEquals(user.getNickname(), "amir");
     }
 
     @Test
@@ -77,7 +84,10 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change slogan -s amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
-        String result = ProfileMenuController.changeSlogan(matcher);
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeSlogan(matcher);
 
         Assertions.assertEquals(result, "Slogan changed successfully");
         Assertions.assertEquals(user.getSlogan(), "amir");
@@ -89,10 +99,16 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -e amir@gmail.com";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
-        assert matcher != null;
-        Matcher matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
-        assert matcher1 != null;
-        String result = ProfileMenuController.changeEmail(matcher, matcher1);
+        Matcher matcher1 = null;
+        String result = null;
+
+        if (matcher != null) {
+            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+            assert matcher1 != null;
+            ProfileMenuController.changeEmail(matcher, matcher1);
+            result = ProfileMenuController.changeEmail(matcher, matcher1);
+        }
+
 
         Assertions.assertEquals(result, "Email changed successfully");
         Assertions.assertEquals(user.getEmail(), "amir@gmail.com");
@@ -104,7 +120,10 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile remove slogan";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.REMOVE_SLOGAN.getRegex());
-        String result = ProfileMenuController.removeSlogan();
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.removeSlogan();
 
         Assertions.assertEquals(result, "Slogan removed successfully");
         Assertions.assertEquals(user.getSlogan(), "");
@@ -116,9 +135,14 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display highScore";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_HIGH_SCORE.getRegex());
-        int result = ProfileMenuController.displayHighScore();
+        int result = -1;
 
-        Assertions.assertEquals(user.getHighScore(), 0);
+        if (matcher != null)
+            result = ProfileMenuController.displayHighScore();
+
+        Assertions.assertEquals(result, user.getHighScore());
     }
+
+
 
 }
