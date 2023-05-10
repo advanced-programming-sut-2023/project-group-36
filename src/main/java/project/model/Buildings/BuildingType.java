@@ -10,6 +10,19 @@ public class BuildingType {
     private int rate;
     private int fireRange;
     private int defenceRange;
+
+    public int getGoldCost() {
+        return goldCost;
+    }
+
+    public int getStoneCost() {
+        return stoneCost;
+    }
+
+    public int getWoodCost() {
+        return woodCost;
+    }
+
     private int NormalPeopleCapacity;
     private int MilitiaCapacity;
 

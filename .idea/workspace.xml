@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Remaining commit">
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +20,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,135 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Users/AC30/Desktop/Codes/Term 2/project-group-360",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="project.model.Peoples" />
     </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="project.model" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.AppTest.display">
-    <configuration name="AppTest.display" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="display" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.displayHighScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="displayHighScore" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.displayRank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="displayRank" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.displaySlogan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="displaySlogan" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.removeSlogan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="removeSlogan" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.AppTest.display" />
-        <item itemvalue="JUnit.AppTest.displayRank" />
-        <item itemvalue="JUnit.AppTest.displaySlogan" />
-        <item itemvalue="JUnit.AppTest.displayHighScore" />
-        <item itemvalue="JUnit.AppTest.removeSlogan" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -221,8 +113,6 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="9924000" />
-      <workItem from="1683687363334" duration="319000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -333,154 +223,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683542040083</updated>
     </task>
-    <task id="LOCAL-00006" summary="ApplicationManager updated">
-      <created>1683677018762</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677018762</updated>
-    </task>
-    <task id="LOCAL-00007" summary="change username test added">
-      <created>1683677195946</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677195946</updated>
-    </task>
-    <task id="LOCAL-00008" summary="change nickname test added">
-      <created>1683677238560</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677238560</updated>
-    </task>
-    <task id="LOCAL-00009" summary="change slogan test added">
-      <created>1683677328968</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677328968</updated>
-    </task>
-    <task id="LOCAL-00010" summary="ProfileMenuController updated">
-      <created>1683677496051</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677496051</updated>
-    </task>
-    <task id="LOCAL-00011" summary="ProfileMenu updated">
-      <created>1683677695434</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677695434</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Commands updated">
-      <created>1683677808249</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1683677808249</updated>
-    </task>
-    <task id="LOCAL-00013" summary="change email test added">
-      <created>1683679401003</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1683679401003</updated>
-    </task>
-    <task id="LOCAL-00014" summary="remove slogan test added">
-      <created>1683679865103</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1683679865103</updated>
-    </task>
-    <task id="LOCAL-00015" summary="displayHighScore test added">
-      <created>1683680400419</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1683680400419</updated>
-    </task>
-    <task id="LOCAL-00016" summary="AppTest updated">
-      <created>1683680936956</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1683680936956</updated>
-    </task>
-    <task id="LOCAL-00017" summary="display rank test added">
-      <created>1683681129066</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1683681129066</updated>
-    </task>
-    <task id="LOCAL-00018" summary="sort users added">
-      <created>1683682438972</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1683682438972</updated>
-    </task>
-    <task id="LOCAL-00019" summary="ApplicationManager updated">
-      <created>1683683304396</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1683683304396</updated>
-    </task>
-    <task id="LOCAL-00020" summary="display rank added with a bag!!">
-      <created>1683684452299</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1683684452299</updated>
-    </task>
-    <task id="LOCAL-00021" summary="displaySlogan test added">
-      <created>1683684641305</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1683684641305</updated>
-    </task>
-    <task id="LOCAL-00022" summary="display test added">
-      <created>1683684980222</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1683684980222</updated>
-    </task>
-    <task id="LOCAL-00023" summary="AppTest updated">
-      <created>1683685048417</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1683685048417</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Structure updated">
-      <created>1683686174412</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1683686174412</updated>
-    </task>
-    <task id="LOCAL-00025" summary="change population completed">
-      <created>1683687218734</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1683687218734</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Remaining commit">
-      <created>1683687431520</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1683687431520</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,32 +242,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Maven created :)" />
+    <MESSAGE value="Update CreateNewGameMenu." />
+    <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
+    <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
+    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
+    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
+    <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
+    <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
+    <MESSAGE value="master update." />
+    <MESSAGE value="Some bugs fixed. + add json files." />
+    <MESSAGE value="GameMenu updated, Start GameMenu." />
+    <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="CAPTCHA was placed for registration." />
     <MESSAGE value="Updated new map creation menu and fixed several bugs." />
     <MESSAGE value="Update MainMenu , some bugs fixed." />
     <MESSAGE value="biulding drop updated" />
-    <MESSAGE value="change username test added" />
-    <MESSAGE value="change nickname test added" />
-    <MESSAGE value="change slogan test added" />
-    <MESSAGE value="ProfileMenuController updated" />
-    <MESSAGE value="ProfileMenu updated" />
-    <MESSAGE value="Commands updated" />
-    <MESSAGE value="change email test added" />
-    <MESSAGE value="remove slogan test added" />
-    <MESSAGE value="displayHighScore test added" />
-    <MESSAGE value="display rank test added" />
-    <MESSAGE value="sort users added" />
-    <MESSAGE value="ApplicationManager updated" />
-    <MESSAGE value="display rank added with a bag!!" />
-    <MESSAGE value="displaySlogan test added" />
-    <MESSAGE value="display test added" />
-    <MESSAGE value="AppTest updated" />
-    <MESSAGE value="Structure updated" />
-    <MESSAGE value="change population completed" />
-    <MESSAGE value="Remaining commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remaining commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="biulding drop updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -535,5 +271,16 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest_TestWithMock.ic" NAME="AppTest.TestWithMock Coverage Results" MODIFIED="1683546905351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
   </component>
 </project>

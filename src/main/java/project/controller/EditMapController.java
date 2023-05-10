@@ -96,16 +96,36 @@ public class EditMapController {
         return null;
     }
     public static String checkBuildingPrerequisite(String type){
+
         switch (type){
             case "SmallGateHouse":
                 return null;
             case "BigGateHouse":
                 return null;
             case "CircleTower":
+                return null;
             case "LookoutTower":
+                return null;
             case "DrawBridge":
-
+                return null;
         }
        return null;
+    }
+    public static  boolean checkForEnoughResources(int Wood,int Stone,int gold){
+        if(EditMapMenu.government.getCoins()<gold)
+            return false;
+        if(EditMapMenu.government.getAmountOfResource("wood")<Wood || EditMapMenu.government.getAmountOfResource("stone")<Stone)
+            return false;
+
+        return true;
+    }
+    public static void CostPay(String BuildingType){
+        BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);
+        int Wood=buildingType.getWoodCost();
+        int Stone= buildingType.getStoneCost();
+        int gold=buildingType.getGoldCost();
+        EditMapMenu.government.getResources().changeResourceAmount("wood",Wood);
+        EditMapMenu.government.getResources().changeResourceAmount("stone",Stone);
+        EditMapMenu.government.changeCoins((-1)*gold);
     }
 }

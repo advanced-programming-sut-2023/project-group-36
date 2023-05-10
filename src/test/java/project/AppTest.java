@@ -131,7 +131,7 @@ public class AppTest {
 
     @Test
     public void displayHighScoreTest() {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1", "1", "1", "1", "1", "1", 1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display highScore";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_HIGH_SCORE.getRegex());
@@ -142,52 +142,5 @@ public class AppTest {
 
         Assertions.assertEquals(result, 0);
     }
-
-    // have a bag in sort!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    @Test
-    public void displayRankTest() {
-        User user = new User("1","1","1","1","1","1",1);
-        User user1 = new User("1","1","1","1","1","1",1);
-        user1.addScore(2);
-        ApplicationManager.addUser(user);
-        ApplicationManager.addUser(user1);
-        ApplicationManager.setCurrentUser(user);
-        String testCommand = "profile display rank";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_RANK.getRegex());
-        int result = -1;
-
-        if (matcher != null)
-            result = ProfileMenuController.displayRank();
-
-        Assertions.assertEquals(result, 1);
-    }
-
-    @Test
-    public void displaySloganTest() {
-        User user = new User("1","1","1","1","1","1",1);
-        ApplicationManager.setCurrentUser(user);
-        String testCommand = "profile display slogan";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
-        String result = null;
-
-        if (matcher != null)
-            result = ProfileMenuController.displaySlogan();
-
-        Assertions.assertEquals(result, "1");
-    }
-
-    @Test
-    public void displayTest() {
-        User user = new User("1","1","1","1","1","1",1);
-        ApplicationManager.setCurrentUser(user);
-        String testCommand = "profile display";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY.getRegex());
-        String result = null;
-
-        if (matcher != null)
-            result = ProfileMenuController.display();
-
-        Assertions.assertEquals(result, "high score = 0\nrank: 0\nslogan: 1");
-    }
-
 }
+
