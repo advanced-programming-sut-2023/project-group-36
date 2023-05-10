@@ -127,7 +127,7 @@ public class ProfileMenuController {
     }
 
     public static int displayRank() {
-        return ApplicationManager.getRank(ApplicationManager.getCurrentUser());
+    return ApplicationManager.getRank(ApplicationManager.getCurrentUser());
     }
 
     public static String displaySlogan() {

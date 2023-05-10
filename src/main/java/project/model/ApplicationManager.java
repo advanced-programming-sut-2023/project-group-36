@@ -89,6 +89,20 @@ public class ApplicationManager {
     }
 
     private static void sortUsers() {
+        User user;
+        User user1;
+        User user2;
+        for (int i = 0;  i < users.size(); i++) {
+            for (int j = i; j < users.size() - 1; j++) {
+                user = users.get(j);
+                user1 = users.get(j + 1);
+                if (user.getScore() < user1.getScore()) {
+                    user2 = user;
+                    user = user1;
+                    user1 = user2;
+                }
+            }
+        }
     }
 
 

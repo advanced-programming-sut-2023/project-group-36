@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displayHighScore test added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="display rank test added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +199,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="3726000" />
+      <workItem from="1683676781530" duration="4987000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -377,7 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683680400419</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="AppTest updated">
+      <created>1683680936956</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683680936956</updated>
+    </task>
+    <task id="LOCAL-00017" summary="display rank test added">
+      <created>1683681129066</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683681129066</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,8 +413,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
-    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
@@ -421,7 +436,9 @@
     <MESSAGE value="change email test added" />
     <MESSAGE value="remove slogan test added" />
     <MESSAGE value="displayHighScore test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="displayHighScore test added" />
+    <MESSAGE value="AppTest updated" />
+    <MESSAGE value="display rank test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="display rank test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
