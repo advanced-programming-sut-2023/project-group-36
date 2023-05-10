@@ -58,7 +58,7 @@ public class AppTest {
         Assertions.assertNull(matcher);
     }
     @Test
-    public void EmptyUsernameTest() {
+    public void emptyUsernameTest() {
         String testCommand = "profile change -u ";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
         String result = null;
@@ -69,7 +69,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The username is empty!");
     }
     @Test
-    public void InvalidUsernameFormatTest() {
+    public void invalidUsernameFormatTest() {
         String testCommand = "profile change -u @amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
         String result = null;
@@ -103,7 +103,7 @@ public class AppTest {
         Assertions.assertNull(matcher);
     }
     @Test
-    public void EmptyNicknameTest() {
+    public void emptyNicknameTest() {
         String testCommand = "profile change -n ";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
         String result = null;
@@ -114,7 +114,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The nickname is empty!");
     }
     @Test
-    public void InvalidNicknameFormatTest() {
+    public void invalidNicknameFormatTest() {
         String testCommand = "profile change -n #amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
         String result = null;
@@ -139,6 +139,46 @@ public class AppTest {
         Assertions.assertEquals(user.getNickname(), "amir");
     }
 
+    // change email
+
+    @Test
+    public void changeEmailMachTest() {
+        String testCommand = "profile change -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Assertions.assertNull(matcher);
+    }
+    @Test
+    public void emptyEmailTest() {
+        String testCommand = "profile change -e ";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changeEmail(matcher, null);
+        }
+
+        Assertions.assertEquals(result, "The email is empty!");
+    }
+    @Test
+    public void changeEmailTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -e amir@gmail.com";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Matcher matcher1;
+        String result = null;
+
+        if (matcher != null) {
+            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+            assert matcher1 != null;
+            result = ProfileMenuController.changeEmail(matcher, matcher1);
+        }
+
+
+        Assertions.assertEquals(result, "Email changed successfully");
+        Assertions.assertEquals(user.getEmail(), "amir@gmail.com");
+    }
+
     // change slogan
 
     @Test
@@ -158,6 +198,7 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The slogan is empty!");
     }
+
     @Test
     public void changeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
@@ -171,27 +212,6 @@ public class AppTest {
 
         Assertions.assertEquals(result, "Slogan changed successfully");
         Assertions.assertEquals(user.getSlogan(), "amir");
-    }
-
-    @Test
-    public void changeEmailTest() {
-        User user = new User("1","1","1","1","1","1",1);
-        ApplicationManager.setCurrentUser(user);
-        String testCommand = "profile change -e amir@gmail.com";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
-        Matcher matcher1 = null;
-        String result = null;
-
-        if (matcher != null) {
-            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
-            assert matcher1 != null;
-            ProfileMenuController.changeEmail(matcher, matcher1);
-            result = ProfileMenuController.changeEmail(matcher, matcher1);
-        }
-
-
-        Assertions.assertEquals(result, "Email changed successfully");
-        Assertions.assertEquals(user.getEmail(), "amir@gmail.com");
     }
 
     @Test

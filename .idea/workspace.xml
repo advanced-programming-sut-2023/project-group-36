@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="changeSloganMachTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ProfileMenuController updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -83,8 +83,8 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.EmptySloganTest">
-    <configuration name="AppTest.EmptyNicknameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AppTest.EmptyEmailTest">
+    <configuration name="AppTest.EmptyEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -94,7 +94,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="EmptyNicknameTest" />
+      <option name="METHOD_NAME" value="EmptyEmailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,7 +132,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.changeNicknameMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.changeEmailMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -142,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="changeNicknameMachTest" />
+      <option name="METHOD_NAME" value="changeEmailMachTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.EmptyEmailTest" />
+        <item itemvalue="JUnit.AppTest.changeEmailMachTest" />
         <item itemvalue="JUnit.AppTest.EmptySloganTest" />
         <item itemvalue="JUnit.AppTest.changeSloganMachTest" />
         <item itemvalue="JUnit.AppTest.InvalidNicknameFormatTest" />
-        <item itemvalue="JUnit.AppTest.EmptyNicknameTest" />
-        <item itemvalue="JUnit.AppTest.changeNicknameMachTest" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683752192733</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="EmptySloganTest added">
+      <created>1683752565365</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683752565365</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ProfileMenuController updated">
+      <created>1683754306028</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683754306028</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +383,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Maven created :)" />
     <MESSAGE value="Update CreateNewGameMenu." />
     <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
@@ -393,7 +406,9 @@
     <MESSAGE value="changeUsernameInvalidUsernameFormatTest added" />
     <MESSAGE value="change nickname complete" />
     <MESSAGE value="changeSloganMachTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeSloganMachTest added" />
+    <MESSAGE value="EmptySloganTest added" />
+    <MESSAGE value="ProfileMenuController updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProfileMenuController updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

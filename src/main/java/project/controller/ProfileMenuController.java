@@ -75,7 +75,7 @@ public class ProfileMenuController {
         if (!repeatingPassword.equals(newPassword))
             return "Repeating the password is wrong!";
         newPassword=SHA_256Format.sha256(newPassword)       ;
-    ApplicationManager.getCurrentUser().setPassword(newPassword);
+        ApplicationManager.getCurrentUser().setPassword(newPassword);
         return "Password changed successfully";
     }
 
