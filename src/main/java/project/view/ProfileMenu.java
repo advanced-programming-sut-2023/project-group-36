@@ -22,6 +22,7 @@ public class ProfileMenu {
                 command = Tools.inputCheckFormat(command);
             }
             Matcher matcher;
+            Matcher matcher1;
 
             matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_USERNAME));
             if (matcher != null) {

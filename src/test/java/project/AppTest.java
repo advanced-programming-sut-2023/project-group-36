@@ -89,10 +89,14 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change -e amir@gmail.com";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
-        Matcher matcher1 = Menu.getMatcher(matcher.group("email"), Commands.CHANGE_EMAIL.getRegex());
+        assert matcher != null;
+        Matcher matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+        assert matcher1 != null;
         String result = ProfileMenuController.changeEmail(matcher, matcher1);
 
         Assertions.assertEquals(result, "Email changed successfully");
-        Assertions.assertEquals(user.getEmail(), "amir");
+        Assertions.assertEquals(user.getEmail(), "amir@gmail.com");
     }
+
+
 }

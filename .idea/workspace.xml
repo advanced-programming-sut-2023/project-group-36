@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ProfileMenuController updated">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Commands updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +147,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="747000" />
+      <workItem from="1683676781530" duration="2136000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -291,7 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683677496051</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ProfileMenu updated">
+      <created>1683677695434</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677695434</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Commands updated">
+      <created>1683677808249</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677808249</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +349,9 @@
     <MESSAGE value="change nickname test added" />
     <MESSAGE value="change slogan test added" />
     <MESSAGE value="ProfileMenuController updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="ProfileMenuController updated" />
+    <MESSAGE value="ProfileMenu updated" />
+    <MESSAGE value="Commands updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commands updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
