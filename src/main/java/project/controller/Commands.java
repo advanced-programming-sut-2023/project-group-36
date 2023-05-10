@@ -17,7 +17,7 @@ public enum Commands {
     CHANGE_EMAIL("profile change -e (?<email>[^\n]*)"),
     EMAIL("(?<part1>[^\\n]*)@(?<part2>[^\\n]*)\\.(?<part3>[^\\n]*)"),
     CHANGE_SLOGAN("profile change slogan -s (?<slogan>[^\n]*)"),
-    REMOVE_SLOGAN("Profile remove slogan"),
+    REMOVE_SLOGAN("profile remove slogan"),
     DISPLAY_HIGH_SCORE("profile display highScore"),
     DISPLAY_RANK("profile display rank"),
     DISPLAY_SLOGAN("profile display slogan"),

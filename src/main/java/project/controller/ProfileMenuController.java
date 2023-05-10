@@ -138,7 +138,7 @@ public class ProfileMenuController {
         String slogan = user.getSlogan();
 
         if (slogan.equals("")) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
-            return "Slogan is empty!";
+            return "The slogan is empty!";
 
         return slogan;
     }

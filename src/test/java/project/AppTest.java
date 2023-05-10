@@ -311,7 +311,7 @@ public class AppTest {
         Assertions.assertNull(matcher);
     }
     @Test
-    public void EmptySloganTest() {
+    public void emptySloganTestInChangeSlogan() {
         String testCommand = "profile change slogan -s ";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
         String result = null;
@@ -343,7 +343,7 @@ public class AppTest {
 
     @Test
     public void removeSloganMachTest() {
-        String testCommand = "profile remove slogan";
+        String testCommand = "profile remove Slogan";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.REMOVE_SLOGAN.getRegex());
 
 
@@ -369,8 +369,8 @@ public class AppTest {
 
     @Test
     public void displayHighScoreMachTest() {
-        String testCommand = "profile display highScore";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+        String testCommand = "profile display high score";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_HIGH_SCORE.getRegex());
 
 
         Assertions.assertNull(matcher);
@@ -381,6 +381,47 @@ public class AppTest {
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display highScore";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_HIGH_SCORE.getRegex());
+        int result = -1;
+
+        if (matcher != null)
+            result = ProfileMenuController.displayHighScore();
+
+        Assertions.assertEquals(result, 0);
+    }
+
+    //display rank
+
+
+    // display slogan
+
+    @Test
+    public void displaySloganMachTest() {
+        String testCommand = "profile display Slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
+
+
+        Assertions.assertNull(matcher);
+    }
+    @Test
+    public void emptySloganTestInDisplay() {
+        User user = new User("1", "1", "1", "1", "", "1", 1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.displaySlogan();
+
+
+        Assertions.assertEquals(result, "The slogan is empty!");
+    }
+    @Test
+    public void displaySloganTest() {
+        User user = new User("1", "1", "1", "1", "1", "1", 1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
         int result = -1;
 
         if (matcher != null)
