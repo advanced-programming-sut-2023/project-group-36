@@ -2,10 +2,7 @@ package project;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import project.controller.Commands;
-import project.controller.LoginMenuController;
-import project.controller.SHA_256Format;
-import project.controller.SaveAndLoad;
+import project.controller.*;
 import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
@@ -46,6 +43,18 @@ public class AppTest {
         String out=LoginMenuController.Login(matcher);
     Assertions.assertEquals("User logged in Successfully!",out);
 
+    }
+
+    @Test
+    public void changeUsername(){
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -u amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
+        String result = ProfileMenuController.changeUsername(matcher);
+
+        Assertions.assertEquals(result, "Username changed successfully");
+        Assertions.assertEquals(user.getUsername(), "amir");
     }
 
 
