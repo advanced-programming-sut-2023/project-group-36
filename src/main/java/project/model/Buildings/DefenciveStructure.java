@@ -19,7 +19,7 @@ public class DefenciveStructure extends Structure {
         super.government=government;
     }
     public  void AttackRadiusIncrease(){
-        for(Militia x : super.militias){
+        for(Militia x : super.getMilitias()){
             if(x instanceof Launcher)
                 ((Launcher) x).setLaunchRadius(fire_range);
         }

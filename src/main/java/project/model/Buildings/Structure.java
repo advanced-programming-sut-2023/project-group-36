@@ -12,8 +12,8 @@ public  class Structure {
     Block block;
     int HP;
     Government government;
-    public ArrayList<Militia> militias;
-    public ArrayList<NormalPeople> normalPeople;
+    private ArrayList<Militia> militias;
+    private ArrayList<NormalPeople> normalPeoples;
     BuildingType buildingType;
 
     public BuildingType getBuildingType() {
@@ -30,5 +30,33 @@ public  class Structure {
 
     public int getHitPoint() {
         return HP;
+    }
+
+
+
+    public ArrayList<NormalPeople> getNormalPeople() {
+        return normalPeoples;
+    }
+
+    public void setNormalPeople(ArrayList<NormalPeople> normalPeople) {
+        this.normalPeoples = normalPeople;
+    }
+
+    public void removeNormalPeople(NormalPeople normalPeople) {
+        normalPeoples.remove(normalPeople);
+    }
+
+    public void addNormalPeople(NormalPeople normalPeople) {
+        normalPeoples.add(normalPeople);
+    }
+
+
+
+    public ArrayList<Militia> getMilitias() {
+        return militias;
+    }
+
+    public void setMilitias(ArrayList<Militia> militias) {
+        this.militias = militias;
     }
 }
