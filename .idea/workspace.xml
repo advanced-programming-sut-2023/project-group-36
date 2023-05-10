@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="invalidPart2Test and invalidPart3Test added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="removeSloganMachTest added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -83,23 +83,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.invalidPart3Test">
-    <configuration name="AppTest.emptyPart2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="emptyPart2Test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AppTest.removeSloganMachTest">
     <configuration name="AppTest.emptyPart3Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -164,13 +148,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.removeSloganMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="removeSloganMachTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.removeSloganMachTest" />
         <item itemvalue="JUnit.AppTest.invalidPart3Test" />
         <item itemvalue="JUnit.AppTest.invalidPart2Test" />
         <item itemvalue="JUnit.AppTest.invalidPart1Test" />
         <item itemvalue="JUnit.AppTest.emptyPart3Test" />
-        <item itemvalue="JUnit.AppTest.emptyPart2Test" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683755129499</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="removeSloganMachTest added">
+      <created>1683759015628</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683759015628</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
@@ -450,7 +456,8 @@
     <MESSAGE value="emptyPart3Test added" />
     <MESSAGE value="invalidPart1Test added" />
     <MESSAGE value="invalidPart2Test and invalidPart3Test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="invalidPart2Test and invalidPart3Test added" />
+    <MESSAGE value="removeSloganMachTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="removeSloganMachTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

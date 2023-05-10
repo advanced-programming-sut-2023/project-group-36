@@ -344,7 +344,7 @@ public class AppTest {
     @Test
     public void removeSloganMachTest() {
         String testCommand = "profile remove slogan";
-        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.REMOVE_SLOGAN.getRegex());
 
 
         Assertions.assertNull(matcher);
@@ -365,6 +365,16 @@ public class AppTest {
         Assertions.assertEquals(user.getSlogan(), "");
     }
 
+    // display high score
+
+    @Test
+    public void displayHighScoreMachTest() {
+        String testCommand = "profile display highScore";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+
+
+        Assertions.assertNull(matcher);
+    }
     @Test
     public void displayHighScoreTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
