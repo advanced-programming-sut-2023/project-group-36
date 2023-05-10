@@ -61,6 +61,18 @@ public class AppTest {
 
 
     @Test
+    public void changeUsernameEmptyUsernameTest() {
+        String testCommand = "profile change -u ";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeUsername(matcher);
+
+        Assertions.assertEquals(result, "The username is empty!");
+    }
+
+    @Test
     public void changeUsernameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
         ApplicationManager.setCurrentUser(user);
