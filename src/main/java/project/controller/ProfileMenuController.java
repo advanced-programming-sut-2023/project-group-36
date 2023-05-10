@@ -79,18 +79,35 @@ public class ProfileMenuController {
         return "Password changed successfully";
     }
 
-    public static String changeEmail(Matcher matcher) {
+    public static String changeEmail(Matcher matcher, Matcher matcher1) {
         String email = matcher.group("email");
-        if (ApplicationManager.getUserByEmail(email)!=null){
-            return "A user with this Email exists!";
+        String part1 = matcher1.group("part1");
+        String part2 = matcher1.group("part2");
+        String part3 = matcher1.group("part3");
+
+        if (email.equals("")) //is correct and no error?? f.g matcher.group("username") = null
+            return "The email is empty!";
+        if (part1.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The first part of the email is empty!";
         }
-        if (!email.matches("[A-Za-z0-9._]+@[A-Za-z0-9._]+.[A-Za-z0-9._]+")){
-            return "Invalid Email format!";
+        if (part2.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The second part of the email is empty!";
         }
+        if (part3.equals("")) { //is correct and no error?? f.g matcher.group("username") = null
+            return "The third part of the email is empty!";
+        }
+
+        if (!part1.matches("[A-Za-z_]+"))
+            return "The format of the first part of the email is invalid!";
+        if (!part2.matches("[A-Za-z_]+"))
+            return "The format of the second part of the email is invalid!";
+        if (!part3.matches("[A-Za-z_]+"))
+            return "The format of the third part of the email is invalid!";
 
         ApplicationManager.getCurrentUser().setEmail(email);
         return "Email changed successfully";
     }
+
     public static String changeSlogan(Matcher matcher) {
         String slogan = matcher.group("slogan");
 
