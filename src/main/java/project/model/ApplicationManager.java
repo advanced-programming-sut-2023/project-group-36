@@ -3,7 +3,6 @@ package project.model;
 import project.controller.SaveAndLoad;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class ApplicationManager {
 
@@ -98,7 +97,9 @@ public class ApplicationManager {
                 user = users.get(j);
                 user1 = users.get(j + 1);
                 if (user.getScore() < user1.getScore()) {
-                    Collections.swap(users, users.indexOf(user), users.indexOf(user1));
+                    user2 = user;
+                    user = user1;
+                    user1 = user2;
                 }
             }
         }

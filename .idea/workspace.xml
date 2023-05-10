@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="sort users added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ApplicationManager updated">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -199,7 +197,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="5757000" />
+      <workItem from="1683676781530" duration="6481000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -401,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683682438972</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="ApplicationManager updated">
+      <created>1683683304396</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683683304396</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +437,6 @@
     <MESSAGE value="Updated new map creation menu and fixed several bugs." />
     <MESSAGE value="Update MainMenu , some bugs fixed." />
     <MESSAGE value="biulding drop updated" />
-    <MESSAGE value="ApplicationManager updated" />
     <MESSAGE value="change username test added" />
     <MESSAGE value="change nickname test added" />
     <MESSAGE value="change slogan test added" />
@@ -445,7 +449,8 @@
     <MESSAGE value="AppTest updated" />
     <MESSAGE value="display rank test added" />
     <MESSAGE value="sort users added" />
-    <option name="LAST_COMMIT_MESSAGE" value="sort users added" />
+    <MESSAGE value="ApplicationManager updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ApplicationManager updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
