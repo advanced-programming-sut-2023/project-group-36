@@ -82,4 +82,17 @@ public class AppTest {
         Assertions.assertEquals(result, "Slogan changed successfully");
         Assertions.assertEquals(user.getSlogan(), "amir");
     }
+
+    @Test
+    public void changeEmail() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -e amir@gmail.com";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Matcher matcher1 = Menu.getMatcher(matcher.group("email"), Commands.CHANGE_EMAIL.getRegex());
+        String result = ProfileMenuController.changeEmail(matcher, matcher1);
+
+        Assertions.assertEquals(result, "Email changed successfully");
+        Assertions.assertEquals(user.getEmail(), "amir");
+    }
 }

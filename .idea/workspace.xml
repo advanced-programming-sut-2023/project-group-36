@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ApplicationManager updated" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ProfileMenuController updated">
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +81,22 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="AppTest.changeEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="changeEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,6 +108,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AppTest.changeEmail" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -122,7 +145,7 @@
       <workItem from="1683536550074" duration="539000" />
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
-      <workItem from="1683676781530" duration="366000" />
+      <workItem from="1683676781530" duration="747000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -240,7 +263,35 @@
       <option name="project" value="LOCAL" />
       <updated>1683677018762</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change username test added">
+      <created>1683677195946</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677195946</updated>
+    </task>
+    <task id="LOCAL-00008" summary="change nickname test added">
+      <created>1683677238560</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677238560</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change slogan test added">
+      <created>1683677328968</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677328968</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ProfileMenuController updated">
+      <created>1683677496051</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683677496051</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +329,11 @@
     <MESSAGE value="Update MainMenu , some bugs fixed." />
     <MESSAGE value="biulding drop updated" />
     <MESSAGE value="ApplicationManager updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="ApplicationManager updated" />
+    <MESSAGE value="change username test added" />
+    <MESSAGE value="change nickname test added" />
+    <MESSAGE value="change slogan test added" />
+    <MESSAGE value="ProfileMenuController updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProfileMenuController updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
