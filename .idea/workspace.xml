@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change population completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Remaining commit">
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Users/AC30/Desktop/Codes/Term 2/project-group",
+    "last_opened_file_path": "C:/Users/AC30/Desktop/Codes/Term 2/project-group-360",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -218,6 +222,7 @@
       <workItem from="1683537611570" duration="3443000" />
       <workItem from="1683545732716" duration="323000" />
       <workItem from="1683676781530" duration="9924000" />
+      <workItem from="1683687363334" duration="319000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -468,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683687218734</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Remaining commit">
+      <created>1683687431520</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683687431520</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="CAPTCHA was placed for registration." />
@@ -512,7 +523,8 @@
     <MESSAGE value="AppTest updated" />
     <MESSAGE value="Structure updated" />
     <MESSAGE value="change population completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="change population completed" />
+    <MESSAGE value="Remaining commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remaining commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
