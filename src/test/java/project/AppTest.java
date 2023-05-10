@@ -143,6 +143,19 @@ public class AppTest {
         Assertions.assertEquals(result, user.getHighScore());
     }
 
+    @Test
+    public void displayRank() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display rank";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_RANK.getRegex());
+        int result = -1;
+
+        if (matcher != null)
+            result = ProfileMenuController.displayRank();
+
+        Assertions.assertEquals(result, ApplicationManager.getRank(user));
+    }
 
 
 }
