@@ -50,9 +50,11 @@ public class ProfileMenu {
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.CHANGE_EMAIL));
+            matcher = Menu.getMatcher(command, Commands.CHANGE_EMAIL.getRegex());
             if (matcher != null) {
-                System.out.println(ProfileMenuController.changeEmail(matcher));
+                matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+                assert matcher1 != null;
+                System.out.println(ProfileMenuController.changeEmail(matcher, matcher1));
                 continue;
             }
 
