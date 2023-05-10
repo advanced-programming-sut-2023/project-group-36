@@ -268,17 +268,27 @@ public class Government{
     }
 
     // change population
+
+
+
+    // most be check
+
     private void changePopulation() {
+        BuildingType buildingType;
+        PeopleType peopleType;
+
         // people growth + ?
         int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();
         for (Structure structure : structures) {
-            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
-            BuildingType buildingType = structure.getBuildingType();
+            buildingType = structure.getBuildingType();
+            peopleType = new PeopleType(buildingType.getType(),"Unemployed", 0, 0, 0, 0, 0, null);
+
             for (int i = 0; i < amountOfPeopleToBeAdded; i++) {
-                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() > 0)  {
+                if ((buildingType.getType().equals("Hovel")  || buildingType.getType().equals("SmallGateHouse") || buildingType.getType().equals("BigGateHouse")) && buildingType.getNormalPeopleCapacity() > structure.getNormalPeople().size())  {
                     NormalPeople normalPeople = new NormalPeople(peopleType, this, structure.getBlock());
-                    /*!!!!!*/                    peoples.add(normalPeople); // nothing another ????
-                    buildingType.changeNormalPeopleCapacity(-1);
+                    peoples.add(normalPeople); // nothing another ????
+                    structure.addNormalPeople(normalPeople);
+                    structure.getBlock().addPeople(normalPeople);
                 }
             }
         }
@@ -286,14 +296,15 @@ public class Government{
         // Population death + ?
         int amountOfPeopleWhoMostToReduced = peoples.size() / getAmountOfAllTypesOfFoods();
         for (Structure structure : structures) {
-            /*!!!!!*/            PeopleType peopleType = new PeopleType(structure.getName(),"Unemployed", 0, 0, 0, 0, 0, null); // I add structure.getName
-            BuildingType buildingType = structure.getBuildingType();
+            buildingType = structure.getBuildingType();
+
             for (int i = 0; i < amountOfPeopleWhoMostToReduced; i++) {
-                if (buildingType.getCategory().equals("Home") && buildingType.getNormalPeopleCapacity() != 0)  {
+                if ((buildingType.getType().equals("Hovel")  || buildingType.getType().equals("SmallGateHouse") || buildingType.getType().equals("BigGateHouse")) && structure.getNormalPeople().size() != 0)  {
                     for (People people : peoples) {
                         if (people instanceof NormalPeople && peoples.contains(people)) {
-                            /*!!!!!*/                    peoples.remove(people); // nothing another ????
-                            buildingType.changeNormalPeopleCapacity(-1);
+                            peoples.remove(people);
+                            structure.removeNormalPeople((NormalPeople) people);
+                            structure.getBlock().removePeople(people);
                         }
                     }
                 }
