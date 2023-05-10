@@ -57,5 +57,15 @@ public class AppTest {
         Assertions.assertEquals(user.getUsername(), "amir");
     }
 
+    @Test
+    public void changeNickname() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_NICKNAME.getRegex());
+        String result = ProfileMenuController.changeNickname(matcher);
 
-}
+        Assertions.assertEquals(result, "Nickname changed successfully");
+
+
+    }
