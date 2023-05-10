@@ -11,8 +11,8 @@ public enum Commands {
     FORGET_PASSWORD("forgot my password"),
 
     //PROFILE
-    CHANGE_USERNAME("username change -u (?<username>[^\n]*)"),
-    CHANGE_NICKNAME("nickname change -n (?<nickname>[^\n]*)"),
+    CHANGE_USERNAME("profile change -u (?<username>[^\n]*)"),
+    CHANGE_NICKNAME("profile change -n (?<nickname>[^\n]*)"),
     CHANGE_PASSWORD("profile change password -o (?<old-password>[^\n]*) -n (?<new-password>[^\n]*)"),
     CHANGE_EMAIL("profile change -e (?<email>[^\n]*)"),
     EMAIL("(?<part1>[^\\n]*)@(?<part2>[^\\n]*)\\.(?<part3>[^\\n]*)"),

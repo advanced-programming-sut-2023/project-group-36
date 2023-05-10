@@ -73,6 +73,18 @@ public class AppTest {
     }
 
     @Test
+    public void changeUsernameInvalidUsernameFormatTest() {
+        String testCommand = "profile change -u @amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_USERNAME.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.changeUsername(matcher);
+
+        Assertions.assertEquals(result, "The username format is invalid");
+    }
+
+    @Test
     public void changeUsernameTest() {
         User user = new User("1", "1", "1", "1", "1", "1", 1);
         ApplicationManager.setCurrentUser(user);
