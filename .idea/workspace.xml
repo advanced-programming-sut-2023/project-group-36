@@ -83,7 +83,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.InvalidNicknameFormatTest">
+  <component name="RunManager" selected="JUnit.AppTest.changeSloganMachTest">
     <configuration name="AppTest.EmptyNicknameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -132,7 +132,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.changeUsernameEmptyUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.changeSloganMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -142,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="changeUsernameEmptyUsernameTest" />
+      <option name="METHOD_NAME" value="changeSloganMachTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.changeSloganMachTest" />
         <item itemvalue="JUnit.AppTest.InvalidNicknameFormatTest" />
         <item itemvalue="JUnit.AppTest.EmptyNicknameTest" />
         <item itemvalue="JUnit.AppTest.changeNicknameMachTest" />
         <item itemvalue="JUnit.AppTest.changeUsernameInvalidUsernameFormatTest" />
-        <item itemvalue="JUnit.AppTest.changeUsernameEmptyUsernameTest" />
       </list>
     </recent_temporary>
   </component>

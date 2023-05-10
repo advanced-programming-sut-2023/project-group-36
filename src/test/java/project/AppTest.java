@@ -139,6 +139,14 @@ public class AppTest {
         Assertions.assertEquals(user.getNickname(), "amir");
     }
 
+    // change slogan
+
+    @Test
+    public void changeSloganMachTest() {
+        String testCommand = "profile change s amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_SLOGAN.getRegex());
+        Assertions.assertNull(matcher);
+    }
     @Test
     public void changeSloganTest() {
         User user = new User("1","1","1","1","1","1",1);
