@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="changeEmailMachTest and emptyEmailTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="emptyPart3Test added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.emptyPart3Test">
+  <component name="RunManager" selected="JUnit.AppTest.invalidPart1Test">
     <configuration name="AppTest.changeEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -95,22 +95,6 @@
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
       <option name="METHOD_NAME" value="changeEmailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.emptyEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="emptyEmailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,13 +148,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.invalidPart1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="invalidPart1Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.invalidPart1Test" />
         <item itemvalue="JUnit.AppTest.emptyPart3Test" />
         <item itemvalue="JUnit.AppTest.emptyPart2Test" />
         <item itemvalue="JUnit.AppTest.emptyPart1Test" />
         <item itemvalue="JUnit.AppTest.changeEmailTest" />
-        <item itemvalue="JUnit.AppTest.emptyEmailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -371,7 +371,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683754509685</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="emptyPart1Test added">
+      <created>1683754768979</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683754768979</updated>
+    </task>
+    <task id="LOCAL-00015" summary="emptyPart2Test added">
+      <created>1683754796594</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683754796594</updated>
+    </task>
+    <task id="LOCAL-00016" summary="emptyPart3Test added">
+      <created>1683754853676</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683754853676</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,9 +411,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
-    <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
-    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
@@ -415,7 +433,10 @@
     <MESSAGE value="EmptySloganTest added" />
     <MESSAGE value="ProfileMenuController updated" />
     <MESSAGE value="changeEmailMachTest and emptyEmailTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeEmailMachTest and emptyEmailTest added" />
+    <MESSAGE value="emptyPart1Test added" />
+    <MESSAGE value="emptyPart2Test added" />
+    <MESSAGE value="emptyPart3Test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="emptyPart3Test added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
