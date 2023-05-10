@@ -162,5 +162,19 @@ public class AppTest {
         Assertions.assertEquals(result, 1);
     }
 
+    @Test
+    public void displaySlogan() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display slogan";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.displaySlogan();
+
+        Assertions.assertEquals(result, "1");
+    }
+
 
 }
