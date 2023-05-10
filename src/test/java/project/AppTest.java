@@ -110,5 +110,15 @@ public class AppTest {
         Assertions.assertEquals(user.getSlogan(), "");
     }
 
+    @Test
+    public void displayHighScore() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display highScore";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_HIGH_SCORE.getRegex());
+        int result = ProfileMenuController.displayHighScore();
+
+        Assertions.assertEquals(user.getHighScore(), 0);
+    }
 
 }
