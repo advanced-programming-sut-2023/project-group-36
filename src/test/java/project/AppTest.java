@@ -174,7 +174,6 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
-
         Assertions.assertEquals(result, "The first part of the email is empty!");
     }
     @Test
@@ -192,8 +191,24 @@ public class AppTest {
             result = ProfileMenuController.changeEmail(matcher, matcher1);
         }
 
-
         Assertions.assertEquals(result, "The second part of the email is empty!");
+    }
+    @Test
+    public void emptyPart3Test() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change -e amir@gmail.";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_EMAIL.getRegex());
+        Matcher matcher1;
+        String result = null;
+
+        if (matcher != null) {
+            matcher1 = Menu.getMatcher(matcher.group("email"), Commands.EMAIL.getRegex());
+            assert matcher1 != null;
+            result = ProfileMenuController.changeEmail(matcher, matcher1);
+        }
+
+        Assertions.assertEquals(result, "The third part of the email is empty!");
     }
     @Test
     public void changeEmailTest() {
