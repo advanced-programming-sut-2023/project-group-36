@@ -20,25 +20,25 @@ public class ShopMenu {
 
             Matcher matcher;
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.SHOW_PRICE_LIST));
+            matcher = Menu.getMatcher(command, Commands.SHOW_PRICE_LIST.getRegex());
             if (matcher != null) {
                 System.out.println(ShopMenuController.showPriceList()); //
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.BUY));
+            matcher = Menu.getMatcher(command, Commands.BUY.getRegex());
             if (matcher != null) {
                 System.out.println(ShopMenuController.buyAndSell(matcher, "buy"));
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.SELL));
+            matcher = Menu.getMatcher(command, Commands.SELL.getRegex());
             if (matcher != null) {
                 System.out.println(ShopMenuController.buyAndSell(matcher, "sell"));
                 continue;
             }
 
-            matcher = Menu.getMatcher(command, String.valueOf(Commands.EXIT));
+            matcher = Menu.getMatcher(command, Commands.EXIT.getRegex());
             if (matcher != null)
                 break;
 
