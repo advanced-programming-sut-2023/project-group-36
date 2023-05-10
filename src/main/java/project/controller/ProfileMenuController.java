@@ -81,12 +81,15 @@ public class ProfileMenuController {
 
     public static String changeEmail(Matcher matcher, Matcher matcher1) {
         String email = matcher.group("email");
+
+        if (email.equals("")) {
+            return "The email is empty!";
+        }
+
         String part1 = matcher1.group("part1");
         String part2 = matcher1.group("part2");
         String part3 = matcher1.group("part3");
 
-        if (email.equals(""))
-            return "The email is empty!";
         if (part1.equals("")) {
             return "The first part of the email is empty!";
         }
