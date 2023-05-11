@@ -2,6 +2,7 @@ package project.controller;
 
 import project.model.*;
 import project.model.Buildings.BuildingType;
+import project.model.Buildings.Structure;
 import project.model.Peoples.*;
 import project.view.CreateNewGameMenu;
 import project.view.EditMapMenu;
@@ -85,6 +86,7 @@ public class EditMapController {
         if(!checkBuildingPrerequisite(type).equals(null)){
             return checkBuildingPrerequisite(type);
         }
+        currentBlock.setThisBlockStructure(new Structure(currentBlock,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),Types.getBuildingTypeByType(type)));
         return "drop building done successfully.";
     }
 
@@ -96,7 +98,8 @@ public class EditMapController {
         return null;
     }
     public static String checkBuildingPrerequisite(String type){
-
+        if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
+                        return "you don't have enough resourses for building this structure!";
         switch (type){
             case "SmallGateHouse":
                 return null;
@@ -108,6 +111,67 @@ public class EditMapController {
                 return null;
             case "DrawBridge":
                 return null;
+            case "Turret":
+                return null;
+            case "Perimeter tower":
+                return null;
+            case "SquareTower":
+                return null;
+            case "Armoury":
+                return null;
+            case "Barrack":
+                return null;
+            case "EngineerGuild":
+                return null;
+            case "KillingPit":
+                return null;
+            case "Hovel":
+                return null;
+            case "Church":
+                return null;
+            case "Cathedral":
+                return null;
+            case "Armourer":
+                return null;
+            case "Blacksmith":
+                return null;
+            case "Fletcher":
+                return null;
+            case "Poleturner":
+                return null;
+            case "Tunnel":
+                return null;
+            case "Stockpile":
+                return null;
+            case "Quarry":
+                return null;
+            case "PitchRig":
+                return null;
+            case "Mill":
+                return null;
+            case "Inn":
+                return null;
+            case "Ditch":
+                return null;
+            case "MercenaryPost":
+                return null;
+            case "PitchDitch":
+                return null;
+            case "CagedWarDogs":
+                return null;
+            case "SiegeTent":
+                return null;
+            case "Stable":
+                return null;
+            case "Store":
+                return null;
+            case "OilSmelter":
+                return null;
+            case "IronMine":
+                return null;
+            case "WoodCutter":
+                return null;
+
         }
        return null;
     }

@@ -16,12 +16,25 @@ public  class Structure {
     private ArrayList<NormalPeople> normalPeoples;
     BuildingType buildingType;
 
+    public Structure() {
+
+    }
+
     public BuildingType getBuildingType() {
         return buildingType;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Structure(Block block, Government government, ArrayList<Militia> militias, ArrayList<NormalPeople> normalPeoples, BuildingType buildingType) {
+        this.block = block;
+        this.government = government;
+        this.militias = militias;
+        this.normalPeoples = normalPeoples;
+        this.buildingType = buildingType;
+        block.setThisBlockStructure(this);
     }
 
     public Block getBlock() {
