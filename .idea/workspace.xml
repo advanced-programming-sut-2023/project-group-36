@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displayHighScoreMachTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displaySloganMachTest and emptySloganTestInDisplay added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -421,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683759249291</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="displaySloganMachTest and emptySloganTestInDisplay added">
+      <created>1683761066199</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683761066199</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +447,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
@@ -465,7 +471,8 @@
     <MESSAGE value="invalidPart2Test and invalidPart3Test added" />
     <MESSAGE value="removeSloganMachTest added" />
     <MESSAGE value="displayHighScoreMachTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="displayHighScoreMachTest added" />
+    <MESSAGE value="displaySloganMachTest and emptySloganTestInDisplay added" />
+    <option name="LAST_COMMIT_MESSAGE" value="displaySloganMachTest and emptySloganTestInDisplay added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

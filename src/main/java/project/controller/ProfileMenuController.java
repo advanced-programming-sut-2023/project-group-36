@@ -149,7 +149,7 @@ public class ProfileMenuController {
         result += "rank: " + displayRank() + "\n";
         result += "slogan: ";
 
-        if (!displaySlogan().equals("Slogan is empty!"))
+        if (!displaySlogan().equals("The slogan is empty!"))
             result += displaySlogan();
 
         return result;
