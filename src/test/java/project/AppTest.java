@@ -42,6 +42,7 @@ public class AppTest {
 
     @Test
     public void TestWithMock() throws NoSuchAlgorithmException {
+        ApplicationManager.getUsers().add(new User("ahmad",SHA_256Format.sha256("123"),"bsgh","fghshgh","gfjsj","cgfajs",1));
         Matcher matcher = Menu.getMatcher("user login -u ahmad -p 123", Commands.LOGIN.getRegex());
         String out = LoginMenuController.Login(matcher);
         Assertions.assertEquals("User logged in Successfully!", out);
