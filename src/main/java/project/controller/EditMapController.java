@@ -102,6 +102,8 @@ public class EditMapController {
     public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
         if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
                         return "you don't have enough resourses for building this structure!";
+        if(checkForEnoughWokingPeople(type)==false)
+                        return "you don't have enough free people for employeeng in this building!";
         switch (type){
             case "SmallGateHouse":
                 return null;
@@ -197,6 +199,22 @@ public class EditMapController {
             return false;
 
         return true;
+    }
+    public static boolean checkForEnoughWokingPeople(String type){
+        BuildingType buildingType= Types.getBuildingTypeByType(type);
+        int d=buildingType.getRequiredPeopleToWork();
+        if(d==0)
+            return true;
+        int count=0;
+        for(People normalPeople:EditMapMenu.government.getPeoples()){
+            if(normalPeople instanceof NormalPeople){
+                count++;
+                ((NormalPeople) normalPeople).setEmployed(true);
+                if(d==count)
+                    return true;
+            }
+        }
+        return false;
     }
     public static void CostPay(String BuildingType){
         BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);

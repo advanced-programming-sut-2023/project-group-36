@@ -73,8 +73,13 @@ public class BuildingType {
     }
 
     private int goldCost,stoneCost,woodCost;
-    public BuildingType(String type, String category, int woodCost,int stoneCost,int goldCost, int damage, int popularityChange, int rate
-            , int fireRange, int defenceRange,int normalPeopleCapacity,int militiaCapacity,int requiredPeopleToWork) {
+
+    public int getRequiredPeopleToWork() {
+        return requiredPeopleToWork;
+    }
+
+    public BuildingType(String type, String category, int woodCost, int stoneCost, int goldCost, int damage, int popularityChange, int rate
+            , int fireRange, int defenceRange, int normalPeopleCapacity, int militiaCapacity, int requiredPeopleToWork) {
         this.type = type;
         this.category = category;
         this.HP = HP;
