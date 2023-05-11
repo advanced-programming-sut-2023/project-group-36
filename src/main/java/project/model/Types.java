@@ -42,43 +42,43 @@ public class Types {
 
 
     public static void addBuildingsTypes() {
-        buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",0,0,0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("BigStoneGatehouse","CastleBuildings",0,20,0,0,0,0,0,0,10,0));
-        buildingTypes.add(new BuildingType("Keep","CastleBuildings",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("DrawBridge","CastleBuildings",10,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("LookoutTower","TowerAndLookouts",0,10,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("CircleTower","TowerAndLookouts",0,40,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("SquareTower","TowerAndLookouts",0,35,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Perimeter tower","TowerAndLookouts",0,10,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Turret","TowerAndLookouts",0,15,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Armoury","WeaponBuildings",5,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Barrack","WeaponBuildings",0,15,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("EngineerGuild","WeaponBuildings",10,0,100,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("KillingPit","Trap",6,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Hovel","TownBuildings",6,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Church","TownBuildings",0,0,250,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Cathedral","WeaponBuildings",0,0,1000,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Armourer","WeaponBuildings",20,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Blacksmith","WeaponBuildings",20,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Fletcher","WeaponBuildings",20,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Poleturner","WeaponBuildings",10,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Stockpile","Storge",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Quarry","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Inn","CastleBuildings",20,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Ditch","Trap",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",10,0,0,0,0,0,0,0,8,0));
-        buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",10,0,100,10000,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,50));
-        buildingTypes.add(new BuildingType("Stable","Storge",20,0,100,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("Store","Industry",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("OilSmelter","Industry",0,10,100,0,0,0,0,0,0,1));
-        buildingTypes.add(new BuildingType("IronMine","FarmBuildings",20,0,0,0,0,0,0,0,0,0));
-        buildingTypes.add(new BuildingType("WoodCutter","FarmBuildings",3,0,0,0,0,0,0,0,0,0));
-
+        buildingTypes.add(new BuildingType("SmallStoneGatehouse","CastleBuildings",0,0,0,0,0,0,0,0,8,0,0));
+        buildingTypes.add(new BuildingType("BigStoneGatehouse","CastleBuildings",0,20,0,0,0,0,0,0,10,0,0));
+        buildingTypes.add(new BuildingType("Keep","CastleBuildings",0,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("DrawBridge","CastleBuildings",10,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("LookoutTower","TowerAndLookouts",0,10,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("CircleTower","TowerAndLookouts",0,40,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("SquareTower","TowerAndLookouts",0,35,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Perimeter tower","TowerAndLookouts",0,10,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Turret","TowerAndLookouts",0,15,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Armoury","WeaponBuildings",5,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Barrack","WeaponBuildings",0,15,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("EngineerGuild","WeaponBuildings",10,0,100,0,0,0,0,0,8,0,0));
+        buildingTypes.add(new BuildingType("KillingPit","Trap",6,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Hovel","TownBuildings",6,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Church","TownBuildings",0,0,250,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Cathedral","WeaponBuildings",0,0,1000,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Armourer","WeaponBuildings",20,0,100,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Blacksmith","WeaponBuildings",20,0,100,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Fletcher","WeaponBuildings",20,0,100,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Poleturner","WeaponBuildings",10,0,100,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Tunnel","Other",0,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Stockpile","Storge",0,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Quarry","FarmBuildings",20,0,0,0,0,0,0,0,0,0,3));
+        buildingTypes.add(new BuildingType("PitchRig","FarmBuildings",20,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Mill","FoodProccessingBuildings",20,0,0,0,0,0,0,0,0,0,3));
+        buildingTypes.add(new BuildingType("Inn","CastleBuildings",20,0,100,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Ditch","Trap",0,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("MercenaryPost","WeaponBuildings",10,0,0,0,0,0,0,0,8,0,0));
+        buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("CagedWarDogs","Trap",10,0,100,10000,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,50,0));
+        buildingTypes.add(new BuildingType("Stable","Storge",20,0,100,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Store","Industry",20,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("OilSmelter","Industry",0,10,100,0,0,0,0,0,0,1,1));
+        buildingTypes.add(new BuildingType("IronMine","FarmBuildings",20,0,0,0,0,0,0,0,0,0,2));
+        buildingTypes.add(new BuildingType("WoodCutter","FarmBuildings",3,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("AppleFarm","FarmBuildings",5,0,0,0,0,0,0,0,0,0,1));
 
     }
 
