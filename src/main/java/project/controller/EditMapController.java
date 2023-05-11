@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class EditMapController {
+    public static int x=0;
+    public static int y=0;
     public static String setGovernment(Matcher matcher, Map map, ArrayList<User> users) {
-        int x=Integer.parseInt(matcher.group("x"));
-        int y=Integer.parseInt(matcher.group("y"));
+         x=Integer.parseInt(matcher.group("x"));
+         y=Integer.parseInt(matcher.group("y"));
         String color = matcher.group("color");
         if (x> map.getSize() || y> map.getSize() || x<1 || y<1){
             return "Error: Invalid position!";
@@ -97,7 +99,7 @@ public class EditMapController {
         }
         return null;
     }
-    public static String checkBuildingPrerequisite(String type){
+    public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
         if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
                         return "you don't have enough resourses for building this structure!";
         switch (type){
@@ -142,7 +144,20 @@ public class EditMapController {
             case "Tunnel":
                 return null;
             case "Stockpile":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("Stockpile").equals(null))
+                    return null;
+                else{
+                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                            return null;
+                    if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        return null;
+                    if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        return null;
+                    if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        return null;
+
+                    return "you have already a stockpile in your city.you should put the new stockpile near it!";
+                }
             case "Quarry":
                 return null;
             case "PitchRig":
