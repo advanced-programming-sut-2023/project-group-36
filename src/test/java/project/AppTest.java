@@ -325,7 +325,21 @@ public class AppTest {
 
         Assertions.assertEquals(result, "Repeating the password is wrong!");
     }
+    @Test
+    public void correctRepeatingPasswordTest() throws NoSuchAlgorithmException {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "@Mohammad1";
+        String newPassword = "@Mohammad1";
+        Matcher matcher = Menu.getMatcher(testCommand, "(?<newPassword>[^\n]*)");
+        String result = null;
 
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_2(matcher, newPassword);
+        }
+
+        Assertions.assertEquals(result, "Password changed successfully");
+    }
 
     // change email
 

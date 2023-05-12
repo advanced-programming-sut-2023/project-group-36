@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="emptyNewPasswordTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="incorrectRepeatingPasswordTest added">
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +79,8 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.incorrectRepeatingPasswordTest">
-    <configuration name="AppTest.captchaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AppTest.correctRepeatingPasswordTest">
+    <configuration name="AppTest.correctRepeatingPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -90,7 +90,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="captchaTest" />
+      <option name="METHOD_NAME" value="correctRepeatingPasswordTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.correctRepeatingPasswordTest" />
         <item itemvalue="JUnit.AppTest.incorrectRepeatingPasswordTest" />
         <item itemvalue="JUnit.AppTest.emptyNewPasswordTest" />
         <item itemvalue="JUnit.AppTest.testInputLength" />
         <item itemvalue="JUnit.AppTest.testSomething" />
-        <item itemvalue="JUnit.AppTest.captchaTest" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683934776647</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="incorrectRepeatingPasswordTest added">
+      <created>1683935300408</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683935300408</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
@@ -450,7 +456,8 @@
     <MESSAGE value="anyNumberInPasswordTest added" />
     <MESSAGE value="anySpecialCharacterInPasswordTest added" />
     <MESSAGE value="emptyNewPasswordTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="emptyNewPasswordTest added" />
+    <MESSAGE value="incorrectRepeatingPasswordTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="incorrectRepeatingPasswordTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
