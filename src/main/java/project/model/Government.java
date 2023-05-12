@@ -286,7 +286,7 @@ public class Government{
         int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();
         for (Structure structure : structures) {
             buildingType = structure.getBuildingType();
-            peopleType = new PeopleType(buildingType.getType(),"Unemployed", 0, 0, 0, 0, 0, null);
+            peopleType = new PeopleType(buildingType.getType(),"Unemployed", 0, 0, 0, 0, 0, null, null);
 
             for (int i = 0; i < amountOfPeopleToBeAdded; i++) {
                 if ((buildingType.getType().equals("Hovel")  || buildingType.getType().equals("SmallGateHouse") || buildingType.getType().equals("BigGateHouse")) && buildingType.getNormalPeopleCapacity() > structure.getNormalPeople().size())  {

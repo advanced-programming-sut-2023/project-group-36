@@ -26,6 +26,4 @@ public class PeopleType {
         this.equipment = equipment;
         this.requiredStructure = requiredStructure;
     }
-
-
 }

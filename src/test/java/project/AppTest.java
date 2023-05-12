@@ -211,7 +211,20 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The current password is incorrect!");
     }
+    @Test
+    public void differenceBetweenOldPasswordAndNewPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 1 -n 1";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
 
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "Please enter a new password!");
+    }
     // change email
 
     @Test
