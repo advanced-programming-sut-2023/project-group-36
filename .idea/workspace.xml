@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="checkTheFearFactor added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Militia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displayTest added">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -83,7 +80,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.displayTest">
+  <component name="RunManager" selected="JUnit.AppTest.displayWithEmptySloganTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.Main" />
       <module name="StrongholdPhase1" />
@@ -113,8 +110,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.displayWithEmptySloganTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="displayWithEmptySloganTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.displayWithEmptySloganTest" />
         <item itemvalue="JUnit.AppTest.displayTest" />
         <item itemvalue="Application.Main" />
       </list>
@@ -279,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683916725583</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="displayTest added">
+      <created>1683917535313</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683917535313</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +341,8 @@
     <MESSAGE value="ShopMenu updated." />
     <MESSAGE value="quit game added" />
     <MESSAGE value="checkTheFearFactor added" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkTheFearFactor added" />
+    <MESSAGE value="displayTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="displayTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
