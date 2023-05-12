@@ -64,6 +64,9 @@ public class CreateNewGameMenu {
                 inThisMenu = false;
                 MainMenu.run();
             }
+            else if (input.matches(Commands.QUITGAME.getRegex())){
+                ApplicationManager.exit();
+            }
             else {
                 System.out.println("Invalid command!");
             }

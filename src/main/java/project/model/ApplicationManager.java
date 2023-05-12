@@ -134,6 +134,7 @@ public class ApplicationManager {
             currentUser = null;
         }
         save();
+        System.exit(1);
     }
 
     public static void setCurrentUser(User user){

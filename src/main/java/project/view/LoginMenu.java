@@ -81,6 +81,9 @@ public class LoginMenu {
         inThisMenu=false;
         RegisterMenu.run();
       }
+      else if (command.matches(Commands.QUITGAME.getRegex())) {
+        ApplicationManager.exit();
+      }
       else{
         System.out.println("Invalid command");
       }

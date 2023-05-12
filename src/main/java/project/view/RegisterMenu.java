@@ -3,6 +3,7 @@ package project.view;
 import project.controller.CommandFormat;
 import project.controller.Commands;
 import project.controller.RegisterMenuController;
+import project.model.ApplicationManager;
 import project.model.Tools;
 
 import java.security.NoSuchAlgorithmException;
@@ -30,6 +31,9 @@ public class RegisterMenu {
             else if (input.equals("login menu")){
                 inThisMenu = false;
                 LoginMenu.run();
+            }
+            else if (input.matches(Commands.QUITGAME.getRegex())) {
+                ApplicationManager.exit();
             }
             else {
                 System.out.println("Invalid command!");

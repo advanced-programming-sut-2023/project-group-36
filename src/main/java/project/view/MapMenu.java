@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.MapMenuController;
+import project.model.ApplicationManager;
 import project.model.Tools;
 
 import java.util.Scanner;
@@ -39,6 +40,9 @@ public class MapMenu {
             }
             else if(command.equals("exit")){
 
+            }
+            else if (command.matches(Commands.QUITGAME.getRegex())) {
+                ApplicationManager.exit();
             }
             else{
                 System.out.println("Invalid command!");

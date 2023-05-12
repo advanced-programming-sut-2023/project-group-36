@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.GameController;
+import project.model.ApplicationManager;
 import project.model.Game;
 import project.model.Tools;
 
@@ -137,6 +138,9 @@ public class GameMenu {
             }
             else if (input.matches("next turn")){
                 GameController.nextTurn();
+            }
+            else if (input.matches(Commands.QUITGAME.getRegex())) {
+                ApplicationManager.exit();
             }
             else {
                 System.out.println("Invalid command!");

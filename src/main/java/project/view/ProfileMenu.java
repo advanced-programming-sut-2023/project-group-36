@@ -2,6 +2,7 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ProfileMenuController;
+import project.model.ApplicationManager;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -93,6 +94,11 @@ public class ProfileMenu {
             if (matcher != null) {
                 inThisMenu = false;
                 MainMenu.run();
+            }
+
+            matcher = Menu.getMatcher(command, Commands.QUITGAME.getRegex());
+            if (matcher != null){
+                ApplicationManager.exit();
             }
 
             System.out.println("Invalid command!");

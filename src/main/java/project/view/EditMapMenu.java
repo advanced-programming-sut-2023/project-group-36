@@ -3,10 +3,7 @@ package project.view;
 import project.controller.Commands;
 import project.controller.CreateNewMapController;
 import project.controller.EditMapController;
-import project.model.Government;
-import project.model.Map;
-import project.model.Tools;
-import project.model.User;
+import project.model.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -72,6 +69,9 @@ public class EditMapMenu {
                 System.out.println("Map preparation was canceled.");
                 inThisMenu = false;
                 CreateNewGameMenu.run(CreateNewGameMenu.capacity);
+            }
+            else if (input.matches(Commands.QUITGAME.getRegex())) {
+                ApplicationManager.exit();
             }
             else {
                 System.out.println("Invalid command!");

@@ -48,6 +48,9 @@ public class TradeMenu {
                 inThisMenu = false;
                 GameMenu.run(ApplicationManager.getCurrentGame());
             }
+            else if (input.matches(Commands.QUITGAME.getRegex())) {
+                ApplicationManager.exit();
+            }
             else {
                 System.out.println("Invalid command!");
             }

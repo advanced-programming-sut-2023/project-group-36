@@ -48,6 +48,11 @@ public class ShopMenu {
                 GameMenu.run(ApplicationManager.getCurrentGame());
             }
 
+            matcher = Menu.getMatcher(command, Commands.QUITGAME.getRegex());
+            if (matcher != null) {
+                ApplicationManager.exit();
+            }
+
             System.out.println("Invalid command!");
         }
     }
