@@ -21,7 +21,7 @@ public class EditMapController {
         if (x> map.getSize() || y> map.getSize() || x<1 || y<1){
             return "Error: Invalid position!";
         }
-        if (map.getBlockByPosition(x,y).getGovernmentId()!=0){
+        if (map.getBlockByPosition(x,y).getThisBlockStructure()!=null){
             return "Error: This position has already been selected for another government!";
         }
         if (EditMapMenu.colors.contains(color)){
@@ -29,7 +29,7 @@ public class EditMapController {
         }
         Block block = map.getBlockByPosition(x,y);
         block.setColor(color);
-        Structure centralCastle = new Structure();
+        Structure centralCastle = new Structure(100);
         Government government = new Government(users.get(EditMapMenu.number),color, centralCastle);
         block.setThisBlockStructure(centralCastle);
         EditMapMenu.governments.add(government);
@@ -87,7 +87,7 @@ public class EditMapController {
             return "Error: Invalid position!";
         }
         Block block=map.getBlockByPosition(x,y);
-        if(! block.getThisBlockStructure().equals(null) )
+        if(block.getThisBlockStructure() != null)
             return "this block is already occiupied!";
         switch (buildingType.getType()){
             case "":
