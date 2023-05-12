@@ -13,34 +13,70 @@ import java.util.regex.Matcher;
 public class MapMenuController {
     public static String showMap(int x,int y){
         String res="";
-        if(x<0 || y<0){
+        if(x<0 || y<0 || Math.max(x,y)>ApplicationManager.getCurrentGame().getMap().getSize()){
             return "Invalid cordinates!";
         }
         Block block;
         Map CurrentMap=ApplicationManager.getCurrentGame().getMap();
-        for(int i=Math.max(0,x-2);i<x+3;i++){
-            for(int j=Math.max(0,y-2);j<y+3;j++){
-                block=CurrentMap.getBlockByPosition(i,j);
-                res+="----------\n";
-                res+="| Type: "+block.getType()+"\n";
-                res+="|  ";
-                if(block.getTree() != null)
-                    res+="T";
-                res+="\n";
-                res+="|  ";
-                if(block.getThisBlockStructure() != null){
-                    if(block.getThisBlockStructure().getBuildingType().getCategory().equals("Castle Buildings"))
-                        res+="W";
-                    else
-                        res+="B";
+        String[][] mapToShow = new String[20][20];
+        for(int i=-10;i<10;i++){
+            z:
+            for(int j=-10;j<10;j++){
+               if(x+i<0 && y+j<0 || y+j>CurrentMap.getSize() || x+i>CurrentMap.getSize()){
+                   mapToShow[10+i][10+j]+="|N U L L";
+                   continue z;
+               }
+                if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure()!= null)
+                    mapToShow[10+i][10+j]+="|B ";
+                else
+                    mapToShow[10+i][10+j]+="|  ";
+                if(CurrentMap.getBlockByPosition(x+i,y+j).getTree()!= null)
+                    mapToShow[10+i][10+j]+="T ";
+                else
+                    mapToShow[10+i][10+j]+="  ";
+                if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()).size()>0)
+                    mapToShow[10+i][10+j]+="E ";
+                else
+                    mapToShow[10+i][10+j]+="  ";
+                if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null){
+                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias().size()>0)
+                        mapToShow[10+i][10+j]+="S ";
                 }
-                res+="\n";
-                res+="|  ";
-
+                else
+                    mapToShow[10+i][10+j]+="  ";
+                switch (CurrentMap.getBlockByPosition(x+i,y+j).getType()){
+                    case "Dirt":
+                        mapToShow[10+i][10+j]="\u001B[0;43m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Gravel":
+                        mapToShow[10+i][10+j]="\u001B[0;47m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Stone":
+                        mapToShow[10+i][10+j]="\u001B[40m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Grass":
+                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Meadow":
+                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Dense Meadow":
+                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                    case "Water":
+                        mapToShow[10+i][10+j]="\u001B[44m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
+                }
             }
-            res+="\n";
+        }
+        for(int i=-10;i<10;i++) {
+            for (int j = -10; j < 10; j++) {
+                res+=" "+mapToShow[10+i][10+j];
+            }
+            res+="\n\n";
         }
         return res;
+
     }
     public static String showDetails(int x,int y){
         String res="";

@@ -24,9 +24,7 @@ public class Block {
     private int governmentId = 0;
     private ArrayList<People> peoples;
     private String color;
-
     private String tree;
-
     public Block(int x,int y){
         this.x = x;
         this.y = y;

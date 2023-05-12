@@ -72,7 +72,29 @@ public class EditMapController {
         return "drop unit done successfully.";
     }
 
-    public static String dropBuilding(Matcher matcher,Government government){
+    public static String dropBuilding(Matcher matcher,Government government,Map map){
+        BuildingType buildingType=Types.getBuildingTypeByType(matcher.group("type"));
+        if (buildingType.equals(null))
+            return "Invalid building name!";
+        try {
+            x=Integer.parseInt(matcher.group("x"));
+            y=Integer.parseInt(matcher.group("y"));
+
+        }catch (Exception e){
+            return "Invalid Cordinates!";
+        }
+        if (x> map.getSize() || y> map.getSize() || x<1 || y<1){
+            return "Error: Invalid position!";
+        }
+        Block block=map.getBlockByPosition(x,y);
+        if(! block.getThisBlockStructure().equals(null) )
+            return "this block is already occiupied!";
+        switch (buildingType.getType()){
+            case "":
+        }
+        Structure structure=new Structure(block,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
+        block.setThisBlockStructure(structure);
+        government.getStructures().add(structure);
         return null;
     }
 

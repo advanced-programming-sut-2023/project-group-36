@@ -21,6 +21,11 @@ public class Government{
     private ArrayList<People> peoples = new ArrayList<>();
 
     private ArrayList<Structure> structures = new ArrayList<>();
+
+    public ArrayList<Structure> getStructures() {
+        return structures;
+    }
+
     private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
     private ArrayList<Trade> trades = new ArrayList<>();
     private String color;

@@ -18,6 +18,11 @@ public class GameController {
     private static Government currentGovernment;
     static int x,y;
     public static Block currentBlock;
+
+    public static Government getCurrentGovernment() {
+        return currentGovernment;
+    }
+
     public static Structure currentStructure;
     public static void setGame(Game game){
         GameController.game = game;
@@ -201,15 +206,17 @@ public class GameController {
                 if(currentGovernment.getBuildingByNameForGovernment("Stockpile").equals(null))
                     return null;
                 else{
-                    if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-                    if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-                    if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-                    if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-
+                    try {
+                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                            return null;
+                        if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                            return null;
+                        if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                            return null;
+                        if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                            return null;
+                    }catch (Exception exception){
+                    }
                     return "you have already a stockpile in your city.you should put the new stockpile near it!";
                 }
             case "Quarry":
