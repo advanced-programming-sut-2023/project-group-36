@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-
-//??
-
-
 public class Government{
     private final Structure centralCastle;
     private final User owner;
@@ -47,6 +43,7 @@ public class Government{
         this.color = color;
         this.centralCastle = centralCastle;
         foodType = new String[]{"bread", "meat", "apple", "rice"};
+        resources = new Resources();
         foodAmount = new int[]{0, 0, 0, 0};
     }
 
@@ -101,7 +98,7 @@ public class Government{
         for (Structure structure : structures) {
             hitpoints += structure.getHitPoint();
         }
-        return hitpoints <= 0;
+        return hitpoints <= 0 || centralCastle.getHitPoint() <= 0;
     }
 
     public void nextTurn(){
@@ -177,8 +174,6 @@ public class Government{
     // Fear
     public int getFearRate() { return fearRate; }
     public void setFearRate(int fearRate) { this.fearRate = fearRate; }
-    private void addResources(){
-    }
 
     public void changeCoins(int count) {
         coins+=count;
@@ -364,7 +359,7 @@ public class Government{
         return null;
     }
 
-    public BuildingType getBuildingByNameForGoverment(String type) {
+    public BuildingType getBuildingTypeByNameForGovernment(String type) {
         for(Structure structure:structures){
             if(structure.getBuildingType().getType().equals(type))
                 return structure.getBuildingType();

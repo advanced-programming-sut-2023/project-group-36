@@ -15,8 +15,8 @@ public  class Structure {
     private ArrayList<NormalPeople> normalPeoples;
     BuildingType buildingType;
 
-    public Structure() {
-
+    public Structure(int HP) {
+        this.HP = HP;
     }
 
     public BuildingType getBuildingType() {
