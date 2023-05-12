@@ -36,7 +36,7 @@ public class ProfileMenu {
                 String result = ProfileMenuController.changePassword_1(matcher);
                 System.out.println(result);
                 if (result.equals("Please enter your new password again")) {
-                    String newPassword = matcher.group("new-password");
+                    String newPassword = matcher.group("newPassword");
                     command = scanner.nextLine();
                     matcher = Menu.getMatcher(command, "[^\n]+");
                     assert matcher != null;

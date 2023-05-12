@@ -35,8 +35,8 @@ public class ProfileMenuController {
         return "Nickname changed successfully";
     }
     public static String changePassword_1(Matcher matcher) {
-        String oldPassword = matcher.group("old-password");
-        String newPassword = matcher.group("new-password");
+        String oldPassword = matcher.group("oldPassword");
+        String newPassword = matcher.group("newPassword");
         String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
         if (oldPassword.equals(""))
@@ -67,7 +67,7 @@ public class ProfileMenuController {
     }
 
     public static String changePassword_2(Matcher matcher, String newPassword) throws NoSuchAlgorithmException {
-        String repeatingPassword = matcher.group("new-password");
+        String repeatingPassword = matcher.group("newPassword");
 
         if (newPassword.equals(""))
             return "The repeating password is empty!";
