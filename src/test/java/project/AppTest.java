@@ -240,7 +240,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: The length of the password must be greater than 6!");
     }
     @Test
-    public void anyCapitalLetterOfPasswordTest() {
+    public void anyCapitalLetterInPasswordTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n mohammad";
@@ -254,7 +254,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: at least one capital letter is required!");
     }
     @Test
-    public void anySmallLetterOfPasswordTest() {
+    public void anySmallLetterInPasswordTest() {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n MOHAMMAD";
@@ -266,6 +266,20 @@ public class AppTest {
         }
 
         Assertions.assertEquals(result, "The password is weak: at least one small letter is required!");
+    }
+    @Test
+    public void anyNumberInPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 1 -n Mohammad";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "The password is weak: at least one number is required!");
     }
 
     // change email
