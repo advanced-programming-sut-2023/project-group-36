@@ -73,22 +73,23 @@ public class EditMapController {
         }
         if(checkMapPreparation().equals(null))
             return checkMapPreparation();
-        int Xcordinate=Integer.parseInt(matcher.group("x"));
-        int Ycordinate=Integer.parseInt(matcher.group("y"));
+        x=Integer.parseInt(matcher.group("x"));
+        y=Integer.parseInt(matcher.group("y"));
         String type=matcher.group("type");
-        if(Xcordinate>EditMapMenu.capacity || Ycordinate>EditMapMenu.capacity)
+        if(x>EditMapMenu.capacity || y>EditMapMenu.capacity)
             return "Invalid cordinates!";
         BuildingType buildingType=Types.getBuildingTypeByType(type);
         if(buildingType.equals(null))
             return "Invalid Building name!";
         Map currentMap=ApplicationManager.getCurrentGame().getMap();
-        Block currentBlock = currentMap.getBlockByPosition(Xcordinate,Ycordinate);
+        Block currentBlock = currentMap.getBlockByPosition(x,y);
         if(!currentBlock.getThisBlockStructure().equals(null))
-            return "This Block has already been occupied by anoother structure!";
+            return "This Block has already been occupied by another structure!";
         if(!checkBuildingPrerequisite(type).equals(null)){
             return checkBuildingPrerequisite(type);
         }
-        currentBlock.setThisBlockStructure(new Structure(currentBlock,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),Types.getBuildingTypeByType(type)));
+        employment(buildingType);
+        currentBlock.setThisBlockStructure(new Structure(currentBlock,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType));
         return "drop building done successfully.";
     }
 
@@ -102,7 +103,7 @@ public class EditMapController {
     public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
         if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
                         return "you don't have enough resourses for building this structure!";
-        if(checkForEnoughWokingPeople(type)==false)
+        if(checkForEnoughWorkingPeople(type)==false)
                         return "you don't have enough free people for employeeng in this building!";
         switch (type){
             case "SmallGateHouse":
@@ -200,7 +201,7 @@ public class EditMapController {
 
         return true;
     }
-    public static boolean checkForEnoughWokingPeople(String type){
+    public static boolean checkForEnoughWorkingPeople(String type){
         BuildingType buildingType= Types.getBuildingTypeByType(type);
         int d=buildingType.getRequiredPeopleToWork();
         if(d==0)
@@ -209,12 +210,23 @@ public class EditMapController {
         for(People normalPeople:EditMapMenu.government.getPeoples()){
             if(normalPeople instanceof NormalPeople){
                 count++;
-                ((NormalPeople) normalPeople).setEmployed(true);
                 if(d==count)
                     return true;
             }
         }
         return false;
+    }
+    public static void employment(BuildingType buildingType){
+        int cou=buildingType.getRequiredPeopleToWork();
+        int d=0;
+        for(People normalPeople:EditMapMenu.government.getPeoples()){
+            if(normalPeople instanceof NormalPeople && ((NormalPeople) normalPeople).isEmployed()==false){
+                ((NormalPeople) normalPeople).setEmployed(true);
+                d++;
+                if(d==cou)
+                    return;
+            }
+        }
     }
     public static void CostPay(String BuildingType){
         BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);

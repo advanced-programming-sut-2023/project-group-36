@@ -14,5 +14,7 @@ public class NormalPeople extends People {
         this.employed = employed;
     }
 
-
+    public boolean isEmployed() {
+        return employed;
+    }
 }
