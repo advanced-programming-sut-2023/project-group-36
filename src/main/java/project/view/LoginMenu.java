@@ -9,6 +9,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
+import static project.controller.LoginMenuController.LoggedUser;
+
 public class LoginMenu {
   private final static Scanner scanner = Menu.getScanner();
 
@@ -45,7 +47,15 @@ public class LoginMenu {
         System.out.println("Enter your username:");
         String comm=Menu.getScanner().nextLine();
         matcher=Menu.getMatcher(comm,"(?<username>[a-zA-Z0-9_]+");
-        output=LoginMenuController.ForgetPassword(matcher);
+        String username=matcher.group("username");
+        LoggedUser=ApplicationManager.getUserByUsername(username);
+        if(LoggedUser==null){
+          System.out.println("Username doesn't exist!");
+          continue;
+        }
+        System.out.println("Enter your security question answer:");
+        String answer=Menu.getScanner().nextLine();
+        output=LoginMenuController.ForgetPassword(answer);
         if(output != null){
           System.out.println(output);
         }
@@ -56,6 +66,12 @@ public class LoginMenu {
           System.out.println(result);
           if(result.contains("logged"))
             MainMenu.run();
+          else{
+            System.out.println("please try again:");
+            newPassword=Menu.getScanner().nextLine();
+            result= Tools.passwordWeakCheck(newPassword);
+            MainMenu.run();
+          }
         }
       }
       else if(command.equals("user logout")){

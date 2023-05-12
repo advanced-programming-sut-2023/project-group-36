@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import project.controller.*;
 import project.model.ApplicationManager;
 import project.model.User;
+import project.view.LoginMenu;
+import project.view.MainMenu;
 import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
