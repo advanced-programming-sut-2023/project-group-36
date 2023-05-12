@@ -14,7 +14,6 @@ public class ProfileMenu {
     public static void run() throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< Profile Menu >>**");
         boolean inThisMenu = true;
-        String formattedInput;
 
         while (inThisMenu) {
             String command = scanner.nextLine();
