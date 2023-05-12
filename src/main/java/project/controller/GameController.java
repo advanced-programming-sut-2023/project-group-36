@@ -134,8 +134,10 @@ public class GameController {
             return "you don't have enough resourses for building this structure!";
         if(checkForEnoughWorkingPeople(type)==false)
             return "you don't have enough free people for employeeng in this building!";
+        Resources resources=currentGovernment.getResources();
         switch (type){
             case "SmallGateHouse":
+                return null;
             case "Turret":
                 return null;
             case "BigGateHouse":
@@ -220,16 +222,22 @@ public class GameController {
                     return "you have already a stockpile in your city.you should put the new stockpile near it!";
                 }
             case "Quarry":
-                if(!currentBlock.getType().equals(""))
+                if(!currentBlock.getType().equals("Stone"))
                     return "This Block type is not suitable for this structure!";
+                resources.getResource("Stone").ProductionRate+=50;
                 return null;
+
             case "PitchRig":
-                if(!currentBlock.getType().equals(""))
+                if(!currentBlock.getType().equals("Meadow"))
                     return "This Block type is not suitable for this structure!";
+                resources.getResource("Pitch").ProductionRate+=40;
                 return null;
             case "Mill":
+                resources.getResource("Wheat").ProductionRate-=20;
+                resources.getResource("Flour").ProductionRate+=30;
                 return null;
             case "Inn":
+                resources.getResource("Wine").ProductionRate-=60;
                 return null;
             case "Ditch":
                 return null;
@@ -242,6 +250,7 @@ public class GameController {
             case "SiegeTent":
                 return null;
             case "Stable":
+                resources.getResource("Horse").ProductionRate+=10;
                 return null;
             case "Store":
                 if(currentGovernment.getBuildingByNameForGoverment("َStore").equals(null)){
@@ -251,12 +260,16 @@ public class GameController {
                     return "you have already placed this building in your city!";
                 }
             case "OilSmelter":
+                resources.getResource("Pitch").ProductionRate-=20;
+                resources.getResource("ProccesedPitch").ProductionRate+=15;
                 return null;
             case "IronMine":
                 if(!currentBlock.getType().equals("Iron"))
                     return "This Block type is not suitable for this structure!";
+                resources.getResource("Iron").ProductionRate+=22;
                 return null;
             case "WoodCutter":
+                resources.getResource("Pitch").ProductionRate+=resources.getResource("Pitch").ProductionRate*25/100;
                 return null;
             case "AppleFarm":
                 if(!currentBlock.getType().equals("Dense Meadow"))

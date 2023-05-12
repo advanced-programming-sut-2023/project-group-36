@@ -5,21 +5,21 @@ import java.util.ArrayList;
 public class Resources {
     ArrayList<Resource> resources = new ArrayList<>();
     public Resources(){
-        resources.add(new Resource("wood",0));
-        resources.add(new Resource("stone",0));
-        resources.add(new Resource("iron",0));
-        resources.add(new Resource("wheat",0));
-        resources.add(new Resource("bread",0));
-        resources.add(new Resource("apple",0));
-        resources.add(new Resource("beer",0));
-        resources.add(new Resource("hop",0));
-        resources.add(new Resource("name9",0));
-        resources.add(new Resource("name10",0));
-        resources.add(new Resource("name11",0));
-        resources.add(new Resource("name12",0));
+        resources.add(new Resource("Wood",0));
+        resources.add(new Resource("Stone",0));
+        resources.add(new Resource("Iron",0));
+        resources.add(new Resource("Wheat",0));
+        resources.add(new Resource("Bread",0));
+        resources.add(new Resource("Apple",0));
+        resources.add(new Resource("Wine",0));
+        resources.add(new Resource("Hop",0));
+        resources.add(new Resource("Horse",0));
+        resources.add(new Resource("Pitch",0));
+        resources.add(new Resource("Flour",0));
+        resources.add(new Resource("ProccesedPitch",0));
     }
 
-    private Resource getResource(String name){
+    public Resource getResource(String name){
         for (Resource resource : resources) {
             if (resource.getName().equals(name)) {
                 return resource;
