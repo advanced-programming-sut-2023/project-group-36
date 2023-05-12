@@ -21,7 +21,7 @@ public class Militia extends People {
 
     }
 
-    public int getAttackPower() {
+    public double getAttackPower() {
         return getPeopleType().attackPower;
     }
 

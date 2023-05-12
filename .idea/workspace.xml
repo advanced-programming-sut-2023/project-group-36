@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="some bugs fixed.">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="checkTheFearFactor added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/Militia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +55,6 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
   <component name="ProjectId" id="2Of5raolT4ouQPkX24igkUoDo2N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -75,6 +71,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -85,6 +82,43 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="project.model.Peoples" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AppTest.displayTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.Main" />
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.displayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="displayTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AppTest.displayTest" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -224,7 +258,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683887734920</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ShopMenu updated.">
+      <created>1683908875376</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683908875376</updated>
+    </task>
+    <task id="LOCAL-00008" summary="quit game added">
+      <created>1683914591316</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683914591316</updated>
+    </task>
+    <task id="LOCAL-00009" summary="checkTheFearFactor added">
+      <created>1683916725583</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683916725583</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +317,10 @@
     <MESSAGE value="Update MainMenu , some bugs fixed." />
     <MESSAGE value="some bugs fixed." />
     <MESSAGE value="dropBuilding updated for Nth time." />
-    <option name="LAST_COMMIT_MESSAGE" value="dropBuilding updated for Nth time." />
+    <MESSAGE value="ShopMenu updated." />
+    <MESSAGE value="quit game added" />
+    <MESSAGE value="checkTheFearFactor added" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkTheFearFactor added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -275,13 +333,13 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>project.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_TestWithMock.ic" NAME="AppTest.TestWithMock Coverage Results" MODIFIED="1683546905351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
   </component>

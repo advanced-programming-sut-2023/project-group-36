@@ -263,7 +263,13 @@ public class Government{
 
     //fear
     private void checkTheFearFactor() {
-
+        changePopularity(-1 * fearRate);
+        for (People people : peoples) {
+            if (!people.getPeopleType().category.equals("Unemployed")) {
+                double tmp = (double) fearRate + 20.0;
+                people.getPeopleType().attackPower *= tmp / 20.0;
+            }
+        }
     }
 
     // change population

@@ -11,7 +11,7 @@ public class People {
 
     private PeopleType peopleType;
     private Government government;
-    private int hitPoint;
+    private double hitPoint;
     private Block block;
     private boolean inMove;
 
@@ -90,12 +90,12 @@ public class People {
         block.removePeople(this);
     }
 
-    public void hitPointReduce(int amount){
+    public void hitPointReduce(double amount){
         hitPoint -= Math.max(0,(amount - peopleType.defencePower));
     }
 
 
-    public int getHitPoint() {
+    public double getHitPoint() {
         return hitPoint;
     }
 

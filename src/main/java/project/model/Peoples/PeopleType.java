@@ -7,7 +7,7 @@ public class PeopleType {
 
     public String category;
     public int price;
-    public int attackPower;
+    public double attackPower;
     public int defencePower;
     public int speed;
     public int launchRadius;
