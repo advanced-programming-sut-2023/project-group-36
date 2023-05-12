@@ -6,7 +6,7 @@ public class Trap extends Structure {
 
 
     public Trap(int damage,BuildingType buildingType) {
-        super();
+        super(buildingType.getHP());
         this.damage = damage;
     }
 }

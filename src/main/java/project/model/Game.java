@@ -67,10 +67,6 @@ public class Game {
         return currentGovernment;
     }
 
-    private void giveScore(Government government){
-        User user = government.getOwner();
-        user.addScore(governments.size());
-    }
 
     public void removeGovernment(Government government){
         governments.remove(government);
