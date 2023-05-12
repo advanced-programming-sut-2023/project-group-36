@@ -79,7 +79,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.anyNumberInPasswordTest">
+  <component name="RunManager" selected="JUnit.AppTest.anySpecialCharacterInPasswordTest">
     <configuration name="AppTest.anyCapitalLetterOfPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -128,7 +128,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.differenceBetweenOldPasswordAndNewPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.anySpecialCharacterInPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -138,7 +138,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="differenceBetweenOldPasswordAndNewPasswordTest" />
+      <option name="METHOD_NAME" value="anySpecialCharacterInPasswordTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.anySpecialCharacterInPasswordTest" />
         <item itemvalue="JUnit.AppTest.anyNumberInPasswordTest" />
         <item itemvalue="JUnit.AppTest.anySmallLetterOfPasswordTest" />
         <item itemvalue="JUnit.AppTest.anyCapitalLetterOfPasswordTest" />
         <item itemvalue="JUnit.AppTest.invalidPasswordTest" />
-        <item itemvalue="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest" />
       </list>
     </recent_temporary>
   </component>

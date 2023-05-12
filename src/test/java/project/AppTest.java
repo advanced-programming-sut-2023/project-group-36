@@ -281,6 +281,20 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The password is weak: at least one number is required!");
     }
+    @Test
+    public void anySpecialCharacterInPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 1 -n Mohammad1";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "The password is weak: at least one special character is required!");
+    }
 
     // change email
 
