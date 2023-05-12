@@ -433,6 +433,19 @@ public class AppTest {
         Assertions.assertEquals(result, 0);
     }
 
+    @Test
+    public void displayTest() {
+        User user = new User("1", "1", "1", "1", "1", "1", 1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile display";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ProfileMenuController.display();
+
+        Assertions.assertEquals(result, "high score = 0\nrank: 0\nslogan: 1");
+    }
 
 }
 
