@@ -6,7 +6,7 @@ public enum Commands {
     REGISTER("user create -u (?<username>[^\n]*) -p (?<password>[^\n]*) -c (?<passwordConfirmation>[^\n]*) -email (?<email>[^\n]*) -n (?<nickname>[^\n]*)(-s (?<slogan>[^\n]*))?"),
     QUESTION_ANSWER("question pick -q (?<questionNumber>[\\d]+) -a (?<answer>[^\n]+) -c (?<answerConfirm>[^\n]+)\\s*"),
 
-    LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)"),
+    LOGIN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+)\\s*"),
     LOGIN_LOGGED_IN("user login -u (?<username>[^\n]+) -p (?<password>[^\n]+) --stay-logged-in"),
     FORGET_PASSWORD("forgot my password"),
 

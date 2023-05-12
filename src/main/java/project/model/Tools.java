@@ -66,9 +66,12 @@ public class Tools {
             int index = parts.indexOf(flag);
             result += availableFlags.get(i) + " ";
             if (index != -1 && index < parts.size() - 1 && !availableFlags.contains(parts.get(index + 1))) {
-                result+= parts.get(index + 1) + " ";
-                parts.remove(index);
-                parts.remove(index);
+                result+= parts.get(index + 1);
+                if (i != availableFlags.size()-1){
+                    result += " ";
+                }
+                parts.remove(index); // x --> Are ok
+                parts.remove(index); // x+1 --> Are ok
             } 
             else {
                 result+="";
