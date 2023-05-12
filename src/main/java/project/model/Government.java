@@ -103,7 +103,7 @@ public class Government{
 
     public void nextTurn(){
         // food & ...
-
+        getResources().changeOfResourcesAtTheEndOfTurn();
         // Feed +
         checkTheFoodFactor();
 
