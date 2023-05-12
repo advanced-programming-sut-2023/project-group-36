@@ -2,18 +2,22 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ShopMenuController;
+import project.model.ApplicationManager;
 import project.model.Tools;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class ShopMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run(){
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
+        String command;
+        boolean isThisMenu = true;
 
-        while (true) {
-            String command = scanner.nextLine();
+        while (isThisMenu) {
+            command = scanner.nextLine();
             if (Tools.inputCheckFormat(command)!=null){
                 command = Tools.inputCheckFormat(command);
             }
@@ -39,8 +43,10 @@ public class ShopMenu {
             }
 
             matcher = Menu.getMatcher(command, Commands.EXIT.getRegex());
-            if (matcher != null)
-                break;
+            if (matcher != null) {
+                isThisMenu = false;
+                GameMenu.run(ApplicationManager.getCurrentGame());
+            }
 
             System.out.println("Invalid command!");
         }

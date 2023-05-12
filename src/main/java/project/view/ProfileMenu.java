@@ -2,7 +2,6 @@ package project.view;
 
 import project.controller.Commands;
 import project.controller.ProfileMenuController;
-import project.model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -94,7 +93,6 @@ public class ProfileMenu {
             if (matcher != null) {
                 inThisMenu = false;
                 MainMenu.run();
-                continue;
             }
 
             System.out.println("Invalid command!");
