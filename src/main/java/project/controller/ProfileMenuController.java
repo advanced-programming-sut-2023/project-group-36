@@ -81,6 +81,9 @@ public class ProfileMenuController {
 
     public static String changeEmail(Matcher matcher, Matcher matcher1) {
         String email = matcher.group("email");
+        if (!email.matches(Commands.EMAIL.getRegex())){
+            return "Invalid email format!";
+        }
 
         if (email.equals("")) {
             return "The email is empty!";

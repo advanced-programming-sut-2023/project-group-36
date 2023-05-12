@@ -24,6 +24,7 @@ public class CreateNewMapMenu {
             }
             size = Menu.getScanner().nextInt();
         }
+        scanner.nextLine();
         System.out.println("You have successfully determined the dimensions of the map.");
         size*=200;
         map=new Map(size,null);
