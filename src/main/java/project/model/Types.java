@@ -72,13 +72,16 @@ public class Types {
         buildingTypes.add(new BuildingType("PitchDitch","Trap",0,0,0,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("CagedWarDogs","Trap",10,0,100,10000,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("SiegeTent","CastleBuildings",0,0,0,0,0,0,0,0,8,50,0));
-        buildingTypes.add(new BuildingType("Stable","Storge",20,0,100,0,0,0,0,0,0,0,0));
+        buildingTypes.add(new BuildingType("Stable","Storage",20,0,100,0,0,0,0,0,0,0,0));
         buildingTypes.add(new BuildingType("Store","Industry",20,0,0,0,0,0,0,0,0,0,1));
         buildingTypes.add(new BuildingType("OilSmelter","Industry",0,10,100,0,0,0,0,0,0,1,1));
         buildingTypes.add(new BuildingType("IronMine","FarmBuildings",20,0,0,0,0,0,0,0,0,0,2));
         buildingTypes.add(new BuildingType("WoodCutter","FarmBuildings",3,0,0,0,0,0,0,0,0,0,1));
         buildingTypes.add(new BuildingType("AppleFarm","FarmBuildings",5,0,0,0,0,0,0,0,0,0,1));
-
+        buildingTypes.add(new BuildingType("WheatFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("BarleyFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Bakery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Brewery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
     }
 
     public static PeopleType getPeopleTypeByType(String type){

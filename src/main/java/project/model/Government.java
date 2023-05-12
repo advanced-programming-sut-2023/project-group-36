@@ -367,6 +367,14 @@ public class Government{
         return null;
     }
 
+    public BuildingType getBuildingByNameForGoverment(String str) {
+        for(Structure structure:structures){
+            if(structure.getBuildingType().getType().equals(str))
+                return structure.getBuildingType();
+        }
+        return null;
+    }
+
     //
 }
 

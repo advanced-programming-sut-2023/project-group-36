@@ -1,5 +1,6 @@
 package project.controller;
 
+import jdk.nashorn.internal.ir.BlockLexicalContext;
 import project.model.*;
 import project.model.Buildings.BuildingType;
 import project.model.Buildings.Structure;
@@ -150,21 +151,21 @@ public class GameController {
             case "SquareTower":
                 return null;
             case "Armoury":
-                if(currentGovernment.getBuildingTypeByNameForGovernment("َArmoury").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َArmoury").equals(null)){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Barrack":
-                if(currentGovernment.getBuildingTypeByNameForGovernment("َBarrack").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َBarrack").equals(null)){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "EngineerGuild":
-                if(currentGovernment.getBuildingTypeByNameForGovernment("َEngineerGuild").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
                     return null;
                 }
                 else{
@@ -177,14 +178,14 @@ public class GameController {
             case "Church":
                 return null;
             case "Cathedral":
-                if(currentGovernment.getBuildingTypeByNameForGovernment("َCathedral").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َCathedral").equals(null)){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Armourer":
-                if(currentGovernment.getBuildingTypeByNameForGovernment("Armourer").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("Armourer").equals(null)){
                     return null;
                 }
                 else{
@@ -243,7 +244,7 @@ public class GameController {
             case "Stable":
                 return null;
             case "Store":
-                if(EditMapMenu.government.getBuildingTypeByNameForGovernment("َStore").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َStore").equals(null)){
                     return null;
                 }
                 else{
@@ -252,10 +253,14 @@ public class GameController {
             case "OilSmelter":
                 return null;
             case "IronMine":
-                if(!currentBlock.getType().equals(""))
+                if(!currentBlock.getType().equals("Iron"))
                     return "This Block type is not suitable for this structure!";
                 return null;
             case "WoodCutter":
+                return null;
+            case "AppleFarm":
+                if(!currentBlock.getType().equals("Dense Meadow"))
+                    return "This Block type is not suitable for this structure!";
                 return null;
 
         }

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="some bugs fixed. (government central castle)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displayTest added">
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="minor bugges solved">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -358,13 +357,13 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>project.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_TestWithMock.ic" NAME="AppTest.TestWithMock Coverage Results" MODIFIED="1683546905351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
   </component>
