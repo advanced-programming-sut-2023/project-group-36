@@ -77,7 +77,6 @@ public class RegisterMenuController {
         String questionAnswer = result.substring(1);
         int questionNumber = Integer.parseInt(String.valueOf(result.charAt(0)));
         String captchaNumbers = Tools.captcha();
-        System.out.println(captchaNumbers);
         while (!Menu.getScanner().nextLine().equals(captchaNumbers)){
             System.out.println("Error: You entered the CAPTCHA code incorrectly.");
             captchaNumbers = Tools.captcha();

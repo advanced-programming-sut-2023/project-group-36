@@ -57,13 +57,10 @@ public class ProfileMenuController {
             return Tools.passwordWeakCheck(newPassword);
 
         String captchaNumbers = Tools.captcha();
-        System.out.println(captchaNumbers);
         while (!Menu.getScanner().nextLine().equals(captchaNumbers)){
-            System.out.println("Error: You entered the CAPTCHA code incorrectly.");
+            System.out.println("Error: You entered the CAPTCHA code incorrectly!");
             captchaNumbers = Tools.captcha();
         }
-        // fill out the captcha
-        //...
 
         // repeat the password
         return "Please enter your new password again";
@@ -77,7 +74,7 @@ public class ProfileMenuController {
 
         if (!repeatingPassword.equals(newPassword))
             return "Repeating the password is wrong!";
-        newPassword=SHA_256Format.sha256(newPassword)       ;
+        newPassword=SHA_256Format.sha256(newPassword);
         ApplicationManager.getCurrentUser().setPassword(newPassword);
         return "Password changed successfully";
     }
