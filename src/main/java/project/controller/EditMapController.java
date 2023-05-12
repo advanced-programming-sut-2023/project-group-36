@@ -127,11 +127,26 @@ public class EditMapController {
             case "SquareTower":
                 return null;
             case "Armoury":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("َArmoury").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
             case "Barrack":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("َBarrack").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
             case "EngineerGuild":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
             case "KillingPit":
                 return null;
             case "Hovel":
@@ -139,9 +154,19 @@ public class EditMapController {
             case "Church":
                 return null;
             case "Cathedral":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("َCathedral").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
             case "Armourer":
-                return null;
+                if(EditMapMenu.government.getBuildingByNameForGoverment("Armourer").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
             case "Blacksmith":
                 return null;
             case "Fletcher":
