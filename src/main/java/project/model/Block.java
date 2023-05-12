@@ -10,6 +10,15 @@ public class Block {
     private int x;
     private int y;
     private boolean ThereIsTunnel;
+
+    public boolean isThereIsTunnel() {
+        return ThereIsTunnel;
+    }
+
+    public void setThereIsTunnel(boolean thereIsTunnel) {
+        ThereIsTunnel = thereIsTunnel;
+    }
+
     private String type;
     private Structure thisBlockStructure;
     private int governmentId = 0;

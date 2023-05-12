@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 public class EditMapController {
     public static int x=0;
     public static int y=0;
+    public static Block currentBlock;
     public static String setGovernment(Matcher matcher, Map map, ArrayList<User> users) {
          x=Integer.parseInt(matcher.group("x"));
          y=Integer.parseInt(matcher.group("y"));
@@ -72,29 +73,7 @@ public class EditMapController {
     }
 
     public static String dropBuilding(Matcher matcher,Government government){
-        if (government==null){
-            return "Error: No government selected!";
-        }
-        if(checkMapPreparation().equals(null))
-            return checkMapPreparation();
-        x=Integer.parseInt(matcher.group("x"));
-        y=Integer.parseInt(matcher.group("y"));
-        String type=matcher.group("type");
-        if(x>EditMapMenu.capacity || y>EditMapMenu.capacity)
-            return "Invalid cordinates!";
-        BuildingType buildingType=Types.getBuildingTypeByType(type);
-        if(buildingType.equals(null))
-            return "Invalid Building name!";
-        Map currentMap=ApplicationManager.getCurrentGame().getMap();
-        Block currentBlock = currentMap.getBlockByPosition(x,y);
-        if(!currentBlock.getThisBlockStructure().equals(null))
-            return "This Block has already been occupied by another structure!";
-        if(!checkBuildingPrerequisite(type).equals(null)){
-            return checkBuildingPrerequisite(type);
-        }
-        employment(buildingType);
-        currentBlock.setThisBlockStructure(new Structure(currentBlock,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType));
-        return "drop building done successfully.";
+        return null;
     }
 
 
@@ -104,166 +83,7 @@ public class EditMapController {
         }
         return null;
     }
-    public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
-        if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
-                        return "you don't have enough resourses for building this structure!";
-        if(checkForEnoughWorkingPeople(type)==false)
-                        return "you don't have enough free people for employeeng in this building!";
-        switch (type){
-            case "SmallGateHouse":
-                return null;
-            case "BigGateHouse":
-                return null;
-            case "CircleTower":
-                return null;
-            case "LookoutTower":
-                return null;
-            case "DrawBridge":
-                return null;
-            case "Turret":
-                return null;
-            case "Perimeter tower":
-                return null;
-            case "SquareTower":
-                return null;
-            case "Armoury":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("َArmoury").equals(null)){
-                    return null;
-                }
-                else{
-                    return "you have already placed this building in your city!";
-                }
-            case "Barrack":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("َBarrack").equals(null)){
-                    return null;
-                }
-                else{
-                    return "you have already placed this building in your city!";
-                }
-            case "EngineerGuild":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
-                    return null;
-                }
-                else{
-                    return "you have already placed this building in your city!";
-                }
-            case "KillingPit":
-                return null;
-            case "Hovel":
-                return null;
-            case "Church":
-                return null;
-            case "Cathedral":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("َCathedral").equals(null)){
-                    return null;
-                }
-                else{
-                    return "you have already placed this building in your city!";
-                }
-            case "Armourer":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("Armourer").equals(null)){
-                    return null;
-                }
-                else{
-                    return "you have already placed this building in your city!";
-                }
-            case "Blacksmith":
-                return null;
-            case "Fletcher":
-                return null;
-            case "Poleturner":
-                return null;
-            case "Tunnel":
-                return null;
-            case "Stockpile":
-                if(EditMapMenu.government.getBuildingByNameForGovernment("Stockpile").equals(null))
-                    return null;
-                else{
-                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                            return null;
-                    if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-                    if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
-                    if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
-                        return null;
 
-                    return "you have already a stockpile in your city.you should put the new stockpile near it!";
-                }
-            case "Quarry":
-                return null;
-            case "PitchRig":
-                return null;
-            case "Mill":
-                return null;
-            case "Inn":
-                return null;
-            case "Ditch":
-                return null;
-            case "MercenaryPost":
-                return null;
-            case "PitchDitch":
-                return null;
-            case "CagedWarDogs":
-                return null;
-            case "SiegeTent":
-                return null;
-            case "Stable":
-                return null;
-            case "Store":
-                return null;
-            case "OilSmelter":
-                return null;
-            case "IronMine":
-                return null;
-            case "WoodCutter":
-                return null;
 
-        }
-       return null;
-    }
-    public static  boolean checkForEnoughResources(int Wood,int Stone,int gold){
-        if(EditMapMenu.government.getCoins()<gold)
-            return false;
-        if(EditMapMenu.government.getAmountOfResource("wood")<Wood || EditMapMenu.government.getAmountOfResource("stone")<Stone)
-            return false;
 
-        return true;
-    }
-    public static boolean checkForEnoughWorkingPeople(String type){
-        BuildingType buildingType= Types.getBuildingTypeByType(type);
-        int d=buildingType.getRequiredPeopleToWork();
-        if(d==0)
-            return true;
-        int count=0;
-        for(People normalPeople:EditMapMenu.government.getPeoples()){
-            if(normalPeople instanceof NormalPeople){
-                count++;
-                if(d==count)
-                    return true;
-            }
-        }
-        return false;
-    }
-    public static void employment(BuildingType buildingType){
-        int cou=buildingType.getRequiredPeopleToWork();
-        int d=0;
-        for(People normalPeople:EditMapMenu.government.getPeoples()){
-            if(normalPeople instanceof NormalPeople && ((NormalPeople) normalPeople).isEmployed()==false){
-                ((NormalPeople) normalPeople).setEmployed(true);
-                d++;
-                if(d==cou)
-                    return;
-            }
-        }
-    }
-    public static void CostPay(String BuildingType){
-        BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);
-        int Wood=buildingType.getWoodCost();
-        int Stone= buildingType.getStoneCost();
-        int gold=buildingType.getGoldCost();
-        EditMapMenu.government.getResources().changeResourceAmount("wood",Wood);
-        EditMapMenu.government.getResources().changeResourceAmount("stone",Stone);
-        EditMapMenu.government.changeCoins((-1)*gold);
-    }
 }
