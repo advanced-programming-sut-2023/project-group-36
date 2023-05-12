@@ -14,7 +14,7 @@ public class Tools {
 
     public static String passwordWeakCheck(String password){
         if (password.length()<6){
-            return "The password is weak: password length is short!";
+            return "The password is weak: The length of the password must be greater than 6!";
         }
         if (!password.matches(".*[A-Z].*")){
             return "The password is weak: at least one capital letter is required!";

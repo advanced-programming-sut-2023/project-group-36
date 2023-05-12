@@ -225,6 +225,21 @@ public class AppTest {
 
         Assertions.assertEquals(result, "Please enter a new password!");
     }
+    @Test
+    public void invalidLengthOfPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 1 -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "The password is weak: The length of the password must be greater than 6!");
+    }
+
     // change email
 
     @Test

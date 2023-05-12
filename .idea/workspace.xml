@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="oldPasswordTest added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="differenceBetweenOldPasswordAndNewPasswordTest added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/DefenciveStructure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Other.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Storage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/TownBuilding.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/PeopleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +81,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest">
+  <component name="RunManager" selected="JUnit.AppTest.invalidPasswordTest">
     <configuration name="AppTest.changePasswordMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -136,6 +130,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.invalidPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="invalidPasswordTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.oldPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -152,29 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.profileMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="profileMenuTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.invalidPasswordTest" />
         <item itemvalue="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest" />
         <item itemvalue="JUnit.AppTest.oldPasswordTest" />
         <item itemvalue="JUnit.AppTest.emptyPasswordTest" />
         <item itemvalue="JUnit.AppTest.changePasswordMachTest" />
-        <item itemvalue="JUnit.AppTest.profileMenuTest" />
       </list>
     </recent_temporary>
   </component>
@@ -365,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683924890198</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="differenceBetweenOldPasswordAndNewPasswordTest added">
+      <created>1683927551255</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683927551255</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +385,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Maven created :)" />
     <MESSAGE value="Update CreateNewGameMenu." />
     <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
@@ -409,7 +409,8 @@
     <MESSAGE value="displayTest added" />
     <MESSAGE value="displayWithEmptySloganTest added" />
     <MESSAGE value="oldPasswordTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="oldPasswordTest added" />
+    <MESSAGE value="differenceBetweenOldPasswordAndNewPasswordTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="differenceBetweenOldPasswordAndNewPasswordTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
