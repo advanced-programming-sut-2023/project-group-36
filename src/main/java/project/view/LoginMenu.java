@@ -32,7 +32,7 @@ public class LoginMenu {
           Thread.sleep(delay * 5000);
           System.out.println("You can now try again now.");
         }
-        else{
+        else if (output.equals("User logged in Successfully!")){
           delay=0;
           if(command.matches(Commands.LOGIN_LOGGED_IN.getRegex())){
             ApplicationManager.setStayLoggedIn(true);

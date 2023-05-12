@@ -15,6 +15,8 @@ public class LoginMenuController {
         if(LoggedUser==null)
             return "Error: username doesn't exist!";
         String password=SHA_256Format.sha256(matcher.group("password"));
+        System.out.println(LoggedUser.getPassword());
+        System.out.println(password);
         if(!LoggedUser.getPassword().equals(password))
             return "Error: password doesn't match!";
         ApplicationManager.login(LoggedUser);
