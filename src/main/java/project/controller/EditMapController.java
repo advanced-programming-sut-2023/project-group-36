@@ -26,11 +26,15 @@ public class EditMapController {
         if (EditMapMenu.colors.contains(color)){
             return "Error: This color already has selected!";
         }
-        map.getBlockByPosition(x,y).setColor(color);
-        Government government = new Government(users.get(EditMapMenu.number),color);
+        Block block = map.getBlockByPosition(x,y);
+        block.setColor(color);
+        Structure centralCastle = new Structure();
+        Government government = new Government(users.get(EditMapMenu.number),color, centralCastle);
+        block.setThisBlockStructure(centralCastle);
         EditMapMenu.governments.add(government);
         EditMapMenu.government = government;
         EditMapMenu.number+=1;
+
         return "Government "+users.get(EditMapMenu.number).getUsername()+" , "+color+" position successfully set.";
     }
 
@@ -147,7 +151,7 @@ public class EditMapController {
             case "Tunnel":
                 return null;
             case "Stockpile":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("Stockpile").equals(null))
+                if(EditMapMenu.government.getBuildingByNameForGovernment("Stockpile").equals(null))
                     return null;
                 else{
                         if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))

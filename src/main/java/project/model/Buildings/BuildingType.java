@@ -2,15 +2,15 @@ package project.model.Buildings;
 
 public class BuildingType {
 
-    private String type;
-    private String category;
+    private final String type;
+    private final String category;
     private int HP;
-    private int damage;
-    private int popularityChange;
-    private int rate;
-    private int fireRange;
-    private int defenceRange;
-    private int requiredPeopleToWork;
+    private final int damage;
+    private final int popularityChange;
+    private final int rate;
+    private final int fireRange;
+    private final int defenceRange;
+    private final int requiredPeopleToWork;
 
     public int getGoldCost() {
         return goldCost;

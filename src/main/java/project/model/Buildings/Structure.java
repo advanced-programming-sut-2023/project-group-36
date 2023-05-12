@@ -8,7 +8,6 @@ import project.model.Peoples.NormalPeople;
 import java.util.ArrayList;
 
 public  class Structure {
-    private String name;
     Block block;
     int HP;
     Government government;
@@ -25,7 +24,7 @@ public  class Structure {
     }
 
     public String getName() {
-        return name;
+        return buildingType.getType();
     }
 
     public Structure(Block block, Government government, ArrayList<Militia> militias, ArrayList<NormalPeople> normalPeoples, BuildingType buildingType) {

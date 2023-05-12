@@ -16,7 +16,8 @@ import java.util.Arrays;
 
 
 public class Government{
-    private User owner;
+    private final Structure centralCastle;
+    private final User owner;
     private ArrayList<People> peoples = new ArrayList<>();
 
     private ArrayList<Structure> structures = new ArrayList<>();
@@ -31,18 +32,16 @@ public class Government{
     private int taxRate;
     private int fearRate;
     private int feedRate;
-    private int religiousPeople;
-    private Map map;
-
     private int coins;
     private ArrayList<People> selectedPeoples;
 
 
-    public Government(User user, String color){
+    public Government(User user, String color, Structure centralCastle){
         this.owner = user;
         this.coins = 1000;
         this.color = color;
-        foodType = new String[]{"type1", "type2", "type3", "type4"}; // 1: bread, 2: meat, 3: apple, 4: rice
+        this.centralCastle = centralCastle;
+        foodType = new String[]{"bread", "meat", "apple", "rice"};
         foodAmount = new int[]{0, 0, 0, 0};
     }
 
@@ -255,7 +254,7 @@ public class Government{
 
     //religion
     private void checkTheReligionFactor() {
-        for (Block block : this.getMap().getBlocks()) {
+        for (Block block : GameController.getGame().getMap().getBlocks()) {
             if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
                 popularity += 2;
             }
@@ -337,9 +336,6 @@ public class Government{
     }
     // functions of religion
 
-    public Map getMap() {
-        return map;
-    }
 
     public Integer getIndexOfFood(String type){
         for (int i = 0; i < foodType.length; i++) {
@@ -349,7 +345,7 @@ public class Government{
         }
         return null;
     }
-    public  Structure getBuildingByNameForGoverment(String type){
+    public  Structure getBuildingByNameForGovernment(String type){
         for(Structure structure:structures){
             if(structure.getBuildingType().getType().equals(type))
                 return structure;
