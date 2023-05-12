@@ -3,6 +3,7 @@ package project.controller;
 import project.model.ApplicationManager;
 import project.model.Tools;
 import project.model.User;
+import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -52,7 +53,13 @@ public class ProfileMenuController {
         if (!Tools.passwordWeakCheck(newPassword).equals("Good"))
             return Tools.passwordWeakCheck(newPassword);
 
-        // fill out the capcha
+        String captchaNumbers = Tools.captcha();
+        System.out.println(captchaNumbers);
+        while (!Menu.getScanner().nextLine().equals(captchaNumbers)){
+            System.out.println("Error: You entered the CAPTCHA code incorrectly.");
+            captchaNumbers = Tools.captcha();
+        }
+        // fill out the captcha
         //...
 
         // repeat the password
