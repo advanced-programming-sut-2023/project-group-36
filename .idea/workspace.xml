@@ -81,8 +81,8 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.invalidPasswordTest">
-    <configuration name="AppTest.changePasswordMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AppTest.anyCapitalLetterOfPasswordTest">
+    <configuration name="AppTest.anyCapitalLetterOfPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -92,7 +92,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="changePasswordMachTest" />
+      <option name="METHOD_NAME" value="anyCapitalLetterOfPasswordTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.anyCapitalLetterOfPasswordTest" />
         <item itemvalue="JUnit.AppTest.invalidPasswordTest" />
         <item itemvalue="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest" />
         <item itemvalue="JUnit.AppTest.oldPasswordTest" />
         <item itemvalue="JUnit.AppTest.emptyPasswordTest" />
-        <item itemvalue="JUnit.AppTest.changePasswordMachTest" />
       </list>
     </recent_temporary>
   </component>
