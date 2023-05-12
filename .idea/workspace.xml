@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="dropBuilding updated for Nth time.">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="ProfileMenuController updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
@@ -74,16 +75,109 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="project.model.Peoples" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.Main" />
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.EmptySloganTestInDisplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="EmptySloganTestInDisplay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.displayHighScoreMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="displayHighScoreMachTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.displaySloganMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="displaySloganMachTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.removeSloganMachTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="removeSloganMachTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AppTest.EmptySloganTestInDisplay" />
+        <item itemvalue="JUnit.AppTest.displaySloganMachTest" />
+        <item itemvalue="JUnit.AppTest.displayHighScoreMachTest" />
+        <item itemvalue="JUnit.AppTest.removeSloganMachTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -113,6 +207,10 @@
       <workItem from="1682668516859" duration="4554000" />
       <workItem from="1683269388407" duration="6785000" />
       <workItem from="1683309987507" duration="888000" />
+      <workItem from="1683536550074" duration="539000" />
+      <workItem from="1683537611570" duration="3443000" />
+      <workItem from="1683545732716" duration="323000" />
+      <workItem from="1683902587551" duration="1410000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -225,7 +323,39 @@
       <updated>1683887734920</updated>
     </task>
     <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00019" summary="removeSloganMachTest added">
+      <created>1683759015628</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683759015628</updated>
+    </task>
+    <task id="LOCAL-00020" summary="displayHighScoreMachTest added">
+      <created>1683759249291</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683759249291</updated>
+    </task>
+    <task id="LOCAL-00021" summary="displaySloganMachTest and emptySloganTestInDisplay added">
+      <created>1683761066199</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683761066199</updated>
+    </task>
+    <task id="LOCAL-00022" summary="ProfileMenuController updated">
+      <created>1683773207838</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683773207838</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -257,6 +387,25 @@
     <MESSAGE value="CAPTCHA was placed for registration." />
     <MESSAGE value="Updated new map creation menu and fixed several bugs." />
     <MESSAGE value="Update MainMenu , some bugs fixed." />
+    <MESSAGE value="biulding drop updated" />
+    <MESSAGE value="changeUsernameMachTest added" />
+    <MESSAGE value="changeUsernameEmptyUsernameTest" />
+    <MESSAGE value="changeUsernameEmptyUsernameTest added" />
+    <MESSAGE value="changeUsernameInvalidUsernameFormatTest added" />
+    <MESSAGE value="change nickname complete" />
+    <MESSAGE value="changeSloganMachTest added" />
+    <MESSAGE value="EmptySloganTest added" />
+    <MESSAGE value="changeEmailMachTest and emptyEmailTest added" />
+    <MESSAGE value="emptyPart1Test added" />
+    <MESSAGE value="emptyPart2Test added" />
+    <MESSAGE value="emptyPart3Test added" />
+    <MESSAGE value="invalidPart1Test added" />
+    <MESSAGE value="invalidPart2Test and invalidPart3Test added" />
+    <MESSAGE value="removeSloganMachTest added" />
+    <MESSAGE value="displayHighScoreMachTest added" />
+    <MESSAGE value="displaySloganMachTest and emptySloganTestInDisplay added" />
+    <MESSAGE value="ProfileMenuController updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProfileMenuController updated" />
     <MESSAGE value="some bugs fixed." />
     <MESSAGE value="dropBuilding updated for Nth time." />
     <option name="LAST_COMMIT_MESSAGE" value="dropBuilding updated for Nth time." />

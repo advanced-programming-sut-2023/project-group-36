@@ -1,6 +1,7 @@
 package project.controller;
 
 import project.model.ApplicationManager;
+import project.model.Tools;
 import project.model.User;
 
 import java.security.NoSuchAlgorithmException;
@@ -48,16 +49,8 @@ public class ProfileMenuController {
         if (userPassword.equals(newPassword))
             return "Please enter a new password!";
 
-        if (newPassword.length() < 6)
-            return "Password must have at least 6 characters";
-        if (!newPassword.matches(".*[a-z].*"))
-            return "Password must have at least one lower case letter";
-        if (!newPassword.matches(".*[A-Z].*"))
-            return "Password must have at least one capital letter";
-        if (!newPassword.matches(".*[\\d].*"))
-            return "Password must have at least one number";
-        if (!newPassword.matches(".*[\\W].*")) // is it correct?
-            return "Password must have at least one character except numbers and upper and lower case letters";
+        if (!Tools.passwordWeakCheck(newPassword).equals("Good"))
+            return Tools.passwordWeakCheck(newPassword);
 
         // fill out the capcha
         //...
