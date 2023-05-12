@@ -69,10 +69,7 @@ public class GameMenu {
                 GameController.selectBuilding(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.UNSELECT_BUILDING.getRegex())){
-                GameController.reSelectBuilding(Menu.getMatcher(input,regex));
-            }
-            else if (input.matches(regex = Commands.CREATE_UNIT.getRegex())){
-                GameController.createUnit(Menu.getMatcher(input,regex));
+                GameController.unSelectBuilding(Menu.getMatcher(input,regex));
             }
             else if (input.matches(regex = Commands.REPAIR.getRegex())){
                 GameController.repair(Menu.getMatcher(input,regex));
@@ -81,6 +78,11 @@ public class GameMenu {
             ////////////// Mohammad
 
             ///////////////////// ALI
+
+            else if (input.matches(regex = Commands.CREATE_UNIT.getRegex())){
+                GameController.createUnit(Menu.getMatcher(input,regex));
+            }
+
 
             else if (input.matches(regex = Commands.SELECT_UNIT.getRegex())){
                 GameController.selectUnit(Menu.getMatcher(input,regex));

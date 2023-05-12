@@ -1,5 +1,7 @@
 package project.model.Peoples;
 
+import project.model.Buildings.Structure;
+
 public class PeopleType {
     public String type;
 
@@ -11,6 +13,7 @@ public class PeopleType {
     public int launchRadius;
 
     public String[] equipment;
+    public String requiredStructure;
 
     public PeopleType(String type, String category, int price, int attackPower, int defencePower, int speed, int launchRadius, String[] equipment){
         this.type = type;

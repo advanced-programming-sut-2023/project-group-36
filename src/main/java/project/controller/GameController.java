@@ -15,7 +15,7 @@ import static project.controller.EditMapController.checkMapPreparation;
 public class GameController {
 
     private static Game game;
-    private static Government currentGovernment;  ///?
+    private static Government currentGovernment;
     static int x,y;
     public static Block currentBlock;
     public static Structure currentStructure;
@@ -131,6 +131,7 @@ public class GameController {
             return "you don't have enough free people for employeeng in this building!";
         switch (type){
             case "SmallGateHouse":
+            case "Turret":
                 return null;
             case "BigGateHouse":
                 return null;
@@ -139,8 +140,6 @@ public class GameController {
             case "LookoutTower":
                 return null;
             case "DrawBridge":
-                return null;
-            case "Turret":
                 return null;
             case "Perimeter tower":
                 return null;
@@ -347,7 +346,30 @@ public class GameController {
     ///////////////////// ALI
 
     public static String createUnit(Matcher matcher){
-        return "...";
+        if (currentStructure==null){
+            return "Error: Please select a building!";
+        }
+        PeopleType peopleType = Types.getPeopleTypeByType(matcher.group("type"));
+        if (peopleType == null){
+            return "Error: Invalid type!";
+        }
+        if (!currentStructure.getName().equals(peopleType.requiredStructure)){
+            return "Error: An appropriate building has not been selected!";
+        }
+        People people;
+        Block block = currentStructure.getBlock();
+        if (peopleType.category.equals("launchers")){
+            people = new Launcher(peopleType,currentGovernment,block);
+        }
+        else if (peopleType.category.equals("fightingForce")){
+            people = new FightingForce(peopleType,currentGovernment,block);
+        }
+        else {
+            people = new NormalPeople(peopleType,currentGovernment,block);
+        }
+        currentGovernment.addPeople(people);
+        block.addPeople(people);
+        return "The soldier has been successfully created!";
     }
 
     public static String selectUnit(Matcher matcher){
