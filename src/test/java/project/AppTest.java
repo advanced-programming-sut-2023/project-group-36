@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import project.controller.*;
 import project.model.ApplicationManager;
 import project.model.User;
-import project.view.LoginMenu;
-import project.view.MainMenu;
 import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
@@ -198,6 +196,20 @@ public class AppTest {
 
 
         Assertions.assertEquals(result, "The new password is empty!");
+    }
+    @Test
+    public void oldPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 2 -n amir";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "The current password is incorrect!");
     }
 
     // change email

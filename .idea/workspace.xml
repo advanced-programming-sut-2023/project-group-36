@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="reapiar building completed" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="password test added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Types.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,21 +347,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683918011442</updated>
     </task>
-    <task id="LOCAL-00012" summary="select building completed">
-      <created>1683921718594</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1683921718594</updated>
-    </task>
-    <task id="LOCAL-00013" summary="reapiar building completed">
-      <created>1683922928154</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1683922928154</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,6 +366,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Maven created :)" />
     <MESSAGE value="Update CreateNewGameMenu." />
     <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
@@ -397,9 +390,7 @@
     <MESSAGE value="checkTheFearFactor added" />
     <MESSAGE value="displayTest added" />
     <MESSAGE value="displayWithEmptySloganTest added" />
-    <MESSAGE value="select building completed" />
-    <MESSAGE value="reapiar building completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="reapiar building completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="displayWithEmptySloganTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
