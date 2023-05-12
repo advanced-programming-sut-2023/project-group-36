@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="some bugs fixed.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -140,11 +140,11 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۵" />
       <updated>1683881094108</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۶" summary="Update CreateNewMapMenu &amp; EditMapMenu.">
-      <created>1682023629859</created>
+    <task id="LOCAL‎−۰۰۰۰۶" summary="some bugs fixed.">
+      <created>1683883844857</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۶" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
-      <updated>1682023629859</updated>
+      <updated>1683883844888</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۷" summary="Update Tools class. (commandFormating and captcha)">
       <created>1682113439163</created>
@@ -212,7 +212,7 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
       <updated>1682802845352</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -21,7 +21,6 @@ public class LoginMenuController {
         return "User logged in Successfully!";
     }
     public static String ForgetPassword(String answer){
-
         if(!answer.equals(LoggedUser.getQuestionAnswer()))
             return "Error: invalid security question answer!";
         return null;
