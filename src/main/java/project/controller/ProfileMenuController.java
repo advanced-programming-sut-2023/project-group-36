@@ -69,7 +69,7 @@ public class ProfileMenuController {
     public static String changePassword_2(Matcher matcher, String newPassword) throws NoSuchAlgorithmException {
         String repeatingPassword = matcher.group("newPassword");
 
-        if (newPassword.equals(""))
+        if (repeatingPassword.equals(""))
             return "The repeating password is empty!";
 
         if (!repeatingPassword.equals(newPassword))

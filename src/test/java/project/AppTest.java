@@ -296,19 +296,36 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: at least one special character is required!");
     }
     @Test
-    public void emptyNewPasswordTest() throws NoSuchAlgorithmException {
+    public void emptyRepeatingPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "";
+        String newPassword = "@Mohammad1";
         Matcher matcher = Menu.getMatcher(testCommand, "(?<newPassword>[^\n]*)");
         String result = null;
 
         if (matcher != null) {
-            result = ProfileMenuController.changePassword_2(matcher, testCommand);
+            result = ProfileMenuController.changePassword_2(matcher, newPassword);
         }
 
         Assertions.assertEquals(result, "The repeating password is empty!");
     }
+    @Test
+    public void incorrectRepeatingPasswordTest() throws NoSuchAlgorithmException {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "vsbrdtnfymgu";
+        String newPassword = "@Mohammad1";
+        Matcher matcher = Menu.getMatcher(testCommand, "(?<newPassword>[^\n]*)");
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_2(matcher, newPassword);
+        }
+
+        Assertions.assertEquals(result, "Repeating the password is wrong!");
+    }
+
 
     // change email
 
