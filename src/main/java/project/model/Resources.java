@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Resources {
     ArrayList<Resource> resources = new ArrayList<>();
+    public int maximumCapacity=500;
     public Resources(){
         resources.add(new Resource("Wood",0));
         resources.add(new Resource("Stone",0));
@@ -16,7 +17,11 @@ public class Resources {
         resources.add(new Resource("Horse",0));
         resources.add(new Resource("Pitch",0));
         resources.add(new Resource("Flour",0));
-        resources.add(new Resource("ProccesedPitch",0));
+        resources.add(new Resource("Oil",0));
+        resources.add(new Resource("Bow",0));
+        resources.add(new Resource("Spike",0));
+        resources.add(new Resource("Armor",0));
+
     }
 
     public Resource getResource(String name){
@@ -44,6 +49,8 @@ public class Resources {
             resource.changeCount(resource.ProductionRate);
             if(resource.getCount()<0)
                 resource.changeCount((-1)*resource.getCount());
+            if(resource.getCount()>maximumCapacity)
+                resource.setAmount(maximumCapacity);
         }
     }
 }

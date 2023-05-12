@@ -21,4 +21,8 @@ public class Resource {
     public void changeCount(int amount){
         this.amount += amount;
     }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

@@ -27,6 +27,10 @@ public  class Structure {
         return buildingType.getType();
     }
 
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
     public Structure(Block block, Government government, ArrayList<Militia> militias, ArrayList<NormalPeople> normalPeoples, BuildingType buildingType) {
         this.block = block;
         this.government = government;
@@ -34,6 +38,7 @@ public  class Structure {
         this.normalPeoples = normalPeoples;
         this.buildingType = buildingType;
         block.setThisBlockStructure(this);
+        this.HP=500;
     }
 
     public Block getBlock() {
@@ -70,5 +75,9 @@ public  class Structure {
 
     public void setMilitias(ArrayList<Militia> militias) {
         this.militias = militias;
+    }
+
+    public Government getGovernment() {
+        return government;
     }
 }

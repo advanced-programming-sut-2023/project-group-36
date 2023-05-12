@@ -127,7 +127,7 @@ public class GameController {
         }
         employment(buildingType);
         currentBlock.setThisBlockStructure(new Structure(currentBlock,currentGovernment,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType));
-        return "drop building done successfully.";
+        return "drop building is done successfully.";
     }
     public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
         if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
@@ -261,7 +261,7 @@ public class GameController {
                 }
             case "OilSmelter":
                 resources.getResource("Pitch").ProductionRate-=20;
-                resources.getResource("ProccesedPitch").ProductionRate+=15;
+                resources.getResource("Oil").ProductionRate+=15;
                 return null;
             case "IronMine":
                 if(!currentBlock.getType().equals("Iron"))
@@ -269,11 +269,12 @@ public class GameController {
                 resources.getResource("Iron").ProductionRate+=22;
                 return null;
             case "WoodCutter":
-                resources.getResource("Pitch").ProductionRate+=resources.getResource("Pitch").ProductionRate*25/100;
+                resources.getResource("Wood").ProductionRate+=resources.getResource("Wood").ProductionRate*25/100;
                 return null;
             case "AppleFarm":
                 if(!currentBlock.getType().equals("Dense Meadow"))
                     return "This Block type is not suitable for this structure!";
+                resources.getResource("Apple").ProductionRate+=50;
                 return null;
 
         }
@@ -336,12 +337,11 @@ public class GameController {
         if(block.getThisBlockStructure().equals(null))
             return "there is no building!";
         currentStructure=currentBlock.getThisBlockStructure();
-      //  return "Structure at"+x+" & "+y+" selected.\nname: "+currentStructure.getBuildingType().getType();
-        switch (currentStructure.getBuildingType().getType()){
-
-        }
-        return null;
+        if(!currentStructure.getGovernment().equals(currentGovernment))
+            return "this building doesn't belong to you!";
+        return "you have selected a building at "+x+" "+y+" :"+currentStructure.getBuildingType().getType();
     }
+
     public static String unSelectBuilding(Matcher matcher){
         if (currentStructure.equals(null))
              return "you haven't selected any building to be unselected!";
@@ -352,11 +352,14 @@ public class GameController {
     public static String repair(Matcher matcher){
         if (currentStructure.equals(null))
             return "you haven't selected any building yet!";
-       // if(game.getMap().getBlockByPosition(Math.max(x+1,game.getMap().getSize()),y).)
-
-
-
-        return "...";
+        if(currentBlock.myEnemies(currentGovernment).size()>0)
+            return "you can't repair buildings while they are under enemy fire!";
+        int requiredStone=10+currentStructure.getBuildingType().getStoneCost()/2;
+        if(currentGovernment.getResources().getResource("Stone").getCount()>requiredStone)
+            return "you don't have enough resources to repair this building!";
+        currentGovernment.getResources().getResource("Stone").changeCount((-1)*requiredStone);
+        currentStructure.setHP(500);
+        return "building at "+currentBlock.getX()+" "+currentBlock.getY()+" repaired succesfully!";
     }
 
     public static String clearBlock(Matcher matcher){
