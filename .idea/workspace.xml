@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="differenceBetweenOldPasswordAndNewPasswordTest added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Tools.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="anyCapitalLetterOfPasswordTest added">
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +79,7 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.anyCapitalLetterOfPasswordTest">
+  <component name="RunManager" selected="JUnit.AppTest.anySmallLetterOfPasswordTest">
     <configuration name="AppTest.anyCapitalLetterOfPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -98,6 +96,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.anySmallLetterOfPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project" />
+      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
+      <option name="METHOD_NAME" value="anySmallLetterOfPasswordTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.differenceBetweenOldPasswordAndNewPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -109,22 +123,6 @@
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
       <option name="METHOD_NAME" value="differenceBetweenOldPasswordAndNewPasswordTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.emptyPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="emptyPasswordTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest.anySmallLetterOfPasswordTest" />
         <item itemvalue="JUnit.AppTest.anyCapitalLetterOfPasswordTest" />
         <item itemvalue="JUnit.AppTest.invalidPasswordTest" />
         <item itemvalue="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest" />
         <item itemvalue="JUnit.AppTest.oldPasswordTest" />
-        <item itemvalue="JUnit.AppTest.emptyPasswordTest" />
       </list>
     </recent_temporary>
   </component>
@@ -366,7 +364,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683927551255</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="invalidLengthOfPasswordTest added">
+      <created>1683928713754</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683928713754</updated>
+    </task>
+    <task id="LOCAL-00016" summary="anyCapitalLetterOfPasswordTest added">
+      <created>1683928948031</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683928948031</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,8 +397,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreateNewGameMenu." />
-    <MESSAGE value="Update CreateNewMapMenu. (add setGovernment)" />
     <MESSAGE value="Update CreateNewMapMenu &amp; EditMapMenu." />
     <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
     <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
@@ -410,7 +420,9 @@
     <MESSAGE value="displayWithEmptySloganTest added" />
     <MESSAGE value="oldPasswordTest added" />
     <MESSAGE value="differenceBetweenOldPasswordAndNewPasswordTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="differenceBetweenOldPasswordAndNewPasswordTest added" />
+    <MESSAGE value="invalidLengthOfPasswordTest added" />
+    <MESSAGE value="anyCapitalLetterOfPasswordTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="anyCapitalLetterOfPasswordTest added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

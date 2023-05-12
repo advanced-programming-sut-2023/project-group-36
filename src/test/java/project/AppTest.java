@@ -253,6 +253,20 @@ public class AppTest {
 
         Assertions.assertEquals(result, "The password is weak: at least one capital letter is required!");
     }
+    @Test
+    public void anySmallLetterOfPasswordTest() {
+        User user = new User("1","1","1","1","1","1",1);
+        ApplicationManager.setCurrentUser(user);
+        String testCommand = "profile change password -o 1 -n MOHAMMAD";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+        Assertions.assertEquals(result, "The password is weak: at least one small letter is required!");
+    }
 
     // change email
 
