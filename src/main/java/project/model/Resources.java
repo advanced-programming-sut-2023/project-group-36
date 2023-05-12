@@ -8,11 +8,11 @@ public class Resources {
         resources.add(new Resource("wood",0));
         resources.add(new Resource("stone",0));
         resources.add(new Resource("iron",0));
-        resources.add(new Resource("name4",0));
-        resources.add(new Resource("name5",0));
-        resources.add(new Resource("name6",0));
-        resources.add(new Resource("name7",0));
-        resources.add(new Resource("name8",0));
+        resources.add(new Resource("wheat",0));
+        resources.add(new Resource("bread",0));
+        resources.add(new Resource("apple",0));
+        resources.add(new Resource("beer",0));
+        resources.add(new Resource("hop",0));
         resources.add(new Resource("name9",0));
         resources.add(new Resource("name10",0));
         resources.add(new Resource("name11",0));
@@ -38,5 +38,12 @@ public class Resources {
 
     public boolean validResource(String name){
         return getResource(name) != null;
+    }
+    public void changeOfResourcesAtTheEndOfTurn(){
+        for(Resource resource:resources){
+            resource.changeCount(resource.ProductionRate);
+            if(resource.getCount()<0)
+                resource.changeCount((-1)*resource.getCount());
+        }
     }
 }

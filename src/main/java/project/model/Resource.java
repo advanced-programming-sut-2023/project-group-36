@@ -4,6 +4,7 @@ public class Resource {
 
     private final String name;
     private int amount;
+    public int ProductionRate=0;
     public Resource(String name, int amount) {
         this.amount = amount;
         this.name = name;
