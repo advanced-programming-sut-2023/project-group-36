@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="some bugs fixed. (space in cmdf)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="some bugs fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,11 +134,11 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۴" />
       <updated>1683318162378</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۰۵" summary="Update CreateNewMapMenu. (add setGovernment)">
-      <created>1682003839163</created>
+    <task id="LOCAL‎−۰۰۰۰۵" summary="some bugs fixed.">
+      <created>1683881094108</created>
       <option name="number" value="LOCAL‎−۰۰۰۰۵" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۰۵" />
-      <updated>1682003839163</updated>
+      <updated>1683881094108</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۰۶" summary="Update CreateNewMapMenu &amp; EditMapMenu.">
       <created>1682023629859</created>
@@ -215,7 +212,7 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۷" />
       <updated>1682802845352</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +245,8 @@
     <MESSAGE value="CAPTCHA was placed for registration." />
     <MESSAGE value="Updated new map creation menu and fixed several bugs." />
     <MESSAGE value="Update MainMenu , some bugs fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MainMenu , some bugs fixed." />
+    <MESSAGE value="some bugs fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="some bugs fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

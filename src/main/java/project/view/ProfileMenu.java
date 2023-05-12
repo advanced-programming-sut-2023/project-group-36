@@ -11,12 +11,12 @@ import java.util.regex.Matcher;
 public class ProfileMenu {
     private final static Scanner scanner = Menu.getScanner();
 
-    public static void run() throws NoSuchAlgorithmException {
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
         System.out.println("**<< Profile Menu >>**");
         boolean inThisMenu = true;
         String formattedInput;
 
-        while (true) {
+        while (inThisMenu) {
             String command = scanner.nextLine();
             Matcher matcher;
             Matcher matcher1;
@@ -40,7 +40,7 @@ public class ProfileMenu {
                 if (result.equals("Please enter your new password again")) {
                     String newPassword = matcher.group("new-password");
                     command = scanner.nextLine();
-                    matcher = Menu.getMatcher(command, "(?<new-password>[^\n]+)");
+                    matcher = Menu.getMatcher(command, "[^\n]+");
                     assert matcher != null;
                     System.out.println(ProfileMenuController.changePassword_2(matcher, newPassword));
                 }
@@ -93,7 +93,8 @@ public class ProfileMenu {
 
             matcher = Menu.getMatcher(command, Commands.EXIT.getRegex());
             if (matcher != null) {
-                break;
+                inThisMenu = false;
+                MainMenu.run();
             }
 
             System.out.println("Invalid command!");
