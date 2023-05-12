@@ -244,7 +244,7 @@ public class GameController {
             case "Stable":
                 return null;
             case "Store":
-                if(EditMapMenu.government.getBuildingByNameForGoverment("َStore").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َStore").equals(null)){
                     return null;
                 }
                 else{
@@ -253,10 +253,14 @@ public class GameController {
             case "OilSmelter":
                 return null;
             case "IronMine":
-                if(!currentBlock.getType().equals(""))
+                if(!currentBlock.getType().equals("Iron"))
                     return "This Block type is not suitable for this structure!";
                 return null;
             case "WoodCutter":
+                return null;
+            case "AppleFarm":
+                if(!currentBlock.getType().equals("Dense Meadow"))
+                    return "This Block type is not suitable for this structure!";
                 return null;
 
         }

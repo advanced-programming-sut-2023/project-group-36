@@ -79,7 +79,8 @@ public class Types {
         buildingTypes.add(new BuildingType("IronMine","FarmBuildings",20,0,0,0,0,0,0,0,0,0,2));
         buildingTypes.add(new BuildingType("WoodCutter","FarmBuildings",3,0,0,0,0,0,0,0,0,0,1));
         buildingTypes.add(new BuildingType("AppleFarm","FarmBuildings",5,0,0,0,0,0,0,0,0,0,1));
-
+        buildingTypes.add(new BuildingType("WheatFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("BarleyFarm","FarmBuildings",5,0,0,0,0,0,0,0,0,0,1));
     }
 
     public static PeopleType getPeopleTypeByType(String type){
