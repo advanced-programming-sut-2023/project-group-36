@@ -48,7 +48,7 @@ public class ProfileMenuController {
         String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
         if (!userPassword.equals(oldPassword))
-            return "Current password is incorrect!";
+            return "The current password is incorrect!";
 
         if (userPassword.equals(newPassword))
             return "Please enter a new password!";
