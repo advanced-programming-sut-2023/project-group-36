@@ -11,6 +11,7 @@ import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class AppTest {
@@ -51,6 +52,15 @@ public class AppTest {
 
     }
 
+
+
+    //profile menu
+    @Test
+    public void profileMenuTest() {
+        Scanner scanner = Menu.getScanner();
+        String in = scanner.nextLine();
+        Assertions.assertEquals(in, "in");
+    }
 
     // change username
 
@@ -150,6 +160,44 @@ public class AppTest {
 
         Assertions.assertEquals(result, "Nickname changed successfully");
         Assertions.assertEquals(user.getNickname(), "amir");
+    }
+
+    //change password
+
+    @Test
+    public void changePasswordMachTest() {
+        String testCommand = "profile change password -p qwe -n were";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+
+        Assertions.assertNull(matcher);
+    }
+    @Test
+    public void emptyPasswordTest() {
+        // old password
+
+        String testCommand = "profile change password -o  -n ";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        String result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+
+        Assertions.assertEquals(result, "The old password is empty!");
+
+        //new password
+
+        testCommand = "profile change password -o amir -n ";
+        matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
+        result = null;
+
+        if (matcher != null) {
+            result = ProfileMenuController.changePassword_1(matcher);
+        }
+
+
+        Assertions.assertEquals(result, "The new password is empty!");
     }
 
     // change email

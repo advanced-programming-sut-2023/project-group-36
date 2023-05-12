@@ -37,12 +37,15 @@ public class ProfileMenuController {
     public static String changePassword_1(Matcher matcher) {
         String oldPassword = matcher.group("oldPassword");
         String newPassword = matcher.group("newPassword");
-        String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
-        if (oldPassword.equals(""))
+        if (oldPassword.equals("")) {
             return "The old password is empty!";
-        if (newPassword.equals(""))
+        }
+        if (newPassword.equals("")) {
             return "The new password is empty!";
+        }
+
+        String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
         if (!userPassword.equals(oldPassword))
             return "Current password is incorrect!";
