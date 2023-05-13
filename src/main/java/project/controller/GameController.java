@@ -209,14 +209,22 @@ public class GameController {
                     return null;
                 else{
                     try {
-                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                           currentGovernment.getResources().maximumCapacity+=500;
                             return null;
-                        if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            currentGovernment.getResources().maximumCapacity+=500;
                             return null;
-                        if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            currentGovernment.getResources().maximumCapacity+=500;
                             return null;
-                        if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile"))
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            currentGovernment.getResources().maximumCapacity+=500;
                             return null;
+                        }
                     }catch (Exception exception){
                     }
                     return "you have already a stockpile in your city.you should put the new stockpile near it!";
