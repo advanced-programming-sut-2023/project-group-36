@@ -74,6 +74,7 @@ public class EditMapController {
 
     public static String dropBuilding(Matcher matcher,Government government,Map map){
         BuildingType buildingType=Types.getBuildingTypeByType(matcher.group("type"));
+        Resources resources=government.getResources();
         if (buildingType.equals(null))
             return "Invalid building name!";
         try {
@@ -90,7 +91,154 @@ public class EditMapController {
         if(block.getThisBlockStructure() != null)
             return "this block is already occiupied!";
         switch (buildingType.getType()){
-            case "":
+            case "SmallGateHouse":
+                return null;
+            case "Turret":
+                return null;
+            case "BigGateHouse":
+                return null;
+            case "CircleTower":
+                return null;
+            case "LookoutTower":
+                return null;
+            case "DrawBridge":
+                return null;
+            case "Perimeter tower":
+                return null;
+            case "SquareTower":
+                return null;
+            case "Armoury":
+                if(government.getBuildingByNameForGoverment("َArmoury").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "Barrack":
+                if(government.getBuildingByNameForGoverment("َBarrack").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "EngineerGuild":
+                if(government.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "KillingPit":
+                return null;
+            case "Hovel":
+                return null;
+            case "Church":
+                return null;
+            case "Cathedral":
+                if(government.getBuildingByNameForGoverment("َCathedral").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "Armourer":
+                if(government.getBuildingByNameForGoverment("Armourer").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "Blacksmith":
+                return null;
+            case "Fletcher":
+                return null;
+            case "Poleturner":
+                return null;
+            case "Tunnel":
+                if(currentBlock.isThereIsTunnel())
+                    return "there is already a tunnel!";
+                currentBlock.setThereIsTunnel(true);
+                return null;
+            case "Stockpile":
+                if(government.getBuildingByNameForGovernment("Stockpile").equals(null))
+                    return null;
+                else{
+                    try {
+                        if(EditMapMenu.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            government.getResources().maximumCapacity+=500;
+                            return null;
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            government.getResources().maximumCapacity+=500;
+                            return null;
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            government.getResources().maximumCapacity+=500;
+                            return null;
+                        }
+                        if(EditMapMenu.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals("Stockpile")) {
+                            government .getResources().maximumCapacity+=500;
+                            return null;
+                        }
+                    }catch (Exception exception){
+                    }
+                    return "you have already a stockpile in your city.you should put the new stockpile near it!";
+                }
+            case "Quarry":
+                if(!currentBlock.getType().equals("Stone"))
+                    return "This Block type is not suitable for this structure!";
+                resources.getResource("Stone").ProductionRate+=50;
+                return null;
+
+            case "PitchRig":
+                if(!currentBlock.getType().equals("Meadow"))
+                    return "This Block type is not suitable for this structure!";
+                resources.getResource("Pitch").ProductionRate+=40;
+                return null;
+            case "Mill":
+                resources.getResource("Wheat").ProductionRate-=20;
+                resources.getResource("Flour").ProductionRate+=30;
+                return null;
+            case "Inn":
+                resources.getResource("Wine").ProductionRate-=60;
+                return null;
+            case "Ditch":
+                return null;
+            case "MercenaryPost":
+                return null;
+            case "PitchDitch":
+                return null;
+            case "CagedWarDogs":
+                return null;
+            case "SiegeTent":
+                return null;
+            case "Stable":
+                resources.getResource("Horse").ProductionRate+=10;
+                return null;
+            case "Store":
+                if(government.getBuildingByNameForGoverment("َStore").equals(null)){
+                    return null;
+                }
+                else{
+                    return "you have already placed this building in your city!";
+                }
+            case "OilSmelter":
+                resources.getResource("Pitch").ProductionRate-=20;
+                resources.getResource("Oil").ProductionRate+=15;
+                return null;
+            case "IronMine":
+                if(!currentBlock.getType().equals("Iron"))
+                    return "This Block type is not suitable for this structure!";
+                resources.getResource("Iron").ProductionRate+=22;
+                return null;
+            case "WoodCutter":
+                resources.getResource("Wood").ProductionRate+=resources.getResource("Wood").ProductionRate*25/100;
+                return null;
+            case "AppleFarm":
+                if(!currentBlock.getType().equals("Dense Meadow"))
+                    return "This Block type is not suitable for this structure!";
+                resources.getResource("Apple").ProductionRate+=50;
+                return null;
         }
         Structure structure=new Structure(block,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
         block.setThisBlockStructure(structure);
