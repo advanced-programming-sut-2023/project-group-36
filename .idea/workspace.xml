@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="minor change in Stockpile drop building">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="update in EditMapController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
     </list>
@@ -452,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683962350481</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update in EditMapController">
+      <created>1683962725383</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683962725383</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,8 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Tools class. (commandFormating and captcha)" />
-    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
@@ -518,7 +523,8 @@
     <MESSAGE value="reapiar building completed" />
     <MESSAGE value="adding resources to goverment after end of turn" />
     <MESSAGE value="minor change in Stockpile drop building" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change in Stockpile drop building" />
+    <MESSAGE value="update in EditMapController" />
+    <option name="LAST_COMMIT_MESSAGE" value="update in EditMapController" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

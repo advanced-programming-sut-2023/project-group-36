@@ -90,6 +90,15 @@ public class EditMapController {
         Block block=map.getBlockByPosition(x,y);
         if(block.getThisBlockStructure() != null)
             return "this block is already occiupied!";
+        if( !simpleBuildingPrecutionsCheck(buildingType,government).equals(null))
+            return simpleBuildingPrecutionsCheck(buildingType,government);
+        Structure structure=new Structure(block,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
+        block.setThisBlockStructure(structure);
+        government.getStructures().add(structure);
+        return null;
+    }
+    public  static String  simpleBuildingPrecutionsCheck(BuildingType buildingType,Government government){
+        Resources resources=government.getResources();
         switch (buildingType.getType()){
             case "SmallGateHouse":
                 return null;
@@ -240,9 +249,6 @@ public class EditMapController {
                 resources.getResource("Apple").ProductionRate+=50;
                 return null;
         }
-        Structure structure=new Structure(block,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
-        block.setThisBlockStructure(structure);
-        government.getStructures().add(structure);
         return null;
     }
 
