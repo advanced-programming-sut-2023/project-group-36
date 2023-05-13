@@ -259,6 +259,23 @@ public class EditMapController {
         }
         return null;
     }
+    public static String sexTexture(Matcher matcher){
+        x=Integer.parseInt(matcher.group("x"));
+        y=Integer.parseInt(matcher.group("y"));
+        Block currentBlock=EditMapMenu.map.getBlockByPosition(x,y);
+        String type=matcher.group("type");
+        switch (type){
+            case "Dirt":
+            case "Gravel":
+            case "Stone":
+            case "Iron":
+            case "Grass":
+            case "Meadow":
+            case "Dense Meadow":
+
+        }
+        return "Error! something went wrong...";
+    }
 
 
 

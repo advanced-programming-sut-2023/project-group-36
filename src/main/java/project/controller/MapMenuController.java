@@ -63,7 +63,7 @@ public class MapMenuController {
                     case "Dense Meadow":
                         mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
                         break ;
-                    case "Water":
+                    case "Sea":
                         mapToShow[10+i][10+j]="\u001B[44m"+mapToShow[10+i][10+j]+"\u001B[0m";
                         break ;
                 }
