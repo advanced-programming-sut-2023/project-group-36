@@ -114,7 +114,7 @@ public class Government{
         // Religion +
         checkTheReligionFactor();
 
-        // Fear -
+        // Fear +
         checkTheFearFactor();
 
         // change population

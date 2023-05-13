@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="correctRepeatingPasswordTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="Government updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
     </list>
@@ -35,6 +35,12 @@
       </branch-storage>
     </favorite-branches>
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="localAli" />
@@ -60,21 +66,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="project.model.Peoples" />
@@ -199,6 +208,7 @@
       <workItem from="1682668516859" duration="4554000" />
       <workItem from="1683269388407" duration="6785000" />
       <workItem from="1683309987507" duration="888000" />
+      <workItem from="1683946544487" duration="1348000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -421,7 +431,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683935430837</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Government updated">
+      <created>1683944169165</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683944169165</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Government updated">
+      <created>1683944242227</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683944242227</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +456,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -440,7 +476,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some bugs fixed. + add json files." />
     <MESSAGE value="GameMenu updated, Start GameMenu." />
     <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
@@ -465,7 +500,8 @@
     <MESSAGE value="emptyNewPasswordTest added" />
     <MESSAGE value="incorrectRepeatingPasswordTest added" />
     <MESSAGE value="correctRepeatingPasswordTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="correctRepeatingPasswordTest added" />
+    <MESSAGE value="Government updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Government updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
