@@ -259,23 +259,39 @@ public class EditMapController {
         }
         return null;
     }
-    public static String sexTexture(Matcher matcher){
+    /*public static String setTexture(Matcher matcher){
         x=Integer.parseInt(matcher.group("x"));
         y=Integer.parseInt(matcher.group("y"));
         Block currentBlock=EditMapMenu.map.getBlockByPosition(x,y);
+        if(!currentBlock.getThisBlockStructure().equals(null))
+            return "you can't change this block while there is a structure on it!";
         String type=matcher.group("type");
         switch (type){
             case "Dirt":
+                currentBlock.setType("Dirt");
+                return "Texture in "+x+" "+y+" set to Dirt";
             case "Gravel":
+                currentBlock.setType("Gravel");
+                return "Texture in "+x+" "+y+" set to Gravel";
             case "Stone":
+                currentBlock.setType("Stone");
+                return "Texture in "+x+" "+y+" set to Stone";
             case "Iron":
+                currentBlock.setType("Iron");
+                return "Texture in "+x+" "+y+" set to Iron";
             case "Grass":
+                currentBlock.setType("Grass");
+                return "Texture in "+x+" "+y+" set to Grass";
             case "Meadow":
+                currentBlock.setType("Meadow");
+                return "Texture in "+x+" "+y+" set to Meadow";
             case "Dense Meadow":
+                currentBlock.setType("Dense Meadow");
+                return "Texture in "+x+" "+y+" set to Dense Meadow";
 
         }
         return "Error! something went wrong...";
-    }
+    }*/
 
 
 

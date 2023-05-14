@@ -51,6 +51,9 @@ public class MapMenuController {
                     case "Gravel":
                         mapToShow[10+i][10+j]="\u001B[0;47m"+mapToShow[10+i][10+j]+"\u001B[0m";
                         break ;
+                    case "Boulder":
+                        mapToShow[10+i][10+j]="\u001B[0;47m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        break ;
                     case "Stone":
                         mapToShow[10+i][10+j]="\u001B[40m"+mapToShow[10+i][10+j]+"\u001B[0m";
                         break ;

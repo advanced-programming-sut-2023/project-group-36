@@ -64,7 +64,7 @@ public class CreateNewMapController {
         if (block.getThisBlockStructure()!=null || block.getPeoples()!=null){
             return "Error: You cannot change the gender of this block ("+x+","+y+") because it contains buildings or people.";
         }
-        String[] types = {"land","gravel","boulder","stone","iron","grass","meadow","dense-meadow"};
+        String[] types = {"Dirt","Gravel","Boulder","Stone","Iron","Grass","Meadow","Dense Meadow"};
         if (type.equals("random")){
             Random random = new Random();
             type = String.valueOf(types[random.nextInt()%8]);
