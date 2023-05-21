@@ -17,7 +17,8 @@ public class ProfileMenuController {
 
         if (!username.matches("[A-Za-z_]+"))
             return "The username format is invalid";
-
+        if(!ApplicationManager.getUserByUsername(username).equals(null))
+            return "This username has already been taken!";
         ApplicationManager.getCurrentUser().setUsername(username);
         return "Username changed successfully";
     }

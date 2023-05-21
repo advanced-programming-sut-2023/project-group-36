@@ -36,7 +36,7 @@ public class EditMapController {
         EditMapMenu.government = government;
         EditMapMenu.number+=1;
 
-        return "Government "+users.get(EditMapMenu.number).getUsername()+" , "+color+" position successfully set.";
+        return "Government "+users.get(EditMapMenu.number-1).getUsername()+" , "+color+" position successfully set.";
     }
 
     public static String dropUnit(Matcher matcher,Government government,Map map){

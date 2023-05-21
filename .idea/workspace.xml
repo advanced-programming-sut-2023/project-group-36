@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="update in setTexture">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="addding Boulder type for Block types which has been forgotten">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,20 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.correctRepeatingPasswordTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.Main" />
+      <module name="StrongholdPhase1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.correctRepeatingPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
@@ -156,29 +173,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.testSomething" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StrongholdPhase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="project" />
-      <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="testSomething" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AppTest.correctRepeatingPasswordTest" />
         <item itemvalue="JUnit.AppTest.incorrectRepeatingPasswordTest" />
         <item itemvalue="JUnit.AppTest.emptyNewPasswordTest" />
         <item itemvalue="JUnit.AppTest.testInputLength" />
-        <item itemvalue="JUnit.AppTest.testSomething" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +212,11 @@
       <workItem from="1683269388407" duration="6785000" />
       <workItem from="1683309987507" duration="888000" />
       <workItem from="1683946544487" duration="1348000" />
-      <workItem from="1684057192508" duration="1046000" />
+      <workItem from="1684057192508" duration="1386000" />
+      <workItem from="1684075920418" duration="2447000" />
+      <workItem from="1684148435238" duration="640000" />
+      <workItem from="1684149543896" duration="1294000" />
+      <workItem from="1684661887807" duration="3090000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -476,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683965810898</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="addding Boulder type for Block types which has been forgotten">
+      <created>1684058456062</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058456062</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,8 +519,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="GameMenu updated, Start GameMenu." />
-    <MESSAGE value="Update GameController. (some people commands)" />
     <MESSAGE value="Update GameController,launch, pourOil &amp; add Engineer class." />
     <MESSAGE value="Some bugs fixed." />
     <MESSAGE value="CAPTCHA was placed for registration." />
@@ -538,7 +548,8 @@
     <MESSAGE value="minor change in Stockpile drop building" />
     <MESSAGE value="update in EditMapController" />
     <MESSAGE value="update in setTexture" />
-    <option name="LAST_COMMIT_MESSAGE" value="update in setTexture" />
+    <MESSAGE value="addding Boulder type for Block types which has been forgotten" />
+    <option name="LAST_COMMIT_MESSAGE" value="addding Boulder type for Block types which has been forgotten" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

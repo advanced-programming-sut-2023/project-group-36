@@ -62,6 +62,7 @@ public class EditMapMenu {
                     System.out.println("Map preparation done successfully.");
                     inThisMenu = false;
                     CreateNewGameMenu.mapPreparation = true;
+                    CreateNewGameMenu.governments = governments;
                     CreateNewGameMenu.run(number);
                 }
             }

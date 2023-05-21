@@ -1,6 +1,5 @@
 package project.controller;
 
-import jdk.nashorn.internal.ir.BlockLexicalContext;
 import project.model.*;
 import project.model.Buildings.BuildingType;
 import project.model.Buildings.Structure;
@@ -52,7 +51,7 @@ public class GameController {
     }
 
     public static String feedRateSet(Matcher matcher){
-        int rate = Integer.parseInt(matcher.group("rate-number"));
+        int rate = Integer.parseInt(matcher.group("rateNumber"));
 
         if (rate < -2 || rate > 2)
             return "The feed rate should be between -2 and 2 !";
@@ -70,7 +69,7 @@ public class GameController {
 
     // Tax
     public static String taxRateSet(Matcher matcher){
-        int rate = Integer.parseInt(matcher.group("rate-number"));
+        int rate = Integer.parseInt(matcher.group("rateNumber"));
 
         if (rate < -3 || rate > 8)
             return "The tax rate should be between -3 and 8 !";
@@ -88,7 +87,7 @@ public class GameController {
 
     // Fear
     public static String fearRateSet(Matcher matcher){
-        int rate = Integer.parseInt(matcher.group("rate-number"));
+        int rate = Integer.parseInt(matcher.group("rateNumber"));
 
         if (rate < -5 || rate > 5)
             return "The fear rate should be between -5 and 5 !";

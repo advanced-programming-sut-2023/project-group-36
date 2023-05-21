@@ -4,6 +4,7 @@ import project.model.ApplicationManager;
 import project.model.Map;
 import project.model.User;
 import project.view.CreateNewGameMenu;
+import project.view.EditMapMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -50,11 +51,6 @@ public class CreateNewGameController {
         }
         map = ApplicationManager.getMapByName(name).clone();
         CreateNewGameMenu.map = map;
-        System.out.println(map);
-        System.out.println(map.getName());
-        System.out.println(map.getSize());
-        System.out.println(map.getCapacity());
-        System.out.println(map.getBlockByPosition(12,12));
 
         return "Map chosen successfully.";
     }
@@ -73,9 +69,9 @@ public class CreateNewGameController {
         if (map==null){
             return "Error: To start the game, you need to choose a map for it!";
         }
-        if (users.size()!=map.getCapacity()){
+        if (users.size()!=EditMapMenu.number){
             return "Error: The number of users selected by you is" + users.size()+
-                    ",but the map you have selected is suitable for "+map.getCapacity()+" players.";
+                    ",but the map you have selected is suitable for "+ EditMapMenu.number +" players.";
         }
         return null;
     }
