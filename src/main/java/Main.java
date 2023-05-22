@@ -1,6 +1,6 @@
-package project;
-import project.model.ApplicationManager;
-import project.view.LoginMenu;
+
+import model.ApplicationManager;
+import view.LoginMenu;
 import java.security.NoSuchAlgorithmException;
 
 
