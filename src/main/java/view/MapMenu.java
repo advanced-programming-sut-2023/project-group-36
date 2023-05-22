@@ -1,9 +1,9 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.MapMenuController;
-import project.model.ApplicationManager;
-import project.model.Tools;
+import controller.Commands;
+import controller.MapMenuController;
+import model.ApplicationManager;
+import model.Tools;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

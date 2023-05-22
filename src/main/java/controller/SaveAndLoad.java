@@ -6,13 +6,12 @@ import model.ApplicationManager;
 import model.Game;
 import model.Map;
 import model.User;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Map;
+
 
 public class SaveAndLoad {
     public static String getAddress1() {

@@ -1,8 +1,8 @@
 package view;
 
-import project.controller.Commands;
-import project.model.ApplicationManager;
-import project.model.Tools;
+import controller.Commands;
+import model.ApplicationManager;
+import model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

@@ -1,5 +1,4 @@
 package controller;
-
 public enum Commands {
 
     //REGISTER & LOGIN

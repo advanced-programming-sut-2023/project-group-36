@@ -1,10 +1,10 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.GameController;
-import project.model.ApplicationManager;
-import project.model.Game;
-import project.model.Tools;
+import controller.Commands;
+import controller.GameController;
+import model.ApplicationManager;
+import model.Game;
+import model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

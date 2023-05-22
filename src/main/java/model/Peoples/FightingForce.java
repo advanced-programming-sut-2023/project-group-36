@@ -1,10 +1,10 @@
 package model.Peoples;
 
-import project.controller.GameController;
-import project.model.Block;
-import project.model.Game;
-import project.model.Government;
-import project.model.Tools;
+import controller.GameController;
+import model.Block;
+import model.Game;
+import model.Government;
+import model.Tools;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,10 @@
 package view;
 
-import project.controller.CommandFormat;
-import project.controller.Commands;
-import project.controller.RegisterMenuController;
-import project.model.ApplicationManager;
-import project.model.Tools;
+import controller.CommandFormat;
+import controller.Commands;
+import controller.RegisterMenuController;
+import model.ApplicationManager;
+import model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

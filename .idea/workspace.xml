@@ -4,8 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change for adding module info">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change for adding module info(update for changing packages )">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MapMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SaveAndLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SaveAndLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/Engineer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/Engineer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/FightingForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/FightingForce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/Militia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/Militia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/NormalPeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/NormalPeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/PeopleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TradeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TradeMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +117,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
+      <command value="mvn compile" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -500,7 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684792424357</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="change for adding module info(update for changing packages )">
+      <created>1684792933940</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1684792933940</updated>
+    </task>
+    <task id="LOCAL-00032" summary="change for adding module info(update for changing packages )">
+      <created>1684792964154</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1684792964154</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,9 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="CAPTCHA was placed for registration." />
-    <MESSAGE value="Updated new map creation menu and fixed several bugs." />
-    <MESSAGE value="Update MainMenu , some bugs fixed." />
     <MESSAGE value="some bugs fixed." />
     <MESSAGE value="dropBuilding updated for Nth time." />
     <MESSAGE value="ShopMenu updated." />
@@ -560,7 +591,8 @@
     <MESSAGE value="update in setTexture" />
     <MESSAGE value="addding Boulder type for Block types which has been forgotten" />
     <MESSAGE value="change for adding module info" />
-    <option name="LAST_COMMIT_MESSAGE" value="change for adding module info" />
+    <MESSAGE value="change for adding module info(update for changing packages )" />
+    <option name="LAST_COMMIT_MESSAGE" value="change for adding module info(update for changing packages )" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

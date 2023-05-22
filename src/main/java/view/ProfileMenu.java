@@ -1,8 +1,8 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.ProfileMenuController;
-import project.model.ApplicationManager;
+import controller.Commands;
+import controller.ProfileMenuController;
+import model.ApplicationManager;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
 package model.Peoples;
 
-import project.model.*;
+import model.*;
 
 import java.awt.*;
 import java.util.ArrayList;

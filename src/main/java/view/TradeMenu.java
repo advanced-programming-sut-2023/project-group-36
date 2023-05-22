@@ -1,9 +1,9 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.TradeMenuController;
-import project.model.ApplicationManager;
-import project.model.Tools;
+import controller.Commands;
+import controller.TradeMenuController;
+import model.ApplicationManager;
+import model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;

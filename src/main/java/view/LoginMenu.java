@@ -1,15 +1,15 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.LoginMenuController;
-import project.model.ApplicationManager;
-import project.model.Tools;
+import controller.Commands;
+import controller.LoginMenuController;
+import model.ApplicationManager;
+import model.Tools;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
-import static project.controller.LoginMenuController.LoggedUser;
+import static controller.LoginMenuController.LoggedUser;
 
 public class LoginMenu {
   private final static Scanner scanner = Menu.getScanner();

@@ -1,7 +1,7 @@
 package model.Peoples;
 
-import project.model.Block;
-import project.model.Government;
+import model.Block;
+import model.Government;
 
 public class NormalPeople extends People {
     private boolean employed;

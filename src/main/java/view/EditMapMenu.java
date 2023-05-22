@@ -1,9 +1,9 @@
 package view;
 
-import project.controller.Commands;
-import project.controller.CreateNewMapController;
-import project.controller.EditMapController;
-import project.model.*;
+import controller.Commands;
+import controller.CreateNewMapController;
+import controller.EditMapController;
+import model.*;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;

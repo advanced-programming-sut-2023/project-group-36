@@ -1,7 +1,5 @@
 package model.Peoples;
 
-import project.model.Buildings.Structure;
-
 public class PeopleType {
     public String type;
 

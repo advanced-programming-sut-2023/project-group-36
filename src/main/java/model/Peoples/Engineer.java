@@ -1,7 +1,7 @@
 package model.Peoples;
 
-import project.controller.GameController;
-import project.model.*;
+import controller.GameController;
+import model.*;
 
 public class Engineer extends Militia{
 

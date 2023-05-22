@@ -5,7 +5,7 @@ import model.Block;
 import model.Map;
 import model.Peoples.Militia;
 import model.Peoples.People;
-import project.view.Menu;
+import view.Menu;
 import view.MapMenu;
 
 import java.util.regex.Matcher;
