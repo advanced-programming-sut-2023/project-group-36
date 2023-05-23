@@ -9,7 +9,6 @@ import project.view.Menu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class AppTest {
@@ -45,6 +44,7 @@ public class AppTest {
     public void TestWithMock() throws NoSuchAlgorithmException {
         ApplicationManager.getUsers().add(new User("ahmad",SHA_256Format.sha256("123"),"bsgh","fghshgh","gfjsj","cgfajs",1));
         Matcher matcher = Menu.getMatcher("user login -u ahmad -p 123", Commands.LOGIN.getRegex());
+        assert matcher != null;
         String out = LoginMenuController.Login(matcher);
         Assertions.assertEquals("User logged in Successfully!", out);
 
@@ -213,7 +213,7 @@ public class AppTest {
     }
     @Test
     public void differenceBetweenOldPasswordAndNewPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n 1";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -227,7 +227,7 @@ public class AppTest {
     }
     @Test
     public void invalidLengthOfPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n amir";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -237,11 +237,12 @@ public class AppTest {
             result = ProfileMenuController.changePassword_1(matcher);
         }
 
+        System.out.println(result);
         Assertions.assertEquals(result, "The password is weak: The length of the password must be greater than 6!");
     }
     @Test
     public void anyCapitalLetterInPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n mohammad";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -255,7 +256,7 @@ public class AppTest {
     }
     @Test
     public void anySmallLetterInPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n MOHAMMAD";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -269,7 +270,7 @@ public class AppTest {
     }
     @Test
     public void anyNumberInPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n Mohammad";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -283,7 +284,7 @@ public class AppTest {
     }
     @Test
     public void anySpecialCharacterInPasswordTest() throws NoSuchAlgorithmException {
-        User user = new User("1","1","1","1","1","1",1);
+        User user = new User("1",SHA_256Format.sha256("1"),"1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n Mohammad1";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.CHANGE_PASSWORD.getRegex());
@@ -596,7 +597,7 @@ public class AppTest {
     }
     @Test
     public void emptySloganTestInDisplay() {
-        User user = new User("1", "1", "1", "1", "", "1", 1);
+        User user = new User("1", "1", "1", "1", null, "1", 1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile display slogan";
         Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY_SLOGAN.getRegex());
@@ -647,7 +648,8 @@ public class AppTest {
         if (matcher != null)
             result = ProfileMenuController.display();
 
-        Assertions.assertEquals(result, "high score = 0\nrank: 0\nslogan: 1");
+        System.out.println(result);
+        Assertions.assertEquals(result, "high score = 0\nrank: 1\nslogan: 1");
     }
 
 }

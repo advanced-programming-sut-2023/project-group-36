@@ -4,7 +4,6 @@ import project.model.ApplicationManager;
 import project.model.Tools;
 import project.model.User;
 import project.view.Menu;
-import project.view.ShopMenu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -82,13 +81,14 @@ public class ProfileMenuController {
 
     public static String changeEmail(Matcher matcher, Matcher matcher1) {
         String email = matcher.group("email");
+        if (email.equals("")) {
+            return "The email is empty!";
+        }
+
         if (!email.matches(Commands.EMAIL.getRegex())){
             return "Invalid email format!";
         }
 
-        if (email.equals("")) {
-            return "The email is empty!";
-        }
 
         String part1 = matcher1.group("part1");
         String part2 = matcher1.group("part2");
@@ -141,7 +141,7 @@ public class ProfileMenuController {
         User user = ApplicationManager.getCurrentUser(); //this error for why???
         String slogan = user.getSlogan();
 
-        if (slogan.equals(null)) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
+        if (slogan == null) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
             return "The slogan is empty!";
 
         return slogan;

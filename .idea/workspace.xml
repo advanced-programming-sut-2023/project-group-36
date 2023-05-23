@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="addding Boulder type for Block types which has been forgotten">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2023_11_57_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2023_11_57_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Games.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Games.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Maps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Maps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,21 +92,16 @@
       <recent name="project.model.Peoples" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.Main" />
-      <module name="Stronghold_phase1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="JUnit.AppTest.profileMenuTest">
+    <configuration name="All in StrongholdPhase1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StrongholdPhase1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.correctRepeatingPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.differenceBetweenOldPasswordAndNewPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +111,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="correctRepeatingPasswordTest" />
+      <option name="METHOD_NAME" value="differenceBetweenOldPasswordAndNewPasswordTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.emptyNewPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.displayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -134,13 +127,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="emptyNewPasswordTest" />
+      <option name="METHOD_NAME" value="displayTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.incorrectRepeatingPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.emptySloganTestInDisplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -150,13 +143,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="incorrectRepeatingPasswordTest" />
+      <option name="METHOD_NAME" value="emptySloganTestInDisplay" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.testInputLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppTest.profileMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StrongholdPhase1" />
       <extension name="coverage">
         <pattern>
@@ -166,7 +159,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project" />
       <option name="MAIN_CLASS_NAME" value="project.AppTest" />
-      <option name="METHOD_NAME" value="testInputLength" />
+      <option name="METHOD_NAME" value="profileMenuTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.AppTest.correctRepeatingPasswordTest" />
-        <item itemvalue="JUnit.AppTest.incorrectRepeatingPasswordTest" />
-        <item itemvalue="JUnit.AppTest.emptyNewPasswordTest" />
-        <item itemvalue="JUnit.AppTest.testInputLength" />
+        <item itemvalue="JUnit.AppTest.profileMenuTest" />
+        <item itemvalue="JUnit.All in StrongholdPhase1" />
+        <item itemvalue="JUnit.AppTest.displayTest" />
+        <item itemvalue="JUnit.AppTest.differenceBetweenOldPasswordAndNewPasswordTest" />
+        <item itemvalue="JUnit.AppTest.emptySloganTestInDisplay" />
       </list>
     </recent_temporary>
   </component>
@@ -562,16 +555,17 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest_UserInitilazeTest__1_.ic" NAME="AppTest.UserInitilazeTest (1) Coverage Results" MODIFIED="1683456836524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/project_group_360$All_in_StrongholdPhase1.ic" NAME="All in StrongholdPhase1 Coverage Results" MODIFIED="1684849322077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest_UserInitilazeTest__1_.ic" NAME="AppTest.UserInitilazeTest (1) Coverage Results" MODIFIED="1683456836524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_TestWithMock.ic" NAME="AppTest.TestWithMock Coverage Results" MODIFIED="1683546905351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683456877510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
   </component>
