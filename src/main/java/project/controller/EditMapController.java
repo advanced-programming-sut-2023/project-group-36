@@ -30,6 +30,8 @@ public class EditMapController {
         Block block = map.getBlockByPosition(x,y);
         block.setColor(color);
         Structure centralCastle = new Structure(100);
+        if(EditMapMenu.number>=users.size())
+            return "you have already seleceted all governments keeps!";
         Government government = new Government(users.get(EditMapMenu.number),color, centralCastle);
         block.setThisBlockStructure(centralCastle);
         EditMapMenu.governments.add(government);

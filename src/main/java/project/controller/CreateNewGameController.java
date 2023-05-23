@@ -73,6 +73,7 @@ public class CreateNewGameController {
             return "Error: The number of users selected by you is" + users.size()+
                     ",but the map you have selected is suitable for "+ EditMapMenu.number +" players.";
         }
+
         return null;
     }
 

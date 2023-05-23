@@ -50,6 +50,13 @@ public class RegisterMenuController {
         }
         if (password.equals("random")){
             password = randomPassword();
+            passwordConfirmation=password;
+            System.out.println(password+"\nenter your password again:");
+            String passC=Menu.getScanner().nextLine();
+            if(!passC.equals(password)){
+                return "error";
+            }
+
         }
         if (slogan != null && slogan.equals("random")){
             slogan = randomSlogan();

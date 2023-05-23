@@ -30,6 +30,10 @@ public class MainMenu {
                 CreateNewGameMenu.run(count);
             }
             else if(command.matches(Commands.OPEN_GAME.getRegex())) {
+                if(ApplicationManager.getCurrentUser().getGame() == null){
+                    System.out.println("you haven't selected any game yet!");
+                    continue;
+                }
                 inThisMenu=false;
                 GameMenu.run(ApplicationManager.getCurrentUser().getGame());
             }

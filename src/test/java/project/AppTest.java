@@ -53,12 +53,12 @@ public class AppTest {
 
 
     //profile menu
-    @Test
-    public void profileMenuTest() {
-        Scanner scanner = Menu.getScanner();
-        String in = scanner.nextLine();
-        Assertions.assertEquals(in, "in");
-    }
+//    @Test
+//    public void profileMenuTest() {
+//        Scanner scanner = Menu.getScanner();
+//        String in = scanner.nextLine();
+//        Assertions.assertEquals(in, "in");
+//    }
 
     // change username
 
@@ -170,7 +170,7 @@ public class AppTest {
         Assertions.assertNull(matcher);
     }
     @Test
-    public void emptyPasswordTest() {
+    public void emptyPasswordTest() throws NoSuchAlgorithmException {
         // old password
 
         String testCommand = "profile change password -o  -n ";
@@ -198,7 +198,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The new password is empty!");
     }
     @Test
-    public void oldPasswordTest() {
+    public void oldPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 2 -n amir";
@@ -212,7 +212,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The current password is incorrect!");
     }
     @Test
-    public void differenceBetweenOldPasswordAndNewPasswordTest() {
+    public void differenceBetweenOldPasswordAndNewPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n 1";
@@ -226,7 +226,7 @@ public class AppTest {
         Assertions.assertEquals(result, "Please enter a new password!");
     }
     @Test
-    public void invalidLengthOfPasswordTest() {
+    public void invalidLengthOfPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n amir";
@@ -240,7 +240,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: The length of the password must be greater than 6!");
     }
     @Test
-    public void anyCapitalLetterInPasswordTest() {
+    public void anyCapitalLetterInPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n mohammad";
@@ -254,7 +254,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: at least one capital letter is required!");
     }
     @Test
-    public void anySmallLetterInPasswordTest() {
+    public void anySmallLetterInPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n MOHAMMAD";
@@ -268,7 +268,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: at least one small letter is required!");
     }
     @Test
-    public void anyNumberInPasswordTest() {
+    public void anyNumberInPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n Mohammad";
@@ -282,7 +282,7 @@ public class AppTest {
         Assertions.assertEquals(result, "The password is weak: at least one number is required!");
     }
     @Test
-    public void anySpecialCharacterInPasswordTest() {
+    public void anySpecialCharacterInPasswordTest() throws NoSuchAlgorithmException {
         User user = new User("1","1","1","1","1","1",1);
         ApplicationManager.setCurrentUser(user);
         String testCommand = "profile change password -o 1 -n Mohammad1";

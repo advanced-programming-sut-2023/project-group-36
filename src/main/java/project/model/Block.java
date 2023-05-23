@@ -157,6 +157,8 @@ public class Block {
 
     public ArrayList<People> myEnemies(Government government) {
         ArrayList<People> enemies = new ArrayList<>();
+        if(peoples == null)
+            return null;
         for (People people : peoples) {
             if (!people.getGovernment().equals(government)) {
                 enemies.add(people);

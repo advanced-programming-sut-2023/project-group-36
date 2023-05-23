@@ -136,6 +136,10 @@ public class GameMenu {
                 inThisMenu = false;
                 MainMenu.run();
             }
+            else if (input.matches("map menu")){
+                inThisMenu = false;
+                MapMenu.run();
+            }
             else if (input.matches("next turn")){
                 GameController.nextTurn();
             }

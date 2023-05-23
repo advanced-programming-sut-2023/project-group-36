@@ -4,6 +4,7 @@ import project.model.ApplicationManager;
 import project.model.User;
 import project.view.Menu;
 
+import javax.annotation.processing.SupportedSourceVersion;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 

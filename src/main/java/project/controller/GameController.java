@@ -25,7 +25,8 @@ public class GameController {
     public static Structure currentStructure;
     public static void setGame(Game game){
         GameController.game = game;
-        currentGovernment = game.getCurrentGovernment();
+        if(game.getCurrentGovernment() != null)
+            currentGovernment = game.getCurrentGovernment();
     }
     public static String showPopularityFactors(){
         return "Food" + "\n" + "Tax" + "\n" + "Religion" + "\n" + "Fear";

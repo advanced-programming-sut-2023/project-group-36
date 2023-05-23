@@ -16,6 +16,7 @@ public class MapMenu {
         String command,output ;
         Matcher matcher=null,matcher2;
         while (true){
+            System.out.println("Map menu");
             command= scanner.nextLine();
             if (Tools.inputCheckFormat(command)!=null){
                 command = Tools.inputCheckFormat(command);

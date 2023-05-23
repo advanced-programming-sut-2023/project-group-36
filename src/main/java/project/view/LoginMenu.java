@@ -46,7 +46,7 @@ public class LoginMenu {
       else if(command.matches(Commands.FORGET_PASSWORD.getRegex())){
         System.out.println("Enter your username:");
         String comm=Menu.getScanner().nextLine();
-        matcher=Menu.getMatcher(comm,"(?<username>[a-zA-Z0-9_]+");
+        matcher=Menu.getMatcher(comm,"(?<username>[a-zA-Z0-9_]+)");
         String username=matcher.group("username");
         LoggedUser=ApplicationManager.getUserByUsername(username);
         if(LoggedUser==null){
@@ -55,6 +55,7 @@ public class LoginMenu {
         }
         System.out.println("Enter your security question answer:");
         String answer=Menu.getScanner().nextLine();
+
         output=LoginMenuController.ForgetPassword(answer);
         if(output != null){
           System.out.println(output);

@@ -54,7 +54,11 @@ public class CreateNewGameMenu {
                 result = CreateNewGameController.startGame();
                 if (result==null){
                     inThisMenu = false;
-                    GameMenu.run(new Game(map,governments));
+                    Game game = new Game(map, governments);
+                    ApplicationManager.addGame(game);
+                    ApplicationManager.setCurrentGame(game);
+                    GameMenu.run(game);
+
                 }
                 else {
                     System.out.println(result);

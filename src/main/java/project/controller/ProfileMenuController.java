@@ -4,6 +4,7 @@ import project.model.ApplicationManager;
 import project.model.Tools;
 import project.model.User;
 import project.view.Menu;
+import project.view.ShopMenu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -17,7 +18,7 @@ public class ProfileMenuController {
 
         if (!username.matches("[A-Za-z_]+"))
             return "The username format is invalid";
-        if(!ApplicationManager.getUserByUsername(username).equals(null))
+        if(ApplicationManager.getUserByUsername(username) != null)
             return "This username has already been taken!";
         ApplicationManager.getCurrentUser().setUsername(username);
         return "Username changed successfully";
@@ -35,10 +36,9 @@ public class ProfileMenuController {
         ApplicationManager.getCurrentUser().setNickname(nickname);
         return "Nickname changed successfully";
     }
-    public static String changePassword_1(Matcher matcher) {
+    public static String changePassword_1(Matcher matcher) throws NoSuchAlgorithmException {
         String oldPassword = matcher.group("oldPassword");
         String newPassword = matcher.group("newPassword");
-
         if (oldPassword.equals("")) {
             return "The old password is empty!";
         }
@@ -48,10 +48,10 @@ public class ProfileMenuController {
 
         String userPassword = ApplicationManager.getCurrentUser().getPassword();
 
-        if (!userPassword.equals(oldPassword))
+        if (!userPassword.equals(SHA_256Format.sha256(oldPassword)))
             return "The current password is incorrect!";
 
-        if (userPassword.equals(newPassword))
+        if (newPassword.equals(oldPassword))
             return "Please enter a new password!";
 
         if (!Tools.passwordWeakCheck(newPassword).equals("Good"))
@@ -141,7 +141,7 @@ public class ProfileMenuController {
         User user = ApplicationManager.getCurrentUser(); //this error for why???
         String slogan = user.getSlogan();
 
-        if (slogan.equals("")) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
+        if (slogan.equals(null)) // always slogan is "" at first, when make a user without slogan !!!!!!!!!!!!!!!!!!!!!!!!!!!! sign up menu
             return "The slogan is empty!";
 
         return slogan;
