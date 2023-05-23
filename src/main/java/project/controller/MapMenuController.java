@@ -34,12 +34,12 @@ public class MapMenuController {
                     mapToShow[10+i][10+j]+="T ";
                 else
                     mapToShow[10+i][10+j]+="  ";
-                if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()).size()>0)
+                if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()) != null)
                     mapToShow[10+i][10+j]+="E ";
                 else
                     mapToShow[10+i][10+j]+="  ";
                 if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null){
-                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias().size()>0)
+                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias() != null)
                         mapToShow[10+i][10+j]+="S ";
                 }
                 else
@@ -87,9 +87,13 @@ public class MapMenuController {
             return "Invalid cordinates!";
         }
         Block block=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(x,y);
-        res+="| Biulding: "+block.getThisBlockStructure().getBuildingType().getType()+"\n";
+        res+="| Biulding: ";
+        if(block.getThisBlockStructure() != null)
+            res+=block.getThisBlockStructure().getBuildingType().getType()+"\n";
+        else
+            res+="\n";
         res+="| Soldiers: \n";
-        if(block.getPeoples().size()>0) {
+        if(block.getPeoples() != null) {
             for (People selected : block.getPeoples()) {
                 if (selected instanceof Militia) {
                     res += "| " + selected.getPeopleType().type + " " + selected.isInMove() + "\n";

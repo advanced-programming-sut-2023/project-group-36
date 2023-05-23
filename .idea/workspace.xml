@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="addding Boulder type for Block types which has been forgotten">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2023_11_57_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_2023_11_57_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/EditMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/ProfileMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/EditMapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Games.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Games.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Maps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Maps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/MapMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Buildings/BuildingType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.Main" />
-      <module name="StrongholdPhase1" />
+      <module name="Stronghold_phase1" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="project.*" />
@@ -217,6 +216,7 @@
       <workItem from="1684148435238" duration="640000" />
       <workItem from="1684149543896" duration="1294000" />
       <workItem from="1684661887807" duration="3090000" />
+      <workItem from="1684843467898" duration="1478000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -562,13 +562,16 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest_UserInitilazeTest__1_.ic" NAME="AppTest.UserInitilazeTest (1) Coverage Results" MODIFIED="1683456836524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>project.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_RegisterTest.ic" NAME="AppTest.RegisterTest Coverage Results" MODIFIED="1683546593126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/project_group_36$AppTest_TestWithMock.ic" NAME="AppTest.TestWithMock Coverage Results" MODIFIED="1683546905351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683546596621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/project_group_36$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1683456877510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project.*</FILTER>
     </SUITE>
   </component>
