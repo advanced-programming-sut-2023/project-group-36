@@ -18,63 +18,67 @@ public class MapMenuController {
         }
         Block block;
         Map CurrentMap=ApplicationManager.getCurrentGame().getMap();
-        String[][] mapToShow = new String[20][20];
-        for(int i=-10;i<10;i++){
+        String[][] mapToShow = new String[10][10];
+        for(int i=-5;i<5;i++){
             z:
-            for(int j=-10;j<10;j++){
-               if(x+i<0 && y+j<0 || y+j>CurrentMap.getSize() || x+i>CurrentMap.getSize()){
-                   mapToShow[10+i][10+j]+="|N U L L";
+            for(int j=-5;j<5;j++){
+                mapToShow[5+i][5+j]="";
+               if(x+i<=0 || y+j<=0 || y+j>CurrentMap.getSize() || x+i>CurrentMap.getSize()){
+                   mapToShow[5+i][5+j]="|N U L L";
                    continue z;
                }
                 if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure()!= null)
-                    mapToShow[10+i][10+j]+="|B ";
+                    mapToShow[5+i][5+j]+="|B ";
                 else
-                    mapToShow[10+i][10+j]+="|  ";
+                    mapToShow[5+i][5+j]+="|  ";
                 if(CurrentMap.getBlockByPosition(x+i,y+j).getTree()!= null)
-                    mapToShow[10+i][10+j]+="T ";
+                    mapToShow[5+i][5+j]+="T ";
                 else
-                    mapToShow[10+i][10+j]+="  ";
+                    mapToShow[5+i][5+j]+="  ";
                 if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()) != null)
-                    mapToShow[10+i][10+j]+="E ";
+                    mapToShow[5+i][5+j]+="E ";
                 else
-                    mapToShow[10+i][10+j]+="  ";
+                    mapToShow[5+i][5+j]+="  ";
                 if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null){
                     if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias() != null)
-                        mapToShow[10+i][10+j]+="S ";
+                        mapToShow[5+i][5+j]+="S ";
                 }
                 else
-                    mapToShow[10+i][10+j]+="  ";
+                    mapToShow[5+i][5+j]+="  ";
                 switch (CurrentMap.getBlockByPosition(x+i,y+j).getType()){
                     case "Dirt":
-                        mapToShow[10+i][10+j]="\u001B[0;43m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[0;43m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Gravel":
-                        mapToShow[10+i][10+j]="\u001B[0;47m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[0;47m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Boulder":
-                        mapToShow[10+i][10+j]="\u001B[0;47m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[0;47m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Stone":
-                        mapToShow[10+i][10+j]="\u001B[40m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[40m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Grass":
-                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[42m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Meadow":
-                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[42m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Dense Meadow":
-                        mapToShow[10+i][10+j]="\u001B[42m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[42m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
                     case "Sea":
-                        mapToShow[10+i][10+j]="\u001B[44m"+mapToShow[10+i][10+j]+"\u001B[0m";
+                        mapToShow[5+i][5+j]="\u001B[44m"+mapToShow[5+i][5+j]+"\u001B[0m";
                         break ;
+                    /*default:
+                        mapToShow[5+i][5+j]="\u001B[0;43m"+mapToShow[5+i][5+j]+"\u001B[0m";
+                        break ;*/
                 }
             }
         }
-        for(int i=-10;i<10;i++) {
-            for (int j = -10; j < 10; j++) {
-                res+=" "+mapToShow[10+i][10+j];
+        for(int i=-5;i<5;i++) {
+            for (int j = -5; j < 5; j++) {
+                res+=" "+mapToShow[5+i][5+j];
             }
             res+="\n\n";
         }
