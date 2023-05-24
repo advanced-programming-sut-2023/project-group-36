@@ -652,4 +652,33 @@ public class AppTest {
         Assertions.assertEquals(result, "high score = 0\nrank: 1\nslogan: 1");
     }
 
+    // show map
+
+    @Test
+    public void showPriceListTest() {
+        String testCommand = "profile display";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.DISPLAY.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ShopMenuController.showPriceList();
+
+
+        Assertions.assertEquals(result, "Foods:" + "\n" +
+                "bread = 40\n"      +
+                "rice = 160\n"      +
+                "apple = 40\n"      +
+                "meat = 40\n"       +
+                "Primary sources:" + "\n" +
+                "rock = 20\n"                    +
+                "wood = 70\n"                    +
+                "iron = 225\n"                   +
+                "Weapon:" + "\n" +
+                "blacksmith 100\n"     +
+                "Fletcher 100\n"       +
+                "Poleturner 100\n"     +
+                "oil smelter 100");
+    }
+
+
 }
