@@ -68,7 +68,7 @@ public class ApplicationManager {
 
     public static void addGame(Game game){
         games.add(game);
-        save();
+       // save();
     }
 
     public static void setCurrentGame(Game currentGame) {

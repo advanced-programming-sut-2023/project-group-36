@@ -7,6 +7,7 @@ import project.model.Peoples.*;
 import project.view.CreateNewGameMenu;
 import project.view.EditMapMenu;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
@@ -30,14 +31,16 @@ public class EditMapController {
         Block block = map.getBlockByPosition(x,y);
         block.setColor(color);
         Structure centralCastle = new Structure(100);
+
         if(EditMapMenu.number>=users.size())
-            return "you have already seleceted all governments keeps!";
+            return "you have already selected all governments keeps!";
         Government government = new Government(users.get(EditMapMenu.number),color, centralCastle);
         block.setThisBlockStructure(centralCastle);
+        centralCastle.setBuildingType(Types.getBuildingTypeByType("Keep"));
+        centralCastle.setGovernment(government);
         EditMapMenu.governments.add(government);
         EditMapMenu.government = government;
         EditMapMenu.number+=1;
-
         return "Government "+users.get(EditMapMenu.number-1).getUsername()+" , "+color+" position successfully set.";
     }
 
@@ -119,21 +122,21 @@ public class EditMapController {
             case "SquareTower":
                 return null;
             case "Armoury":
-                if(government.getBuildingByNameForGoverment("َArmoury").equals(null)){
+                if(government.getBuildingByNameForGoverment("َArmoury") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Barrack":
-                if(government.getBuildingByNameForGoverment("َBarrack").equals(null)){
+                if(government.getBuildingByNameForGoverment("َBarrack") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "EngineerGuild":
-                if(government.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
+                if(government.getBuildingByNameForGoverment("َEngineerGuild") == null){
                     return null;
                 }
                 else{
@@ -146,14 +149,14 @@ public class EditMapController {
             case "Church":
                 return null;
             case "Cathedral":
-                if(government.getBuildingByNameForGoverment("َCathedral").equals(null)){
+                if(government.getBuildingByNameForGoverment("َCathedral") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Armourer":
-                if(government.getBuildingByNameForGoverment("Armourer").equals(null)){
+                if(government.getBuildingByNameForGoverment("Armourer") == null){
                     return null;
                 }
                 else{
@@ -171,7 +174,7 @@ public class EditMapController {
                 currentBlock.setThereIsTunnel(true);
                 return null;
             case "Stockpile":
-                if(government.getBuildingByNameForGovernment("Stockpile").equals(null))
+                if(government.getBuildingByNameForGovernment("Stockpile") == null)
                     return null;
                 else{
                     try {

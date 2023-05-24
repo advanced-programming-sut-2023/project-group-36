@@ -23,6 +23,14 @@ public  class Structure {
         return buildingType;
     }
 
+    public void setBuildingType(BuildingType buildingType) {
+        this.buildingType = buildingType;
+    }
+
+    public void setGovernment(Government government) {
+        this.government = government;
+    }
+
     public String getName() {
         return buildingType.getType();
     }

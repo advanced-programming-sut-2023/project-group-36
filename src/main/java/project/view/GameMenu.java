@@ -63,17 +63,17 @@ public class GameMenu {
 
             ////////////// Mohammad
 
-            else if (input.matches(regex = Commands.DROP_BUILDING.getRegex())){
-                GameController.dropBuilding(Menu.getMatcher(input,regex));
+            else if ((matcher=Menu.getMatcher(input,regex = Commands.DROP_BUILDING.getRegex())) != null){
+                System.out.println(GameController.dropBuilding(matcher));
             }
             else if (input.matches(regex = Commands.SELECT_BUILDING.getRegex())){
-                GameController.selectBuilding(Menu.getMatcher(input,regex));
+                System.out.println(GameController.selectBuilding(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.UNSELECT_BUILDING.getRegex())){
-                GameController.unSelectBuilding(Menu.getMatcher(input,regex));
+                System.out.println(GameController.unSelectBuilding(Menu.getMatcher(input,regex)));
             }
             else if (input.matches(regex = Commands.REPAIR.getRegex())){
-                GameController.repair(Menu.getMatcher(input,regex));
+                System.out.println(GameController.repair(Menu.getMatcher(input,regex)));
             }
 
             ////////////// Mohammad

@@ -28,6 +28,7 @@ public class Block {
     public Block(int x,int y){
         this.x = x;
         this.y = y;
+        this.type="Dirt";
     }
 
     public int getX() {

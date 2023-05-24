@@ -83,7 +83,7 @@ public class GameController {
     }
 
     public static String taxRateShow(){
-        return "Fear rate = " + currentGovernment.getTaxRate();
+        return "Tax rate = " + currentGovernment.getTaxRate();
     }
 
     // Fear
@@ -342,9 +342,9 @@ public class GameController {
         }catch (Exception e){
             return "Invalid Cordinates!";
         }
-        if(block.getThisBlockStructure().equals(null))
+        if(block.getThisBlockStructure()==null)
             return "there is no building!";
-        currentStructure=currentBlock.getThisBlockStructure();
+        currentStructure=block.getThisBlockStructure();
         if(!currentStructure.getGovernment().equals(currentGovernment))
             return "this building doesn't belong to you!";
         return "you have selected a building at "+x+" "+y+" :"+currentStructure.getBuildingType().getType();

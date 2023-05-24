@@ -78,11 +78,34 @@ public class BuildingType {
         return requiredPeopleToWork;
     }
 
+    public void setWoodCost(int woodCost) {
+        this.woodCost = woodCost;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
+    public void setNormalPeopleCapacity(int normalPeopleCapacity) {
+        NormalPeopleCapacity = normalPeopleCapacity;
+    }
+
+    public void setMilitiaCapacity(int militiaCapacity) {
+        MilitiaCapacity = militiaCapacity;
+    }
+
+    public void setGoldCost(int goldCost) {
+        this.goldCost = goldCost;
+    }
+
+    public void setStoneCost(int stoneCost) {
+        this.stoneCost = stoneCost;
+    }
+
     public BuildingType(String type, String category, int woodCost, int stoneCost, int goldCost, int damage, int popularityChange, int rate
             , int fireRange, int defenceRange, int normalPeopleCapacity, int militiaCapacity, int requiredPeopleToWork) {
         this.type = type;
         this.category = category;
-        this.HP = HP;
         this.damage = damage;
         this.popularityChange = popularityChange;
         this.rate = rate;

@@ -37,8 +37,7 @@ public class MapMenu {
                     if(x==-1)
                         System.out.println("you haven't selected a cordinates before!");
                     else{
-                        matcher2=Menu.getMatcher("show map -x " + x + "-y "+y,Commands.SHOW_DETAILS.getRegex());
-                        System.out.println(MapMenuController.newCordinates(matcher2));
+                        System.out.println(MapMenuController.newCordinates(matcher));
                     }
             }
             else if(command.equals("exit")){
