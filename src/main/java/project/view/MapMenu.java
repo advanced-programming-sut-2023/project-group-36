@@ -5,13 +5,14 @@ import project.controller.MapMenuController;
 import project.model.ApplicationManager;
 import project.model.Tools;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
 public class MapMenu {
     private final static Scanner scanner = Menu.getScanner();
-    public static int y,x;
-    public static void run(){
+    public static int y=-1,x=-1;
+    public static void run() throws NoSuchAlgorithmException, InterruptedException {
 
         String command,output ;
         Matcher matcher=null,matcher2;
@@ -32,15 +33,18 @@ public class MapMenu {
                  y=Integer.parseInt(matcher.group("y"))-1;
                  System.out.println(MapMenuController.showDetails(x,y));
             }
-            else if((matcher2=Menu.getMatcher(command,Commands.MAP_TRANSFORMATION.getRegex())) != null){
-                    if(matcher==null)
+            else if((matcher=Menu.getMatcher(command,Commands.MAP_TRANSFORMATION.getRegex())) != null){
+                    if(x==-1)
                         System.out.println("you haven't selected a cordinates before!");
                     else{
+                        matcher2=Menu.getMatcher("show map -x " + x + "-y "+y,Commands.SHOW_DETAILS.getRegex());
                         System.out.println(MapMenuController.newCordinates(matcher2));
                     }
             }
             else if(command.equals("exit")){
-
+                x=-1;
+                y=-1;
+                GameMenu.run(ApplicationManager.getCurrentGame());
             }
             else if (command.matches(Commands.QUITGAME.getRegex())) {
                 ApplicationManager.exit();
