@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import project.controller.*;
 import project.model.ApplicationManager;
+import project.model.Game;
+import project.model.Government;
 import project.model.User;
 import project.view.Menu;
 
@@ -708,4 +710,39 @@ public class AppTest {
         Assertions.assertEquals(result, "Invalid amount!");
     }
 
+    @Test
+    public void InvalidItemNameTest_buy() {
+        User user = new User("1", "1", "1", "1", "", "1", 1);
+        ArrayList<Government> governments = new ArrayList<>();
+        governments.add(new Government(user, "blue", null));
+        ApplicationManager.setCurrentGame(new Game(null, governments));
+
+        String testCommand = "buy -i breed -a 1";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.BUY.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ShopMenuController.buyAndSell(matcher, "buy");
+
+
+        Assertions.assertEquals(result, "Invalid item's name!");
+    }
+
+    @Test
+    public void InvalidItemNameTest_sell() {
+        User user = new User("1", "1", "1", "1", "", "1", 1);
+        ArrayList<Government> governments = new ArrayList<>();
+        governments.add(new Government(user, "blue", null));
+        ApplicationManager.setCurrentGame(new Game(null, governments));
+
+        String testCommand = "sell -i breed -a 1";
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.SELL.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ShopMenuController.buyAndSell(matcher, "sell");
+
+
+        Assertions.assertEquals(result, "Invalid item's name!");
+    }
 }
