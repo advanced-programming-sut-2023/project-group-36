@@ -42,8 +42,8 @@ public class ShopMenuController {
     }
 
     public static String buyAndSell(Matcher matcher, String function) {
-        String name = matcher.group("item’s name");
-        int amount = Integer.parseInt(matcher.group("item’s amount"));
+        String name = matcher.group("itemName");
+        int amount = Integer.parseInt(matcher.group("itemAmount"));
 
         if (amount <= 0) {
             return "Invalid amount!";

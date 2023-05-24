@@ -680,5 +680,32 @@ public class AppTest {
                 "oil smelter 100");
     }
 
+    @Test
+    public void buyAndSellTest_1() {
+        String testCommand = "buy -i bread -a -1";
+
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.BUY.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ShopMenuController.buyAndSell(matcher, "buy");
+
+
+        Assertions.assertEquals(result, "Invalid amount!");
+    }
+
+    @Test
+    public void buyAndSellTest_2() {
+        String testCommand = "sell -i bread -a -1";
+
+        Matcher matcher = Menu.getMatcher(testCommand, Commands.SELL.getRegex());
+        String result = null;
+
+        if (matcher != null)
+            result = ShopMenuController.buyAndSell(matcher, "sell");
+
+
+        Assertions.assertEquals(result, "Invalid amount!");
+    }
 
 }
