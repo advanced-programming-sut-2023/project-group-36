@@ -108,21 +108,21 @@ public class GameController {
         if (currentGovernment==null){
             return "Error: No government selected!";
         }
-        if(checkMapPreparation().equals(null))
+        if(checkMapPreparation() != null)
             return checkMapPreparation();
         x=Integer.parseInt(matcher.group("x"));
         y=Integer.parseInt(matcher.group("y"));
         String type=matcher.group("type");
-        if(x> EditMapMenu.capacity || y>EditMapMenu.capacity)
+        Map currentMap=ApplicationManager.getCurrentGame().getMap();
+        if(x> currentMap.getSize() || y>currentMap.getSize())
             return "Invalid cordinates!";
         BuildingType buildingType= Types.getBuildingTypeByType(type);
-        if(buildingType.equals(null))
+        if(buildingType == null)
             return "Invalid Building name!";
-        Map currentMap=ApplicationManager.getCurrentGame().getMap();
         currentBlock = currentMap.getBlockByPosition(x,y);
-        if(!currentBlock.getThisBlockStructure().equals(null))
+        if(currentBlock.getThisBlockStructure() != null)
             return "This Block has already been occupied by another structure!";
-        if(!checkBuildingPrerequisite(type).equals(null)){
+        if(checkBuildingPrerequisite(type) != null){
             return checkBuildingPrerequisite(type);
         }
         employment(buildingType);
@@ -130,10 +130,10 @@ public class GameController {
         return "drop building is done successfully.";
     }
     public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
-        if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(),Types.getBuildingTypeByType(type).getStoneCost(),Types.getBuildingTypeByType(type).getGoldCost())==true)
+        if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(), Types.getBuildingTypeByType(type).getStoneCost(), Types.getBuildingTypeByType(type).getGoldCost()))
             return "you don't have enough resourses for building this structure!";
-        if(checkForEnoughWorkingPeople(type)==false)
-            return "you don't have enough free people for employeeng in this building!";
+        if(!checkForEnoughWorkingPeople(type))
+            return "you don't have enough free people for employing in this building!";
         Resources resources=currentGovernment.getResources();
         switch (type){
             case "SmallGateHouse":
@@ -317,19 +317,19 @@ public class GameController {
     }
     public static  boolean checkForEnoughResources(int Wood,int Stone,int gold){
         if(currentGovernment.getCoins()<gold)
-            return false;
-        if(currentGovernment.getAmountOfResource("wood")<Wood || currentGovernment.getAmountOfResource("stone")<Stone)
-            return false;
+            return true;
+        if(currentGovernment.getAmountOfResource("Wood")<Wood || currentGovernment.getAmountOfResource("Stone")<Stone)
+            return true;
 
-        return true;
+        return false;
     }
     public static void CostPay(String BuildingType){
         BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);
         int Wood=buildingType.getWoodCost();
         int Stone= buildingType.getStoneCost();
         int gold=buildingType.getGoldCost();
-        currentGovernment.getResources().changeResourceAmount("wood",Wood);
-        currentGovernment.getResources().changeResourceAmount("stone",Stone);
+        currentGovernment.getResources().changeResourceAmount("Wood",Wood);
+        currentGovernment.getResources().changeResourceAmount("Stone",Stone);
         currentGovernment.changeCoins((-1)*gold);
     }
 

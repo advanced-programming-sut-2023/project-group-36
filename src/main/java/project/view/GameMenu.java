@@ -64,6 +64,7 @@ public class GameMenu {
             ////////////// Mohammad
 
             else if ((matcher=Menu.getMatcher(input,regex = Commands.DROP_BUILDING.getRegex())) != null){
+                System.out.println(matcher.group("type"));
                 System.out.println(GameController.dropBuilding(matcher));
             }
             else if (input.matches(regex = Commands.SELECT_BUILDING.getRegex())){

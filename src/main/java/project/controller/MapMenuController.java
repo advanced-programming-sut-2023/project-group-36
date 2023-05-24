@@ -30,21 +30,22 @@ public class MapMenuController {
                 if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure()!= null)
                     mapToShow[5+i][5+j]+="|B ";
                 else
-                    mapToShow[5+i][5+j]+="|  ";
+                    mapToShow[5+i][5+j]+="|O ";
                 if(CurrentMap.getBlockByPosition(x+i,y+j).getTree()!= null)
                     mapToShow[5+i][5+j]+="T ";
                 else
-                    mapToShow[5+i][5+j]+="  ";
+                    mapToShow[5+i][5+j]+="O ";
                 if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()) != null)
                     mapToShow[5+i][5+j]+="E ";
                 else
-                    mapToShow[5+i][5+j]+="  ";
+                    mapToShow[5+i][5+j]+="O ";
                 if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null){
-                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias() != null)
+                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias().size() >0)
                         mapToShow[5+i][5+j]+="S ";
                 }
                 else
-                    mapToShow[5+i][5+j]+="  ";
+                    mapToShow[5+i][5+j]+="O ";
+
                 switch (CurrentMap.getBlockByPosition(x+i,y+j).getType()){
                     case "Dirt":
                         mapToShow[5+i][5+j]="\u001B[0;43m"+mapToShow[5+i][5+j]+"\u001B[0m";
@@ -87,7 +88,7 @@ public class MapMenuController {
     }
     public static String showDetails(int x,int y){
         String res="";
-        if(x<0 || y<0 ){
+        if(x<0 || y<0 || x>ApplicationManager.getCurrentGame().getMap().getSize()|| y>ApplicationManager.getCurrentGame().getMap().getSize()){
             return "Invalid cordinates!";
         }
         Block block=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(x,y);
@@ -114,16 +115,16 @@ public class MapMenuController {
     public static String newCordinates(Matcher matcher){
         int x=0,y=0;
         Matcher SeconderyMathcer;
-         SeconderyMathcer=Menu.getMatcher(matcher.group("dir1"),"(?<direction>[a-z]+ (?<count>[0-9]*");
+         SeconderyMathcer=matcher;
          try {
-             if(SeconderyMathcer.group("direction").equals("up"))
-                 x-=Integer.parseInt(SeconderyMathcer.group("count"));
-             else if(SeconderyMathcer.group("direction").equals("down"))
-                 x+=Integer.parseInt(SeconderyMathcer.group("count"));
-             if(SeconderyMathcer.group("direction").equals("right"))
-                 y+=Integer.parseInt(SeconderyMathcer.group("count"));
-             else if(SeconderyMathcer.group("direction").equals("left"))
-                 y-=Integer.parseInt(SeconderyMathcer.group("count"));
+             if(SeconderyMathcer.group("dir1").equals("up"))
+                 y-=Integer.parseInt(SeconderyMathcer.group("a"));
+             else if(SeconderyMathcer.group("dir1").equals("down"))
+                 y+=Integer.parseInt(SeconderyMathcer.group("a"));
+             if(SeconderyMathcer.group("dir1").equals("right"))
+                 x+=Integer.parseInt(SeconderyMathcer.group("a"));
+             else if(SeconderyMathcer.group("dir1").equals("left"))
+                 x-=Integer.parseInt(SeconderyMathcer.group("a"));
          }catch (NullPointerException exception){
              x=0;
              y=0;
@@ -131,15 +132,15 @@ public class MapMenuController {
          MapMenu.x+=x;
          MapMenu.y+=y;
          try{
-             SeconderyMathcer=Menu.getMatcher(matcher.group("dir2"),"(?<direction> (?<count>[0-9]*");
-             if(SeconderyMathcer.group("direction").equals("up"))
-                 x-=Integer.parseInt(SeconderyMathcer.group("count"));
-             else if(SeconderyMathcer.group("direction").equals("down"))
-                 x+=Integer.parseInt(SeconderyMathcer.group("count"));
-             if(SeconderyMathcer.group("direction").equals("right"))
-                 y+=Integer.parseInt(SeconderyMathcer.group("count"));
-             else if(SeconderyMathcer.group("direction").equals("left"))
-                 y-=Integer.parseInt(SeconderyMathcer.group("count"));
+             SeconderyMathcer=matcher;
+             if(SeconderyMathcer.group("dir2").equals("up"))
+                 y-=Integer.parseInt(SeconderyMathcer.group("b"));
+             else if(SeconderyMathcer.group("dir2").equals("down"))
+                 y+=Integer.parseInt(SeconderyMathcer.group("b"));
+             if(SeconderyMathcer.group("dir2").equals("right"))
+                 x+=Integer.parseInt(SeconderyMathcer.group("b"));
+             else if(SeconderyMathcer.group("dir2").equals("left"))
+                 x-=Integer.parseInt(SeconderyMathcer.group("b"));
          }catch (NullPointerException exception){
              x=0;
              y=0;

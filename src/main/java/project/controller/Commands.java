@@ -25,7 +25,7 @@ public enum Commands {
 
     //Map menu
     SHOW_MAP("show map -x (?<x>\\d+) -y (?<y>\\d+)"),
-    MAP_TRANSFORMATION("map (?<dir1>[a-z]+ [0-9\\-]*) (?<dir2>[a-z]+ [0-9\\-]*)"),
+    MAP_TRANSFORMATION("map (?<dir1>[a-z]+) (?<a>[0-9\\-]*) (?<dir2>[a-z]+) (?<b>[0-9\\-]*)"),
                        // "map (?<dir1>[a-z]+ [0-9]*) (?<dir2>[a-z]+ [0-9]*)"
     SHOW_DETAILS("show details -x (?<x>\\d+) -y (?<y>\\d+)"),
     EXIT("exit"),
@@ -56,7 +56,7 @@ public enum Commands {
     //EditMap Menu
     SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),
     DROP_UNIT("dropunit -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+) -c (?<count>\\d+)"),
-    DROP_BUILDING("dropbuilding -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
+    DROP_BUILDING("drop building -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
 
 
     //Game menu
