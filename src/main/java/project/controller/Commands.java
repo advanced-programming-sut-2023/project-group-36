@@ -50,8 +50,8 @@ public enum Commands {
     SET_MAP_NAME("set map name (?<name>\\S+)"),
     DROP_ROCK("droprock -x (?<x>\\d+) -y (?<y>\\d+) -d (?<direction>[^\n]+)"),
     DROP_TREE("droptree -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
-    SET_TEXTURE("settexture -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>\\d+)"),
-    SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t [type]"),
+    SET_TEXTURE("settexture -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
+    SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t (?<type>[^\n]+)"),
 
     //EditMap Menu
     SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),

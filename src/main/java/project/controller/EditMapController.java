@@ -80,7 +80,7 @@ public class EditMapController {
     public static String dropBuilding(Matcher matcher,Government government,Map map){
         BuildingType buildingType=Types.getBuildingTypeByType(matcher.group("type"));
         Resources resources=government.getResources();
-        if (buildingType.equals(null))
+        if (buildingType == null)
             return "Invalid building name!";
         try {
             x=Integer.parseInt(matcher.group("x"));
@@ -93,14 +93,15 @@ public class EditMapController {
             return "Error: Invalid position!";
         }
         Block block=map.getBlockByPosition(x,y);
+        currentBlock=block;
         if(block.getThisBlockStructure() != null)
             return "this block is already occiupied!";
-        if( !simpleBuildingPrecutionsCheck(buildingType,government).equals(null))
+        if(simpleBuildingPrecutionsCheck(buildingType, government) != null)
             return simpleBuildingPrecutionsCheck(buildingType,government);
         Structure structure=new Structure(block,government,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
         block.setThisBlockStructure(structure);
         government.getStructures().add(structure);
-        return null;
+        return "succes in drop building a "+buildingType.getType();
     }
     public  static String  simpleBuildingPrecutionsCheck(BuildingType buildingType,Government government){
         Resources resources=government.getResources();
@@ -199,10 +200,12 @@ public class EditMapController {
                     return "you have already a stockpile in your city.you should put the new stockpile near it!";
                 }
             case "Quarry":
-                if(!currentBlock.getType().equals("Stone"))
-                    return "This Block type is not suitable for this structure!";
-                resources.getResource("Stone").ProductionRate+=50;
-                return null;
+                if(currentBlock.getType().equals("Stone")){
+                    resources.getResource("Stone").ProductionRate+=50;
+                    return null;
+                }
+                else
+                    return "This Block type is not suitable for this structure!\n"+currentBlock.getType();
 
             case "PitchRig":
                 if(!currentBlock.getType().equals("Meadow"))

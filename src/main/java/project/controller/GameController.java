@@ -360,7 +360,7 @@ public class GameController {
     public static String repair(Matcher matcher){
         if (currentStructure.equals(null))
             return "you haven't selected any building yet!";
-        if(currentBlock.myEnemies(currentGovernment).size()>0)
+        if( currentBlock.myEnemies(currentGovernment) != null && currentBlock.myEnemies(currentGovernment).size()>0)
             return "you can't repair buildings while they are under enemy fire!";
         int requiredStone=10+currentStructure.getBuildingType().getStoneCost()/2;
         if(currentGovernment.getResources().getResource("Stone").getCount()>requiredStone)
