@@ -138,7 +138,7 @@ public class ShopMenuController {
         }
 
         if (index == 0)
-            return "Invalid item's name";
+            return "Invalid item's name!";
 
         assert government != null;
         if (sumOfPrice > government.getCoins())
@@ -228,7 +228,7 @@ public class ShopMenuController {
         }
 
         if (index == 0)
-            return "Invalid item's name";
+            return "Invalid item's name!";
 
         changes(amount, sumOfPrice, government, index);
         return "You sell " + amount + " " + name;
