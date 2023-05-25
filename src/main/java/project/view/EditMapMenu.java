@@ -33,7 +33,6 @@ public class EditMapMenu {
             if (Tools.inputCheckFormat(input)!=null){
                 input = Tools.inputCheckFormat(input);
             }
-            System.out.println(input);
             if (input.matches(regex = Commands.DROP_ROCK.getRegex())){
                 System.out.println(CreateNewMapController.dropRock(Menu.getMatcher(input,regex),map));
             }

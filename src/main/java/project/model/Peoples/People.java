@@ -61,21 +61,29 @@ public class People {
 
     public void thisTurnMove(){
         int num = 0;
-        while (!block.equals(destination1) && num<peopleType.speed && destination1!=null){
-            if (findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY())==null){
+        ArrayList<Block> path;
+        while (!block.equals(destination1)  && destination1!=null){
+            path = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY());
+            if (path==null){
                 destination1 = null;
                 destination2 = null;
                 inMove = false;
                 return;
             }
+            if (num>peopleType.speed*20){
+                return;
+            }
+            /*
+                 System.out.println(block.getX()+","+block.getY());
+             */
             block.removePeople(this);
-            block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY()).get(0);
+            block = path.get(path.size()-1);
             block.addPeople(this);
-            System.out.println(block.getX()+","+block.getY());
             num ++;
         }
         if (block.equals(destination1)){
             inMove = false;
+            System.out.println("end move!");
             endMove();
         }
     }
@@ -155,6 +163,9 @@ public class People {
                 break;
             }
             for (Block neighbor : getNeighbors(curr, map)) {
+                if (neighbor==null){
+                    continue;
+                }
                 Block neighborBlock = map.getBlockByPosition(neighbor.getX(), neighbor.getY());
                 if (!visited[neighbor.getX()][neighbor.getY()] && neighborBlock.isPassable(this)) {
                     visited[neighbor.getX()][neighbor.getY()] = true;

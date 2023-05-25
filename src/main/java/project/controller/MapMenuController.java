@@ -4,6 +4,7 @@ import project.model.ApplicationManager;
 import project.model.Block;
 import project.model.Map;
 import project.model.Peoples.Militia;
+import project.model.Peoples.NormalPeople;
 import project.model.Peoples.People;
 import project.view.MapMenu;
 import project.view.Menu;
@@ -99,9 +100,9 @@ public class MapMenuController {
         res+="| Soldiers: \n";
         if(block.getPeoples() != null) {
             for (People selected : block.getPeoples()) {
-                if (selected instanceof Militia) {
+                if (selected instanceof Militia || selected instanceof NormalPeople) {
                     res += "| " + selected.getPeopleType().type + " " + selected.isInMove() + "\n";
-                    res += "| " + selected.getGovernment().getOwner().getNickname() + "\n";
+                    res += "| " + selected.getGovernment().getOwner().getUsername() + "\n";
                 }
             }
         }
