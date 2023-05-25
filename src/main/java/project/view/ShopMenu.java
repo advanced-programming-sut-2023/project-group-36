@@ -15,6 +15,8 @@ public class ShopMenu {
     public static void run() throws NoSuchAlgorithmException, InterruptedException {
         String command;
         boolean isThisMenu = true;
+        System.out.println("**<< Shop Menu >>**");
+
 
         while (isThisMenu) {
             command = scanner.nextLine();
@@ -26,7 +28,7 @@ public class ShopMenu {
 
             matcher = Menu.getMatcher(command, Commands.SHOW_PRICE_LIST.getRegex());
             if (matcher != null) {
-                System.out.println(ShopMenuController.showPriceList()); //
+                System.out.println(ShopMenuController.showPriceList());
                 continue;
             }
 

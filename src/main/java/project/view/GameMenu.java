@@ -19,6 +19,7 @@ public class GameMenu {
         String input;
         String regex;
         boolean inThisMenu = true;
+        System.out.println(game.getCurrentGovernment().getOwner().getUsername()+" playing!");
         while (inThisMenu) {
 
             input = scanner.nextLine();

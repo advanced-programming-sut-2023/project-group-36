@@ -6,21 +6,19 @@ public class Resources {
     ArrayList<Resource> resources = new ArrayList<>();
     public int maximumCapacity=500;
     public Resources(){
-        resources.add(new Resource("Wood",0));
-        resources.add(new Resource("Stone",0));
-        resources.add(new Resource("Iron",0));
-        resources.add(new Resource("Wheat",0));
-        resources.add(new Resource("Bread",0));
-        resources.add(new Resource("Apple",0));
-        resources.add(new Resource("Wine",0));
-        resources.add(new Resource("Hop",0));
-        resources.add(new Resource("Horse",0));
-        resources.add(new Resource("Pitch",0));
-        resources.add(new Resource("Flour",0));
-        resources.add(new Resource("Oil",0));
-        resources.add(new Resource("Bow",0));
-        resources.add(new Resource("Spike",0));
-        resources.add(new Resource("Armor",0));
+        resources.add(new Resource("Wood",100));
+        resources.add(new Resource("Stone",100));
+        resources.add(new Resource("Iron",100));
+        resources.add(new Resource("Wheat",100));
+        resources.add(new Resource("Wine",100));
+        resources.add(new Resource("Hop",100));
+        resources.add(new Resource("Horse",100));
+        resources.add(new Resource("Pitch",100));
+        resources.add(new Resource("Flour",100));
+        resources.add(new Resource("Oil",100));
+        resources.add(new Resource("Bow",100));
+        resources.add(new Resource("Spike",100));
+        resources.add(new Resource("Armor",100));
 
     }
 

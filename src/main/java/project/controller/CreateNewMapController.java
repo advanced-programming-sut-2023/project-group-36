@@ -61,7 +61,7 @@ public class CreateNewMapController {
         int y = Integer.parseInt(matcher.group("y"));
         String type = matcher.group("type");
         Block block = map.getBlockByPosition(x,y);
-        if (block.getThisBlockStructure()!=null || block.getPeoples()!=null){
+        if (block.getThisBlockStructure()!=null || block.getPeoples().size()!=0){
             return "Error: You cannot change the gender of this block ("+x+","+y+") because it contains buildings or people.";
         }
         String[] types = {"Dirt","Gravel","Boulder","Stone","Iron","Grass","Meadow","Dense Meadow"};

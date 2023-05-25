@@ -121,10 +121,10 @@ public class Tools {
         if ((formattedInput = Tools.inputFormatting(input, CommandFormat.DROP_TREE)) != null) {
             return formattedInput;
         }
-        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE)) != null) {
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE_RECTANGLE)) != null) {
             return formattedInput;
         }
-        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE_RECTANGLE)) != null) {
+        if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_TEXTURE)) != null) {
             return formattedInput;
         }
         if ((formattedInput = Tools.inputFormatting(input, CommandFormat.SET_GOVERNMENT)) != null) {

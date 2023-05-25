@@ -13,12 +13,11 @@ public class MapMenu {
     private final static Scanner scanner = Menu.getScanner();
     public static int y=-1,x=-1;
     public static void run() throws NoSuchAlgorithmException, InterruptedException {
-
-        String command,output ;
-        Matcher matcher=null,matcher2;
+        System.out.println("**<< Map Menu >>**");
+        String command;
+        Matcher matcher;
 
         while (true){
-            System.out.println("Map menu");
             command= scanner.nextLine();
             if (Tools.inputCheckFormat(command)!=null){
                 command = Tools.inputCheckFormat(command);
