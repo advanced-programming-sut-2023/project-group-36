@@ -371,7 +371,51 @@ public class GameController {
     }
 
     public static String clearBlock(Matcher matcher){
-        return "...";
+        currentBlock=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(Integer.parseInt(matcher.group("x")),Integer.parseInt(matcher.group("y")));
+        currentBlock.setType("Dirt");
+        if((currentStructure=currentBlock.getThisBlockStructure()) != null){
+            BuildingType buildingType=currentBlock.getThisBlockStructure().getBuildingType();
+            Structure structure=currentGovernment.getBuildingByNameForGovernment(buildingType.getType());
+            for(int i=0;i<currentGovernment.getStructures().size();i++){
+                if(structure.getBuildingType().equals(currentGovernment.getStructures().get(i))){
+                    currentGovernment.getStructures().remove(i);
+                    break;
+                }
+
+            }
+            switch (buildingType.getType()){
+                case "Stockpile":
+                    currentGovernment.getResources().maximumCapacity-=500;
+                    break;
+                case"Quarry":
+                    currentGovernment.getResources().getResource("Stone").ProductionRate-=50;
+                    break;
+                case "PitchRig":
+                    currentGovernment.getResources().getResource("Pitch").ProductionRate-=40;
+                    break;
+                case "Mill":
+                    currentGovernment.getResources().getResource("Wheat").ProductionRate+=20;
+                    currentGovernment.getResources().getResource("Flour").ProductionRate+=30;
+                    break;
+                case "Inn":
+                    currentGovernment.getResources().getResource("Wine").ProductionRate+=60;
+                    break;
+                case "OilSmelter":
+                    currentGovernment.getResources().getResource("Pitch").ProductionRate+=20;
+                    currentGovernment.getResources().getResource("Oil").ProductionRate-=15;
+                    break;
+                case "WoodCutter":
+                    currentGovernment.getResources().getResource("Wood").ProductionRate-=currentGovernment.getResources().getResource("Wood").ProductionRate*25/100;
+                    break;
+                case "IronMine":
+                    currentGovernment.getResources().getResource("Iron").ProductionRate-=22;
+                    break;
+                case "AppleFarm":
+                    currentGovernment.getResources().getResource("Apple").ProductionRate-=50;
+                    break;
+            }
+        }
+        return "block in "+x+" "+y+" is now cleaned.";
     }
 
     // Mohammad
@@ -539,8 +583,13 @@ public class GameController {
     }
 
     public static String digTunnel(Matcher matcher){
-
-        return "...";
+        int x=Integer.parseInt(matcher.group("x"));
+        int y=Integer.parseInt(matcher.group("y"));
+        currentBlock=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(x,y);
+        if(currentBlock.isThereIsTunnel())
+            return "You can't dig a tunnel here!";
+        currentBlock.setThereIsTunnel(true);
+        return "you digged a tunnel at "+x+" "+y;
     }
 
     public static String disbandUnit(Matcher matcher){
