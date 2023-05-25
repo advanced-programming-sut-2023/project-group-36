@@ -143,7 +143,7 @@ public class GameMenu {
             else if (input.matches("next turn")){
                 GameController.nextTurn();
             }
-            else if (input.matches(Commands.QUITGAME.getRegex())) {
+            else if (input.matches(Commands.QUIT_GAME.getRegex())) {
                 ApplicationManager.exit();
             }
             else {

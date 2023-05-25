@@ -50,7 +50,7 @@ public class Trade {
 
     public void show(int number) {
         System.out.print(number+") requester: "+requester.getOwner().getUsername()+", requested: "+requested.getOwner().getUsername()+", type: "+type+", amount: "+amount+", price: "+price);
-        if (IsAccepted==true){
+        if (IsAccepted){
             System.out.println(" (accepted!)");
             return;
         }

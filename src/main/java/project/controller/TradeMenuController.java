@@ -16,10 +16,10 @@ public class TradeMenuController {
             return "Error: User not found!";
         }
 
-        if (ApplicationManager.getCurrentGame().getCurrentGovernment().getResources().validResource(resourceType)){
+        if (!ApplicationManager.getCurrentGame().getCurrentGovernment().getResources().validResource(resourceType)){
             return "Error: Invalid resource type!";
         }
-        Government requester = ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getCurrentUser());
+        Government requester = GameController.currentGovernment;
         Government requested = ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getUserByUsername(username));
         Trade trade = new Trade(requester,requested,resourceType,price,resourceAmount,message);
         if(trade.check()!=null){

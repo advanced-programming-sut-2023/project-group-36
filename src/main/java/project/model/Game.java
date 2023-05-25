@@ -44,6 +44,7 @@ public class Game {
     private void nextGovernment(){
         number+=1;
         currentGovernment = governments.get((number%governments.size()));
+        GameController.currentGovernment = currentGovernment;
     }
 
     public void checkEnd(){
@@ -69,6 +70,7 @@ public class Game {
 
 
     public void removeGovernment(Government government){
+        System.out.println(government.getOwner().getUsername()+" Game Over!");
         governments.remove(government);
     }
 

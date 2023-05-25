@@ -61,11 +61,17 @@ public class People {
 
     public void thisTurnMove(){
         int num = 0;
-        while (!block.equals(destination1) && num<peopleType.speed){
+        while (!block.equals(destination1) && num<peopleType.speed && destination1!=null){
             if (findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY())==null){
+                destination1 = null;
+                destination2 = null;
+                inMove = false;
                 return;
             }
+            block.removePeople(this);
             block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY()).get(0);
+            block.addPeople(this);
+            System.out.println(block.getX()+","+block.getY());
             num ++;
         }
         if (block.equals(destination1)){

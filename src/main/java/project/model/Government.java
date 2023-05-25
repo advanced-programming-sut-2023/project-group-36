@@ -97,11 +97,7 @@ public class Government{
     }
 
     public boolean checkGameOver(){
-        int hitpoints = 0;
-        for (Structure structure : structures) {
-            hitpoints += structure.getHitPoint();
-        }
-        return hitpoints <= 0 || centralCastle.getHitPoint() <= 0;
+        return centralCastle.getHitPoint() <= 0;
     }
 
     public void nextTurn(){
@@ -379,6 +375,7 @@ public class Government{
         }
         return null;
     }
+
 
     //
 }

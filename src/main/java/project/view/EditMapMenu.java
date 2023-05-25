@@ -71,7 +71,7 @@ public class EditMapMenu {
                 inThisMenu = false;
                 CreateNewGameMenu.run(CreateNewGameMenu.capacity);
             }
-            else if (input.matches(Commands.QUITGAME.getRegex())) {
+            else if (input.matches(Commands.QUIT_GAME.getRegex())) {
                 ApplicationManager.exit();
             }
             else {

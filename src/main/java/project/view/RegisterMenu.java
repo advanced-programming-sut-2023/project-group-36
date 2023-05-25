@@ -1,6 +1,5 @@
 package project.view;
 
-import project.controller.CommandFormat;
 import project.controller.Commands;
 import project.controller.RegisterMenuController;
 import project.model.ApplicationManager;
@@ -32,7 +31,7 @@ public class RegisterMenu {
                 inThisMenu = false;
                 LoginMenu.run();
             }
-            else if (input.matches(Commands.QUITGAME.getRegex())) {
+            else if (input.matches(Commands.QUIT_GAME.getRegex())) {
                 ApplicationManager.exit();
             }
             else {

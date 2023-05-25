@@ -46,7 +46,7 @@ public class MapMenu {
                 y=-1;
                 GameMenu.run(ApplicationManager.getCurrentGame());
             }
-            else if (command.matches(Commands.QUITGAME.getRegex())) {
+            else if (command.matches(Commands.QUIT_GAME.getRegex())) {
                 ApplicationManager.exit();
             }
             else{

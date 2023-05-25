@@ -14,7 +14,7 @@ import static project.controller.EditMapController.checkMapPreparation;
 public class GameController {
 
     private static Game game;
-    private static Government currentGovernment;
+    public static Government currentGovernment;
     static int x,y;
     public static Block currentBlock;
 
@@ -602,6 +602,8 @@ public class GameController {
 
     public static void nextTurn() {
         game.nextTurn();
+        currentStructure = null;
+        System.out.println(currentGovernment.getOwner().getUsername()+" playing!");
     }
 
 

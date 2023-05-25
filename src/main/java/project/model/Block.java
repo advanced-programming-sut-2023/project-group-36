@@ -46,8 +46,8 @@ public class Block {
         if (peoples.size()==0){
             return;
         }
-        for (People people : peoples) {
-            people.nextTurn();
+        for (int i = 0; i < peoples.size(); i++) {
+            peoples.get(i).nextTurn();
         }
         battles();
     }

@@ -48,7 +48,7 @@ public class ShopMenu {
                 GameMenu.run(ApplicationManager.getCurrentGame());
             }
 
-            matcher = Menu.getMatcher(command, Commands.QUITGAME.getRegex());
+            matcher = Menu.getMatcher(command, Commands.QUIT_GAME.getRegex());
             if (matcher != null) {
                 ApplicationManager.exit();
             }

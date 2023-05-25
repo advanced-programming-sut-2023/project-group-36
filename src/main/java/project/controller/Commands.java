@@ -98,7 +98,7 @@ public enum Commands {
     SHOW_PRICE_LIST("show price list"),
     BUY("buy -i (?<itemName>[^\n]+) -a (?<itemAmount>[-]?\\d+)"),
     SELL("sell -i (?<itemName>[^\n]+) -a (?<itemAmount>[-]?\\d+)"),
-    QUITGAME("quit");
+    QUIT_GAME("quit");
 
 
     private final String regex;
