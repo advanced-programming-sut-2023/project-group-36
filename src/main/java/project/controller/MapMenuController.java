@@ -35,14 +35,12 @@ public class MapMenuController {
                     mapToShow[5+i][5+j]+="T ";
                 else
                     mapToShow[5+i][5+j]+="O ";
-                if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()) != null)
+                if (CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()) != null && CurrentMap.getBlockByPosition(x+i,y+j).myEnemies(GameController.getCurrentGovernment()).size()>0 )
                     mapToShow[5+i][5+j]+="E ";
                 else
                     mapToShow[5+i][5+j]+="O ";
-                if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null){
-                    if(CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias().size() >0)
+                if (CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure() != null && CurrentMap.getBlockByPosition(x+i,y+j).getThisBlockStructure().getMilitias().size() >0)
                         mapToShow[5+i][5+j]+="S ";
-                }
                 else
                     mapToShow[5+i][5+j]+="O ";
 

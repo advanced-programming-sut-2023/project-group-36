@@ -44,7 +44,10 @@ public class Government{
         this.centralCastle = centralCastle;
         foodType = new String[]{"bread", "meat", "apple", "rice"};
         resources = new Resources();
+        resources.getResource("Stone").changeCount(100);
+        resources.getResource("Wood").changeCount(100);
         foodAmount = new int[]{0, 0, 0, 0};
+
     }
 
 

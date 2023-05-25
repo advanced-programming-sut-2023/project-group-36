@@ -126,7 +126,9 @@ public class GameController {
             return checkBuildingPrerequisite(type);
         }
         employment(buildingType);
-        currentBlock.setThisBlockStructure(new Structure(currentBlock,currentGovernment,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType));
+        currentStructure=new Structure(currentBlock,currentGovernment,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);
+        currentGovernment.getStructures().add(currentStructure);
+        currentBlock.setThisBlockStructure(currentStructure);
         return "drop building is done successfully.";
     }
     public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{
@@ -153,21 +155,21 @@ public class GameController {
             case "SquareTower":
                 return null;
             case "Armoury":
-                if(currentGovernment.getBuildingByNameForGoverment("َArmoury").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َArmoury") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Barrack":
-                if(currentGovernment.getBuildingByNameForGoverment("َBarrack").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َBarrack") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "EngineerGuild":
-                if(currentGovernment.getBuildingByNameForGoverment("َEngineerGuild").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َEngineerGuild") == null){
                     return null;
                 }
                 else{
@@ -180,14 +182,14 @@ public class GameController {
             case "Church":
                 return null;
             case "Cathedral":
-                if(currentGovernment.getBuildingByNameForGoverment("َCathedral").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("َCathedral") == null){
                     return null;
                 }
                 else{
                     return "you have already placed this building in your city!";
                 }
             case "Armourer":
-                if(currentGovernment.getBuildingByNameForGoverment("Armourer").equals(null)){
+                if(currentGovernment.getBuildingByNameForGoverment("Armourer") == null){
                     return null;
                 }
                 else{
@@ -205,7 +207,7 @@ public class GameController {
                 currentBlock.setThereIsTunnel(true);
                 return null;
             case "Stockpile":
-                if(currentGovernment.getBuildingByNameForGovernment("Stockpile").equals(null))
+                if(currentGovernment.getBuildingByNameForGovernment("Stockpile") == null)
                     return null;
                 else{
                     try {
@@ -364,10 +366,11 @@ public class GameController {
             return "you can't repair buildings while they are under enemy fire!";
         int requiredStone=10+currentStructure.getBuildingType().getStoneCost()/2;
         if(currentGovernment.getResources().getResource("Stone").getCount()>requiredStone)
-            return "you don't have enough resources to repair this building!";
+            return "you don't have enough resources to repair this building!\nCost :"+10+currentStructure.getBuildingType().getStoneCost()/2
+                    +"\nYour Stone Count :"+currentGovernment.getResources().getResource("Stone").getCount();
         currentGovernment.getResources().getResource("Stone").changeCount((-1)*requiredStone);
         currentStructure.setHP(500);
-        return "building at "+currentBlock.getX()+" "+currentBlock.getY()+" repaired succesfully!";
+        return "building at "+currentBlock.getX()+" "+currentBlock.getY()+" repaired succesfully!\nCost :"+10+currentStructure.getBuildingType().getStoneCost()/2;
     }
 
     public static String clearBlock(Matcher matcher){
