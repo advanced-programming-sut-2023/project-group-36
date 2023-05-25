@@ -255,6 +255,9 @@ public class Government{
     //religion
     private void checkTheReligionFactor() {
         for (Block block : GameController.getGame().getMap().getBlocks()) {
+            if (block.getThisBlockStructure()==null){
+                continue;
+            }
             if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {
                 popularity += 2;
             }
@@ -279,7 +282,9 @@ public class Government{
         BuildingType buildingType;
         PeopleType peopleType;
 
-        // people growth + ?
+        if (peoples.size()==0){
+            return;
+        }
         int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();
         for (Structure structure : structures) {
             buildingType = structure.getBuildingType();

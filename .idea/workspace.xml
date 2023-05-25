@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="displayWithEmptySloganTest added">
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="debug game menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/CreateNewMapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/view/MapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/model/Peoples/People.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
       <workItem from="1682668516859" duration="4554000" />
       <workItem from="1683269388407" duration="6785000" />
       <workItem from="1683309987507" duration="888000" />
-      <workItem from="1684992324252" duration="4660000" />
+      <workItem from="1684992324252" duration="6349000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -270,11 +267,11 @@
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۱" />
       <updated>1682418486147</updated>
     </task>
-    <task id="LOCAL‎−۰۰۰۱۲" summary="Some bugs fixed. + add json files.">
-      <created>1682458088968</created>
+    <task id="LOCAL‎−۰۰۰۱۲" summary="debug game menu">
+      <created>1684997385483</created>
       <option name="number" value="LOCAL‎−۰۰۰۱۲" />
       <option name="presentableId" value="LOCAL‎−۰۰۰۱۲" />
-      <updated>1682458088968</updated>
+      <updated>1684997385483</updated>
     </task>
     <task id="LOCAL‎−۰۰۰۱۳" summary="GameMenu updated, Start GameMenu.">
       <created>1682608270091</created>
@@ -348,7 +345,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683918011442</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +388,8 @@
     <MESSAGE value="checkTheFearFactor added" />
     <MESSAGE value="displayTest added" />
     <MESSAGE value="displayWithEmptySloganTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="displayWithEmptySloganTest added" />
+    <MESSAGE value="debug game menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug game menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

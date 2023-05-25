@@ -36,8 +36,8 @@ public class Game {
     }
 
     private void governmentsNextTurn(){
-        for (Government government : governments) {
-            government.nextTurn();
+        for (int i = 0; i < governments.size(); i++) {
+            governments.get(i).nextTurn();
         }
     }
 

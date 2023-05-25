@@ -36,10 +36,10 @@ public class People {
     People (PeopleType peopleType, Government government, Block block){
         this.peopleType = peopleType;
         this.government = government;
+        this.block = block;
         inMove = false;
         hitPoint = 25;
         selected = false;
-        // ... for example
     }
 
     public String isInMove() {
@@ -62,6 +62,9 @@ public class People {
     public void thisTurnMove(){
         int num = 0;
         while (!block.equals(destination1) && num<peopleType.speed){
+            if (findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY())==null){
+                return;
+            }
             block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY()).get(0);
             num ++;
         }
