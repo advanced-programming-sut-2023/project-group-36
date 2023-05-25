@@ -57,8 +57,13 @@ public class CreateNewGameMenu {
                     Game game = new Game(map, governments);
                     ApplicationManager.addGame(game);
                     ApplicationManager.setCurrentGame(game);
+                     /*
+                    for (Government government : governments) {
+                        government.getOwner().startNewGame(game);
+                    }
+                    ApplicationManager.save();
+                     */
                     GameMenu.run(game);
-
                 }
                 else {
                     System.out.println(result);

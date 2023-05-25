@@ -47,14 +47,14 @@ public class SaveAndLoad {
 
     public static void gameInitialization(){
         loadUsers();
-        loadGames();
-        loadMaps();
+        //loadGames();
+        //loadMaps();
     }
 
     public static void save(ArrayList<User> users,ArrayList<Map> maps,ArrayList<Game> games){
         SaveAndLoad.saveUsers(users);
-        SaveAndLoad.saveGames(games);
-        SaveAndLoad.saveMaps(maps);
+        //SaveAndLoad.saveGames(games);
+        //SaveAndLoad.saveMaps(maps);
     }
 
     public static void saveUsers(ArrayList<User> users) {
