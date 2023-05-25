@@ -605,7 +605,6 @@ public class GameController {
     ///////////////////// ALI
 
 
-
     public static Game getGame() {
         return game;
     }

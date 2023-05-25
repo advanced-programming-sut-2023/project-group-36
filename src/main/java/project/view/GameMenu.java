@@ -85,7 +85,6 @@ public class GameMenu {
                 System.out.println(GameController.createUnit(Menu.getMatcher(input,regex)));
             }
 
-
             else if (input.matches(regex = Commands.SELECT_UNIT.getRegex())){
                 System.out.println(GameController.selectUnit(Menu.getMatcher(input,regex)));
             }

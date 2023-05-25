@@ -26,7 +26,7 @@ public class CreateNewMapController {
         int xNum = Integer.parseInt(x);
         int yNum = Integer.parseInt(y);
         Block block = map.getBlockByPosition(xNum,yNum);
-        if (block.getType()!=null || block.getThisBlockStructure()!=null || block.getPeoples()!=null){
+        if (block.getThisBlockStructure()!=null || block.getPeoples()!=null){
             return "Error: You cannot place a rock in this block because the terrain is not suitable or it is full.";
         }
         char[] directions = {'s','n','e','w'};

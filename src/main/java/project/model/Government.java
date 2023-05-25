@@ -34,7 +34,7 @@ public class Government{
     private int fearRate;
     private int feedRate;
     private int coins;
-    private ArrayList<People> selectedPeoples;
+    private ArrayList<People> selectedPeoples = new ArrayList<>();
 
 
     public Government(User user, String color, Structure centralCastle){

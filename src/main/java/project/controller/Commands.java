@@ -51,7 +51,7 @@ public enum Commands {
     DROP_ROCK("droprock -x (?<x>\\d+) -y (?<y>\\d+) -d (?<direction>[^\n]+)"),
     DROP_TREE("droptree -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
     SET_TEXTURE("settexture -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
-    SET_TEXTURE_RECTANGLE("settexture -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t (?<type>[^\n]+)"),
+    SET_TEXTURE_RECTANGLE("settexture rectangle -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+) -t (?<type>[^\n]+)"),
 
     //EditMap Menu
     SET_GOVERNMENT("set government -color (?<color>\\w+) -x (?<x>\\d+) -y (?<y>\\d+)"),
@@ -74,7 +74,7 @@ public enum Commands {
     UNSELECT_BUILDING("unselect building"),
     CREATE_UNIT("createunit -t (?<type>.+) -c (?<count>\\d+)"),
     REPAIR("repair"),
-    SELECT_UNIT("select unit -x (?<x>\\d+) -y (?<y>\\d+)"),
+    SELECT_UNIT("select unit -x (?<x>\\d+) -y (?<y>\\d+) -t (?<type>[^\n]+)"),
     UNSELECT_UNIT("unselect unit"),
     MOVE_UNIT("move unit to -x (?<x>\\d+) -y (?<y>\\d+)"),
     PATROL_UNIT("patrol unit -x1 (?<x1>\\d+) -y1 (?<y1>\\d+) -x2 (?<x2>\\d+) -y2 (?<y2>\\d+)"),

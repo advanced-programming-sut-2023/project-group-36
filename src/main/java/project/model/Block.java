@@ -20,9 +20,9 @@ public class Block {
     }
 
     private String type;
-    private Structure thisBlockStructure;
+    private Structure thisBlockStructure = null;
     private int governmentId = 0;
-    private ArrayList<People> peoples;
+    private ArrayList<People> peoples = new ArrayList<>();
     private String color;
     private String tree;
     public Block(int x,int y){
@@ -40,6 +40,12 @@ public class Block {
     }
 
     public void nextTurn(){
+        if (peoples==null){
+            return;
+        }
+        if (peoples.size()==0){
+            return;
+        }
         for (People people : peoples) {
             people.nextTurn();
         }
