@@ -70,7 +70,16 @@
       <version>4.6.1</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>com.badlogicgames.gdx</groupId>
+      <artifactId>gdx</artifactId>
+      <version>1.9.12</version>
+    </dependency>
   </dependencies>
-
+  <repositories>
+    <repository>
+      <id>gdx-nightlies</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+  </repositories>
 </project>
