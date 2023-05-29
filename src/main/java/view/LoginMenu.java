@@ -1,6 +1,9 @@
 package view;
 
-import controller.ApplicationManger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import model.ApplicationManger;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,9 +24,10 @@ public class LoginMenu extends Application {
         pane.setMinHeight(720);
         Scene scene=new Scene(pane);
         stage.setScene(scene);
-        BackgroundImage myBI= new BackgroundImage(new Image(LoginMenu.class.getResource("/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").openStream(),1080,720,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").openStream(),1080,720,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
+        pane.setBackground(new Background(myBI1));
         Pane login=new Pane();
         login.setMinHeight(320);
         login.setMinWidth(230);
@@ -32,7 +36,6 @@ public class LoginMenu extends Application {
         VBox LoginFields=new VBox();
         LoginFields.setAlignment(Pos.TOP_CENTER);
         LoginFields.setSpacing(25);
-        //LoginFields.setLayoutX(110);
         Label l1=new Label("Login");
         l1.setFont(Font.font("Ariel", FontWeight.BOLD, 22));
         l1.setTextFill(Color.WHITE);
@@ -73,7 +76,6 @@ public class LoginMenu extends Application {
         LoginFields.getChildren().add(buttons);
         LoginFields.getChildren().add(loggedIn);
         login.getChildren().add(LoginFields);
-        pane.setBackground(new Background(myBI));
         stage.show();
 
     }
