@@ -77,6 +77,9 @@ public class LoginMenu extends Application {
         LoginFields.getChildren().add(loggedIn);
         login.getChildren().add(LoginFields);
         stage.show();
+        //Actions
+        LoginButton.setOnMouseClicked(mouseEvent -> {
 
+        });
     }
 }

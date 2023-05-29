@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import project.controller.*;
 import project.model.ApplicationManager;
 import project.model.Game;
-import project.model.Government;
 import project.model.User;
 import project.view.Menu;
 
