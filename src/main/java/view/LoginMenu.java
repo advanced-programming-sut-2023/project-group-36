@@ -1,9 +1,6 @@
 package view;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
-import model.ApplicationManger;
+import model.ApplicationManager;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,7 +15,7 @@ import javafx.stage.Stage;
 public class LoginMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        ApplicationManger.run();
+        ApplicationManager.run();
         Pane pane=new Pane();
         pane.setMinWidth(1080);
         pane.setMinHeight(720);

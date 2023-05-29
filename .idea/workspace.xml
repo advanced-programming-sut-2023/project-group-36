@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="update in LoginMenu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/BuildingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Government.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/Militia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/NormalPeople.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/People.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/PeopleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Resources.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change in models">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Peoples/PeopleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Peoples/PeopleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/project/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/project/AppTest.java" afterDir="false" />
     </list>
@@ -219,7 +213,7 @@
       <workItem from="1685010593965" duration="4373000" />
       <workItem from="1685020037244" duration="5299000" />
       <workItem from="1685362054868" duration="2317000" />
-      <workItem from="1685369780307" duration="5672000" />
+      <workItem from="1685369780307" duration="6143000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -372,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685364041277</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="change in models">
+      <created>1685388148064</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685388148064</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +392,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update CreationNewGameMenu &amp; EditMapMenu." />
     <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
@@ -416,7 +416,8 @@
     <MESSAGE value="debug game menu4" />
     <MESSAGE value="debug game menu5" />
     <MESSAGE value="update in LoginMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="update in LoginMenu" />
+    <MESSAGE value="change in models" />
+    <option name="LAST_COMMIT_MESSAGE" value="change in models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

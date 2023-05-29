@@ -1,6 +1,8 @@
 package model;
 
+import model.Peoples.NormalPeople;
 import model.Peoples.People;
+import model.Peoples.PeopleType;
 
 import java.util.ArrayList;
 

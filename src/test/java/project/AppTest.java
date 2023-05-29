@@ -1,12 +1,10 @@
 package project;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import project.controller.*;
-import project.model.ApplicationManager;
-import project.model.Game;
-import project.model.User;
-import project.view.Menu;
+import controller.*;
+import model.ApplicationManager;
+import model.Game;
+import model.User;
+import view.Menu;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;

@@ -1,5 +1,9 @@
 package model;
 
+import controller.GameController;
+
+import java.util.ArrayList;
+
 public class Game {
     private Government currentGovernment;
     private final ArrayList<Government> governments;
