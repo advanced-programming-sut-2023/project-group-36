@@ -45,14 +45,27 @@ public class RegisterMenu extends Application {
         PasswordField passwordField=new PasswordField();
         username.setPromptText("Username");
         username.setMaxWidth(250);
+        username.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+        username.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        username.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         passwordField.setPromptText("Password");
         passwordField.setMaxWidth(250);
+        passwordField.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+        passwordField.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        passwordField.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         email.setPromptText("Email");
         email.setMaxWidth(250);
+        email.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+        email.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        email.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         nickname.setPromptText("Nickname");
         nickname.setMaxWidth(250);
+        nickname.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+        nickname.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        nickname.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         passwordrecovery.setPromptText("Security Question");
         passwordrecovery.setMaxWidth(250);
+        passwordrecovery.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         passwordrecovery.setMinHeight(200);
         Register.getChildren().addAll(username,passwordField,email,nickname);
 

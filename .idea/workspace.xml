@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="update in RegisterMenu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ProfileMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TradeMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Erorr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SHA_256Format.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +94,7 @@
       <recent name="C:\Users\Lenovo\Documents\project_group_36\src\main\java\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginMenu">
+  <component name="RunManager">
     <configuration name="LoginMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LoginMenu" />
       <module name="Project_Phase_2" />
@@ -208,7 +211,7 @@
       <workItem from="1685010593965" duration="4373000" />
       <workItem from="1685020037244" duration="5299000" />
       <workItem from="1685362054868" duration="2317000" />
-      <workItem from="1685369780307" duration="13177000" />
+      <workItem from="1685369780307" duration="16424000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -389,7 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685420677007</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update in RegisterMenu">
+      <created>1685441483276</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1685441483276</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update in RegisterMenu">
+      <created>1685441547452</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685441547452</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -81,7 +81,11 @@ public class LoginMenu extends Application {
         stage.show();
         //Actions
         LoginButton.setOnMouseClicked(mouseEvent -> {
+                String username=usernameField.getText();
+                String password=passwordField.getText();
+                if(username.length()==0 || password.length()==0){
 
+                }
         });
         RegisterButton.setOnMouseClicked(mouseEvent -> {
             try {
