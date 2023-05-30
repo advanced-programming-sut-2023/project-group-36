@@ -7,7 +7,7 @@ import model.Peoples.PeopleType;
 import java.util.ArrayList;
 
 public class Government {
-    private final Structure centralCastle;
+ /*   private final Structure centralCastle;
     private final User owner;
     private ArrayList<People> peoples = new ArrayList<>();
 
@@ -17,7 +17,7 @@ public class Government {
         return structures;
     }
 
-    private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
+ //   private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
     private ArrayList<Trade> trades = new ArrayList<>();
     private String color;
     private Resources resources;
@@ -302,7 +302,7 @@ public class Government {
                         if (people instanceof NormalPeople && peoples.contains(people)) {
                             peoples.remove(people);
                             structure.removeNormalPeople((NormalPeople) people);
-                            structure.getBlock().removePeople(people);
+                            //structure.getBlock().removePeople(people);
                         }
                     }
                 }
@@ -366,6 +366,6 @@ public class Government {
                 return structure.getBuildingType();
         }
         return null;
-    }
+    }*/
 
 }

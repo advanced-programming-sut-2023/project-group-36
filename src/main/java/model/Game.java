@@ -5,7 +5,7 @@ import controller.GameController;
 import java.util.ArrayList;
 
 public class Game {
-    private Government currentGovernment;
+  /*  private Government currentGovernment;
     private final ArrayList<Government> governments;
     private final Map map;
     private boolean condition;
@@ -74,6 +74,6 @@ public class Game {
 
     public int getScore(){
         return numberOfPlayers * (numberOfPlayers-governments.size()-1);
-    }
+    }*/
 }
 

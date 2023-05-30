@@ -1,4 +1,4 @@
 package model.Peoples;
 
-public class NormalPeople {
+public class NormalPeople extends People{
 }

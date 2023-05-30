@@ -45,11 +45,16 @@ public class LoginMenu extends Application {
         pane.getChildren().add(login);
         TextField usernameField=new TextField();
         usernameField.setText("username");
+        usernameField.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        usernameField.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         usernameField.setMaxWidth(200);
         LoginFields.getChildren().add(usernameField);
         PasswordField passwordField=new PasswordField();
         passwordField.setMaxWidth(200);
         passwordField.setText("Password");
+        passwordField.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
+        passwordField.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+
         LoginFields.getChildren().add(passwordField);
         Button LoginButton = new Button();
         LoginButton.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));

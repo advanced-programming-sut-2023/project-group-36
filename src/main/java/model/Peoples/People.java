@@ -5,7 +5,7 @@ import model.Block;
 import model.Government;
 
 public class People {
-    private PeopleType peopleType;
+   /* private PeopleType peopleType;
     private Government government;
     private double hitPoint;
     private Block block;
@@ -66,7 +66,7 @@ public class People {
             }
             block.removePeople(this);
             block = findPath(ApplicationManager.getCurrentGame().getMap(), block.getX(), block.getY(), destination1.getX(), destination1.getY()).get(0);
-            block.addPeople(this);
+            //block.addPeople(this);
             System.out.println(block.getX()+","+block.getY());
             num ++;
         }
@@ -173,5 +173,5 @@ public class People {
 
     public PeopleType getPeopleType() {
         return peopleType;
-    }
+    }*/
 }

@@ -1,4 +1,4 @@
 package model.Peoples;
 
-public class Militia {
+public class Militia extends People{
 }
