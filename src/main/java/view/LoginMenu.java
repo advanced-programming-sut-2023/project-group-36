@@ -83,5 +83,12 @@ public class LoginMenu extends Application {
         LoginButton.setOnMouseClicked(mouseEvent -> {
 
         });
+        RegisterButton.setOnMouseClicked(mouseEvent -> {
+            try {
+                new RegisterMenu().start(stage);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }
