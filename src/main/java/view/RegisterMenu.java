@@ -1,11 +1,19 @@
 package view;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class RegisterMenu extends Application {
@@ -15,19 +23,42 @@ public class RegisterMenu extends Application {
         pane.setMinWidth(1080);
         pane.setMinHeight(720);
         Scene scene=new Scene(pane);
+        pane.getChildren().add(new Rectangle(0,0,50,50));
         stage.setScene(scene);
         BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg").openStream(),1080,720,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));
         VBox Register=new VBox();
+        Register.setAlignment(Pos.TOP_CENTER);
         Register.setLayoutX(100);
-        Register.setLayoutY(100);
-        Register.setMinWidth(250);
-        Register.setMinHeight(420);
+        Register.setLayoutY(80);
+        Register.setMinWidth(360);
+        Register.setMinHeight(620);
         Register.setSpacing(25);
         Register.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         Label RegisterLAbel=new Label("Register");
+        RegisterLAbel.setFont(Font.font("Ariel", FontWeight.BOLD, 22));
+        RegisterLAbel.setTextFill(Color.WHITE);
+        Register.getChildren().add(RegisterLAbel);
+        TextField username = new TextField(),email=new TextField(),nickname=new TextField(),passwordrecovery=new TextField();
+        PasswordField passwordField=new PasswordField();
+        username.setPromptText("Username");
+        username.setMaxWidth(250);
+        passwordField.setPromptText("Password");
+        passwordField.setMaxWidth(250);
+        email.setPromptText("Email");
+        email.setMaxWidth(250);
+        nickname.setPromptText("Nickname");
+        nickname.setMaxWidth(250);
+        passwordrecovery.setPromptText("Security Question");
+        passwordrecovery.setMaxWidth(250);
+        passwordrecovery.setMinHeight(200);
+        Register.getChildren().addAll(username,passwordField,email,nickname);
+
+
+
+
 
 
 

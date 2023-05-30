@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="change in models">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg" afterDir="false" />
+    <list default="true" id="68ad3456-ffaa-4239-a403-f6182f79aa7b" name="Changes" comment="update in RegisterMenu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ProfileMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/TradeMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegisterMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <recent name="C:\Users\Lenovo\Documents\project_group_36\src\main\java\model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.LoginMenu">
     <configuration name="LoginMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LoginMenu" />
       <module name="Project_Phase_2" />
@@ -207,7 +208,7 @@
       <workItem from="1685010593965" duration="4373000" />
       <workItem from="1685020037244" duration="5299000" />
       <workItem from="1685362054868" duration="2317000" />
-      <workItem from="1685369780307" duration="8228000" />
+      <workItem from="1685369780307" duration="13177000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="Some bugs fixed.">
       <created>1683228220586</created>
@@ -381,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685420062780</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update in RegisterMenu">
+      <created>1685420677007</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1685420677007</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +408,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix some bugs in CreateNewGameMenu and EditMapMenu." />
     <MESSAGE value="Update people, government, randomPassword &amp; EditMapMenu" />
     <MESSAGE value="master update." />
     <MESSAGE value="Some bugs fixed. + add json files." />
@@ -425,7 +432,8 @@
     <MESSAGE value="debug game menu5" />
     <MESSAGE value="update in LoginMenu" />
     <MESSAGE value="change in models" />
-    <option name="LAST_COMMIT_MESSAGE" value="change in models" />
+    <MESSAGE value="update in RegisterMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="update in RegisterMenu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
