@@ -9,8 +9,6 @@ import view.EditMapMenu;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
-import static project.controller.EditMapController.checkMapPreparation;
-
 public class GameController {
 
     private static Game game;
@@ -108,8 +106,6 @@ public class GameController {
         if (currentGovernment==null){
             return "Error: No government selected!";
         }
-        if(checkMapPreparation() != null)
-            return checkMapPreparation();
         x=Integer.parseInt(matcher.group("x"));
         y=Integer.parseInt(matcher.group("y"));
         String type=matcher.group("type");

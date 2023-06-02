@@ -1,6 +1,6 @@
 package model;
 
-import project.controller.CommandFormat;
+import controller.CommandFormat;
 
 import java.util.ArrayList;
 import java.util.Collections;

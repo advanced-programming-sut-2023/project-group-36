@@ -9,7 +9,7 @@
    <children>
       <ScrollPane layoutY="-1.0" prefHeight="355.0" prefWidth="426.0">
          <content>
-            <Pane prefHeight="2500.0" prefWidth="2500.0" />
+            <Pane fx:id="mapPane" prefHeight="2500.0" prefWidth="2500.0" />
          </content>
       </ScrollPane>
       <Button layoutX="148.0" layoutY="375.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="131.0" text="شروع بازی" />

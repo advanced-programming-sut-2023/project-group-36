@@ -53,14 +53,6 @@ public class ApplicationManager {
         return null;
     }
 
-    public static Map getMapByName(String name){
-        for (Map map : maps) {
-            if (map.getName().equals(name)) {
-                return map;
-            }
-        }
-        return null;
-    }
 
     public static void addUser(User user){
         users.add(user);

@@ -1,19 +1,50 @@
 package controller;
-import model.ApplicationManager;
-import model.Block;
-import model.Map;
+
+import model.*;
+import model.Buildings.BuildingType;
+import model.Buildings.Structure;
+import model.Peoples.*;
+import view.CreateNewGameMenu;
+import view.EditMapMenu;
+
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 
-public class CreateNewMapController {
-
-    public static String setMapName(Matcher matcher){
-        String name = matcher.group("name");
-        if (ApplicationManager.getMapByName(name)!=null){
-            return "Error: The map is already exists!";
+public class EditMap {
+    public static int x=0;
+    public static int y=0;
+    public static Block currentBlock;
+    public static String setGovernment(Matcher matcher, Map map, ArrayList<User> users) {
+         x=Integer.parseInt(matcher.group("x"));
+         y=Integer.parseInt(matcher.group("y"));
+        String color = matcher.group("color");
+        if (x> map.getSize() || y> map.getSize() || x<1 || y<1){
+            return "Error: Invalid position!";
         }
-        return "Map name set successfully.";
+        if (map.getBlockByPosition(x,y).getThisBlockStructure()!=null){
+            return "Error: This position has already been selected for another government!";
+        }
+        if (EditMapMenu.colors.contains(color)){
+            return "Error: This color already has selected!";
+        }
+        Block block = map.getBlockByPosition(x,y);
+        Structure centralCastle = new Structure(100);
+
+        if(EditMapMenu.number>=users.size()){
+            return "you have already selected all governments keeps!";
+        }
+
+        Government government = new Government(users.get(EditMapMenu.number),color, centralCastle);
+        block.setThisBlockStructure(centralCastle);
+        centralCastle.setBuildingType(Types.getBuildingTypeByType("Keep"));
+        centralCastle.setGovernment(government);
+        EditMapMenu.governments.add(government);
+        EditMapMenu.number+=1;
+        return "Government "+users.get(EditMapMenu.number-1).getUsername()+" , "+color+" position successfully set.";
     }
+
+
 
     public static String dropRock(Matcher matcher, Map map){
         String x = matcher.group("x");
@@ -69,20 +100,11 @@ public class CreateNewMapController {
         return "Block ("+x+","+y+") type has been changed successfully.";
     }
 
-    public static String setTextureRectangle(Matcher matcher,Map map) {
-        int x1 = Integer.parseInt(matcher.group("x1"));
-        int y1 = Integer.parseInt(matcher.group("y1"));
-        int x2 = Integer.parseInt(matcher.group("x2"));
-        int y2 = Integer.parseInt(matcher.group("y2"));
-        String type = matcher.group("type");
-        String input;
-        for (int x = x1; x <= x2; x++) {
-            for (int y = y1; y <=y2 ; y++) {
-                input = "settexture -x "+x+" -y "+y+" -t "+type;
-                //System.out.println(setTexture(Menu.getMatcher(input,Commands.SET_TEXTURE.getRegex()),map));
-            }
-        }
-        return "Blocks that could be changed were changed and those that could not be changed remained intact.";
 
-    }
+
+
+
+
+
+
 }

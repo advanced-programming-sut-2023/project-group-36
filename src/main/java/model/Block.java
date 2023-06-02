@@ -23,7 +23,6 @@ public class Block {
     private Structure thisBlockStructure = null;
     private int governmentId = 0;
     private ArrayList<People> peoples = new ArrayList<>();
-    private String color;
     private String tree;
     public Block(int x,int y){
         this.x = x;
@@ -122,9 +121,6 @@ public class Block {
         return peoples;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public boolean suitableTypeForUnit(String type) {
         if (type.equals("x") || type.equals("y") || type.equals("z")){
@@ -173,4 +169,6 @@ public class Block {
         }
         return enemies;
     }
+
+
 }

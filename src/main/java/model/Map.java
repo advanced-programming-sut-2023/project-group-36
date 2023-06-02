@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 public class Map implements Cloneable{
     private int size;
-    private String name;
 
     private int capacity;
     private ArrayList<Block> blocks = new ArrayList<>();
 
 
-    public Map(int size, String name){
+    public Map(int size){
         this.size = size;
-        this.name = name;
         capacity = 0;
         createBlacks();
     }
@@ -29,14 +27,6 @@ public class Map implements Cloneable{
         for (Block block : blocks) {
             block.nextTurn();
         }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Map clone(){
