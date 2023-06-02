@@ -5,7 +5,8 @@ import controller.GameController;
 import java.util.ArrayList;
 
 public class Game {
-  /*  private Government currentGovernment;
+
+    private Government currentGovernment;
     private final ArrayList<Government> governments;
     private final Map map;
     private boolean condition;
@@ -35,14 +36,15 @@ public class Game {
     }
 
     private void governmentsNextTurn(){
-        for (Government government : governments) {
-            government.nextTurn();
+        for (int i = 0; i < governments.size(); i++) {
+            governments.get(i).nextTurn();
         }
     }
 
     private void nextGovernment(){
         number+=1;
         currentGovernment = governments.get((number%governments.size()));
+        GameController.currentGovernment = currentGovernment;
     }
 
     public void checkEnd(){
@@ -68,12 +70,12 @@ public class Game {
 
 
     public void removeGovernment(Government government){
+        System.out.println(government.getOwner().getUsername()+" Game Over!");
         governments.remove(government);
     }
 
 
     public int getScore(){
         return numberOfPlayers * (numberOfPlayers-governments.size()-1);
-    }*/
+    }
 }
-

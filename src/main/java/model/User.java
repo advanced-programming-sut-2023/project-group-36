@@ -26,10 +26,6 @@ public class User {
         this.questionNumber = questionNumber;
         score=0;
     }
-    public void changeProfile(String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){
-
-    }
-
     public int getQuestionNumber() {
         return questionNumber;
     }

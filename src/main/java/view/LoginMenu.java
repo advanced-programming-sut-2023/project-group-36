@@ -21,7 +21,7 @@ public class LoginMenu extends Application {
         pane.setMinHeight(720);
         Scene scene=new Scene(pane);
         stage.setScene(scene);
-        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").openStream(),1080,720,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").openStream(),1080,720,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));

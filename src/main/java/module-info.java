@@ -4,7 +4,6 @@ module Project_Phase_2{
         requires javafx.graphics;
         exports view;
         opens view to javafx.fxml, com.google.gson;
-        exports controller to javafx.graphics;
         exports model;
         requires com.google.gson;
         requires javafx.media;

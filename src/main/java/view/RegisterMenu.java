@@ -25,7 +25,7 @@ public class RegisterMenu extends Application {
         Scene scene=new Scene(pane);
         pane.getChildren().add(new Rectangle(0,0,50,50));
         stage.setScene(scene);
-        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg").openStream(),1080,720,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg").openStream(),1080,720,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));

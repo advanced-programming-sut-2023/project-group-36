@@ -26,7 +26,7 @@ public class ApplicationManager {
         this.users = users;
     }
 
-    static MediaPlayer mediaPlayer=new MediaPlayer(new Media(ApplicationManager.class.getResource("/mokhtarnameh-barkhiz.mp3").toString()));
+    static MediaPlayer mediaPlayer=new MediaPlayer(new Media(ApplicationManager.class.getResource("/music/mokhtarnameh-barkhiz.mp3").toString()));
     public static void run(){
         mediaPlayer.setVolume(50);
         mediaPlayer.play();
