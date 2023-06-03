@@ -77,6 +77,10 @@ public class LoginMenu extends Application {
         buttons.setAlignment(Pos.CENTER);
         LoginFields.getChildren().add(buttons);
         LoginFields.getChildren().add(loggedIn);
+        Label forgetPass=new Label("forgot my password");
+        forgetPass.setFont(Font.font("Ariel", FontWeight.BOLD, 12));
+        forgetPass.setTextFill(Color.CRIMSON);
+        LoginFields.getChildren().add(forgetPass);
         login.getChildren().add(LoginFields);
         stage.show();
         //Actions
@@ -93,6 +97,17 @@ public class LoginMenu extends Application {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+        });
+        forgetPass.setOnMouseClicked(mouseEvent -> {
+            Stage s1=new Stage();
+            s1.setHeight(500);
+            s1.setWidth(500);
+            s1.setX(550);
+            s1.setY(200);
+            Pane pane1=new Pane();
+            Scene fscene=new Scene(pane1);
+            s1.setScene(fscene);
+            s1.show();
         });
     }
 }

@@ -1,6 +1,7 @@
 package view;
 
 import javafx.application.Application;
+import javafx.beans.Observable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import model.ApplicationManager;
 
 public class RegisterMenu extends Application {
     @Override
@@ -68,7 +70,31 @@ public class RegisterMenu extends Application {
         passwordrecovery.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         passwordrecovery.setMinHeight(200);
         Register.getChildren().addAll(username,passwordField,email,nickname);
+        Label usernameCheck=new Label("");
+        pane.getChildren().add(usernameCheck);
+        usernameCheck.setLayoutX(470);
+        usernameCheck.setLayoutY(146);
+        usernameCheck.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
+        username.setOnKeyTyped(keyEvent -> {
+            if(username.getText().length()>0 && username.getText().length()<4){
+                usernameCheck.setTextFill(Color.RED);
+                usernameCheck.setText("Short Username");
 
+            }
+            else if(ApplicationManager.getUserByUsername(username.getText()) != null){
+                usernameCheck.setTextFill(Color.RED);
+                usernameCheck.setText("Username already exists!");
+            }
+            else if(ApplicationManager.getUserByUsername(username.getText()) == null){
+                usernameCheck.setTextFill(Color.GREEN);
+                usernameCheck.setText("Okay");
+            }
+            else if(username.getText()==null){
+                usernameCheck.setText("");
+            }
+
+
+        });
 
 
 
