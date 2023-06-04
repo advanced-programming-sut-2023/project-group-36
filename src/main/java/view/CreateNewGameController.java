@@ -11,22 +11,24 @@ public class CreateNewGameController {
     @FXML
     private Label message;
 
+    String[] colors = {"red","blue","green","yellow","orange"};
+
+
     public void menuInitialize() {
-        message.setText("");
+        message.setText("Create new game");
+        ////
     }
 
     public void create(MouseEvent mouseEvent) throws Exception {
-        new GameMenu().start(CreateNewGameMenu.stage);
+        new EditMapMenu().start(CreateNewGameMenu.stage);
     }
 
     public void addUser(MouseEvent mouseEvent) {
-        if (CreateNewGame.addUser(username.getText())==null){
-            message.setText("User "+username.getText()+"added successfully.");
+        if (CreateNewGame.addUser(username.getText(),colors[CreateNewGame.governments.size()])==null){
+            message.setText("User "+username.getText()+" added successfully.");
             return;
         }
-        message.setText(CreateNewGame.addUser(username.getText()));
+        message.setText(CreateNewGame.addUser(username.getText(),colors[CreateNewGame.governments.size()]));
     }
-
-
 
 }

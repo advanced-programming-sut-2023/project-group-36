@@ -1,7 +1,5 @@
 package view;
-
-import com.google.gson.JsonArray;
-import controller.CreateNewGame;
+import controller.EditMap;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,22 +7,18 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Government;
 import model.Map;
-
 import java.util.ArrayList;
 
 public class EditMapMenu extends Application{
     public static Pane root;
     public static EditMapController controller;
     public static Stage stage;
-    public static ArrayList<String> colors;
-    public static ArrayList<Government> governments = new ArrayList<>();
-    public static int number;
-    public static Map map = new Map(50);
 
 
     @Override
     public void start(Stage stage) throws Exception {
-        CreateNewGameMenu.stage = stage;
+        EditMap.map = new Map(50);
+        EditMapMenu.stage = stage;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXML/EditMap.fxml"));
         root = loader.load();
@@ -33,7 +27,9 @@ public class EditMapMenu extends Application{
         stage.show();
         stage.setResizable(false);
         controller = loader.getController();
+        System.out.println();
         controller.menuInitialize();
     }
+
 
 }

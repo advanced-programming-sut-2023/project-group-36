@@ -1,10 +1,13 @@
 package model;
+import controller.EditMap;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import view.ChangeBlockMenu;
+import view.EditMapMenu;
 import view.GameMenu;
 import view.GameMenuController;
 
@@ -33,21 +36,29 @@ public class GBlock extends Rectangle {
         this.setY(50*(block.getY()-1));
         this.setFill(Color.BLUE);
         this.changeAble = changeAble;
-        GameMenu.controller.getMapPane().getChildren().add(this);
         setTexture();
         //setBuilding();
-        GameMenu.controller.getMapPane().getChildren().add(texture);
+        if (changeAble){
+            EditMapMenu.controller.getMapPane().getChildren().add(this);
+            EditMapMenu.controller.getMapPane().getChildren().add(texture);
+
+        }
+        else {
+            GameMenu.controller.getMapPane().getChildren().add(this);
+            GameMenu.controller.getMapPane().getChildren().add(texture);
+
+        }
 
         //Game.pane.getChildren().add(building);
 
         setMouseEvents(true);
     }
 
-    private void click() {
+    private void click() throws Exception {
         if (changeAble){
-            System.out.println("hi!");
-            if (!ChangeBlockMenu.stage.isShowing()){
-                ChangeBlockMenu.runChangeStage(this.block);
+            if (ChangeBlockMenu.stage == null){
+                ChangeBlockMenu.gBlock = this;
+                new ChangeBlockMenu().start(new Stage());
                 System.out.println(getX()+","+getY());
             }
         }
@@ -114,7 +125,13 @@ public class GBlock extends Rectangle {
         if (on){
             this.texture.setOnMouseEntered(event -> enter());
             this.texture.setOnMouseExited(event -> exit());
-            this.texture.setOnMouseClicked(event -> click());
+            this.texture.setOnMouseClicked(event -> {
+                try {
+                    click();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
         else {
             this.texture.setOnMouseEntered(null);
@@ -124,4 +141,7 @@ public class GBlock extends Rectangle {
     }
 
 
+    public Block getBlock() {
+        return block;
+    }
 }

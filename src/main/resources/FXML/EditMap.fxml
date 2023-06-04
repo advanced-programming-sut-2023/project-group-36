@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditMapController">
    <children>
       <ScrollPane layoutY="-1.0" prefHeight="355.0" prefWidth="426.0">
          <content>
             <Pane fx:id="mapPane" prefHeight="2500.0" prefWidth="2500.0" />
          </content>
       </ScrollPane>
-      <Button layoutX="148.0" layoutY="375.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="131.0" text="شروع بازی" />
-      <Button layoutX="328.0" layoutY="417.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="84.0" text="بازگشت" />
+      <Button onMouseClicked="#startGame" layoutX="148.0" layoutY="375.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="131.0" text="شروع بازی" />
+      <Button onMouseClicked="#back" layoutX="328.0" layoutY="417.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="84.0" text="بازگشت" />
    </children>
 </Pane>

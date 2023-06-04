@@ -7,16 +7,10 @@ import java.util.ArrayList;
 
 public class ApplicationManager {
     private static ArrayList<User> users = new ArrayList<>();
-    private static ArrayList<Game> games = new ArrayList<>();
-    private static ArrayList<Map> maps = new ArrayList<>();
-    private static Game currentGame;
     private static User currentUser;
     private static boolean stayLoggedIn;
 
 
-    public void setCurrentGame(Game currentGame) {
-        this.currentGame = currentGame;
-    }
 
     public ArrayList<User> getUsers() {
         return users;
@@ -59,15 +53,6 @@ public class ApplicationManager {
         save();
     }
 
-    public static void addMap(Map map) {
-        maps.add(map);
-        save();
-    }
-
-    public static void addGame(Game game){
-        games.add(game);
-        // save();
-    }
     public static int getRank(User user) {
         if (users.size() == 0)
             return 0;
@@ -106,13 +91,6 @@ public class ApplicationManager {
     public static void logout(){
         currentUser = null;
         stayLoggedIn = false;
-    }
-    public static void setGamesList(ArrayList<Game> games) {
-        ApplicationManager.games = games;
-    }
-
-    public static void setMapsList(ArrayList<Map> maps) {
-        ApplicationManager.maps = maps;
     }
 
     public static void setUsersList(ArrayList<User> users) {

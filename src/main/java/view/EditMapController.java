@@ -1,5 +1,8 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import model.Block;
 import model.GBlock;
 
@@ -10,6 +13,9 @@ public class EditMapController {
 
     private static ArrayList<Block> blocks;
     private static ArrayList<GBlock> gBlocks;
+
+    @FXML
+    private Pane mapPane = new Pane();
 
     public void menuInitialize() {
 
@@ -38,6 +44,18 @@ public class EditMapController {
             }
         }
         return null;
+    }
+
+    public Pane getMapPane() {
+        return mapPane;
+    }
+
+    public void back(MouseEvent mouseEvent) throws Exception {
+        new CreateNewGameMenu().start(EditMapMenu.stage);
+    }
+
+    public void startGame(MouseEvent mouseEvent) throws Exception {
+        new GameMenu().start(EditMapMenu.stage);
     }
 
 }

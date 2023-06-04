@@ -8,45 +8,45 @@
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="pane" prefHeight="467.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChangeBlockMenuController">
-    <Button layoutX="198.0" layoutY="405.0" onMouseClicked="#saveAndBack" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #f7ff00" text="بازگشت" />
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="59.0" layoutY="83.0" pickOnBounds="true" smooth="false">
+    <Button layoutX="198.0" layoutY="405.0" onMouseClicked="#Back" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #f7ff00" text="بازگشت" />
+   <ImageView onMouseClicked="#changeTexture" fx:id="Dirt" fitHeight="75.0" fitWidth="75.0" layoutX="59.0" layoutY="83.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Dirt.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="144.0" layoutY="83.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Boulder" fitHeight="75.0" fitWidth="75.0" layoutX="144.0" layoutY="83.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Boulder.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="232.0" layoutY="83.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Grass" fitHeight="75.0" fitWidth="75.0" layoutX="232.0" layoutY="83.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Grass.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="317.0" layoutY="83.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Gravel" fitHeight="75.0" fitWidth="75.0" layoutX="317.0" layoutY="83.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Gravel.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="61.0" layoutY="187.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Meadow" fitHeight="75.0" fitWidth="75.0" layoutX="61.0" layoutY="187.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Meadow.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="146.0" layoutY="187.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Stone" fitHeight="75.0" fitWidth="75.0" layoutX="146.0" layoutY="187.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Stone.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="232.0" layoutY="187.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Iron" fitHeight="75.0" fitWidth="75.0" layoutX="232.0" layoutY="187.0" pickOnBounds="true" smooth="false">
       <image>
          <Image url="@../images/textures/Iron.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="316.0" layoutY="187.0" pickOnBounds="true" smooth="false">
+   <ImageView onMouseClicked="#changeTexture" fx:id="Dense_Meadow" fitHeight="75.0" fitWidth="75.0" layoutX="316.0" layoutY="187.0" pickOnBounds="true" smooth="false">
       <image>
-         <Image url="@../images/textures/Dense%20Meadow.png" />
+         <Image url="@../images/textures/Dense Meadow.png" />
       </image>
    </ImageView>
    <Label layoutX="83.0" layoutY="164.0" text="Dirt" />
@@ -62,8 +62,8 @@
          <Font name="Titr Bold" size="18.0" />
       </font>
    </Label>
-   <Button layoutX="135.0" layoutY="358.0" onMouseClicked="#saveAndBack" prefHeight="39.0" prefWidth="222.0" style="-fx-background-color: #6178;" text="قرار دادن مقر اصلی حکومت در این مکان" />
-   <Button layoutX="199.0" layoutY="311.0" onMouseClicked="#saveAndBack" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #6178;" text="پاک کردن خانه" />
-   <Label layoutX="91.0" layoutY="369.0" text="یوزرنیم" />
+   <Button fx:id="setGovernment" layoutX="135.0" layoutY="358.0" onMouseClicked="#setGovernment" prefHeight="39.0" prefWidth="222.0" style="-fx-background-color: #6178;" text="قرار دادن مقر اصلی حکومت در این مکان" />
+   <Button layoutX="199.0" layoutY="311.0" onMouseClicked="#clear" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #6178;" text="پاک کردن جنس خانه" />
+   <Label fx:id="government" layoutX="91.0" layoutY="369.0" text="یوزرنیم" />
 
 </Pane>

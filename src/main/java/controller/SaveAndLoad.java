@@ -53,8 +53,6 @@ public class SaveAndLoad {
 
     public static void save(ArrayList<User> users,ArrayList<Map> maps,ArrayList<Game> games){
         SaveAndLoad.saveUsers(users);
-        //SaveAndLoad.saveGames(games);
-        //SaveAndLoad.saveMaps(maps);
     }
 
     public static void saveUsers(ArrayList<User> users) {
@@ -104,6 +102,7 @@ public class SaveAndLoad {
     }
 
 
+/*
     private static void loadMaps() {
         ArrayList<Map> maps;
         try (FileReader file = new FileReader(Address2)) {
@@ -132,5 +131,7 @@ public class SaveAndLoad {
             System.out.println("Error in loading information!\nThe Data may be deleted!");
         }
     }
+
+ */
 
 }

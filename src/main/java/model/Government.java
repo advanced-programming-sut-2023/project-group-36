@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 
 public class Government{
-    private final Structure centralCastle;
+    private Structure centralCastle;
     private final User owner;
     private ArrayList<People> peoples = new ArrayList<>();
 
@@ -37,11 +37,10 @@ public class Government{
     private ArrayList<People> selectedPeoples = new ArrayList<>();
 
 
-    public Government(User user, String color, Structure centralCastle){
+    public Government(User user, String color){
         this.owner = user;
         this.coins = 1000;
         this.color = color;
-        this.centralCastle = centralCastle;
         foodType = new String[]{"bread", "meat", "apple", "rice"};
         resources = new Resources();
         foodAmount = new int[]{10, 10, 10, 10};
@@ -371,6 +370,10 @@ public class Government{
                 return structure.getBuildingType();
         }
         return null;
+    }
+
+    public void setCentralCastle(Structure centralCastle) {
+        this.centralCastle = centralCastle;
     }
 
 

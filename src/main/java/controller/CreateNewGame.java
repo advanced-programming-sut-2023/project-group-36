@@ -1,28 +1,30 @@
 package controller;
 import model.ApplicationManager;
+import model.Government;
 import model.User;
 import java.util.ArrayList;
 
 public class CreateNewGame {
-    public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Government> governments = new ArrayList<>();
 
 
-    public static String addUser(String username) {
+    public static String addUser(String username, String color) {
         if (ApplicationManager.getUserByUsername(username)==null){
             return "Error: User not found!";
         }
         if (getUserByUsername(username)!=null){
             return "Error: User already has been added!";
         }
-        users.add(ApplicationManager.getUserByUsername(username));
+        Government government = new Government(ApplicationManager.getUserByUsername(username),color);
+        governments.add(government);
         return null;
     }
 
 
     private static User getUserByUsername(String username) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                return user;
+        for (Government government : governments) {
+            if (government.getOwner().getUsername().equals(username)) {
+                return government.getOwner();
             }
         }
         return null;
