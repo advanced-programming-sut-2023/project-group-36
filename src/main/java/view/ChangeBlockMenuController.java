@@ -22,6 +22,11 @@ public class ChangeBlockMenuController {
     public Label government;
 
     public void menuInitialize() {
+        if (EditMap.number==CreateNewGame.governments.size()){
+            setGovernment.setOnMouseClicked(null);
+            setGovernment.setStyle("-fx-fill: gray");
+            return;
+        }
         government.setText(CreateNewGame.governments.get(EditMap.number).getOwner().getUsername());
     }
 
@@ -35,14 +40,10 @@ public class ChangeBlockMenuController {
         GBlock gBlock = ChangeBlockMenu.gBlock;
         EditMap.setGovernment(gBlock.getBlock(), CreateNewGame.governments.get(EditMap.number));
         government.setText(CreateNewGame.governments.get(EditMap.number-1).getOwner().getUsername());
-        government.setText("");
-        if (EditMap.number==CreateNewGame.governments.size()){
-            setGovernment.setOnMouseClicked(null);
-        }
     }
 
     public void clear(MouseEvent mouseEvent) {
-        //ChangeBlockMenu.
+        EditMap.clear(ChangeBlockMenu.gBlock.getBlock());
     }
 
     public void changeTexture(MouseEvent mouseEvent) {

@@ -1,4 +1,5 @@
 package view;
+import controller.EditMap;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -6,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SkinBase;
 import javafx.scene.layout.Pane;
 import model.Block;
+import model.CurrentGovernmentBox;
 import model.GBlock;
 
 import java.util.ArrayList;
@@ -13,24 +15,18 @@ import java.util.ArrayList;
 public class GameMenuController {
 
 
-    private static ArrayList<Block> blocks;
     private static ArrayList<GBlock> gBlocks;
-    @FXML
-    private  Pane pane = new Pane();
+    public Pane pane;
     @FXML
     private Pane mapPane = new Pane();
 
 
+
     public void gameInitialize(){
 
-        blocks = new ArrayList<>();
         gBlocks = new ArrayList<>();
 
-        for (int i = 1; i <= 50; i++) {
-            for (int j = 1; j <= 50; j++) {
-                blocks.add(new Block(i,j));
-            }
-        }
+        CurrentGovernmentBox currentGovernmentBox = new CurrentGovernmentBox(700,100,pane);
 
 
         for (int i = 1; i <= 50; i++) {
@@ -42,11 +38,10 @@ public class GameMenuController {
 
 
 
-
     }
 
     public static Block getBlockByPosition ( int x, int y){
-        for (Block block : blocks) {
+        for (Block block : EditMap.blocks) {
             if (block.getX() == x && block.getY() == y) {
                 return block;
             }

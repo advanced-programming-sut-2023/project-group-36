@@ -1,5 +1,6 @@
 package view;
 
+import controller.EditMap;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 public class EditMapController {
 
 
-    private static ArrayList<Block> blocks;
     private static ArrayList<GBlock> gBlocks;
 
     @FXML
@@ -19,15 +19,8 @@ public class EditMapController {
 
     public void menuInitialize() {
 
-        blocks = new ArrayList<>();
+        EditMap.setMap();
         gBlocks = new ArrayList<>();
-
-        for (int i = 1; i <= 50; i++) {
-            for (int j = 1; j <= 50; j++) {
-                blocks.add(new Block(i,j));
-            }
-        }
-
 
         for (int i = 1; i <= 50; i++) {
             for (int j = 1; j <= 50; j++) {
@@ -38,7 +31,7 @@ public class EditMapController {
     }
 
     public static Block getBlockByPosition ( int x, int y){
-        for (Block block : blocks) {
+        for (Block block : EditMap.blocks) {
             if (block.getX() == x && block.getY() == y) {
                 return block;
             }
@@ -52,6 +45,7 @@ public class EditMapController {
 
     public void back(MouseEvent mouseEvent) throws Exception {
         new CreateNewGameMenu().start(EditMapMenu.stage);
+        EditMap.blocks = new ArrayList<>();
     }
 
     public void startGame(MouseEvent mouseEvent) throws Exception {

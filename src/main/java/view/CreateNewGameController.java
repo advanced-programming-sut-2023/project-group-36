@@ -20,6 +20,10 @@ public class CreateNewGameController {
     }
 
     public void create(MouseEvent mouseEvent) throws Exception {
+        if (CreateNewGame.governments.size()<2){
+            message.setText("Please choose least 2 player!");
+            return;
+        }
         new EditMapMenu().start(CreateNewGameMenu.stage);
     }
 

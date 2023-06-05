@@ -613,4 +613,8 @@ public class GameController {
     public static void endGame() {
 
     }
+
+    public static void setCurrentGovernment(Government currentGovernment) {
+        GameController.currentGovernment = currentGovernment;
+    }
 }

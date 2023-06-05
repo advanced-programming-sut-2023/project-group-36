@@ -17,6 +17,9 @@ public class CreateNewGame {
         }
         Government government = new Government(ApplicationManager.getUserByUsername(username),color);
         governments.add(government);
+        if (governments.size()==1){
+            GameController.setCurrentGovernment(government);
+        }
         return null;
     }
 

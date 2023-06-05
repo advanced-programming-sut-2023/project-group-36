@@ -16,6 +16,6 @@
             <Font size="20.0" />
          </font></Label>
       <Button layoutX="468.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" text="بازگشت" />
-      <Label fx:id="message" alignment="CENTER" layoutX="205.0" layoutY="128.0" prefHeight="17.0" prefWidth="191.0" text="خطا: نام کاربری یافت نشد/ موفق یا..." />
+      <Label fx:id="message" alignment="CENTER" layoutX="205.0" layoutY="128.0" prefHeight="17.0" prefWidth="250.0" text="خطا: نام کاربری یافت نشد/ موفق یا..." />
    </children>
 </Pane>
