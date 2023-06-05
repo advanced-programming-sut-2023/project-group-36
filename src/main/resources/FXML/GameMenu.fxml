@@ -18,6 +18,9 @@
       <Button layoutX="700.0" layoutY="534.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="فروشگاه" />
       <Button layoutX="700.0" layoutY="567.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="تجارت" />
       <Pane layoutX="700.0" layoutY="35.0" prefHeight="468.0" prefWidth="100.0" style="-fx-background-color: green;" />
+      <Button layoutX="700.0" layoutY="567.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="تجارت" />
+      <Button layoutX="720.0" layoutY="120.0" mnemonicParsing="false" text="دور بعد" onMouseClicked="#nextTurn"/>
+
       <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" layoutX="770.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/close.png" />

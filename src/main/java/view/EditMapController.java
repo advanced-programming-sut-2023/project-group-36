@@ -1,7 +1,9 @@
 package view;
 
+import controller.CreateNewGame;
 import controller.EditMap;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.Block;
@@ -19,7 +21,6 @@ public class EditMapController {
 
     public void menuInitialize() {
 
-        EditMap.setMap();
         gBlocks = new ArrayList<>();
 
         for (int i = 1; i <= 50; i++) {
@@ -49,6 +50,11 @@ public class EditMapController {
     }
 
     public void startGame(MouseEvent mouseEvent) throws Exception {
+        if (EditMap.number< CreateNewGame.governments.size()){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"کجا با این عجله؟!");
+            alert.showAndWait();
+            return;
+        }
         new GameMenu().start(EditMapMenu.stage);
     }
 

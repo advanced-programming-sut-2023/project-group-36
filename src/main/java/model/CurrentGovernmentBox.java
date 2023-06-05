@@ -25,6 +25,7 @@ public class CurrentGovernmentBox extends Rectangle {
     }
 
     public void nextGovernment(){
+        System.out.println(GameController.currentGovernment.getOwner().getUsername());
         username.setText(GameController.currentGovernment.getOwner().getUsername());
     }
 

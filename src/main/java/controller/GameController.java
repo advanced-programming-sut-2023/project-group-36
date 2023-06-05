@@ -1,10 +1,11 @@
 package controller;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import model.*;
 import model.Buildings.BuildingType;
 import model.Buildings.Structure;
 import model.Peoples.*;
-import view.EditMapMenu;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -596,10 +597,11 @@ public class GameController {
     }
 
 
-    public static void nextTurn() {
+    public static EventHandler<? super MouseEvent> nextTurn() {
         game.nextTurn();
         currentStructure = null;
         System.out.println(currentGovernment.getOwner().getUsername()+" playing!");
+        return null;
     }
 
 

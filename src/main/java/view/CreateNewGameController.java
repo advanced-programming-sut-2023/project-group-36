@@ -1,10 +1,13 @@
 package view;
 
 import controller.CreateNewGame;
+import controller.EditMap;
+import controller.GameController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.Game;
 
 public class CreateNewGameController {
     public TextField username;
@@ -24,6 +27,9 @@ public class CreateNewGameController {
             message.setText("Please choose least 2 player!");
             return;
         }
+        EditMap.setMap();
+        Game game = new Game(EditMap.map,CreateNewGame.governments);
+        GameController.setGame(game);
         new EditMapMenu().start(CreateNewGameMenu.stage);
     }
 

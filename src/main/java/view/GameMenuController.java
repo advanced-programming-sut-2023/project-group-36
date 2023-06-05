@@ -1,10 +1,12 @@
 package view;
 import controller.EditMap;
+import controller.GameController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.SkinBase;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.Block;
 import model.CurrentGovernmentBox;
@@ -20,14 +22,15 @@ public class GameMenuController {
     @FXML
     private Pane mapPane = new Pane();
 
+    private CurrentGovernmentBox currentGovernmentBox;
+
 
 
     public void gameInitialize(){
 
         gBlocks = new ArrayList<>();
 
-        CurrentGovernmentBox currentGovernmentBox = new CurrentGovernmentBox(700,100,pane);
-
+        currentGovernmentBox = new CurrentGovernmentBox(700,40,pane);
 
         for (int i = 1; i <= 50; i++) {
             for (int j = 1; j <= 50; j++) {
@@ -52,5 +55,11 @@ public class GameMenuController {
 
     public Pane getMapPane() {
         return mapPane;
+    }
+
+    public void nextTurn(MouseEvent mouseEvent) {
+        System.out.println("hi");
+        GameController.nextTurn();
+        currentGovernmentBox.nextGovernment();
     }
 }

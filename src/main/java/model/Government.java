@@ -250,7 +250,7 @@ public class Government{
     //religion
     private void checkTheReligionFactor() {
         for (Block block : GameController.getGame().getMap().getBlocks()) {
-            if (block.getThisBlockStructure()==null){
+            if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getBuildingType()==null){
                 continue;
             }
             if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")) {

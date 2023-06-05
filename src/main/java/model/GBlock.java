@@ -18,6 +18,8 @@ public class GBlock extends Rectangle {
     private ImageView building = new ImageView();
     private Label label;
 
+    public Rectangle information;
+
     public static Image Iron = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png");
     public static Image Grass = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png");
     public static Image Gravel = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png");
@@ -34,9 +36,16 @@ public class GBlock extends Rectangle {
         this.block = block;
         this.setX(50*(block.getX()-1));
         this.setY(50*(block.getY()-1));
-        this.setFill(Color.BLUE);
+        this.setFill(Color.rgb(100,80,60));
         this.changeAble = changeAble;
         setTexture();
+
+        information = new Rectangle(130,70);
+        information.setFill(Color.BROWN);
+        information.setX(this.getX()+50);
+        information.setY(this.getY()-50);
+
+
         //setBuilding();
         if (changeAble){
             EditMapMenu.controller.getMapPane().getChildren().add(this);
@@ -51,7 +60,7 @@ public class GBlock extends Rectangle {
 
         //Game.pane.getChildren().add(building);
 
-        setMouseEvents(true);
+        setMouseEvents(changeAble);
     }
 
     private void click() throws Exception {
@@ -66,14 +75,6 @@ public class GBlock extends Rectangle {
             this.setFill(Color.YELLOW);
             image();
         }
-    }
-
-    public void enter(){
-        this.setFill(Color.GREEN);
-    }
-
-    public void exit(){
-        this.setFill(Color.BLUE);
     }
 
     public void image(){
@@ -105,10 +106,10 @@ public class GBlock extends Rectangle {
             case "Stone" -> texture.setImage(GBlock.Stone);
             default -> texture.setImage(GBlock.Boulder);
         }
-        texture.setX(this.getX());
-        texture.setY(this.getY());
-        texture.setFitWidth(50);
-        texture.setFitHeight(50);
+        texture.setX(this.getX()+1);
+        texture.setY(this.getY()+1);
+        texture.setFitWidth(48);
+        texture.setFitHeight(48);
     }
 
     public void update(){
@@ -123,8 +124,6 @@ public class GBlock extends Rectangle {
 
     public void setMouseEvents(Boolean on){
         if (on){
-            this.texture.setOnMouseEntered(event -> enter());
-            this.texture.setOnMouseExited(event -> exit());
             this.texture.setOnMouseClicked(event -> {
                 try {
                     click();
@@ -134,9 +133,10 @@ public class GBlock extends Rectangle {
             });
         }
         else {
-            this.texture.setOnMouseEntered(null);
-            this.texture.setOnMouseExited(null);
             this.texture.setOnMouseClicked(null);
+            this.texture.setOnMouseEntered(event -> showInformation());
+            this.texture.setOnMouseExited(event -> unShowInformation());
+
         }
     }
 
@@ -144,4 +144,14 @@ public class GBlock extends Rectangle {
     public Block getBlock() {
         return block;
     }
+
+
+    public void showInformation(){
+        GameMenu.controller.getMapPane().getChildren().add(information);
+    }
+
+    public void unShowInformation(){
+        GameMenu.controller.getMapPane().getChildren().remove(information);
+    }
+
 }

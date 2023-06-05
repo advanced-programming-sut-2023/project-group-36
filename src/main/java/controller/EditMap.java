@@ -10,15 +10,12 @@ public class EditMap {
     public static Map map;
     public static int number;
 
-    public static ArrayList<Block> blocks = new ArrayList<>();
+    public static ArrayList<Block> blocks;
 
 
     public static void setMap() {
-        for (int i = 1; i <= 50; i++) {
-            for (int j = 1; j <= 50; j++) {
-                blocks.add(new Block(i,j));
-            }
-        }
+        map = new Map(50);
+        blocks = map.getBlocks();
     }
 
     public static String setGovernment(Block block, Government government) {
