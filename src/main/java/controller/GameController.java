@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 
 public class GameController {
 
+    public static String inDropBuilding = null;
     private static Game game;
     public static Government currentGovernment;
     static int x,y;
