@@ -135,6 +135,55 @@ public class GovernmentMenu extends Application {
             pane.getChildren().add(taxButton);
         }
 
+        {
+            Label fearLabel = new Label();
+            fearLabel.setLayoutX(153);
+            fearLabel.setLayoutY(368);
+            fearLabel.setText("Fear");
+            pane.getChildren().add(fearLabel);
+
+            Image fearImage;
+            ImageView fearImageView;
+
+            if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() < 0) {
+                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImageView = new ImageView(fearImage);
+                fearImageView.setFitWidth(20);
+                fearImageView.setFitHeight(20);
+//                taxImageView.setStyle("-fx-background-color: green;");
+            } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() > 0) {
+                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImageView = new ImageView(fearImage);
+                fearImageView.setFitWidth(20);
+                fearImageView.setFitHeight(20);
+            } else {
+                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImageView = new ImageView(fearImage);
+                fearImageView.setFitWidth(20);
+                fearImageView.setFitHeight(20);
+            }
+
+            fearImageView.setLayoutX(132);
+            fearImageView.setLayoutY(368);
+            pane.getChildren().add(fearImageView);
+
+            Button fearButton = new Button();
+            fearButton.setText("1");
+            fearButton.setOnMouseClicked(e -> {
+                int tmp = Integer.parseInt(fearButton.getText())+1;
+                if (tmp > 5) {
+                    tmp = tmp % 5 - 6;
+                    // set image
+                }
+                // set image
+                fearButton.setText(String.valueOf(tmp));
+            });
+            fearButton.setLayoutX(104);
+            fearButton.setLayoutY(364);
+            pane.getChildren().add(fearButton);
+
+        }
+
 
 
 
