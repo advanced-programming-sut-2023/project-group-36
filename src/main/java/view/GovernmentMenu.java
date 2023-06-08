@@ -78,7 +78,46 @@ public class GovernmentMenu extends Application {
                     newFeedRate = newFeedRate % 2 - 3;
                     //set image
                 }
-                //set image
+                if (newFeedRate < 0) {
+                    Image image;
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(20);
+                    imageView.setFitHeight(20);
+                    imageView.setLayoutX(132);
+                    imageView.setLayoutY(328);
+                    pane.getChildren().add(imageView);
+                } else if (newFeedRate > 0) {
+                    Image image;
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(20);
+                    imageView.setFitHeight(20);
+                    imageView.setLayoutX(132);
+                    imageView.setLayoutY(328);
+                    pane.getChildren().add(imageView);
+                } else {
+                    Image image;
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(20);
+                    imageView.setFitHeight(20);
+                    imageView.setLayoutX(132);
+                    imageView.setLayoutY(328);
+                    pane.getChildren().add(imageView);
+                }
                 feedButton.setText(String.valueOf(newFeedRate));
                 ApplicationManager.getCurrentGame().getCurrentGovernment().setFeedRate(newFeedRate);
             });
