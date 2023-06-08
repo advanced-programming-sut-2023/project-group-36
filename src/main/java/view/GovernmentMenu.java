@@ -120,19 +120,15 @@ public class GovernmentMenu extends Application {
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() < 0) {
                 taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
-                taxImageView.setFitWidth(20);
-                taxImageView.setFitHeight(20);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() > 0) {
                 taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
-                taxImageView.setFitWidth(20);
-                taxImageView.setFitHeight(20);
             } else {
                 taxImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
-                taxImageView.setFitWidth(20);
-                taxImageView.setFitHeight(20);
             }
+            taxImageView.setFitWidth(20);
+            taxImageView.setFitHeight(20);
             taxImageView.setLayoutX(301);
             taxImageView.setLayoutY(328);
             pane.getChildren().add(taxImageView);
@@ -146,6 +142,32 @@ public class GovernmentMenu extends Application {
                     //set image
                 }
                 //set image
+                Image image;
+                if (newTaxRate < 0) {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else if (newTaxRate > 0) {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                ImageView imageView = new ImageView(image);
+                taxImageView.setFitWidth(20);
+                taxImageView.setFitHeight(20);
+                taxImageView.setLayoutX(301);
+                taxImageView.setLayoutY(328);
+                pane.getChildren().add(imageView);
                 taxButton.setText(String.valueOf(newTaxRate));
             });
             taxButton.setLayoutX(274);
@@ -242,14 +264,12 @@ public class GovernmentMenu extends Application {
             if (religionFactor > 0) {
                 religionImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
                 religionImageView = new ImageView(religionImage);
-                religionImageView.setFitWidth(20);
-                religionImageView.setFitHeight(20);
             } else {
                 religionImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                 religionImageView = new ImageView(religionImage);
-                religionImageView.setFitWidth(20);
-                religionImageView.setFitHeight(20);
             }
+            religionImageView.setFitWidth(20);
+            religionImageView.setFitHeight(20);
             religionImageView.setLayoutX(301);
             religionImageView.setLayoutY(368);
             pane.getChildren().add(religionImageView);
