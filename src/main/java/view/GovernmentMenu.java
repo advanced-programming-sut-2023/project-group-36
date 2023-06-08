@@ -70,29 +70,7 @@ public class GovernmentMenu extends Application {
                     newFeedRate = newFeedRate % 2 - 3;
                 }
                 //set image
-                Image image;
-                if (newFeedRate < 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else if (newFeedRate > 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                ImageView imageView = new ImageView(image);
-                imageView.setFitWidth(20);
-                imageView.setFitHeight(20);
+                ImageView imageView = updateImage(newFeedRate);
                 imageView.setLayoutX(132);
                 imageView.setLayoutY(328);
                 pane.getChildren().add(imageView);
@@ -142,32 +120,10 @@ public class GovernmentMenu extends Application {
                     //set image
                 }
                 //set image
-                Image image;
-                if (newTaxRate < 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else if (newTaxRate > 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                ImageView imageView = new ImageView(image);
-                taxImageView.setFitWidth(20);
-                taxImageView.setFitHeight(20);
-                taxImageView.setLayoutX(301);
-                taxImageView.setLayoutY(328);
-                pane.getChildren().add(imageView);
+                ImageView newimageView = updateImage(newTaxRate);
+                newimageView.setLayoutX(301);
+                newimageView.setLayoutY(328);
+                pane.getChildren().add(newimageView);
                 taxButton.setText(String.valueOf(newTaxRate));
             });
             taxButton.setLayoutX(274);
@@ -210,32 +166,10 @@ public class GovernmentMenu extends Application {
                     newfearRate = newfearRate % 5 - 6;
                 }
                 // set image
-                Image image;
-                if (newfearRate < 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else if (newfearRate > 0) {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                } else {
-                    try {
-                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
-                ImageView imageView = new ImageView(image);
-                fearImageView.setFitWidth(20);
-                fearImageView.setFitHeight(20);
-                fearImageView.setLayoutX(132);
-                fearImageView.setLayoutY(368);
-                pane.getChildren().add(imageView);
+                ImageView newImageView = updateImage(newfearRate);
+                newImageView.setLayoutX(132);
+                newImageView.setLayoutY(368);
+                pane.getChildren().add(newImageView);
                 fearButton.setText(String.valueOf(newfearRate));
             });
             fearButton.setLayoutX(104);
@@ -281,5 +215,32 @@ public class GovernmentMenu extends Application {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    private ImageView updateImage(int newRate) {
+        Image image;
+        if (newRate < 0) {
+            try {
+                image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        } else if (newRate > 0) {
+            try {
+                image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        } else {
+            try {
+                image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        ImageView newImageView = new ImageView(image);
+        newImageView.setFitWidth(20);
+        newImageView.setFitHeight(20);
+        return newImageView;
     }
 }
