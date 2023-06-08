@@ -17,7 +17,6 @@ import model.Block;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class GovernmentMenu extends Application {
 
@@ -51,22 +50,15 @@ public class GovernmentMenu extends Application {
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() < 0) {
                 feedImage = (new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream()));
                 feedImageView = new ImageView(feedImage);
-                feedImageView.setFitWidth(20);
-                feedImageView.setFitHeight(20);
-//                feedImageView.setStyle("-fx-background-color: red;");
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() > 0) {
                 feedImage = (new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream()));
                 feedImageView = new ImageView(feedImage);
-                feedImageView.setFitWidth(20);
-                feedImageView.setFitHeight(20);
-//                feedImageView.setStyle("-fx-background-color: green;");
             } else {
                 feedImage = (new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream()));
                 feedImageView = new ImageView(feedImage);
-                feedImageView.setFitWidth(20);
-                feedImageView.setFitHeight(20);
-//                feedImageView.setStyle("-fx-background-color: yellow;");
-            }
+}
+            feedImageView.setFitWidth(20);
+            feedImageView.setFitHeight(20);
             feedImageView.setLayoutX(132);
             feedImageView.setLayoutY(328);
 
@@ -76,48 +68,34 @@ public class GovernmentMenu extends Application {
                 int newFeedRate = Integer.parseInt(feedButton.getText()) + 1;
                 if (newFeedRate > 2) {
                     newFeedRate = newFeedRate % 2 - 3;
-                    //set image
                 }
+                //set image
+                Image image;
                 if (newFeedRate < 0) {
-                    Image image;
                     try {
                         image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                    ImageView imageView = new ImageView(image);
-                    imageView.setFitWidth(20);
-                    imageView.setFitHeight(20);
-                    imageView.setLayoutX(132);
-                    imageView.setLayoutY(328);
-                    pane.getChildren().add(imageView);
                 } else if (newFeedRate > 0) {
-                    Image image;
                     try {
                         image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                    ImageView imageView = new ImageView(image);
-                    imageView.setFitWidth(20);
-                    imageView.setFitHeight(20);
-                    imageView.setLayoutX(132);
-                    imageView.setLayoutY(328);
-                    pane.getChildren().add(imageView);
                 } else {
-                    Image image;
                     try {
                         image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
-                    ImageView imageView = new ImageView(image);
-                    imageView.setFitWidth(20);
-                    imageView.setFitHeight(20);
-                    imageView.setLayoutX(132);
-                    imageView.setLayoutY(328);
-                    pane.getChildren().add(imageView);
                 }
+                ImageView imageView = new ImageView(image);
+                imageView.setFitWidth(20);
+                imageView.setFitHeight(20);
+                imageView.setLayoutX(132);
+                imageView.setLayoutY(328);
+                pane.getChildren().add(imageView);
                 feedButton.setText(String.valueOf(newFeedRate));
                 ApplicationManager.getCurrentGame().getCurrentGovernment().setFeedRate(newFeedRate);
             });
@@ -144,7 +122,6 @@ public class GovernmentMenu extends Application {
                 taxImageView = new ImageView(taxImage);
                 taxImageView.setFitWidth(20);
                 taxImageView.setFitHeight(20);
-//                taxImageView.setStyle("-fx-background-color: green;");
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() > 0) {
                 taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
