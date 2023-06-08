@@ -1,5 +1,6 @@
 package view;
 
+import controller.GameController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import model.ApplicationManager;
+import model.Block;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -99,7 +101,7 @@ public class GovernmentMenu extends Application {
             ImageView taxImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() < 0) {
-                taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
                 taxImageView.setFitWidth(20);
                 taxImageView.setFitHeight(20);
@@ -110,7 +112,7 @@ public class GovernmentMenu extends Application {
                 taxImageView.setFitWidth(20);
                 taxImageView.setFitHeight(20);
             } else {
-                taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                taxImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                 taxImageView = new ImageView(taxImage);
                 taxImageView.setFitWidth(20);
                 taxImageView.setFitHeight(20);
@@ -146,7 +148,7 @@ public class GovernmentMenu extends Application {
             ImageView fearImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() < 0) {
-                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
                 fearImageView = new ImageView(fearImage);
                 fearImageView.setFitWidth(20);
                 fearImageView.setFitHeight(20);
@@ -157,7 +159,7 @@ public class GovernmentMenu extends Application {
                 fearImageView.setFitWidth(20);
                 fearImageView.setFitHeight(20);
             } else {
-                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                 fearImageView = new ImageView(fearImage);
                 fearImageView.setFitWidth(20);
                 fearImageView.setFitHeight(20);
@@ -184,6 +186,38 @@ public class GovernmentMenu extends Application {
 
         }
 
+        {
+            Label religionLabel = new Label();
+            religionLabel.setLayoutX(323);
+            religionLabel.setLayoutY(368);
+            religionLabel.setText("Religion");
+            pane.getChildren().add(religionLabel);
+
+            Image religionImage;
+            ImageView religionImageView;
+
+            int religionFactor = 0;
+            for (Block block : GameController.getGame().getMap().getBlocks()) {
+                if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")){
+                    religionFactor ++;
+                }
+            }
+
+            if (religionFactor > 0) {
+                religionImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                religionImageView = new ImageView(religionImage);
+                religionImageView.setFitWidth(20);
+                religionImageView.setFitHeight(20);
+            } else {
+                religionImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                religionImageView = new ImageView(religionImage);
+                religionImageView.setFitWidth(20);
+                religionImageView.setFitHeight(20);
+            }
+            religionImageView.setLayoutX(301);
+            religionImageView.setLayoutY(368);
+            pane.getChildren().add(religionImageView);
+        }
 
 
 
