@@ -166,21 +166,16 @@ public class GovernmentMenu extends Application {
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() < 0) {
                 fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
                 fearImageView = new ImageView(fearImage);
-                fearImageView.setFitWidth(20);
-                fearImageView.setFitHeight(20);
-//                taxImageView.setStyle("-fx-background-color: green;");
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() > 0) {
                 fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
                 fearImageView = new ImageView(fearImage);
-                fearImageView.setFitWidth(20);
-                fearImageView.setFitHeight(20);
             } else {
                 fearImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
                 fearImageView = new ImageView(fearImage);
-                fearImageView.setFitWidth(20);
-                fearImageView.setFitHeight(20);
             }
 
+            fearImageView.setFitWidth(20);
+            fearImageView.setFitHeight(20);
             fearImageView.setLayoutX(132);
             fearImageView.setLayoutY(368);
             pane.getChildren().add(fearImageView);
@@ -188,13 +183,38 @@ public class GovernmentMenu extends Application {
             Button fearButton = new Button();
             fearButton.setText("1");
             fearButton.setOnMouseClicked(e -> {
-                int tmp = Integer.parseInt(fearButton.getText())+1;
-                if (tmp > 5) {
-                    tmp = tmp % 5 - 6;
-                    // set image
+                int newfearRate = Integer.parseInt(fearButton.getText())+1;
+                if (newfearRate > 5) {
+                    newfearRate = newfearRate % 5 - 6;
                 }
                 // set image
-                fearButton.setText(String.valueOf(tmp));
+                Image image;
+                if (newfearRate < 0) {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else if (newfearRate > 0) {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else {
+                    try {
+                        image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                ImageView imageView = new ImageView(image);
+                fearImageView.setFitWidth(20);
+                fearImageView.setFitHeight(20);
+                fearImageView.setLayoutX(132);
+                fearImageView.setLayoutY(368);
+                pane.getChildren().add(imageView);
+                fearButton.setText(String.valueOf(newfearRate));
             });
             fearButton.setLayoutX(104);
             fearButton.setLayoutY(364);
