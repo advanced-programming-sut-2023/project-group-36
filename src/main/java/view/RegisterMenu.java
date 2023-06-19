@@ -75,6 +75,8 @@ public class RegisterMenu extends Application {
         slogan.setTextFill(Color.WHITE);
         TextField sloganText=new TextField();
         Register.getChildren().addAll(username,passwordField,email,nickname,slogan);
+        Register.getChildren().add(sloganText);
+        sloganText.setVisible(false);
         Label usernameCheck=new Label("Short Username");
         Label passwordCheck=new Label("Short Password");
         Label emailCheck=new Label("Invalid Email");
@@ -170,13 +172,10 @@ public class RegisterMenu extends Application {
         });
         slogan.setOnMouseClicked(mouseEvent -> {
             if(!slogan.isSelected()){
-                slogan.setSelected(true);
-                Register.getChildren().remove(sloganText);
+                sloganText.setVisible(false);
             }
             else{
-                slogan.setSelected(false);
-
-                Register.getChildren().add(sloganText);
+                sloganText.setVisible(true);
             }
         });
         backIcon.setOnMouseClicked(mouseEvent -> {
