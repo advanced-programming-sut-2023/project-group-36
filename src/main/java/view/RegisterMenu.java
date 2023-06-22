@@ -1,20 +1,28 @@
 package view;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.ApplicationManager;
 
 public class RegisterMenu extends Application {
     private boolean truePass,trueUsername,trueEmail,trueNick;
+    private CaptchaMenu captchaMenu=new CaptchaMenu();
+    public static Timeline timeline;
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane=new Pane();
@@ -32,6 +40,11 @@ public class RegisterMenu extends Application {
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));
+        Button RegisterButton=new Button("Register");
+        RegisterButton.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
+        RegisterButton.setBackground(Background.fill(Color.TRANSPARENT));
+        RegisterButton.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
+        RegisterButton.setStyle("-fx-text-fill: white;");
         VBox Register=new VBox();
         Register.setAlignment(Pos.TOP_CENTER);
         Register.setLayoutX(100);
@@ -74,9 +87,10 @@ public class RegisterMenu extends Application {
         slogan.setText("I want to a slogan");
         slogan.setTextFill(Color.WHITE);
         TextField sloganText=new TextField();
-        Register.getChildren().addAll(username,passwordField,email,nickname,slogan);
-        Register.getChildren().add(sloganText);
+        Register.getChildren().addAll(username,passwordField,email,nickname,slogan,sloganText,RegisterButton);
         sloganText.setVisible(false);
+        sloganText.setMaxWidth(200);
+        sloganText.setMaxHeight(200);
         Label usernameCheck=new Label("Short Username");
         Label passwordCheck=new Label("Short Password");
         Label emailCheck=new Label("Invalid Email");
@@ -108,7 +122,7 @@ public class RegisterMenu extends Application {
                 trueUsername=false;
 
             }
-            else if(username.getText().matches(".*[@#%&*\\^$!].*")){
+            else if(username.getText().matches(".*[@#%&*\\^$!]+.*")){
                 usernameCheck.setTextFill(Color.YELLOW);
                 usernameCheck.setText("Invalid format");
                 trueUsername=false;
@@ -133,7 +147,7 @@ public class RegisterMenu extends Application {
                 truePass=false;
 
             }
-            else if(!passwordField.getText().matches(".*[@#%&*-\\^$!].*")){
+            else if(!passwordField.getText().matches(".*[@#%&*-\\^$!]+.*")){
                 passwordCheck.setTextFill(Color.YELLOW);
                 passwordCheck.setText("Weak format");
                 truePass=false;
@@ -186,14 +200,48 @@ public class RegisterMenu extends Application {
             }
         });
 
+    RegisterButton.setOnMouseClicked(mouseEvent -> {
+        if(trueNick && truePass && trueEmail && trueUsername){
+            try {
+                captchaMenu.start(new Stage());
+            } catch (Exception e) {
+                System.out.println("error in loading register captcha");
+                throw new RuntimeException(e);
+            }
+        }
+        else{
+            RegisterButton.setText("Error");
+            new Timeline(new KeyFrame(Duration.seconds(1),actionEvent -> {})).play();
+            RegisterButton.setText("Register");
+        }
+    });
 
+        timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
+            if(username.getText().length()==0)
+                usernameCheck.setText("");
+            if(passwordField.getText().length()==0)
+                passwordCheck.setText("");
+            if(email.getText().length()==0)
+                emailCheck.setText("");
+            if(nickname.getText().length()==0)
+                nickCheck.setText("");
+            if(captchaMenu.getCanPass()) {
+                try {
+                    captchaMenu.setCanPass(false);
+                    stage.close();
+                    new MainMenu().start(new Stage());
+                } catch (Exception e) {
+                    System.out.println("error in loading main menu");
+                    throw new RuntimeException(e);
+                }
 
+            }
 
-
-
-
-
+        }));
+        timeline.setCycleCount(-1);
+        timeline.play();
         pane.getChildren().add(Register);
         stage.show();
     }
+
 }

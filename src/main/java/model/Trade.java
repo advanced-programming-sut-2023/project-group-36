@@ -56,4 +56,16 @@ public class Trade {
         }
         System.out.println();
     }
+
+    public Government getRequester() {
+        return requester;
+    }
+
+    public Government getRequested() {
+        return requested;
+    }
+
+    public boolean isAccepted() {
+        return IsAccepted;
+    }
 }
