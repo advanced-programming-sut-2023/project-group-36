@@ -1,11 +1,13 @@
 package model;
 
+import javafx.application.Application;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class TradeMessage {
+public class TradeMessage extends Application {
     private String message;
     private Government sender;
     private Government receiver;
@@ -48,4 +50,15 @@ public class TradeMessage {
         resualt.getChildren().add(acceptButton);
         return resualt;
     }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        acceptButton.setOnMouseClicked(mouseEvent -> {
+            acceptButton.setText("okay");
+            System.out.println("yes");
+        });
+    }
+
+
+
 }

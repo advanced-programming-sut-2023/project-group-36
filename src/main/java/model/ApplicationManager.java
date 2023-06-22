@@ -8,11 +8,12 @@ import java.util.ArrayList;
 public class ApplicationManager {
     private static ArrayList<User> users = new ArrayList<>();
     private static User currentUser;
+    private static Game currentGame;
     private static boolean stayLoggedIn;
 
 
 
-    public ArrayList<User> getUsers() {
+    public static ArrayList<User> getUsers() {
         return users;
     }
 
@@ -27,7 +28,7 @@ public class ApplicationManager {
     }
 
     public static Game getCurrentGame() {
-        return getCurrentGame();
+        return currentGame;
     }
     public static User getUserByUsername(String username){
         for (User user : users) {
@@ -110,5 +111,6 @@ public class ApplicationManager {
     public static void save(){
 
     }
+
 
 }
