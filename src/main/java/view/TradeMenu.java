@@ -4,11 +4,15 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.*;
@@ -17,10 +21,12 @@ public class TradeMenu extends Application {
     VBox NewRequest=new VBox();
     VBox History=new VBox();
     SplitMenuButton menu = new SplitMenuButton();
+
     Timeline timeline;
     @Override
     public void start(Stage stage) throws Exception {
         HBox pane=new HBox();
+        pane.setStyle("-fx-font-family: Arial; -fx-font-size: 16px");
         BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/LoginMenuBackground.jpg").openStream(),900,600,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
@@ -46,20 +52,32 @@ public class TradeMenu extends Application {
         menu.setText("Select User");
         menu.setMaxWidth(200);
         menu.setMnemonicParsing(true);
-        MenuItem item1 = new MenuItem("Telugu");
-        MenuItem item2 = new MenuItem("Hindi");
-        MenuItem item3 = new MenuItem("English");
-        MenuItem item4 = new MenuItem("Tamil");
-        MenuItem item5 = new MenuItem("Malayalam");
-        //Adding all the menu items to the menu
-        menu.getItems().addAll(item1, item2, item3, item4, item5);
         NewRequest.getChildren().add(menu);
         UsersList();
+        SplitMenuButton type=new SplitMenuButton();
+        type.getItems().addAll(new CheckMenuItem("Stone"),new CheckMenuItem("Iron"),new CheckMenuItem(""),new CheckMenuItem(""),new CheckMenuItem(""));
+        type.setText("select item to donate");
+        type.setMaxWidth(200);
+        NewRequest.getChildren().add(type);
+        Label Counter=new Label("0");
+        final int[] couter = {0};
+        Label up=new Label("+");
+        Label down=new Label("-");
+        up.setFont(Font.font("Ariel", FontWeight.BOLD, 50));
+        down.setFont(Font.font("Ariel", FontWeight.BOLD, 70));
+        Counter.setFont(Font.font("Ariel", FontWeight.BOLD, 70));
+        Counter.setTextFill(Color.WHITE);
+        up.setTextFill(Color.GREEN);
+        down.setTextFill(Color.RED);
+        HBox count=new HBox(up,Counter,down);
+        count.setAlignment(Pos.TOP_CENTER);
+        count.setSpacing(60);
+        NewRequest.getChildren().add(count);
         pane.getChildren().add(NewRequest);
         Scene scene=new Scene(pane);
         stage.setScene(scene);
         stage.show();
-        timeline=new Timeline(new KeyFrame(Duration.seconds(1),actionEvent -> {
+        timeline=new Timeline(new KeyFrame(Duration.seconds(10),actionEvent -> {
             History.getChildren().clear();
             History.getChildren().add(HistoryHead);
             HistoryValidation();
@@ -73,9 +91,28 @@ public class TradeMenu extends Application {
                 menu.setText(name);
             });
         }
+        for(MenuItem menuItem:type.getItems()){
+            menuItem.setOnAction(actionEvent -> {
+                String name=menuItem.getText();
+                type.setText(name);
+            });
+        }
+        down.setOnMouseClicked(mouseEvent -> {
+            if(couter[0] ==0)
+                return;
+            else{
+                couter[0]--;
+                Counter.setText(""+ couter[0]);
+            }
+        });
+        up.setOnMouseClicked(mouseEvent -> {
+            couter[0]++;
+            Counter.setText(""+ couter[0]);
+        });
     }
     public void HistoryValidation(){
-        History.getChildren().add(new Label("Test"));
+
+        History.getChildren().add(new VBox(new Label("dgfdg")));
         if(ApplicationManager.getCurrentGame()==null)
             return;
         if(ApplicationManager.getCurrentGame().getCurrentGovernment()==null)
@@ -95,7 +132,6 @@ public class TradeMenu extends Application {
 
     }
     public synchronized void UsersList(){
-        menu.getItems().add(new CheckMenuItem("MMMMMmmmm"));
         if(ApplicationManager.getCurrentGame()==null)
             return;
         if(Game.getGovernments().size()==0 || ApplicationManager.getCurrentGame().getGovernments()==null)
