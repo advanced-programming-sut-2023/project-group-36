@@ -1,5 +1,6 @@
 package view;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class ShopMenu extends Application {
     Timeline timeline;
@@ -25,10 +27,12 @@ public class ShopMenu extends Application {
     private int pitchC=15;
     private int oilC=13;
     private int flourC=9;
+    private int sample=20;
 
     @Override
     public void start(Stage stage) throws Exception {
         VBox shop=new VBox();
+        shop.setSpacing(30);
         shop.setAlignment(Pos.TOP_CENTER);
         shop.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         shop.setMinWidth(400);
@@ -48,9 +52,20 @@ public class ShopMenu extends Application {
         count.setSpacing(60);
         shop.getChildren().add(new Label("Shop Menu"));
         SplitMenuButton tradetype=new SplitMenuButton(new CheckMenuItem("Buy"),new CheckMenuItem("Sell"));
-        tradetype.setMinWidth(100);
+        tradetype.setMinWidth(70);
+        tradetype.setText("Buy");
         shop.getChildren().add(new Label("select type :"));
         shop.getChildren().add(tradetype);
+        SplitMenuButton materialType=new SplitMenuButton(new CheckMenuItem("Stone"),new CheckMenuItem("Iron"),new CheckMenuItem("Wood"),new CheckMenuItem("Wheat"),new CheckMenuItem("Wine"),new CheckMenuItem("Hop")
+        ,new CheckMenuItem("Pitch"),new CheckMenuItem("Flour"),new CheckMenuItem("Oil"));
+        materialType.setText("materail to trade");
+        shop.getChildren().add(new Label("Select material :"));
+        shop.getChildren().add(materialType);
+        shop.getChildren().add(count);
+        Label finalPrice=new Label("0");
+        HBox pricelist=new HBox(new Label("Final Price : "),finalPrice);
+        pricelist.setAlignment(Pos.TOP_CENTER);
+        shop.getChildren().add(pricelist);
         Scene scene=new Scene(shop);
         stage.setScene(scene);
         stage.show();
@@ -66,5 +81,10 @@ public class ShopMenu extends Application {
             couter[0]++;
             Counter.setText(""+ couter[0]);
         });
+        timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
+            finalPrice.setText(""+couter[0]*sample);
+        }));
+        timeline.setCycleCount(-1);
+        timeline.play();
     }
 }
