@@ -20,6 +20,7 @@ import model.*;
 public class TradeMenu extends Application {
     VBox NewRequest=new VBox();
     VBox History=new VBox();
+    VBox MyRequests=new VBox();
     SplitMenuButton menu = new SplitMenuButton();
 
     Timeline timeline;
@@ -27,7 +28,7 @@ public class TradeMenu extends Application {
     public void start(Stage stage) throws Exception {
         HBox pane=new HBox();
         pane.setStyle("-fx-font-family: Arial; -fx-font-size: 16px");
-        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/LoginMenuBackground.jpg").openStream(),900,600,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/LoginMenuBackground.jpg").openStream(),1000,600,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));
@@ -36,29 +37,37 @@ public class TradeMenu extends Application {
         pane.setMinWidth(900);
         NewRequest.setSpacing(20);
         History.setSpacing(20);
+        MyRequests.setSpacing(20);
         NewRequest.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         History.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+        MyRequests.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         NewRequest.setAlignment(Pos.TOP_CENTER);
         History.setAlignment(Pos.TOP_CENTER);
+        MyRequests.setAlignment(Pos.TOP_CENTER);
         NewRequest.setMinWidth(300);
         History.setMinWidth(300);
+        MyRequests.setMinWidth(300);
         Label NewRequestHead=new Label("New Request");
         Label HistoryHead=new Label("History");
+        Label MyREquestsHead=new Label("My Requests");
+        MyRequests.getChildren().add(MyREquestsHead);
         NewRequest.getChildren().add(NewRequestHead);
         History.getChildren().add(HistoryHead);
         pane.getChildren().add(History);
         HistoryValidation();
-        //Setting text to the SplitMenuButton
         menu.setText("Select User");
         menu.setMaxWidth(200);
         menu.setMnemonicParsing(true);
         NewRequest.getChildren().add(menu);
         UsersList();
         SplitMenuButton type=new SplitMenuButton();
-        type.getItems().addAll(new CheckMenuItem("Stone"),new CheckMenuItem("Iron"),new CheckMenuItem(""),new CheckMenuItem(""),new CheckMenuItem(""));
+        type.getItems().addAll(new CheckMenuItem("Stone"),new CheckMenuItem("Iron"),new CheckMenuItem("Wood"),new CheckMenuItem("Wheat"),new CheckMenuItem("Wine"),new CheckMenuItem("Hop")
+        ,new CheckMenuItem("Pitch"),new CheckMenuItem("Flour"),new CheckMenuItem("Oil"));
         type.setText("select item to donate");
         type.setMaxWidth(200);
         NewRequest.getChildren().add(type);
+        Label notImportant=new Label("Count of item:");
+        NewRequest.getChildren().add(notImportant);
         Label Counter=new Label("0");
         final int[] couter = {0};
         Label up=new Label("+");
@@ -73,7 +82,24 @@ public class TradeMenu extends Application {
         count.setAlignment(Pos.TOP_CENTER);
         count.setSpacing(60);
         NewRequest.getChildren().add(count);
+        RadioButton doanteButt=new RadioButton("Doante");
+        RadioButton requestButt=new RadioButton("Request");
+        ToggleGroup to=new ToggleGroup();
+        doanteButt.setSelected(true);
+        doanteButt.setToggleGroup(to);
+        requestButt.setToggleGroup(to);
+        HBox requestType=new HBox(doanteButt,requestButt);
+        requestType.setAlignment(Pos.TOP_CENTER);
+        requestType.setSpacing(30);
+        NewRequest.getChildren().add(requestType);
+        TextField price=new TextField();
+        price.setVisible(false);
+        price.setMaxWidth(100);
+        Button finalAccept=new Button("Send");
+        NewRequest.getChildren().add(price);
+        NewRequest.getChildren().add(finalAccept);
         pane.getChildren().add(NewRequest);
+        pane.getChildren().add(MyRequests);
         Scene scene=new Scene(pane);
         stage.setScene(scene);
         stage.show();
@@ -109,15 +135,44 @@ public class TradeMenu extends Application {
             couter[0]++;
             Counter.setText(""+ couter[0]);
         });
+        requestButt.setOnAction(actionEvent -> {
+            price.setVisible(true);
+        });
+        doanteButt.setOnAction(actionEvent -> {
+            price.setVisible(false);
+        });
+        finalAccept.setOnMouseClicked(mouseEvent -> {
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Erorr");
+            if(menu.getText().equals("Select User") || type.getText().equals("select item to donate") || couter[0]==0){
+                alert.setContentText("you haven't filled all texts!");
+                alert.showAndWait();
+            }
+            else if(requestButt.isSelected() && !price.getText().matches("[0-9]+")){
+                alert.setContentText("incorrect format for price!");
+                alert.showAndWait();
+            }
+            if(Game.getCurrentGovernment() != null){
+                if(couter[0]>Game.getCurrentGovernment().getResources().getResourceAmount(type.getText())){
+                    alert.setContentText("you don't have enough resources to make this request!");
+                    alert.showAndWait();
+                }
+                else {
+                    Government requested=ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getUserByUsername(menu.getText()));
+                    Trade trade=new Trade(Game.getCurrentGovernment(),requested,type.getText(),Integer.parseInt(price.getText()),couter[0],"");
+
+                }
+            }
+        });
     }
     public void HistoryValidation(){
 
         History.getChildren().add(new VBox(new Label("dgfdg")));
         if(ApplicationManager.getCurrentGame()==null)
             return;
-        if(ApplicationManager.getCurrentGame().getCurrentGovernment()==null)
+        if(Game.getCurrentGovernment()==null)
             return;
-        Government government = ApplicationManager.getCurrentGame().getCurrentGovernment();
+        Government government = Game.getCurrentGovernment();
         if(government.getTradeMessages()==null || government.getTrades().size()==0){
             History.getChildren().add(new Label("NO Request has been made yet!"));
             return;
