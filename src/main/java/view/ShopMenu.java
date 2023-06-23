@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.SpotLight;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -31,12 +32,16 @@ public class ShopMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         VBox shop=new VBox();
-        shop.setStyle("-fx-font-family: Mistral; -fx-font-size: 17px");
+        shop.setStyle("-fx-font-family: Vivaldi; -fx-font-size: 24px;-fx-text-fill: black");
         shop.setSpacing(30);
         shop.setAlignment(Pos.TOP_CENTER);
         shop.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
-        shop.setMinWidth(400);
-        shop.setMinHeight(600);
+        shop.setMinWidth(1080);
+        shop.setMinHeight(720);
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/1237368.jpg").openStream(),1080,720,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        shop.setBackground(new Background(myBI1));
         Label Counter=new Label("0");
         final int[] couter = {0};
         Label up=new Label("+");
@@ -63,13 +68,17 @@ public class ShopMenu extends Application {
         shop.getChildren().add(materialType);
         shop.getChildren().add(count);
         Label finalPrice=new Label("0");
-        HBox pricelist=new HBox(new Label("Final Price : "),finalPrice);
+        Label BrforeFinal=new Label("Final Price : ");
+        HBox pricelist=new HBox(BrforeFinal,finalPrice);
+        BrforeFinal.setTextFill(Color.RED);
+        finalPrice.setTextFill(Color.RED);
         pricelist.setAlignment(Pos.TOP_CENTER);
         shop.getChildren().add(pricelist);
         Button button=new Button("Buy");
         Label coins=new Label("\nyour coins : "+ (Game.getCurrentGovernment()==null ? 0:Game.getCurrentGovernment().getCoins()));
         shop.getChildren().add(button);
         shop.getChildren().add(coins);
+        coins.setTextFill(Color.BLUEVIOLET);
         Scene scene=new Scene(shop);
         stage.setScene(scene);
         stage.show();
