@@ -33,6 +33,7 @@ public class ShopMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         VBox shop=new VBox();
+        shop.setStyle("-fx-font-family: Mistral; -fx-font-size: 17px");
         shop.setSpacing(30);
         shop.setAlignment(Pos.TOP_CENTER);
         shop.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
@@ -78,6 +79,12 @@ public class ShopMenu extends Application {
                 Counter.setText(""+ couter[0]);
             }
         });
+        for(MenuItem menuItem:tradetype.getItems()){
+            menuItem.setOnAction(actionEvent -> {
+                ((CheckMenuItem) menuItem).setSelected(false);
+                tradetype.setText(menuItem.getText());
+            });
+        }
         for(MenuItem menuItem:materialType.getItems()){
             menuItem.setOnAction(actionEvent -> {
                 materialType.setText(menuItem.getText());

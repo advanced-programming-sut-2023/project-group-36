@@ -8,11 +8,37 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TradeMessage extends Application {
+    public class myButton extends Button{
+        public myButton(String s) {
+            super(s);
+        }
+
+        public void dicide(){
+         if(this.getText().contains("accept")){
+                if(receiver.getCoins()<trade.getPrice()){
+
+                }
+                else{
+                    receiver.changeCoins((-1)*trade.getPrice());
+                    receiver.getResources().getResource(trade.getType()).changeCount(trade.getAmount());
+                    sender.changeCoins(trade.getPrice());
+                    acceptButton.setText("accepted");
+                    rejectButton.setText("...");
+
+                }
+         }
+         else if(this.getText().contains("reject")){
+                rejectButton.setText("rejected");
+                acceptButton.setText("...");
+                sender.getResources().getResource(trade.getType()).changeCount(trade.getAmount());
+         }
+        }
+    }
     private String message;
     private Government sender;
     private Government receiver;
-    Button acceptButton=new Button("accept?");
-    Button rejectButton=new Button("reject");
+    myButton acceptButton=new myButton("accept?");
+    myButton rejectButton=new myButton("reject");
     private Trade trade;
 
     private boolean isShowed;
