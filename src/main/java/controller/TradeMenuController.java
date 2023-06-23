@@ -34,7 +34,7 @@ public class TradeMenuController {
     }
 
     public static String tradeList(){
-        Government government = ApplicationManager.getCurrentGame().getCurrentGovernment();
+        Government government = Game.getCurrentGovernment();
         for (int i = 0; i < government.getTradeMessages().size(); i++) {
             TradeMessage tradeMessage = government.getTradeMessages().get(i);
             tradeMessage.show(i+1);
@@ -43,7 +43,7 @@ public class TradeMenuController {
     }
 
     public  static void tradeShowNotifications(){
-        Government government = ApplicationManager.getCurrentGame().getCurrentGovernment();
+        Government government = Game.getCurrentGovernment();
         System.out.println("Your new notifications:");
         for (int i = 0; i < government.getTradeMessages().size(); i++) {
             TradeMessage tradeMessage = government.getTradeMessages().get(i);
@@ -54,7 +54,7 @@ public class TradeMenuController {
     }
 
     public static String tradeAccept(Matcher matcher){
-        Government government = ApplicationManager.getCurrentGame().getCurrentGovernment();
+        Government government = Game.getCurrentGovernment();
         int id = Integer.parseInt(matcher.group("id"));
         String message = matcher.group("message");
         if (id>government.getTradeMessages().size()){
@@ -70,7 +70,7 @@ public class TradeMenuController {
     }
 
     public static String tradeHistory(){
-        Government government = ApplicationManager.getCurrentGame().getCurrentGovernment();
+        Government government = Game.getCurrentGovernment();
         Trade trade;
         System.out.println("Your trade history:");
         for (int i = 0; i < government.getTrades().size(); i++) {

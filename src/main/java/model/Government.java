@@ -23,6 +23,7 @@ public class Government{
     }
 
     private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();
+    private ArrayList<TradeMessage> thisGovermentTrades = new ArrayList<>();
     private ArrayList<Trade> trades = new ArrayList<>();
     private String color;
     private Resources resources;
@@ -376,7 +377,13 @@ public class Government{
         this.centralCastle = centralCastle;
     }
 
+    public void AddTradeMessage(TradeMessage tradeMessage){
+        thisGovermentTrades.add(0,tradeMessage);
+    }
 
+    public ArrayList<TradeMessage> getThisGovermentTrades() {
+        return thisGovermentTrades;
+    }
     //
 }
 

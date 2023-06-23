@@ -60,6 +60,7 @@ public class TradeMenu extends Application {
         menu.setMnemonicParsing(true);
         NewRequest.getChildren().add(menu);
         UsersList();
+        MyRequestsValidation();
         SplitMenuButton type=new SplitMenuButton();
         type.getItems().addAll(new CheckMenuItem("Stone"),new CheckMenuItem("Iron"),new CheckMenuItem("Wood"),new CheckMenuItem("Wheat"),new CheckMenuItem("Wine"),new CheckMenuItem("Hop")
         ,new CheckMenuItem("Pitch"),new CheckMenuItem("Flour"),new CheckMenuItem("Oil"));
@@ -107,6 +108,9 @@ public class TradeMenu extends Application {
             History.getChildren().clear();
             History.getChildren().add(HistoryHead);
             HistoryValidation();
+            MyRequests.getChildren().clear();
+            MyRequests.getChildren().add(MyREquestsHead);
+            MyRequestsValidation();
         }));
         timeline.setCycleCount(-1);
         timeline.play();
@@ -158,8 +162,14 @@ public class TradeMenu extends Application {
                     alert.showAndWait();
                 }
                 else {
+                    int pricelist=(requestButt.isSelected() ? Integer.parseInt(requestButt.getText()):0);
                     Government requested=ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getUserByUsername(menu.getText()));
-                    Trade trade=new Trade(Game.getCurrentGovernment(),requested,type.getText(),Integer.parseInt(price.getText()),couter[0],"");
+                    Trade trade=new Trade(Game.getCurrentGovernment(),requested,type.getText(),pricelist,couter[0],"");
+                    TradeMessage tradeMessage = new TradeMessage("", Game.getCurrentGovernment(), requested, trade);
+                    requested.addTradeMessage(tradeMessage);
+                    Game.getCurrentGovernment().AddTradeMessage(tradeMessage);
+                    Game.getCurrentGovernment().addTrade(trade);
+                    requested.addTrade(trade);
 
                 }
             }
@@ -186,6 +196,25 @@ public class TradeMenu extends Application {
         }
 
     }
+    public void MyRequestsValidation(){
+        Government government=Game.getCurrentGovernment();
+        if(government==null){
+           MyRequests.getChildren().add(new VBox(new Label("You haven't send away any requests yet!")));
+            return;
+        }
+
+        if(government.getThisGovermentTrades().size()==0){
+           MyRequests.getChildren().add(new VBox(new Label("You haven't send away any requests yet!")));
+        }
+        for(int i=0;i<government.getThisGovermentTrades().size();i++){
+            TradeMessage tradeMessage=government.getTradeMessages().get(i);
+            MyRequests.getChildren().add(new VBox(new Label((i+1)+". "+tradeMessage.getTrade().getRequested().getOwner().getUsername()
+            +"--->"+tradeMessage.getTrade().getType()+"\n  "+tradeMessage.getTrade().getAmount()
+            + "   "+tradeMessage.getTrade().getPrice()+"$  "+(tradeMessage.showCondition()? "accepted":"waiting"))));
+
+        }
+
+    }
     public synchronized void UsersList(){
         if(ApplicationManager.getCurrentGame()==null)
             return;
@@ -195,4 +224,5 @@ public class TradeMenu extends Application {
             menu.getItems().add(new CheckMenuItem(government.getOwner().getUsername()));
         }
     }
+
 }
