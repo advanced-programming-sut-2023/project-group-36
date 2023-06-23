@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.SpotLight;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -77,6 +78,41 @@ public class ShopMenu extends Application {
                 Counter.setText(""+ couter[0]);
             }
         });
+        for(MenuItem menuItem:materialType.getItems()){
+            menuItem.setOnAction(actionEvent -> {
+                materialType.setText(menuItem.getText());
+                ((CheckMenuItem) menuItem).setSelected(false);
+                switch (menuItem.getText()){
+                    case "Wood":
+                        sample=woodC;
+                        break;
+                    case "Iron":
+                        sample=ironC;
+                        break;
+                    case "Stone":
+                        sample=stoneC;
+                        break;
+                    case "Wheat":
+                        sample=wheatC;
+                        break;
+                    case "Wine":
+                        sample=wineC;
+                        break;
+                    case "Hop":
+                        sample=hopC;
+                        break;
+                    case "Pitch":
+                        sample=pitchC;
+                        break;
+                    case "Flour":
+                        sample=flourC;
+                        break;
+                    case "Oil":
+                        sample=oilC;
+                        break;
+                }
+            });
+        }
         up.setOnMouseClicked(mouseEvent -> {
             couter[0]++;
             Counter.setText(""+ couter[0]);
