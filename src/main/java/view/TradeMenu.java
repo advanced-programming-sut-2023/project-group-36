@@ -17,10 +17,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.*;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+
 public class TradeMenu extends Application {
     VBox NewRequest=new VBox();
     VBox History=new VBox();
     VBox MyRequests=new VBox();
+    ArrayList <VBox> request=new ArrayList<>();
     SplitMenuButton menu = new SplitMenuButton();
 
     Timeline timeline;
@@ -174,6 +178,20 @@ public class TradeMenu extends Application {
                 }
             }
         });
+        for(VBox vBox:request){
+            for(Node button:vBox.getChildren()){
+                if(button instanceof Button) {
+                    button.setOnMouseClicked(mouseEvent -> {
+                        if(((Button) button).getText().contains("accept")){
+
+                        }
+                        else{
+
+                        }
+                    });
+                }
+            }
+        }
     }
     public void HistoryValidation(){
 

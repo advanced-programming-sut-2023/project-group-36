@@ -12,6 +12,7 @@ public class TradeMessage extends Application {
     private Government sender;
     private Government receiver;
     Button acceptButton=new Button("accept?");
+    Button rejectButton=new Button("reject");
     private Trade trade;
 
     private boolean isShowed;
@@ -47,7 +48,7 @@ public class TradeMessage extends Application {
                 ,new Label(trade.getAmount()+""),new Label(trade.getPrice()+""),new Label(this.isShowed ? "new" : "   " ));
         VBox resualt=new VBox();
         resualt.getChildren().add(hBox);
-        resualt.getChildren().add(acceptButton);
+        resualt.getChildren().add(new VBox(acceptButton,rejectButton));
         return resualt;
     }
 
