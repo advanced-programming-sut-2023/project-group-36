@@ -6,16 +6,14 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.SpotLight;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Game;
 
 public class ShopMenu extends Application {
     Timeline timeline;
@@ -28,7 +26,7 @@ public class ShopMenu extends Application {
     private int pitchC=15;
     private int oilC=13;
     private int flourC=9;
-    private int sample=20;
+    private int sample=0;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -46,7 +44,7 @@ public class ShopMenu extends Application {
         up.setFont(Font.font("Ariel", FontWeight.BOLD, 50));
         down.setFont(Font.font("Ariel", FontWeight.BOLD, 70));
         Counter.setFont(Font.font("Ariel", FontWeight.BOLD, 70));
-        Counter.setTextFill(Color.WHITE);
+        Counter.setTextFill(Color.BLACK);
         up.setTextFill(Color.GREEN);
         down.setTextFill(Color.RED);
         HBox count=new HBox(up,Counter,down);
@@ -68,6 +66,10 @@ public class ShopMenu extends Application {
         HBox pricelist=new HBox(new Label("Final Price : "),finalPrice);
         pricelist.setAlignment(Pos.TOP_CENTER);
         shop.getChildren().add(pricelist);
+        Button button=new Button("Buy");
+        Label coins=new Label("\nyour coins : "+ (Game.getCurrentGovernment()==null ? 0:Game.getCurrentGovernment().getCoins()));
+        shop.getChildren().add(button);
+        shop.getChildren().add(coins);
         Scene scene=new Scene(shop);
         stage.setScene(scene);
         stage.show();
@@ -83,6 +85,7 @@ public class ShopMenu extends Application {
             menuItem.setOnAction(actionEvent -> {
                 ((CheckMenuItem) menuItem).setSelected(false);
                 tradetype.setText(menuItem.getText());
+                button.setText(tradetype.getText());
             });
         }
         for(MenuItem menuItem:materialType.getItems()){
@@ -124,8 +127,27 @@ public class ShopMenu extends Application {
             couter[0]++;
             Counter.setText(""+ couter[0]);
         });
+        button.setOnMouseClicked(mouseEvent -> {
+            if(materialType.getText().equals("materail to trade") || couter[0]==0){
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("invalid materil or count!");
+                alert.show();
+            }
+            else if(couter[0]*sample>(Game.getCurrentGovernment()==null ? 0:Game.getCurrentGovernment().getCoins())){
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("you don't have enough coins!");
+                alert.show();
+            }
+            else{
+                Game.getCurrentGovernment().changeCoins(couter[0]*sample*(tradetype.getText().equals("Buy") ? -1:1));
+                Game.getCurrentGovernment().getResources().getResource(materialType.getText()).changeCount(couter[0]*(tradetype.getText().equals("Buy") ? -1:1));
+                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+
+            }
+        });
         timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
             finalPrice.setText(""+couter[0]*sample);
+            coins.setText("\nyour coins : "+ (Game.getCurrentGovernment()==null ? 0:Game.getCurrentGovernment().getCoins()));
         }));
         timeline.setCycleCount(-1);
         timeline.play();
