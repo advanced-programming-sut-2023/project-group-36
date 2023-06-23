@@ -109,6 +109,7 @@ public class TradeMenu extends Application {
         stage.setScene(scene);
         stage.show();
         timeline=new Timeline(new KeyFrame(Duration.seconds(10),actionEvent -> {
+            request=new ArrayList<>();
             History.getChildren().clear();
             History.getChildren().add(HistoryHead);
             HistoryValidation();
@@ -173,8 +174,12 @@ public class TradeMenu extends Application {
                     requested.addTradeMessage(tradeMessage);
                     Game.getCurrentGovernment().AddTradeMessage(tradeMessage);
                     Game.getCurrentGovernment().addTrade(trade);
+                    Game.getCurrentGovernment().getThisGovermentTrades().add(tradeMessage);
+                    Game.getCurrentGovernment().getResources().getResource(type.getText()).changeCount(pricelist);
                     requested.addTrade(trade);
-
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("new trade strated with "+requested.getOwner().getUsername());
+                    alert.show();
                 }
             }
         });
@@ -203,9 +208,10 @@ public class TradeMenu extends Application {
         VBox message;
         for(int i=0;i<government.getTradeMessages().size();i++){
             message=new VBox(government.getTradeMessages().get(i).tradeRequestToShow());
+            request.add(0,message);
             message.setAlignment(Pos.TOP_CENTER);
-            message.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
-            History.getChildren().add(message);
+            request.get(0).setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
+            History.getChildren().add(request.get(0));
         }
 
     }

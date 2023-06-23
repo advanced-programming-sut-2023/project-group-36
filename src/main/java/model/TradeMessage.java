@@ -1,6 +1,7 @@
 package model;
 
 import javafx.application.Application;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -16,7 +17,9 @@ public class TradeMessage extends Application {
         public void dicide(){
          if(this.getText().contains("accept")){
                 if(receiver.getCoins()<trade.getPrice()){
-
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("you don't have enough coins!");
+                    alert.show();
                 }
                 else{
                     receiver.changeCoins((-1)*trade.getPrice());
@@ -24,13 +27,18 @@ public class TradeMessage extends Application {
                     sender.changeCoins(trade.getPrice());
                     acceptButton.setText("accepted");
                     rejectButton.setText("...");
-
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("trade has been done successfully!");
+                    alert.show();
                 }
          }
          else if(this.getText().contains("reject")){
                 rejectButton.setText("rejected");
                 acceptButton.setText("...");
                 sender.getResources().getResource(trade.getType()).changeCount(trade.getAmount());
+             Alert alert=new Alert(Alert.AlertType.INFORMATION);
+             alert.setContentText("this trade has been rejected successfully!");
+             alert.show();
          }
         }
     }
@@ -71,7 +79,7 @@ public class TradeMessage extends Application {
         HBox hBox=new HBox();
         hBox.setSpacing(10);
         hBox.getChildren().addAll(new Label(trade.getRequester().getOwner().getUsername()),new Label(trade.getRequested().getOwner().getUsername()),new Label(trade.getType())
-                ,new Label(trade.getAmount()+""),new Label(trade.getPrice()+""),new Label(this.isShowed ? "new" : "   " ));
+                ,new Label(trade.getAmount()+""),new Label(trade.getPrice()==0 ? ("donation"):(trade.getPrice()+"")),new Label(this.isShowed ? "new" : "   " ));
         VBox resualt=new VBox();
         resualt.getChildren().add(hBox);
         resualt.getChildren().add(new VBox(acceptButton,rejectButton));
