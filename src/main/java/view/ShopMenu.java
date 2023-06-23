@@ -140,9 +140,9 @@ public class ShopMenu extends Application {
             }
             else{
                 Game.getCurrentGovernment().changeCoins(couter[0]*sample*(tradetype.getText().equals("Buy") ? -1:1));
-                Game.getCurrentGovernment().getResources().getResource(materialType.getText()).changeCount(couter[0]*(tradetype.getText().equals("Buy") ? -1:1));
+                Game.getCurrentGovernment().getResources().getResource(materialType.getText()).changeCount(couter[0]*(tradetype.getText().equals("Buy") ? 1:-1));
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
-
+                alert.setContentText(tradetype.getText()+" succesfull\n"+"count :"+couter[0]+"\nmaterial :"+materialType.getText()+"\ncost :"+sample*couter[0]);
             }
         });
         timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
