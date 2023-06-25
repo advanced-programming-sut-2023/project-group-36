@@ -12,6 +12,16 @@ public class User {
     private int questionNumber;
 
     private String questionAnswer;
+    private String AvatarAddress="images/Avatars/1.png";
+
+    public String getAvatarAddress() {
+        return AvatarAddress;
+    }
+
+    public void setAvatarAddress(String avatarAddress) {
+        AvatarAddress = avatarAddress;
+    }
+
     private Game game;
     private int score;
     private int highScore;
