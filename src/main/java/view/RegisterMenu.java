@@ -42,7 +42,7 @@ public class RegisterMenu extends Application {
         pane.setBackground(new Background(myBI1));
         Button RegisterButton=new Button("Register");
         RegisterButton.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
-        RegisterButton.setBackground(Background.fill(Color.TRANSPARENT));
+//        RegisterButton.setBackground(Background.fill(Color.TRANSPARENT));
         RegisterButton.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         RegisterButton.setStyle("-fx-text-fill: white;");
         VBox Register=new VBox();

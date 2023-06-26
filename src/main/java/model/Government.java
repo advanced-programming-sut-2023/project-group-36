@@ -9,6 +9,7 @@ import model.Peoples.PeopleType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 
 public class Government{
@@ -34,6 +35,7 @@ public class Government{
     private int taxRate;
     private int fearRate;
     private int feedRate;
+    private int sicknessNumber;
     private int coins;
     private ArrayList<People> selectedPeoples = new ArrayList<>();
 
@@ -98,8 +100,10 @@ public class Government{
     }
 
     public void nextTurn(){
+
         // food & ...
         getResources().changeOfResourcesAtTheEndOfTurn();
+
         // Feed +
         checkTheFoodFactor();
 
@@ -112,6 +116,9 @@ public class Government{
 
         // Fear +
         checkTheFearFactor();
+
+        // Sickness
+        checkSicknessFactor();
 
         // change population
         changePopulation();
@@ -195,9 +202,6 @@ public class Government{
 
 
 
-
-
-
     //next turn function
     //food
     private void checkTheFoodFactor() {
@@ -269,6 +273,21 @@ public class Government{
                 double tmp = (double) fearRate * -1 + 20.0;
                 people.getPeopleType().attackPower *= tmp / 20.0;
             }
+        }
+    }
+
+    // Sickness
+    private void checkSicknessFactor() {
+        changePopularity(-1 * sicknessNumber);
+
+        if (ApplicationManager.getCurrentGame().getNumberOfTurn() % 5 == 4) {
+            Random random = new Random();
+            int randomInt = random.nextInt();
+            randomInt %= this.getStructures().size();
+
+            sicknessNumber++;
+            //TODO : graphic of sickness
+
         }
     }
 

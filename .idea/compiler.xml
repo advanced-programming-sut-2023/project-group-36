@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="StrongholdPhase1" />
+        <module name="StrongholdPhase2" />
       </profile>
     </annotationProcessing>
   </component>

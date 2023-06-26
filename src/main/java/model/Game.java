@@ -13,6 +13,7 @@ public class Game {
         return governments;
     }
 
+    private int numberOfTurn = 0;
     private final Map map;
     private boolean condition;
 
@@ -41,6 +42,7 @@ public class Game {
     }
 
     private void governmentsNextTurn(){
+        numberOfTurn++;
         for (int i = 0; i < governments.size(); i++) {
             governments.get(i).nextTurn();
         }
@@ -82,5 +84,13 @@ public class Game {
 
     public int getScore(){
         return numberOfPlayers * (numberOfPlayers-governments.size()-1);
+    }
+
+    public int getNumberOfTurn() {
+        return numberOfTurn;
+    }
+
+    public void setNumberOfTurn(int numberOfTurn) {
+        this.numberOfTurn = numberOfTurn;
     }
 }
