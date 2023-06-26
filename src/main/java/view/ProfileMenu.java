@@ -35,13 +35,21 @@ public class ProfileMenu extends Application {
         info.setMinWidth(200);
         info.setMinHeight(700);
         Image avatar=new Image(getClass().getResource("/images/Avatars/1.png").openStream());
-        ImageView avatarView=new ImageView(avatar);
-
+        ImageView avatarView=new ImageView(new Image(getClass().getResource("/images/Avatars/1.png").openStream()));
         avatarView.setFitHeight(100);
         avatarView.setFitWidth(100);
+
         info.getChildren().add(avatarView);
         info.setLayoutX(0);
         info.setLayoutY(0);
+        Label CurrentUsername=new Label("Username :\n"+ApplicationManager.getCurrentUser().getUsername());
+        Label CurrentNickname=new Label("Nickname :\n"+ApplicationManager.getCurrentUser().getNickname());
+        Label CurrnetEmail=new Label("Email :\n"+ApplicationManager.getCurrentUser());
+        Label CurrentSlogan=new Label("Slogan :\n"+ApplicationManager.getCurrentUser().getSlogan());
+        info.getChildren().add(CurrentUsername);
+        info.getChildren().add(CurrentNickname);
+        info.getChildren().add(CurrnetEmail);
+        info.getChildren().add(CurrentSlogan);
         info.setBorder(new Border(new BorderStroke(Color.BLUEVIOLET, BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
         pane.getChildren().add(info);
         stage.setScene(new Scene(pane));
