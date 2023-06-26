@@ -142,6 +142,11 @@ public class ShopMenu extends Application {
                 alert.setContentText("invalid materil or count!");
                 alert.show();
             }
+            else if(tradetype.getText().equals("Sell") && Game.getCurrentGovernment().getResources().getResource(materialType.getText()).getCount()<couter[0]){
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("you dont have enough resources to sell!");
+                alert.show();
+            }
             else if(couter[0]*sample>(Game.getCurrentGovernment()==null ? 0:Game.getCurrentGovernment().getCoins())){
                 Alert alert=new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("you don't have enough coins!");
