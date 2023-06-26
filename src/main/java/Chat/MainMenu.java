@@ -11,12 +11,17 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/aa","root","Group36@");
+        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/chatsystem","root","Group36@");
         Statement statement=connection.createStatement();
         ResultSet resultSet=statement.executeQuery("select username from userdata");
         while (resultSet.next()){
-            System.out.println(resultSet.getString("username"));
+            String in=resultSet.getString("username");
+            System.out.println(in);
         }
+        statement.executeUpdate("insert into userdata(username,password,nickname,email,slogan) values ('majid','1234560','king','ffffffff','fuck you')");
+        ResultSet resultSet1=statement.executeQuery("select slogan from userdata");
+        while (resultSet1.next())
+             System.out.println(resultSet1.getString("slogan"));
 
     }
 }
