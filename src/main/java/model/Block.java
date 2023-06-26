@@ -170,5 +170,7 @@ public class Block {
         return enemies;
     }
 
+    public void addSicknessSign() {
 
+    }
 }

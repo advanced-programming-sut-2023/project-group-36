@@ -283,10 +283,12 @@ public class Government{
         if (ApplicationManager.getCurrentGame().getNumberOfTurn() % 5 == 4) {
             Random random = new Random();
             int randomInt = random.nextInt();
-            randomInt %= this.getStructures().size();
+            randomInt %= structures.size();
 
+            //logic
             sicknessNumber++;
-            //TODO : graphic of sickness
+            //graphic
+            structures.get(randomInt).getBlock().addSicknessSign();
 
         }
     }
