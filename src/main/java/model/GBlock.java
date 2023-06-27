@@ -11,6 +11,9 @@ import view.EditMapMenu;
 import view.GameMenu;
 import view.GameMenuController;
 
+import java.io.IOException;
+import java.util.Objects;
+
 public class GBlock extends Rectangle {
     private Block block;
     private Boolean changeAble;
@@ -28,7 +31,15 @@ public class GBlock extends Rectangle {
     public static Image Meadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png");
     public static Image DenseMeadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png");
     public static Image Stone = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png");
+    public static Image Sickness;
 
+    static {
+        try {
+            Sickness = new Image(Objects.requireNonNull(GBlock.class.getResource("face-with-medical-mask_1f637.png")).openStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     public GBlock(Block block, Boolean changeAble){
@@ -154,4 +165,7 @@ public class GBlock extends Rectangle {
         GameMenu.controller.getMapPane().getChildren().remove(information);
     }
 
+    public void addSicknessSign() {
+
+    }
 }

@@ -287,8 +287,9 @@ public class Government{
 
             //logic
             sicknessNumber++;
+            structures.get(randomInt).getBlock().appearanceSickness();
             //graphic
-            structures.get(randomInt).getBlock().addSicknessSign();
+//            structures.get(randomInt).getBlock().addSicknessSign();
 
         }
     }
