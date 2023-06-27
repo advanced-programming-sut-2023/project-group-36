@@ -1,5 +1,6 @@
 package view;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -23,14 +24,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.ApplicationManager;
 import model.User;
 
 public class ProfileMenu extends Application {
     Timeline timeline;
+    boolean nameChane=true;
+    boolean passChange=true;
+    boolean nickChange=true;
+    boolean emailCheck=true;
+    boolean sloganCheck=true;
+
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane=new Pane();
+        pane.setStyle("-fx-font-family: Candara; -fx-font-size: 20px;-fx-text-fill: black");
         pane.setMinHeight(720);
         pane.setMinWidth(1080);
         VBox info=new VBox();
@@ -121,8 +130,67 @@ public class ProfileMenu extends Application {
         ChangeInfo.getChildren().add(emailBox);
         //slogan
         HBox sloganBox=new HBox();
+        sloganBox.setAlignment(Pos.TOP_CENTER);
+        sloganBox.setSpacing(25);
+        sloganBox.setBorder(new Border(new BorderStroke(Color.BLUEVIOLET, BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
+        Label sloganLabel=new Label("slogan :");
+        TextField newSlogan=new TextField();
+        Label sloganCheck=new Label("");
+        newSlogan.setPromptText("new slogan");
+        newSlogan.setMinWidth(200);
+        sloganBox.getChildren().addAll(sloganLabel,newSlogan,sloganCheck);
+        ChangeInfo.getChildren().addAll(sloganBox);
+        //logic
+        timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
+            if(changeNameField.getText().length()==0) {
+                UsernameCheck.setText("");
+                nameChane=true;
+            }
+            else if(changeNameField.getText().length()<4 || !changeNameField.getText().matches("[a-zA-Z0-9]+")){
+                UsernameCheck.setText("Invalid format!");
+                UsernameCheck.setTextFill(Color.YELLOW);
+                nameChane=false;
+            }
+            else if(ApplicationManager.getUserByUsername(changeNameField.getText()) != null){
+                UsernameCheck.setText("Username already exists!");
+                UsernameCheck.setTextFill(Color.RED);
+                nameChane=false;
+            }
+            else {
+                UsernameCheck.setText("OK!");
+                UsernameCheck.setTextFill(Color.GREEN);
+                nameChane=true;
+            }
+            if(currentPassword.getText().length()==0 && newPassword.getText().length()==0){
+                currPassCheck.setText("");
+                newPassCheck.setText("");
+                passChange=true;
+            }
+            /*else if(!currentPassword.getText().equals(ApplicationManager.getCurrentUser().getPassword())){
+                currPassCheck.setText("Wrong Pass!");
+                currPassCheck.setTextFill(Color.RED);
+                passChange=false;
+            }*/
+            else if(!newPassword.getText().matches(".*[@#%&*-\\^$!]+.*") || newPassword.getText().length()<5){
+                newPassCheck.setText("Weak format");
+                newPassCheck.setTextFill(Color.YELLOW);
+                passChange=false;
+            }
+            else{
+                passChange=true;
+                currPassCheck.setText("OK!");
+                newPassCheck.setText("OK!");
+                currPassCheck.setTextFill(Color.GREEN);
+                newPassCheck.setTextFill(Color.GREEN);
+            }
+            if(newNickname.getText().length()<5){
+
+            }
 
 
+        }));
+        timeline.setCycleCount(-1);
+        timeline.play();
         //scoreboard
         TableView<User> scoreboard=new TableView<User>();
 
