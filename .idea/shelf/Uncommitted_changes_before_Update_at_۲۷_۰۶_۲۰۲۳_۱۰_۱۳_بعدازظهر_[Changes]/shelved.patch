@@ -1,0 +1,467 @@
+Index: src/main/java/model/GBlock.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\nimport controller.EditMap;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.shape.Rectangle;\r\nimport javafx.stage.Stage;\r\nimport view.ChangeBlockMenu;\r\nimport view.EditMapMenu;\r\nimport view.GameMenu;\r\nimport view.GameMenuController;\r\n\r\npublic class GBlock extends Rectangle {\r\n    private Block block;\r\n    private Boolean changeAble;\r\n    private ImageView texture = new ImageView();\r\n    private ImageView building = new ImageView();\r\n    private Label label;\r\n\r\n    public Rectangle information;\r\n\r\n    public static Image Iron = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png\");\r\n    public static Image Grass = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png\");\r\n    public static Image Gravel = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png\");\r\n    public static Image Boulder = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Boulder.png\");\r\n    public static Image Dirt = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dirt.png\");\r\n    public static Image Meadow = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png\");\r\n    public static Image DenseMeadow = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png\");\r\n    public static Image Stone = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png\");\r\n\r\n\r\n\r\n    public GBlock(Block block, Boolean changeAble){\r\n        super(50,50);\r\n        this.block = block;\r\n        this.setX(50*(block.getX()-1));\r\n        this.setY(50*(block.getY()-1));\r\n        this.setFill(Color.rgb(100,80,60));\r\n        this.changeAble = changeAble;\r\n        setTexture();\r\n\r\n        information = new Rectangle(130,70);\r\n        information.setFill(Color.BROWN);\r\n        information.setX(this.getX()+50);\r\n        information.setY(this.getY()-50);\r\n\r\n\r\n        //setBuilding();\r\n        if (changeAble){\r\n            EditMapMenu.controller.getMapPane().getChildren().add(this);\r\n            EditMapMenu.controller.getMapPane().getChildren().add(texture);\r\n\r\n        }\r\n        else {\r\n            GameMenu.controller.getMapPane().getChildren().add(this);\r\n            GameMenu.controller.getMapPane().getChildren().add(texture);\r\n\r\n        }\r\n\r\n        //Game.pane.getChildren().add(building);\r\n\r\n        setMouseEvents(changeAble);\r\n    }\r\n\r\n    private void click() throws Exception {\r\n        if (changeAble){\r\n            if (ChangeBlockMenu.stage == null){\r\n                ChangeBlockMenu.gBlock = this;\r\n                new ChangeBlockMenu().start(new Stage());\r\n                System.out.println(getX()+\",\"+getY());\r\n            }\r\n        }\r\n        else {\r\n            this.setFill(Color.YELLOW);\r\n            image();\r\n        }\r\n    }\r\n\r\n    public void image(){\r\n        ImageView imageView = new ImageView(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/suggested/images.png\");\r\n        imageView.setX(this.getX());\r\n        imageView.setY(this.getY());\r\n        imageView.setFitWidth(40);\r\n        imageView.setFitHeight(40);\r\n        GameMenu.controller.getMapPane().getChildren().add(imageView);\r\n    }\r\n\r\n    public void setBuilding(){\r\n\r\n        this.label = new Label(block.getThisBlockStructure().getName());\r\n        label.setLayoutX(50*(block.getX()-1));\r\n        label.setLayoutY(50*(block.getY()-1));\r\n        label.setStyle(\"-fx-font-size: 10\");\r\n        //Game.mapPane.getChildren().add(label);\r\n    }\r\n\r\n    public void setTexture(){\r\n        switch (block.getType()) {\r\n            case \"Iron\" -> texture.setImage(GBlock.Iron);\r\n            case \"Grass\" -> texture.setImage(GBlock.Grass);\r\n            case \"Dirt\" -> texture.setImage(GBlock.Dirt);\r\n            case \"Meadow\" -> texture.setImage(GBlock.Meadow);\r\n            case \"Dense Meadow\" -> texture.setImage(GBlock.DenseMeadow);\r\n            case \"Gravel\" -> texture.setImage(GBlock.Gravel);\r\n            case \"Stone\" -> texture.setImage(GBlock.Stone);\r\n            default -> texture.setImage(GBlock.Boulder);\r\n        }\r\n        texture.setX(this.getX()+1);\r\n        texture.setY(this.getY()+1);\r\n        texture.setFitWidth(48);\r\n        texture.setFitHeight(48);\r\n    }\r\n\r\n    public void update(){\r\n        setTexture();\r\n        setBuilding();\r\n    }\r\n\r\n    public void shift(int x , int y){\r\n        //this.block = Game.getBlockByPosition(block.getX()+x, block.getY()+y);\r\n        update();\r\n    }\r\n\r\n    public void setMouseEvents(Boolean on){\r\n        if (on){\r\n            this.texture.setOnMouseClicked(event -> {\r\n                try {\r\n                    click();\r\n                } catch (Exception e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n            });\r\n        }\r\n        else {\r\n            this.texture.setOnMouseClicked(null);\r\n            this.texture.setOnMouseEntered(event -> showInformation());\r\n            this.texture.setOnMouseExited(event -> unShowInformation());\r\n\r\n        }\r\n    }\r\n\r\n\r\n    public Block getBlock() {\r\n        return block;\r\n    }\r\n\r\n\r\n    public void showInformation(){\r\n        GameMenu.controller.getMapPane().getChildren().add(information);\r\n    }\r\n\r\n    public void unShowInformation(){\r\n        GameMenu.controller.getMapPane().getChildren().remove(information);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/GBlock.java b/src/main/java/model/GBlock.java
+--- a/src/main/java/model/GBlock.java	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/src/main/java/model/GBlock.java	(date 1687887704639)
+@@ -1,34 +1,33 @@
+ package model;
+-import controller.EditMap;
+-import javafx.scene.control.Label;
++import controller.GameController;
++import javafx.animation.PauseTransition;
++import javafx.scene.Cursor;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
+ import javafx.scene.paint.Color;
+ import javafx.scene.shape.Rectangle;
+ import javafx.stage.Stage;
+-import view.ChangeBlockMenu;
+-import view.EditMapMenu;
+-import view.GameMenu;
+-import view.GameMenuController;
++import javafx.util.Duration;
++import view.*;
+ 
+ public class GBlock extends Rectangle {
+     private Block block;
+     private Boolean changeAble;
+     private ImageView texture = new ImageView();
+     private ImageView building = new ImageView();
+-    private Label label;
+ 
+     public Rectangle information;
+ 
+-    public static Image Iron = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png");
+-    public static Image Grass = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png");
+-    public static Image Gravel = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png");
+-    public static Image Boulder = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Boulder.png");
+-    public static Image Dirt = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dirt.png");
+-    public static Image Meadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png");
+-    public static Image DenseMeadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png");
+-    public static Image Stone = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png");
++    public static Image Iron = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Iron.png")));
+ 
++    public static Image Grass = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Grass.png")));
++    public static Image Gravel = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Gravel.png")));
++    public static Image Boulder = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Boulder.png")));
++    public static Image Dirt = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dirt.png")));
++    public static Image Meadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Meadow.png")));
++    public static Image DenseMeadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dense Meadow.png")));
++    public static Image Stone = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Stone.png")));
++    private boolean inside;
+ 
+ 
+     public GBlock(Block block, Boolean changeAble){
+@@ -38,7 +37,9 @@
+         this.setY(50*(block.getY()-1));
+         this.setFill(Color.rgb(100,80,60));
+         this.changeAble = changeAble;
++
+         setTexture();
++        setBuilding();
+ 
+         information = new Rectangle(130,70);
+         information.setFill(Color.BROWN);
+@@ -46,7 +47,7 @@
+         information.setY(this.getY()-50);
+ 
+ 
+-        //setBuilding();
++
+         if (changeAble){
+             EditMapMenu.controller.getMapPane().getChildren().add(this);
+             EditMapMenu.controller.getMapPane().getChildren().add(texture);
+@@ -55,15 +56,15 @@
+         else {
+             GameMenu.controller.getMapPane().getChildren().add(this);
+             GameMenu.controller.getMapPane().getChildren().add(texture);
++            GameMenu.controller.getMapPane().getChildren().add(building);
+ 
+-        }
+ 
+-        //Game.pane.getChildren().add(building);
++        }
+ 
+         setMouseEvents(changeAble);
+     }
+ 
+-    private void click() throws Exception {
++    private void textureClick() throws Exception {
+         if (changeAble){
+             if (ChangeBlockMenu.stage == null){
+                 ChangeBlockMenu.gBlock = this;
+@@ -72,27 +73,46 @@
+             }
+         }
+         else {
+-            this.setFill(Color.YELLOW);
+-            image();
++            GameMenu.root.setCursor(Cursor.DEFAULT);
++            if (GameController.inDropBuilding==null || block.getThisBlockStructure()!=null){
++                return;
++            }
++            Image image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/"+ GameController.inDropBuilding +".png")));
++            building.setImage(image);
++            GameController.inDropBuilding = null;
++            building.setFitWidth(40);
++            building.setFitHeight(40);
++
+         }
+     }
+ 
+-    public void image(){
+-        ImageView imageView = new ImageView("C:/Users/m/Desktop/GameMenu/src/main/resources/images/suggested/images.png");
+-        imageView.setX(this.getX());
+-        imageView.setY(this.getY());
+-        imageView.setFitWidth(40);
+-        imageView.setFitHeight(40);
+-        GameMenu.controller.getMapPane().getChildren().add(imageView);
++    private void buildingClick() throws Exception {
+     }
++
++
+ 
+     public void setBuilding(){
+-
+-        this.label = new Label(block.getThisBlockStructure().getName());
+-        label.setLayoutX(50*(block.getX()-1));
+-        label.setLayoutY(50*(block.getY()-1));
+-        label.setStyle("-fx-font-size: 10");
+-        //Game.mapPane.getChildren().add(label);
++        building.setX(this.getX()+5);
++        building.setY(this.getY()+5);
++        building.setFitWidth(1);
++        building.setFitHeight(1);
++        building.setImage(GBlock.Iron);
++        if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getName()==null){
++            System.out.println("null!");
++            return;
++        }
++        switch (block.getThisBlockStructure().getName()) {
++            case "Iron" -> building.setImage(GBlock.Iron);
++            case "Grass" -> building.setImage(GBlock.Grass);
++            case "Dirt" -> building.setImage(GBlock.Dirt);
++            case "Meadow" -> building.setImage(GBlock.Meadow);
++            case "Dense Meadow" -> building.setImage(GBlock.DenseMeadow);
++            case "Gravel" -> building.setImage(GBlock.Gravel);
++            case "Stone" -> building.setImage(GBlock.Stone);
++            default -> building.setImage(GBlock.Boulder);
++        }
++        building.setFitWidth(40);
++        building.setFitHeight(40);
+     }
+ 
+     public void setTexture(){
+@@ -117,28 +137,60 @@
+         setBuilding();
+     }
+ 
+-    public void shift(int x , int y){
+-        //this.block = Game.getBlockByPosition(block.getX()+x, block.getY()+y);
+-        update();
+-    }
+ 
+     public void setMouseEvents(Boolean on){
+         if (on){
+-            this.texture.setOnMouseClicked(event -> {
++            texture.setOnMouseClicked(event -> {
+                 try {
+-                    click();
++                    textureClick();
+                 } catch (Exception e) {
+                     throw new RuntimeException(e);
+                 }
+             });
+         }
+         else {
+-            this.texture.setOnMouseClicked(null);
+-            this.texture.setOnMouseEntered(event -> showInformation());
+-            this.texture.setOnMouseExited(event -> unShowInformation());
++            texture.setOnMouseClicked(event -> {
++                try {
++                    textureClick();
++                } catch (Exception e) {
++                    throw new RuntimeException(e);
++                }
++            });
++            PauseTransition pause1 = new PauseTransition(Duration.seconds(2));
++            pause1.setOnFinished(event -> showInformation());
++            texture.setOnMouseEntered(e -> {
++                inside = true;
++                pause1.playFromStart();
++            });
++            texture.setOnMouseExited(e -> {
++                inside = false;
++                unShowInformation();
++            });
++
++            building.setOnMouseClicked(event -> {
++                try {
++                    textureClick();
++                } catch (Exception e) {
++                    throw new RuntimeException(e);
++                }
++            });
++
++            PauseTransition pause2 = new PauseTransition(Duration.seconds(2));
++            pause2.setOnFinished(event -> showBuildingInformation());
++            building.setOnMouseEntered(e -> {
++                inside = true;
++                pause2.playFromStart();
++            });
++            building.setOnMouseExited(e -> {
++                inside = false;
++                unShowInformation();
++            });
+ 
+         }
+     }
++
++    private void showBuildingInformation() {
++    }
+ 
+ 
+     public Block getBlock() {
+@@ -147,11 +199,30 @@
+ 
+ 
+     public void showInformation(){
+-        GameMenu.controller.getMapPane().getChildren().add(information);
++        if (inside){
++            GameMenu.controller.getMapPane().getChildren().add(information);
++        }
+     }
+ 
+     public void unShowInformation(){
+-        GameMenu.controller.getMapPane().getChildren().remove(information);
++        if (!inside){
++            GameMenu.controller.getMapPane().getChildren().remove(information);
++        }
+     }
+ 
++    public void zoom(double scale) {
++        building.setScaleX(scale);
++        building.setScaleY(scale);
++        texture.setScaleX(scale);
++        texture.setScaleY(scale);
++        this.setScaleX(scale);
++        this.setScaleY(scale);
++        this.setX(getX()*scale);
++        this.setY(getY()*scale);
++        building.setX(building.getX()*scale);
++        building.setY(building.getY()*scale);
++        texture.setX(texture.getX()*scale);
++        texture.setY(texture.getY()*scale);
++
++    }
+ }
+Index: src/main/java/model/Types.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport model.Buildings.BuildingType;\r\nimport model.Peoples.PeopleType;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Types {\r\n    private static ArrayList<PeopleType> peopleTypes = new ArrayList<>();\r\n    private static ArrayList<BuildingType> buildingTypes = new ArrayList<>();\r\n\r\n    public static void run(){\r\n        addPeopleTypes();\r\n        addBuildingsTypes();\r\n    }\r\n\r\n    public static void addPeopleTypes() {\r\n\r\n        peopleTypes.add(new PeopleType(\"Archer\",\"launchers\" ,8, 2,2, 4, 2, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Crossbowmen\",\"launchers\" ,9, 2,3, 4, 5, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"ArcherBow\",\"launchers\" ,6, 2,2, 4, 2, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"Slingers\",\"launchers\" ,7, 2,1, 4, 1, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"HorseArchers\",\"launchers\" ,10, 2,3, 5, 3, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"FireThrowers\",\"launchers\" ,12, 4,2, 5, 5, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n\r\n        peopleTypes.add(new PeopleType(\"Tunneler\",\"NormalPeople\" ,8, 3,1, 4, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Laddermen\",\"NormalPeople\" ,9, 0,1, 4, 0, new String[]{\"type1\", \"type2\"},\"EngineerGuild\"));\r\n        peopleTypes.add(new PeopleType(\"Engineer\",\"NormalPeople\" ,9, 0,1, 3, 0, new String[]{\"type1\", \"type2\"},\"EngineerGuild\"));\r\n\r\n        peopleTypes.add(new PeopleType(\"Spearmen\",\"fightingForce\" ,7, 3,1, 3, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Pikemen\",\"fightingForce\" ,9, 3,4, 2, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Macemen\",\"fightingForce\" ,10, 4,3, 3, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Swordsmen\",\"fightingForce\" ,11, 5,5, 1, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Knight\",\"fightingForce\" ,14, 5,4, 5, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"BlackMonk\",\"fightingForce\" ,8, 3,3, 2, 0, new String[]{\"type1\", \"type2\"},\"Cathedral\"));\r\n        peopleTypes.add(new PeopleType(\"Slaves\",\"fightingForce\" ,4, 1,1, 4, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"Assassins\",\"fightingForce\" ,9, 3,3, 3, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"ArabianSwordsmen\",\"fightingForce\" ,13, 4,4, 5, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n\r\n    }\r\n\r\n\r\n    public static void addBuildingsTypes() {\r\n        buildingTypes.add(new BuildingType(\"SmallStoneGatehouse\",\"CastleBuildings\",0,0,0,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"BigStoneGatehouse\",\"CastleBuildings\",0,20,0,0,0,0,0,0,10,0,0));\r\n        buildingTypes.add(new BuildingType(\"Keep\",\"CastleBuildings\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"DrawBridge\",\"CastleBuildings\",10,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"LookoutTower\",\"TowerAndLookouts\",0,10,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"CircleTower\",\"TowerAndLookouts\",0,40,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"SquareTower\",\"TowerAndLookouts\",0,35,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Perimeter tower\",\"TowerAndLookouts\",0,10,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Turret\",\"TowerAndLookouts\",0,15,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Armoury\",\"WeaponBuildings\",5,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Barrack\",\"WeaponBuildings\",0,15,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"EngineerGuild\",\"WeaponBuildings\",10,0,100,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"KillingPit\",\"Trap\",6,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Hovel\",\"TownBuildings\",6,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Church\",\"TownBuildings\",0,0,250,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Cathedral\",\"WeaponBuildings\",0,0,1000,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Armourer\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Blacksmith\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Fletcher\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Poleturner\",\"WeaponBuildings\",10,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Tunnel\",\"Other\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Stockpile\",\"Storge\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Quarry\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,3));\r\n        buildingTypes.add(new BuildingType(\"PitchRig\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Mill\",\"FoodProccessingBuildings\",20,0,0,0,0,0,0,0,0,0,3));\r\n        buildingTypes.add(new BuildingType(\"Inn\",\"CastleBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Ditch\",\"Trap\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"MercenaryPost\",\"WeaponBuildings\",10,0,0,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"PitchDitch\",\"Trap\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"CagedWarDogs\",\"Trap\",10,0,100,10000,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"SiegeTent\",\"CastleBuildings\",0,0,0,0,0,0,0,0,8,50,0));\r\n        buildingTypes.add(new BuildingType(\"Stable\",\"Storage\",20,0,100,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Store\",\"Industry\",20,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"OilSmelter\",\"Industry\",0,10,100,0,0,0,0,0,0,1,1));\r\n        buildingTypes.add(new BuildingType(\"IronMine\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,2));\r\n        buildingTypes.add(new BuildingType(\"WoodCutter\",\"FarmBuildings\",3,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"AppleFarm\",\"FarmBuildings\",5,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"WheatFarm\",\"FarmBuildings\",15,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"BarleyFarm\",\"FarmBuildings\",15,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Bakery\",\"FoodProccessingBuildings\",10,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Brewery\",\"FoodProccessingBuildings\",10,0,0,0,0,0,0,0,0,0,1));\r\n    }\r\n\r\n    public static PeopleType getPeopleTypeByType(String type){\r\n        for (PeopleType peopleType : peopleTypes) {\r\n            if(peopleType.type.equals(type)){\r\n                return peopleType;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static BuildingType getBuildingTypeByType(String type){\r\n        for (BuildingType buildingType : buildingTypes) {\r\n            if(buildingType.getType().equals(type)){\r\n                return buildingType;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Types.java b/src/main/java/model/Types.java
+--- a/src/main/java/model/Types.java	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/src/main/java/model/Types.java	(date 1687854923213)
+@@ -81,7 +81,7 @@
+         buildingTypes.add(new BuildingType("WheatFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+         buildingTypes.add(new BuildingType("BarleyFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+         buildingTypes.add(new BuildingType("Bakery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+-        buildingTypes.add(new BuildingType("Brewery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
++        buildingTypes.add(new BuildingType("Market","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+     }
+ 
+     public static PeopleType getPeopleTypeByType(String type){
+Index: src/main/java/model/Buildings/Structure.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model.Buildings;\r\n\r\nimport model.Block;\r\nimport model.Government;\r\nimport model.Peoples.Militia;\r\nimport model.Peoples.NormalPeople;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic  class Structure {\r\n    Block block;\r\n    int HP;\r\n    Government government;\r\n    private ArrayList<Militia> militias;\r\n    private ArrayList<NormalPeople> normalPeoples;\r\n    BuildingType buildingType;\r\n\r\n    public Structure(int HP) {\r\n        this.HP = HP;\r\n    }\r\n\r\n    public BuildingType getBuildingType() {\r\n        return buildingType;\r\n    }\r\n\r\n    public void setBuildingType(BuildingType buildingType) {\r\n        this.buildingType = buildingType;\r\n    }\r\n\r\n    public void setGovernment(Government government) {\r\n        this.government = government;\r\n    }\r\n\r\n    public String getName() {\r\n        return buildingType.getType();\r\n    }\r\n\r\n    public void setHP(int HP) {\r\n        this.HP = HP;\r\n    }\r\n\r\n    public Structure(Block block, Government government, ArrayList<Militia> militias, ArrayList<NormalPeople> normalPeoples, BuildingType buildingType) {\r\n        this.block = block;\r\n        this.government = government;\r\n        this.militias = militias;\r\n        this.normalPeoples = normalPeoples;\r\n        this.buildingType = buildingType;\r\n        block.setThisBlockStructure(this);\r\n        this.HP=500;\r\n    }\r\n\r\n    public Block getBlock() {\r\n        return block;\r\n    }\r\n\r\n    public int getHitPoint() {\r\n        return HP;\r\n    }\r\n\r\n\r\n\r\n    public ArrayList<NormalPeople> getNormalPeople() {\r\n        return normalPeoples;\r\n    }\r\n\r\n    public void setNormalPeople(ArrayList<NormalPeople> normalPeople) {\r\n        this.normalPeoples = normalPeople;\r\n    }\r\n\r\n    public void removeNormalPeople(NormalPeople normalPeople) {\r\n        normalPeoples.remove(normalPeople);\r\n    }\r\n\r\n    public void addNormalPeople(NormalPeople normalPeople) {\r\n        normalPeoples.add(normalPeople);\r\n    }\r\n\r\n\r\n\r\n    public ArrayList<Militia> getMilitias() {\r\n        return militias;\r\n    }\r\n\r\n    public void setMilitias(ArrayList<Militia> militias) {\r\n        this.militias = militias;\r\n    }\r\n\r\n    public Government getGovernment() {\r\n        return government;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Buildings/Structure.java b/src/main/java/model/Buildings/Structure.java
+--- a/src/main/java/model/Buildings/Structure.java	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/src/main/java/model/Buildings/Structure.java	(date 1687773239834)
+@@ -32,6 +32,9 @@
+     }
+ 
+     public String getName() {
++        if (buildingType==null || buildingType.getType()==null){
++            return null;
++        }
+         return buildingType.getType();
+     }
+ 
+Index: src/main/java/view/GameMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\nimport controller.EditMap;\r\nimport controller.GameController;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Control;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.SkinBase;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.input.DragEvent;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.layout.Pane;\r\nimport model.Block;\r\nimport model.CurrentGovernmentBox;\r\nimport model.GBlock;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class GameMenuController {\r\n\r\n\r\n    private static ArrayList<GBlock> gBlocks;\r\n    public Pane pane;\r\n    public Label government;\r\n    public ImageView exit;\r\n    @FXML\r\n    private Pane mapPane = new Pane();\r\n\r\n\r\n\r\n\r\n    public void gameInitialize(){\r\n\r\n        gBlocks = new ArrayList<>();\r\n        government.setText(GameController.currentGovernment.getOwner().getUsername());\r\n        for (int i = 1; i <= 50; i++) {\r\n            for (int j = 1; j <= 50; j++) {\r\n                gBlocks.add(new GBlock(getBlockByPosition(i,j),false));\r\n            }\r\n        }\r\n\r\n\r\n\r\n\r\n    }\r\n\r\n    public static Block getBlockByPosition ( int x, int y){\r\n        for (Block block : EditMap.blocks) {\r\n            if (block.getX() == x && block.getY() == y) {\r\n                return block;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n\r\n    public Pane getMapPane() {\r\n        return mapPane;\r\n    }\r\n\r\n    public void nextTurn(MouseEvent mouseEvent) {\r\n        GameController.nextTurn();\r\n        government.setText(GameController.currentGovernment.getOwner().getUsername());\r\n    }\r\n\r\n    public void exit(MouseEvent mouseEvent) throws Exception {\r\n        new CreateNewGameMenu().start(CreateNewGameMenu.stage);\r\n    }\r\n\r\n    public void dropBuilding(MouseEvent mouseEvent) {\r\n        ImageView imageView = (ImageView) mouseEvent.getSource();\r\n        String packageAddress = \"file:/C:/Users/m/Desktop/StrongholdPhase2/target/classes/images/Buildings/\";\r\n        String name = imageView.getImage().getUrl().replace(packageAddress,\"\");\r\n        name = name.replace(\".png\",\"\");\r\n        System.out.println(name);\r\n        GameController.inDropBuilding = name;\r\n\r\n        //GameController.dropBuilding();\r\n\r\n        /*/\r\n        GBlock gBlock = ChangeBlockMenu.gBlock;\r\n        if (imageView.equals(Dirt)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Dirt\");\r\n        }\r\n        else if (imageView.equals(Grass)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Grass\");\r\n        }\r\n        else if (imageView.equals(Gravel)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Gravel\");\r\n        }\r\n        else if (imageView.equals(Meadow)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Meadow\");\r\n        }\r\n        else if (imageView.equals(Iron)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Iron\");\r\n        }\r\n        else if (imageView.equals(Stone)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Stone\");\r\n        }\r\n        else if (imageView.equals(Boulder)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Boulder\");\r\n        }\r\n        else {\r\n            EditMap.setTexture(gBlock.getBlock(),\"Dense Meadow\");\r\n        }\r\n\r\n         */\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/GameMenuController.java b/src/main/java/view/GameMenuController.java
+--- a/src/main/java/view/GameMenuController.java	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/src/main/java/view/GameMenuController.java	(date 1687780586597)
+@@ -2,10 +2,8 @@
+ import controller.EditMap;
+ import controller.GameController;
+ import javafx.fxml.FXML;
+-import javafx.scene.control.Button;
+-import javafx.scene.control.Control;
+-import javafx.scene.control.Label;
+-import javafx.scene.control.SkinBase;
++import javafx.scene.Cursor;
++import javafx.scene.control.*;
+ import javafx.scene.image.ImageView;
+ import javafx.scene.input.DragEvent;
+ import javafx.scene.input.MouseEvent;
+@@ -23,6 +21,7 @@
+     public Pane pane;
+     public Label government;
+     public ImageView exit;
++    public ScrollPane scrollPane;
+     @FXML
+     private Pane mapPane = new Pane();
+ 
+@@ -31,6 +30,33 @@
+ 
+     public void gameInitialize(){
+ 
++        double minScale = 0.9;
++        double maxScale = 1.1;
++
++        Button zoomInButton = new Button("بزرگ نمایی");
++        zoomInButton.setOnAction(event -> {
++            double newScale = mapPane.getScaleX() * 1.05;
++            if (newScale <= maxScale) {
++                mapPane.setScaleX(newScale);
++                mapPane.setScaleY(newScale);
++                blocksZoom(newScale);
++            }
++        });
++
++        Button zoomOutButton = new Button("کوچک نمایی");
++        zoomOutButton.setOnAction(event -> {
++            double newScale = mapPane.getScaleX() * 0.95;
++            if (newScale >= minScale) {
++                mapPane.setScaleX(newScale);
++                mapPane.setScaleY(newScale);
++                blocksZoom(newScale);
++            }
++        });
++
++        pane.getChildren().add(zoomOutButton);
++        pane.getChildren().add(zoomInButton);
++
++
+         gBlocks = new ArrayList<>();
+         government.setText(GameController.currentGovernment.getOwner().getUsername());
+         for (int i = 1; i <= 50; i++) {
+@@ -44,6 +70,13 @@
+ 
+     }
+ 
++    private void blocksZoom(double scale) {
++        for (int i = 0; i < gBlocks.size(); i++) {
++            gBlocks.get(i).zoom(scale);
++        }
++    }
++
++
+     public static Block getBlockByPosition ( int x, int y){
+         for (Block block : EditMap.blocks) {
+             if (block.getX() == x && block.getY() == y) {
+@@ -69,42 +102,12 @@
+ 
+     public void dropBuilding(MouseEvent mouseEvent) {
+         ImageView imageView = (ImageView) mouseEvent.getSource();
++        Cursor cursor = Cursor.cursor(imageView.getImage().getUrl());
++        GameMenu.root.setCursor(cursor);
+         String packageAddress = "file:/C:/Users/m/Desktop/StrongholdPhase2/target/classes/images/Buildings/";
+         String name = imageView.getImage().getUrl().replace(packageAddress,"");
+         name = name.replace(".png","");
+         System.out.println(name);
+         GameController.inDropBuilding = name;
+-
+-        //GameController.dropBuilding();
+-
+-        /*/
+-        GBlock gBlock = ChangeBlockMenu.gBlock;
+-        if (imageView.equals(Dirt)){
+-            EditMap.setTexture(gBlock.getBlock(),"Dirt");
+-        }
+-        else if (imageView.equals(Grass)){
+-            EditMap.setTexture(gBlock.getBlock(),"Grass");
+-        }
+-        else if (imageView.equals(Gravel)){
+-            EditMap.setTexture(gBlock.getBlock(),"Gravel");
+-        }
+-        else if (imageView.equals(Meadow)){
+-            EditMap.setTexture(gBlock.getBlock(),"Meadow");
+-        }
+-        else if (imageView.equals(Iron)){
+-            EditMap.setTexture(gBlock.getBlock(),"Iron");
+-        }
+-        else if (imageView.equals(Stone)){
+-            EditMap.setTexture(gBlock.getBlock(),"Stone");
+-        }
+-        else if (imageView.equals(Boulder)){
+-            EditMap.setTexture(gBlock.getBlock(),"Boulder");
+-        }
+-        else {
+-            EditMap.setTexture(gBlock.getBlock(),"Dense Meadow");
+-        }
+-
+-         */
+-
+     }
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" project-jdk-name=\"19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/.idea/misc.xml	(date 1687887715073)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="19" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/resources/FXML/GameMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.ScrollPane?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<Pane fx:id=\"pane\" prefHeight=\"700.0\" prefWidth=\"1000.0\" style=\"-fx-background-color: #FFFDD0;\" stylesheets=\"@../CSS/gameStyles.css\" xmlns=\"http://javafx.com/javafx/19\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"view.GameMenuController\">\r\n   <children>\r\n      <ScrollPane prefHeight=\"500.0\" prefWidth=\"900.0\">\r\n         <content>\r\n            <Pane fx:id=\"mapPane\" prefHeight=\"499.0\" prefWidth=\"901.0\" />\r\n         </content>\r\n      </ScrollPane>\r\n      <Pane layoutX=\"900.0\" layoutY=\"400.0\" prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: gray;\" />\r\n      <Button layoutX=\"910.0\" layoutY=\"207.0\" mnemonicParsing=\"false\" onMouseClicked=\"#nextTurn\" styleClass=\"button4\" text=\"دور بعد\" />\r\n\r\n      <ImageView fx:id=\"exit\" onMouseClicked=\"#exit\" fitHeight=\"30.0\" fitWidth=\"30.0\" layoutX=\"965.0\" layoutY=\"3.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n         <image>\r\n            <Image url=\"@../images/icons/close.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <Button layoutX=\"900.0\" layoutY=\"265.0\" mnemonicParsing=\"false\" prefHeight=\"33.0\" prefWidth=\"100.0\" styleClass=\"button1\" text=\"حکومت\" />\r\n      <Button layoutX=\"900.0\" layoutY=\"310.0\" mnemonicParsing=\"false\" prefHeight=\"33.0\" prefWidth=\"100.0\" styleClass=\"button2\" text=\"فروشگاه\" />\r\n      <Button layoutX=\"900.0\" layoutY=\"355.0\" mnemonicParsing=\"false\" prefHeight=\"45.0\" prefWidth=\"100.0\" styleClass=\"button3\" text=\"تجارت\" />\r\n      <Label fx:id=\"government\" alignment=\"CENTER\" layoutX=\"909.0\" layoutY=\"153.0\" prefHeight=\"20.0\" prefWidth=\"80.0\" styleClass=\"label2\" text=\"username\" />\r\n      <Label layoutX=\"900.0\" layoutY=\"92.0\" prefHeight=\"41.0\" prefWidth=\"100.0\" styleClass=\"label5\" text=\"حکومت فعلی:\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#3d9082\" height=\"202.0\" layoutX=\"-2.0\" layoutY=\"499.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"680.0\" />\r\n      <VBox layoutX=\"106.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name2\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name2.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 2\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name8\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name8.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 8\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"195.0\" layoutY=\"505.0\" prefHeight=\"178.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name3\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name3.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 3\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"79.0\" prefWidth=\"80.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name9\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name9.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"80.0\" text=\"نام 9\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"285.0\" layoutY=\"505.0\" prefHeight=\"173.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name4\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name4.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 4\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"89.0\" prefWidth=\"80.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name10\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name10.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"0.0\" prefWidth=\"80.0\" text=\"نام 10\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"376.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name5\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name5.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 5\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name11\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name11.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 11\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"467.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name6\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name6.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 6\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name12\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name12.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 12\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"14.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name1\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name1.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 1\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name7\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name7.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 7\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <Text layoutX=\"553.0\" layoutY=\"579.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"در این قسمت می توانید ساختمان مورد نظر را انتخاب و آن را در نقشه قرار دهید\" textAlignment=\"CENTER\" wrappingWidth=\"120.001953125\" />\r\n   </children>\r\n</Pane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/FXML/GameMenu.fxml b/src/main/resources/FXML/GameMenu.fxml
+--- a/src/main/resources/FXML/GameMenu.fxml	(revision 0f5e264dca67587515e18aeef4ac719724625613)
++++ b/src/main/resources/FXML/GameMenu.fxml	(date 1687779697719)
+@@ -13,9 +13,9 @@
+ 
+ <Pane fx:id="pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFDD0;" stylesheets="@../CSS/gameStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuController">
+    <children>
+-      <ScrollPane prefHeight="500.0" prefWidth="900.0">
++      <ScrollPane fx:id="scrollPane" prefHeight="500.0" prefWidth="900.0">
+          <content>
+-            <Pane fx:id="mapPane" prefHeight="499.0" prefWidth="901.0" />
++            <Pane fx:id="mapPane" prefHeight="2500" prefWidth="2500" />
+          </content>
+       </ScrollPane>
+       <Pane layoutX="900.0" layoutY="400.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: gray;" />

@@ -1,10 +1,18 @@
 package model.Peoples;
 
+import javafx.animation.PauseTransition;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 import model.*;
+import view.GameMenu;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Random;
 
 
 public class People {
@@ -17,6 +25,23 @@ public class People {
     private boolean inPatrol;
     private Block destination1;
     private Block destination2;
+
+    private final ImageView imageView = new ImageView();
+
+    Text name = new Text();
+    Text governmentName = new Text();
+    Text HP = new Text();
+
+    private boolean inside;
+
+    private final Rectangle information = new Rectangle(130,70);
+
+
+
+
+
+
+
 
     private boolean selected;
     public void startMove(Block block){
@@ -39,6 +64,16 @@ public class People {
         inMove = false;
         hitPoint = 25;
         selected = false;
+        switch (this.getPeopleType().type) {
+            case "Knight" -> imageView.setImage(GBlock.Knight);
+            case "Slaves" -> imageView.setImage(GBlock.Slaves);
+            case "Archer" -> imageView.setImage(GBlock.Archer);
+            case "Engineer" -> imageView.setImage(GBlock.Engineer);
+            case "Swordsmen" -> imageView.setImage(GBlock.Swordsmen);
+            case "Assassins" -> imageView.setImage(GBlock.Assassins);
+            default -> imageView.setImage(GBlock.HorseArchers);
+        }
+        setImageMouse();
     }
 
     public String isInMove() {
@@ -155,4 +190,82 @@ public class People {
     public PeopleType getPeopleType() {
         return peopleType;
     }
+
+
+    public void show(){
+        Random random = new Random();
+        imageView.setFitHeight(35);
+        imageView.setFitWidth(20);
+        imageView.setX((block.getX()-1)*50+random.nextInt(50));
+        imageView.setY((block.getY()-1)*50+random.nextInt(50));
+        System.out.println("x: "+imageView.getX());
+        if (!GameMenu.controller.getMapPane().getChildren().contains(imageView)){
+            GameMenu.controller.getMapPane().getChildren().add(imageView);
+        }
+    }
+
+    public void unShow(){
+        GameMenu.controller.getMapPane().getChildren().remove(imageView);
+    }
+
+
+
+
+    public void setImageMouse(){
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(event -> showInformation());
+        imageView.setOnMouseEntered(e -> {
+            inside = true;
+            pause.playFromStart();
+        });
+        imageView.setOnMouseExited(e -> {
+            inside = false;
+            unShowInformation();
+        });
+    }
+
+
+
+    private void setBuildingInformation(boolean show) {
+        name.setText("name: "+peopleType.type);
+        governmentName.setText("government: "+block.getThisBlockStructure().getGovernment().getOwner().getUsername());
+        HP.setText("HP: "+hitPoint);
+
+        information.setFill(Color.GREENYELLOW);
+        information.setX(imageView.getX()+50);
+        information.setY(imageView.getY()-50);
+
+        name.setX(imageView.getX()+55);
+        name.setY(imageView.getY()-30);
+
+        governmentName.setX(imageView.getX()+55);
+        governmentName.setY(imageView.getY()-10);
+
+        HP.setX(imageView.getX()+55);
+        HP.setY(imageView.getY()+10);
+
+        if (block.getThisBlockStructure()!=null && show){
+            GameMenu.controller.getMapPane().getChildren().addAll(information,name,governmentName,HP);
+        }
+        else {
+            GameMenu.controller.getMapPane().getChildren().removeAll(information,name,governmentName,HP);
+        }
+    }
+
+
+
+    public void showInformation(){
+        if (inside){
+            setBuildingInformation(true);
+        }
+    }
+
+    public void unShowInformation(){
+        if (!inside){
+            setBuildingInformation(false);
+        }
+
+    }
+
+
 }

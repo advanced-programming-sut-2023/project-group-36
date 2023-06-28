@@ -96,6 +96,7 @@ public class BuildingMenuController {
         if (GameController.inDropUnit!=null && count>0){
             result = GameController.createUnit(GameController.inDropUnit,count);
             BuildingMenu.stage.close();
+            GameController.currentGovernment.showUnits();
             Alert alert = new Alert(Alert.AlertType.INFORMATION,result);
             alert.showAndWait();
         }

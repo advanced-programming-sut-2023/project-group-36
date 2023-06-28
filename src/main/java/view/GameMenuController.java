@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import model.Block;
 import model.CurrentGovernmentBox;
 import model.GBlock;
@@ -121,5 +122,20 @@ public class GameMenuController {
         name = name.replace(".png","");
         System.out.println(name);
         GameController.inDropBuilding = name;
+    }
+
+    public void government(MouseEvent mouseEvent) throws Exception {
+        GovernmentMenu governmentMenu = new GovernmentMenu();
+        governmentMenu.start(new Stage());
+    }
+
+    public void shop(MouseEvent mouseEvent) throws Exception {
+        ShopMenu shopMenu = new ShopMenu();
+        shopMenu.start(new Stage());
+    }
+
+    public void trade(MouseEvent mouseEvent) throws Exception {
+        TradeMenu tradeMenu = new TradeMenu();
+        tradeMenu.start(new Stage());
     }
 }

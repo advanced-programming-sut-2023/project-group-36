@@ -31,7 +31,7 @@ public class TradeMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         HBox pane=new HBox();
-        pane.setStyle("-fx-font-family: Mistral; -fx-font-size: 18px; -fx-text-fill: white");
+        pane.setStyle("-fx-font-family: Arial; -fx-font-size: 18px; -fx-text-fill: #100000");
         BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/LoginMenuBackground.jpg").openStream(),1000,600,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);

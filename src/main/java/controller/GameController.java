@@ -428,17 +428,17 @@ public class GameController {
             return "Error: An appropriate building has not been selected!";
         }
         People people;
-        Block block = currentStructure.getBlock();
-        if (peopleType.category.equals("launchers")){
-            people = new Launcher(peopleType,currentGovernment,block);
-        }
-        else if (peopleType.category.equals("fightingForce")){
-            people = new FightingForce(peopleType,currentGovernment,block);
-        }
-        else {
-            people = new NormalPeople(peopleType,currentGovernment,block);
-        }
         for (int i = 0; i < count; i++) {
+            Block block = currentStructure.getBlock();
+            if (peopleType.category.equals("launchers")){
+                people = new Launcher(peopleType,currentGovernment,block);
+            }
+            else if (peopleType.category.equals("fightingForce")){
+                people = new FightingForce(peopleType,currentGovernment,block);
+            }
+            else {
+                people = new NormalPeople(peopleType,currentGovernment,block);
+            }
             currentGovernment.addPeople(people);
             block.addPeople(people);
         }

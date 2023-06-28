@@ -1,0 +1,1494 @@
+Index: src/main/resources/FXML/BuildingSelect.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/FXML/BuildingSelect.fxml b/src/main/resources/FXML/BuildingSelect.fxml
+new file mode 100644
+--- /dev/null	(date 1687946649970)
++++ b/src/main/resources/FXML/BuildingSelect.fxml	(date 1687946649970)
+@@ -0,0 +1,65 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
++<?import javafx.scene.layout.*?>
++<?import javafx.scene.shape.*?>
++<?import javafx.scene.text.*?>
++
++<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuildingMenuController">
++   <children>
++      <ImageView fx:id="Knight" fitHeight="87.0" fitWidth="50.0" layoutX="41.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Knight.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="46.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Knight" textAlignment="CENTER" wrappingWidth="39.13671875" />
++      <ImageView fx:id="Archer" fitHeight="100.0" fitWidth="50.0" layoutX="123.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Archer.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archer" textAlignment="CENTER" wrappingWidth="39.13671875" />
++      <ImageView fx:id="Assassins" fitHeight="100.0" fitWidth="50.0" layoutX="195.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Assassins.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="200.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assassins" textAlignment="CENTER" wrappingWidth="50.0" />
++      <ImageView fx:id="Engineer" fitHeight="100.0" fitWidth="50.0" layoutX="277.0" layoutY="49.0" pickOnBounds="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Engineer.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="278.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer" textAlignment="CENTER" wrappingWidth="60.13671875" />
++      <ImageView fx:id="HorseArchers" fitHeight="100.0" fitWidth="50.0" layoutX="353.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/HorseArchers.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="353.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HorseArchers" textAlignment="CENTER" wrappingWidth="75.13671875" />
++      <ImageView fx:id="Slaves" fitHeight="100.0" fitWidth="50.0" layoutX="445.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Slaves.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="459.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slaves" textAlignment="CENTER" wrappingWidth="39.13671875" />
++      <ImageView fx:id="Swordsmen" fitHeight="100.0" fitWidth="50.0" layoutX="536.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
++         <image>
++            <Image url="@../images/Units/Swordsmen.png" />
++         </image>
++      </ImageView>
++      <Text layoutX="536.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swordsmen" textAlignment="CENTER" wrappingWidth="75.13671875000006" />
++      <Text fx:id="number" layoutX="479.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
++         <font>
++            <Font size="42.0" />
++         </font>
++      </Text>
++      <Button fx:id="remove" layoutX="449.0" layoutY="220.0" mnemonicParsing="false" text="-" textAlignment="CENTER" />
++      <Button fx:id="add" layoutX="511.0" layoutY="220.0" mnemonicParsing="false" text="+" />
++      <Button fx:id="create" layoutX="154.0" layoutY="228.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="ساختن" />
++      <Line endX="566.0" layoutX="94.0" layoutY="299.0" startX="-100.0" strokeMiterLimit="0.0" />
++      <Button fx:id="destroy" layoutX="444.0" layoutY="353.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="تخریب" />
++      <Button fx:id="repair" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="بازسازی" />
++   </children>
++</Pane>
+Index: src/main/java/model/GBlock.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\nimport controller.EditMap;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.shape.Rectangle;\r\nimport javafx.stage.Stage;\r\nimport view.ChangeBlockMenu;\r\nimport view.EditMapMenu;\r\nimport view.GameMenu;\r\nimport view.GameMenuController;\r\n\r\nimport java.io.IOException;\r\nimport java.util.Objects;\r\n\r\npublic class GBlock extends Rectangle {\r\n    private Block block;\r\n    private Boolean changeAble;\r\n    private ImageView texture = new ImageView();\r\n    private ImageView building = new ImageView();\r\n    private Label label;\r\n\r\n    public Rectangle information;\r\n\r\n    public static Image Iron = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png\");\r\n    public static Image Grass = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png\");\r\n    public static Image Gravel = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png\");\r\n    public static Image Boulder = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Boulder.png\");\r\n    public static Image Dirt = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dirt.png\");\r\n    public static Image Meadow = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png\");\r\n    public static Image DenseMeadow = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png\");\r\n    public static Image Stone = new Image(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png\");\r\n    public static Image Sickness;\r\n\r\n    static {\r\n        try {\r\n            Sickness = new Image(Objects.requireNonNull(GBlock.class.getResource(\"face-with-medical-mask_1f637.png\")).openStream());\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n\r\n    public GBlock(Block block, Boolean changeAble){\r\n        super(50,50);\r\n        this.block = block;\r\n        this.setX(50*(block.getX()-1));\r\n        this.setY(50*(block.getY()-1));\r\n        this.setFill(Color.rgb(100,80,60));\r\n        this.changeAble = changeAble;\r\n        setTexture();\r\n\r\n        information = new Rectangle(130,70);\r\n        information.setFill(Color.BROWN);\r\n        information.setX(this.getX()+50);\r\n        information.setY(this.getY()-50);\r\n\r\n\r\n        //setBuilding();\r\n        if (changeAble){\r\n            EditMapMenu.controller.getMapPane().getChildren().add(this);\r\n            EditMapMenu.controller.getMapPane().getChildren().add(texture);\r\n\r\n        }\r\n        else {\r\n            GameMenu.controller.getMapPane().getChildren().add(this);\r\n            GameMenu.controller.getMapPane().getChildren().add(texture);\r\n\r\n        }\r\n\r\n        //Game.pane.getChildren().add(building);\r\n\r\n        setMouseEvents(changeAble);\r\n    }\r\n\r\n    private void click() throws Exception {\r\n        if (changeAble){\r\n            if (ChangeBlockMenu.stage == null){\r\n                ChangeBlockMenu.gBlock = this;\r\n                new ChangeBlockMenu().start(new Stage());\r\n                System.out.println(getX()+\",\"+getY());\r\n            }\r\n        }\r\n        else {\r\n            this.setFill(Color.YELLOW);\r\n            image();\r\n        }\r\n    }\r\n\r\n    public void image(){\r\n        ImageView imageView = new ImageView(\"C:/Users/m/Desktop/GameMenu/src/main/resources/images/suggested/images.png\");\r\n        imageView.setX(this.getX());\r\n        imageView.setY(this.getY());\r\n        imageView.setFitWidth(40);\r\n        imageView.setFitHeight(40);\r\n        GameMenu.controller.getMapPane().getChildren().add(imageView);\r\n    }\r\n\r\n    public void setBuilding(){\r\n\r\n        this.label = new Label(block.getThisBlockStructure().getName());\r\n        label.setLayoutX(50*(block.getX()-1));\r\n        label.setLayoutY(50*(block.getY()-1));\r\n        label.setStyle(\"-fx-font-size: 10\");\r\n        //Game.mapPane.getChildren().add(label);\r\n    }\r\n\r\n    public void setTexture(){\r\n        switch (block.getType()) {\r\n            case \"Iron\" -> texture.setImage(GBlock.Iron);\r\n            case \"Grass\" -> texture.setImage(GBlock.Grass);\r\n            case \"Dirt\" -> texture.setImage(GBlock.Dirt);\r\n            case \"Meadow\" -> texture.setImage(GBlock.Meadow);\r\n            case \"Dense Meadow\" -> texture.setImage(GBlock.DenseMeadow);\r\n            case \"Gravel\" -> texture.setImage(GBlock.Gravel);\r\n            case \"Stone\" -> texture.setImage(GBlock.Stone);\r\n            default -> texture.setImage(GBlock.Boulder);\r\n        }\r\n        texture.setX(this.getX()+1);\r\n        texture.setY(this.getY()+1);\r\n        texture.setFitWidth(48);\r\n        texture.setFitHeight(48);\r\n    }\r\n\r\n    public void update(){\r\n        setTexture();\r\n        setBuilding();\r\n    }\r\n\r\n    public void shift(int x , int y){\r\n        //this.block = Game.getBlockByPosition(block.getX()+x, block.getY()+y);\r\n        update();\r\n    }\r\n\r\n    public void setMouseEvents(Boolean on){\r\n        if (on){\r\n            this.texture.setOnMouseClicked(event -> {\r\n                try {\r\n                    click();\r\n                } catch (Exception e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n            });\r\n        }\r\n        else {\r\n            this.texture.setOnMouseClicked(null);\r\n            this.texture.setOnMouseEntered(event -> showInformation());\r\n            this.texture.setOnMouseExited(event -> unShowInformation());\r\n\r\n        }\r\n    }\r\n\r\n\r\n    public Block getBlock() {\r\n        return block;\r\n    }\r\n\r\n\r\n    public void showInformation(){\r\n        GameMenu.controller.getMapPane().getChildren().add(information);\r\n    }\r\n\r\n    public void unShowInformation(){\r\n        GameMenu.controller.getMapPane().getChildren().remove(information);\r\n    }\r\n\r\n    public void addSicknessSign() {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/GBlock.java b/src/main/java/model/GBlock.java
+--- a/src/main/java/model/GBlock.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/GBlock.java	(date 1687949918505)
+@@ -1,46 +1,49 @@
+ package model;
+-import controller.EditMap;
+-import javafx.scene.control.Label;
++import controller.GameController;
++import javafx.animation.PauseTransition;
++import javafx.scene.Cursor;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
+ import javafx.scene.paint.Color;
+ import javafx.scene.shape.Rectangle;
++import javafx.scene.text.Text;
+ import javafx.stage.Stage;
+-import view.ChangeBlockMenu;
+-import view.EditMapMenu;
+-import view.GameMenu;
+-import view.GameMenuController;
+-
+-import java.io.IOException;
+-import java.util.Objects;
++import javafx.util.Duration;
++import view.*;
+ 
+ public class GBlock extends Rectangle {
+     private Block block;
+     private Boolean changeAble;
+     private ImageView texture = new ImageView();
+     private ImageView building = new ImageView();
+-    private Label label;
++
++
++
++    public static Image Iron = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Iron.png")));
++
++    public static Image Grass = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Grass.png")));
++    public static Image Gravel = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Gravel.png")));
++    public static Image Boulder = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Boulder.png")));
++    public static Image Dirt = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dirt.png")));
++    public static Image Meadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Meadow.png")));
++    public static Image DenseMeadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dense Meadow.png")));
++    public static Image Stone = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Stone.png")));
++
++    private static Image MiddleCastle = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/buildings/castle.png")));
++
++
++
++
++    private boolean insideBuilding;
++    private boolean insideBlock;
+ 
+     public Rectangle information;
+ 
+-    public static Image Iron = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png");
+-    public static Image Grass = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png");
+-    public static Image Gravel = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png");
+-    public static Image Boulder = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Boulder.png");
+-    public static Image Dirt = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dirt.png");
+-    public static Image Meadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png");
+-    public static Image DenseMeadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png");
+-    public static Image Stone = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png");
+-    public static Image Sickness;
++    private final Rectangle buildingInformation = new Rectangle(130,70);
+ 
+-    static {
+-        try {
+-            Sickness = new Image(Objects.requireNonNull(GBlock.class.getResource("face-with-medical-mask_1f637.png")).openStream());
+-        } catch (IOException e) {
+-            throw new RuntimeException(e);
+-        }
+-    }
+-
++    Text name = new Text();
++    Text government = new Text();
++    Text HP = new Text();
+ 
+     public GBlock(Block block, Boolean changeAble){
+         super(50,50);
+@@ -49,7 +52,9 @@
+         this.setY(50*(block.getY()-1));
+         this.setFill(Color.rgb(100,80,60));
+         this.changeAble = changeAble;
++
+         setTexture();
++        setBuilding();
+ 
+         information = new Rectangle(130,70);
+         information.setFill(Color.BROWN);
+@@ -57,7 +62,6 @@
+         information.setY(this.getY()-50);
+ 
+ 
+-        //setBuilding();
+         if (changeAble){
+             EditMapMenu.controller.getMapPane().getChildren().add(this);
+             EditMapMenu.controller.getMapPane().getChildren().add(texture);
+@@ -66,15 +70,42 @@
+         else {
+             GameMenu.controller.getMapPane().getChildren().add(this);
+             GameMenu.controller.getMapPane().getChildren().add(texture);
++            GameMenu.controller.getMapPane().getChildren().add(building);
+ 
+-        }
+ 
+-        //Game.pane.getChildren().add(building);
++        }
+ 
+         setMouseEvents(changeAble);
+     }
+ 
+-    private void click() throws Exception {
++
++    private void setBuildingInformation(boolean show) {
++        name.setText("name: "+block.getThisBlockStructure().getName());
++        government.setText("government: "+block.getThisBlockStructure().getGovernment().getOwner().getUsername());
++        HP.setText("HP: "+block.getThisBlockStructure().getHitPoint());
++
++        buildingInformation.setFill(Color.BLUE);
++        buildingInformation.setX(this.getX()+50);
++        buildingInformation.setY(this.getY()-50);
++
++        name.setX(this.getX()+55);
++        name.setY(this.getY()-30);
++
++        government.setX(this.getX()+55);
++        government.setY(this.getY()-10);
++
++        HP.setX(this.getX()+55);
++        HP.setY(this.getY()+10);
++
++        if (block.getThisBlockStructure()!=null && show){
++            GameMenu.controller.getMapPane().getChildren().addAll(buildingInformation,name,government,HP);
++        }
++        else {
++            GameMenu.controller.getMapPane().getChildren().removeAll(buildingInformation,name,government,HP);
++        }
++    }
++
++    private void textureClick() throws Exception {
+         if (changeAble){
+             if (ChangeBlockMenu.stage == null){
+                 ChangeBlockMenu.gBlock = this;
+@@ -83,27 +114,56 @@
+             }
+         }
+         else {
+-            this.setFill(Color.YELLOW);
+-            image();
++            GameMenu.root.setCursor(Cursor.DEFAULT);
++            if (GameController.inDropBuilding==null || block.getThisBlockStructure()!=null){
++                return;
++            }
++            String result = GameController.dropBuilding(GameController.inDropBuilding,this.block);
++            if (!result.equals("drop building is done successfully.")){
++                System.out.println(result);
++                return;
++            }
++            Image image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/"+ GameController.inDropBuilding +".png")));
++            building.setImage(image);
++            GameController.inDropBuilding = null;
++            building.setFitWidth(40);
++            building.setFitHeight(40);
+         }
+     }
+ 
+-    public void image(){
+-        ImageView imageView = new ImageView("C:/Users/m/Desktop/GameMenu/src/main/resources/images/suggested/images.png");
+-        imageView.setX(this.getX());
+-        imageView.setY(this.getY());
+-        imageView.setFitWidth(40);
+-        imageView.setFitHeight(40);
+-        GameMenu.controller.getMapPane().getChildren().add(imageView);
++    private void buildingClick() throws Exception {
++        if (block.getThisBlockStructure().getName().equals("middleCastle") || !block.getThisBlockStructure().getGovernment().equals(GameController.currentGovernment)){
++            return;
++        }
++        BuildingMenu buildingMenu = new BuildingMenu();
++        buildingMenu.start(new Stage());
+     }
++
++
+ 
+     public void setBuilding(){
+-
+-        this.label = new Label(block.getThisBlockStructure().getName());
+-        label.setLayoutX(50*(block.getX()-1));
+-        label.setLayoutY(50*(block.getY()-1));
+-        label.setStyle("-fx-font-size: 10");
+-        //Game.mapPane.getChildren().add(label);
++        building.setX(this.getX()+5);
++        building.setY(this.getY()+5);
++        building.setFitWidth(1);
++        building.setFitHeight(1);
++        building.setImage(GBlock.Iron);
++        if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getName()==null){
++            System.out.println("null!");
++            return;
++        }
++        switch (block.getThisBlockStructure().getName()) {
++            case "Iron" -> building.setImage(GBlock.Iron);
++            case "Grass" -> building.setImage(GBlock.Grass);
++            case "Dirt" -> building.setImage(GBlock.Dirt);
++            case "Meadow" -> building.setImage(GBlock.Meadow);
++            case "Dense Meadow" -> building.setImage(GBlock.DenseMeadow);
++            case "Gravel" -> building.setImage(GBlock.Gravel);
++            case "Stone" -> building.setImage(GBlock.Stone);
++            case "middleCastle" -> building.setImage(GBlock.MiddleCastle);
++            default -> building.setImage(GBlock.Boulder);
++        }
++        building.setFitWidth(40);
++        building.setFitHeight(40);
+     }
+ 
+     public void setTexture(){
+@@ -119,8 +179,8 @@
+         }
+         texture.setX(this.getX()+1);
+         texture.setY(this.getY()+1);
+-        texture.setFitWidth(48);
+-        texture.setFitHeight(48);
++        texture.setFitWidth(50);
++        texture.setFitHeight(50);
+     }
+ 
+     public void update(){
+@@ -128,25 +188,72 @@
+         setBuilding();
+     }
+ 
+-    public void shift(int x , int y){
+-        //this.block = Game.getBlockByPosition(block.getX()+x, block.getY()+y);
+-        update();
+-    }
+ 
+     public void setMouseEvents(Boolean on){
+         if (on){
+-            this.texture.setOnMouseClicked(event -> {
++            texture.setOnMouseClicked(event -> {
+                 try {
+-                    click();
++                    textureClick();
+                 } catch (Exception e) {
+                     throw new RuntimeException(e);
+                 }
+             });
+         }
+         else {
+-            this.texture.setOnMouseClicked(null);
+-            this.texture.setOnMouseEntered(event -> showInformation());
+-            this.texture.setOnMouseExited(event -> unShowInformation());
++            texture.setOnMouseClicked(event -> {
++                try {
++                    textureClick();
++                } catch (Exception e) {
++                    throw new RuntimeException(e);
++                }
++            });
++
++            building.setOnMouseClicked(event -> {
++                try {
++                    buildingClick();
++                } catch (Exception e) {
++                    throw new RuntimeException(e);
++                }
++            });
++
++            PauseTransition pause1 = new PauseTransition(Duration.seconds(2));
++            PauseTransition pause2 = new PauseTransition(Duration.seconds(2));
++            pause1.setOnFinished(event -> showInformation());
++            pause2.setOnFinished(event -> showBuildingInformation());
++
++
++            texture.setOnMouseEntered(e -> {
++                insideBlock = true;
++                pause1.playFromStart();
++            });
++            texture.setOnMouseExited(e -> {
++                insideBlock = false;
++                unShowInformation();
++            });
++
++
++            building.setOnMouseEntered(e -> {
++                insideBuilding = true;
++                pause2.playFromStart();
++            });
++            building.setOnMouseExited(e -> {
++                insideBuilding = false;
++                unShowBuildingInformation();
++            });
++
++        }
++    }
++
++
++    private void showBuildingInformation() {
++        if (insideBuilding){
++            setBuildingInformation(true);
++        }
++    }
++
++    private void unShowBuildingInformation() {
++        if (!insideBuilding){
++            setBuildingInformation(false);
+ 
+         }
+     }
+@@ -158,14 +265,30 @@
+ 
+ 
+     public void showInformation(){
+-        GameMenu.controller.getMapPane().getChildren().add(information);
++        if (insideBlock){
++            GameMenu.controller.getMapPane().getChildren().add(information);
++        }
+     }
+ 
+     public void unShowInformation(){
+-        GameMenu.controller.getMapPane().getChildren().remove(information);
++        if (!insideBlock){
++            GameMenu.controller.getMapPane().getChildren().remove(information);
++        }
+     }
+ 
+-    public void addSicknessSign() {
++    public void zoom(double scale) {
++        building.setFitWidth(building.getFitWidth()*scale);
++        building.setFitHeight(building.getFitHeight()*scale);
++        texture.setFitWidth(texture.getFitWidth()*scale);
++        texture.setFitHeight(texture.getFitHeight()*scale);
++        this.prefHeight(this.getHeight()*scale);
++        this.prefWidth(this.getWidth()*scale);
+ 
++        this.setX(getX()*scale);
++        this.setY(getY()*scale);
++        building.setX(building.getX()*scale);
++        building.setY(building.getY()*scale);
++        texture.setX(texture.getX()*scale);
++        texture.setY(texture.getY()*scale);
+     }
+ }
+Index: src/main/java/model/Buildings/Structure.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model.Buildings;\r\n\r\nimport model.Block;\r\nimport model.Government;\r\nimport model.Peoples.Militia;\r\nimport model.Peoples.NormalPeople;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic  class Structure {\r\n    Block block;\r\n    int HP;\r\n    Government government;\r\n    private ArrayList<Militia> militias;\r\n    private ArrayList<NormalPeople> normalPeoples;\r\n    BuildingType buildingType;\r\n\r\n    public Structure(int HP) {\r\n        this.HP = HP;\r\n    }\r\n\r\n    public BuildingType getBuildingType() {\r\n        return buildingType;\r\n    }\r\n\r\n    public void setBuildingType(BuildingType buildingType) {\r\n        this.buildingType = buildingType;\r\n    }\r\n\r\n    public void setGovernment(Government government) {\r\n        this.government = government;\r\n    }\r\n\r\n    public String getName() {\r\n        return buildingType.getType();\r\n    }\r\n\r\n    public void setHP(int HP) {\r\n        this.HP = HP;\r\n    }\r\n\r\n    public Structure(Block block, Government government, ArrayList<Militia> militias, ArrayList<NormalPeople> normalPeoples, BuildingType buildingType) {\r\n        this.block = block;\r\n        this.government = government;\r\n        this.militias = militias;\r\n        this.normalPeoples = normalPeoples;\r\n        this.buildingType = buildingType;\r\n        block.setThisBlockStructure(this);\r\n        this.HP=500;\r\n    }\r\n\r\n    public Block getBlock() {\r\n        return block;\r\n    }\r\n\r\n    public int getHitPoint() {\r\n        return HP;\r\n    }\r\n\r\n\r\n\r\n    public ArrayList<NormalPeople> getNormalPeople() {\r\n        return normalPeoples;\r\n    }\r\n\r\n    public void setNormalPeople(ArrayList<NormalPeople> normalPeople) {\r\n        this.normalPeoples = normalPeople;\r\n    }\r\n\r\n    public void removeNormalPeople(NormalPeople normalPeople) {\r\n        normalPeoples.remove(normalPeople);\r\n    }\r\n\r\n    public void addNormalPeople(NormalPeople normalPeople) {\r\n        normalPeoples.add(normalPeople);\r\n    }\r\n\r\n\r\n\r\n    public ArrayList<Militia> getMilitias() {\r\n        return militias;\r\n    }\r\n\r\n    public void setMilitias(ArrayList<Militia> militias) {\r\n        this.militias = militias;\r\n    }\r\n\r\n    public Government getGovernment() {\r\n        return government;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Buildings/Structure.java b/src/main/java/model/Buildings/Structure.java
+--- a/src/main/java/model/Buildings/Structure.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/Buildings/Structure.java	(date 1687944585328)
+@@ -19,6 +19,12 @@
+         this.HP = HP;
+     }
+ 
++    public Structure(Government government){
++        this.HP = 1000;
++        this.government = government;
++        this.buildingType=null;
++    }
++
+     public BuildingType getBuildingType() {
+         return buildingType;
+     }
+@@ -32,6 +38,9 @@
+     }
+ 
+     public String getName() {
++        if (buildingType==null || buildingType.getType()==null){
++            return "middleCastle";
++        }
+         return buildingType.getType();
+     }
+ 
+Index: src/main/java/view/GameMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\nimport controller.EditMap;\r\nimport controller.GameController;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Control;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.SkinBase;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.input.DragEvent;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.layout.Pane;\r\nimport model.Block;\r\nimport model.CurrentGovernmentBox;\r\nimport model.GBlock;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class GameMenuController {\r\n\r\n\r\n    private static ArrayList<GBlock> gBlocks;\r\n    public Pane pane;\r\n    public Label government;\r\n    public ImageView exit;\r\n    @FXML\r\n    private Pane mapPane = new Pane();\r\n\r\n\r\n\r\n\r\n    public void gameInitialize(){\r\n\r\n        gBlocks = new ArrayList<>();\r\n        government.setText(GameController.currentGovernment.getOwner().getUsername());\r\n        for (int i = 1; i <= 50; i++) {\r\n            for (int j = 1; j <= 50; j++) {\r\n                gBlocks.add(new GBlock(getBlockByPosition(i,j),false));\r\n            }\r\n        }\r\n\r\n\r\n\r\n\r\n    }\r\n\r\n    public static Block getBlockByPosition ( int x, int y){\r\n        for (Block block : EditMap.blocks) {\r\n            if (block.getX() == x && block.getY() == y) {\r\n                return block;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n\r\n    public Pane getMapPane() {\r\n        return mapPane;\r\n    }\r\n\r\n    public void nextTurn(MouseEvent mouseEvent) {\r\n        GameController.nextTurn();\r\n        government.setText(GameController.currentGovernment.getOwner().getUsername());\r\n    }\r\n\r\n    public void exit(MouseEvent mouseEvent) throws Exception {\r\n        new CreateNewGameMenu().start(CreateNewGameMenu.stage);\r\n    }\r\n\r\n    public void dropBuilding(MouseEvent mouseEvent) {\r\n        ImageView imageView = (ImageView) mouseEvent.getSource();\r\n        String packageAddress = \"file:/C:/Users/m/Desktop/StrongholdPhase2/target/classes/images/Buildings/\";\r\n        String name = imageView.getImage().getUrl().replace(packageAddress,\"\");\r\n        name = name.replace(\".png\",\"\");\r\n        System.out.println(name);\r\n        GameController.inDropBuilding = name;\r\n\r\n        //GameController.dropBuilding();\r\n\r\n        /*/\r\n        GBlock gBlock = ChangeBlockMenu.gBlock;\r\n        if (imageView.equals(Dirt)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Dirt\");\r\n        }\r\n        else if (imageView.equals(Grass)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Grass\");\r\n        }\r\n        else if (imageView.equals(Gravel)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Gravel\");\r\n        }\r\n        else if (imageView.equals(Meadow)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Meadow\");\r\n        }\r\n        else if (imageView.equals(Iron)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Iron\");\r\n        }\r\n        else if (imageView.equals(Stone)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Stone\");\r\n        }\r\n        else if (imageView.equals(Boulder)){\r\n            EditMap.setTexture(gBlock.getBlock(),\"Boulder\");\r\n        }\r\n        else {\r\n            EditMap.setTexture(gBlock.getBlock(),\"Dense Meadow\");\r\n        }\r\n\r\n         */\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/GameMenuController.java b/src/main/java/view/GameMenuController.java
+--- a/src/main/java/view/GameMenuController.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/view/GameMenuController.java	(date 1687949361397)
+@@ -2,10 +2,8 @@
+ import controller.EditMap;
+ import controller.GameController;
+ import javafx.fxml.FXML;
+-import javafx.scene.control.Button;
+-import javafx.scene.control.Control;
+-import javafx.scene.control.Label;
+-import javafx.scene.control.SkinBase;
++import javafx.scene.Cursor;
++import javafx.scene.control.*;
+ import javafx.scene.image.ImageView;
+ import javafx.scene.input.DragEvent;
+ import javafx.scene.input.MouseEvent;
+@@ -23,14 +21,54 @@
+     public Pane pane;
+     public Label government;
+     public ImageView exit;
++    public ScrollPane scrollPane;
+     @FXML
+     private Pane mapPane = new Pane();
+ 
++    public double newScale = 1.0;
++
+ 
+ 
+ 
+     public void gameInitialize(){
+ 
++        double minScale = 0.7;
++        double maxScale = 1.5;
++
++        Button zoomInButton = new Button("+");
++        Button zoomOutButton = new Button("-");
++        zoomInButton.setLayoutX(10);
++        zoomOutButton.setLayoutX(40);
++
++        zoomInButton.setOnAction(event -> {
++            newScale = newScale * 1.2;
++            if (newScale <= maxScale) {
++                mapPane.setLayoutX(mapPane.getLayoutX()*1.2);
++                mapPane.setLayoutY(mapPane.getLayoutY()*1.2);
++                blocksZoom(1.2);
++            }
++            else {
++                newScale /= 1.2;
++            }
++        });
++
++        zoomOutButton.setOnAction(event -> {
++            newScale = newScale * 0.9;
++            if (newScale >= minScale) {
++                mapPane.setLayoutX(mapPane.getLayoutX()*0.9);
++                mapPane.setLayoutY(mapPane.getLayoutY()*0.9);
++
++                blocksZoom(0.9);
++            }
++            else {
++                newScale /= 0.9;
++            }
++        });
++
++        pane.getChildren().add(zoomOutButton);
++        pane.getChildren().add(zoomInButton);
++
++
+         gBlocks = new ArrayList<>();
+         government.setText(GameController.currentGovernment.getOwner().getUsername());
+         for (int i = 1; i <= 50; i++) {
+@@ -44,6 +82,13 @@
+ 
+     }
+ 
++    private void blocksZoom(double scale) {
++        for (int i = 0; i < gBlocks.size(); i++) {
++            gBlocks.get(i).zoom(scale);
++        }
++    }
++
++
+     public static Block getBlockByPosition ( int x, int y){
+         for (Block block : EditMap.blocks) {
+             if (block.getX() == x && block.getY() == y) {
+@@ -69,42 +114,12 @@
+ 
+     public void dropBuilding(MouseEvent mouseEvent) {
+         ImageView imageView = (ImageView) mouseEvent.getSource();
++        Cursor cursor = Cursor.cursor(imageView.getImage().getUrl());
++        GameMenu.root.setCursor(cursor);
+         String packageAddress = "file:/C:/Users/m/Desktop/StrongholdPhase2/target/classes/images/Buildings/";
+         String name = imageView.getImage().getUrl().replace(packageAddress,"");
+         name = name.replace(".png","");
+         System.out.println(name);
+         GameController.inDropBuilding = name;
+-
+-        //GameController.dropBuilding();
+-
+-        /*/
+-        GBlock gBlock = ChangeBlockMenu.gBlock;
+-        if (imageView.equals(Dirt)){
+-            EditMap.setTexture(gBlock.getBlock(),"Dirt");
+-        }
+-        else if (imageView.equals(Grass)){
+-            EditMap.setTexture(gBlock.getBlock(),"Grass");
+-        }
+-        else if (imageView.equals(Gravel)){
+-            EditMap.setTexture(gBlock.getBlock(),"Gravel");
+-        }
+-        else if (imageView.equals(Meadow)){
+-            EditMap.setTexture(gBlock.getBlock(),"Meadow");
+-        }
+-        else if (imageView.equals(Iron)){
+-            EditMap.setTexture(gBlock.getBlock(),"Iron");
+-        }
+-        else if (imageView.equals(Stone)){
+-            EditMap.setTexture(gBlock.getBlock(),"Stone");
+-        }
+-        else if (imageView.equals(Boulder)){
+-            EditMap.setTexture(gBlock.getBlock(),"Boulder");
+-        }
+-        else {
+-            EditMap.setTexture(gBlock.getBlock(),"Dense Meadow");
+-        }
+-
+-         */
+-
+     }
+ }
+Index: src/main/java/model/ApplicationManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport javafx.scene.media.Media;\r\nimport javafx.scene.media.MediaPlayer;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class ApplicationManager {\r\n    private static ArrayList<User> users = new ArrayList<>();\r\n    private static User currentUser;\r\n    private static Game currentGame;\r\n    private int turn = 0;\r\n    private static boolean stayLoggedIn;\r\n\r\n\r\n\r\n    public static ArrayList<User> getUsers() {\r\n        return users;\r\n    }\r\n\r\n    public void setUsers(ArrayList<User> users) {\r\n        this.users = users;\r\n    }\r\n\r\n    static MediaPlayer mediaPlayer=new MediaPlayer(new Media(ApplicationManager.class.getResource(\"/music/mokhtarnameh-barkhiz.mp3\").toString()));\r\n    public static void run(){\r\n        mediaPlayer.setVolume(50);\r\n        mediaPlayer.play();\r\n    }\r\n\r\n    public static Game getCurrentGame() {\r\n        return currentGame;\r\n    }\r\n    public static User getUserByUsername(String username){\r\n        for (User user : users) {\r\n            if (user.getUsername().equals(username)) {\r\n                return user;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static User getUserByEmail(String email){\r\n        for (User user : users) {\r\n            if (user.getEmail().equalsIgnoreCase(email)) {\r\n                return user;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n\r\n    public static void addUser(User user){\r\n        users.add(user);\r\n        save();\r\n    }\r\n\r\n    public static int getRank(User user) {\r\n        if (users.size() == 0)\r\n            return 0;\r\n\r\n        sortUsers();\r\n        return users.indexOf(user) + 1;\r\n\r\n    }\r\n\r\n    private static void sortUsers() {\r\n        User user;\r\n        User user1;\r\n        User user2;\r\n        for (int i = 0;  i < users.size(); i++) {\r\n            for (int j = i; j < users.size() - 1; j++) {\r\n                user = users.get(j);\r\n                user1 = users.get(j + 1);\r\n                if (user.getScore() < user1.getScore()) {\r\n                    user2 = user;\r\n                    user = user1;\r\n                    user1 = user2;\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    public static User getCurrentUser(){\r\n        return currentUser;\r\n    }\r\n\r\n    public static void login(User user){\r\n        currentUser = user;\r\n    }\r\n\r\n    public static void logout(){\r\n        currentUser = null;\r\n        stayLoggedIn = false;\r\n    }\r\n\r\n    public static void setUsersList(ArrayList<User> users) {\r\n        ApplicationManager.users = users;\r\n    }\r\n    public static void exit(){\r\n        if (!stayLoggedIn){\r\n            currentUser = null;\r\n        }\r\n        //save();\r\n        System.exit(1);\r\n    }\r\n\r\n    public static void setCurrentUser(User user){\r\n        currentUser = user;\r\n    }\r\n    public static void save(){\r\n\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/ApplicationManager.java b/src/main/java/model/ApplicationManager.java
+--- a/src/main/java/model/ApplicationManager.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/ApplicationManager.java	(date 1687889936451)
+@@ -9,7 +9,6 @@
+     private static ArrayList<User> users = new ArrayList<>();
+     private static User currentUser;
+     private static Game currentGame;
+-    private int turn = 0;
+     private static boolean stayLoggedIn;
+ 
+ 
+Index: src/main/java/controller/EditMap.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controller;\r\n\r\nimport model.*;\r\nimport model.Buildings.Structure;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class EditMap {\r\n\r\n    public static Map map;\r\n    public static int number;\r\n\r\n    public static ArrayList<Block> blocks;\r\n\r\n\r\n    public static void setMap() {\r\n        map = new Map(50);\r\n        blocks = map.getBlocks();\r\n    }\r\n\r\n    public static String setGovernment(Block block, Government government) {\r\n        if (block.getThisBlockStructure()!=null){\r\n            return \"Error: This position has already been selected for another government!\";\r\n        }\r\n        Structure centralCastle = new Structure(100);\r\n        block.setThisBlockStructure(centralCastle);\r\n        government.setCentralCastle(centralCastle);\r\n        number++;\r\n        return null;\r\n    }\r\n\r\n    public static void setTexture(Block block, String type) {\r\n        block.setType(type);\r\n    }\r\n\r\n\r\n    public static void clear(Block block){\r\n        block.setType(\"Dirt\");\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/EditMap.java b/src/main/java/controller/EditMap.java
+--- a/src/main/java/controller/EditMap.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/controller/EditMap.java	(date 1687944591330)
+@@ -22,7 +22,7 @@
+         if (block.getThisBlockStructure()!=null){
+             return "Error: This position has already been selected for another government!";
+         }
+-        Structure centralCastle = new Structure(100);
++        Structure centralCastle = new Structure(government);
+         block.setThisBlockStructure(centralCastle);
+         government.setCentralCastle(centralCastle);
+         number++;
+Index: src/main/java/controller/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controller;\r\n\r\nimport javafx.event.EventHandler;\r\nimport javafx.scene.input.MouseEvent;\r\nimport model.*;\r\nimport model.Buildings.BuildingType;\r\nimport model.Buildings.Structure;\r\nimport model.Peoples.*;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.regex.Matcher;\r\n\r\npublic class GameController {\r\n\r\n    public static String inDropBuilding = null;\r\n    private static Game game;\r\n    public static Government currentGovernment;\r\n    static int x,y;\r\n    public static Block currentBlock;\r\n\r\n    public static Government getCurrentGovernment() {\r\n        return currentGovernment;\r\n    }\r\n\r\n    public static Structure currentStructure;\r\n    public static void setGame(Game game){\r\n        GameController.game = game;\r\n        if(game.getCurrentGovernment() != null)\r\n            currentGovernment = game.getCurrentGovernment();\r\n    }\r\n    public static String showPopularityFactors(){\r\n        return \"Food\" + \"\\n\" + \"Tax\" + \"\\n\" + \"Religion\" + \"\\n\" + \"Fear\";\r\n    }\r\n\r\n    public static int showPopularity(){\r\n        return currentGovernment.getPopularity();\r\n    }\r\n\r\n    // Food\r\n    public static String showFoodList(){\r\n        String result; //1: bread, 2: rice, 3: apple, 4: meat\r\n\r\n        result =  \"Bread: \" + currentGovernment.getAmountOfFoods(\"bread\") + \"\\n\";\r\n\r\n        result += \"Rice: \"  + currentGovernment.getAmountOfFoods(\"rice\")  + \"\\n\";\r\n\r\n        result += \"Apple: \" + currentGovernment.getAmountOfFoods(\"apple\") + \"\\n\";\r\n\r\n        result += \"meat: \"  + currentGovernment.getAmountOfFoods(\"meat\");\r\n\r\n        return result;\r\n    }\r\n\r\n    public static String feedRateSet(Matcher matcher){\r\n        int rate = Integer.parseInt(matcher.group(\"rateNumber\"));\r\n\r\n        if (rate < -2 || rate > 2)\r\n            return \"The feed rate should be between -2 and 2 !\";\r\n\r\n        if (currentGovernment.amountOfFoods() == 0)\r\n            return \"You don't have any food, so you can't change the feed rate!\";\r\n\r\n        currentGovernment.setFeedRate(rate);\r\n        return \"The feed rate has been changed successfully\";\r\n    }\r\n\r\n    public static String feedRateShow(){\r\n        return \"Feed rate = \" + currentGovernment.getFeedRate();\r\n    }\r\n\r\n    // Tax\r\n    public static String taxRateSet(Matcher matcher){\r\n        int rate = Integer.parseInt(matcher.group(\"rateNumber\"));\r\n\r\n        if (rate < -3 || rate > 8)\r\n            return \"The tax rate should be between -3 and 8 !\";\r\n\r\n        if (currentGovernment.getCoins() == 0)\r\n            return \"You don't have any coin, so you can't change the tax rate!\";\r\n\r\n        currentGovernment.setTaxRate(rate);\r\n        return \"The tax rate has been changed successfully\";\r\n    }\r\n\r\n    public static String taxRateShow(){\r\n        return \"Tax rate = \" + currentGovernment.getTaxRate();\r\n    }\r\n\r\n    // Fear\r\n    public static String fearRateSet(Matcher matcher){\r\n        int rate = Integer.parseInt(matcher.group(\"rateNumber\"));\r\n\r\n        if (rate < -5 || rate > 5)\r\n            return \"The fear rate should be between -5 and 5 !\";\r\n\r\n        currentGovernment.setFearRate(rate);\r\n        return \"The fear rate has been changed successfully\";\r\n    }\r\n\r\n    public static String fearRateShow() {\r\n        return \"Fear rate = \" + currentGovernment.getFearRate();\r\n    }\r\n\r\n\r\n\r\n    // Mohammad\r\n    public static String dropBuilding(Matcher matcher){\r\n        if (currentGovernment==null){\r\n            return \"Error: No government selected!\";\r\n        }\r\n        x=Integer.parseInt(matcher.group(\"x\"));\r\n        y=Integer.parseInt(matcher.group(\"y\"));\r\n        String type=matcher.group(\"type\");\r\n        Map currentMap=ApplicationManager.getCurrentGame().getMap();\r\n        if(x> currentMap.getSize() || y>currentMap.getSize())\r\n            return \"Invalid cordinates!\";\r\n        BuildingType buildingType= Types.getBuildingTypeByType(type);\r\n        if(buildingType == null)\r\n            return \"Invalid Building name!\";\r\n        currentBlock = currentMap.getBlockByPosition(x,y);\r\n        if(currentBlock.getThisBlockStructure() != null)\r\n            return \"This Block has already been occupied by another structure!\";\r\n        if(checkBuildingPrerequisite(type) != null){\r\n            return checkBuildingPrerequisite(type);\r\n        }\r\n        employment(buildingType);\r\n        currentStructure=new Structure(currentBlock,currentGovernment,new ArrayList<Militia>(),new ArrayList<NormalPeople>(),buildingType);\r\n        currentGovernment.getStructures().add(currentStructure);\r\n        currentBlock.setThisBlockStructure(currentStructure);\r\n        return \"drop building is done successfully.\";\r\n    }\r\n    public static String checkBuildingPrerequisite(String type) throws ArrayIndexOutOfBoundsException{\r\n        if(checkForEnoughResources(Types.getBuildingTypeByType(type).getWoodCost(), Types.getBuildingTypeByType(type).getStoneCost(), Types.getBuildingTypeByType(type).getGoldCost()))\r\n            return \"you don't have enough resourses for building this structure!\";\r\n        if(!checkForEnoughWorkingPeople(type))\r\n            return \"you don't have enough free people for employing in this building!\";\r\n        Resources resources=currentGovernment.getResources();\r\n        switch (type){\r\n            case \"SmallGateHouse\":\r\n                return null;\r\n            case \"Turret\":\r\n                return null;\r\n            case \"BigGateHouse\":\r\n                return null;\r\n            case \"CircleTower\":\r\n                return null;\r\n            case \"LookoutTower\":\r\n                return null;\r\n            case \"DrawBridge\":\r\n                return null;\r\n            case \"Perimeter tower\":\r\n                return null;\r\n            case \"SquareTower\":\r\n                return null;\r\n            case \"Armoury\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"َArmoury\") == null){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"Barrack\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"َBarrack\") == null){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"EngineerGuild\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"َEngineerGuild\") == null){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"KillingPit\":\r\n                return null;\r\n            case \"Hovel\":\r\n                return null;\r\n            case \"Church\":\r\n                return null;\r\n            case \"Cathedral\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"َCathedral\") == null){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"Armourer\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"Armourer\") == null){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"Blacksmith\":\r\n                return null;\r\n            case \"Fletcher\":\r\n                return null;\r\n            case \"Poleturner\":\r\n                return null;\r\n            case \"Tunnel\":\r\n                if(currentBlock.isThereIsTunnel())\r\n                    return \"there is already a tunnel!\";\r\n                currentBlock.setThereIsTunnel(true);\r\n                return null;\r\n            case \"Stockpile\":\r\n                if(currentGovernment.getBuildingByNameForGovernment(\"Stockpile\") == null)\r\n                    return null;\r\n                else{\r\n                    try {\r\n                        if(EditMap.map.getBlockByPosition(x,y+1).getThisBlockStructure().getBuildingType().getType().equals(\"Stockpile\")) {\r\n                           currentGovernment.getResources().maximumCapacity+=500;\r\n                            return null;\r\n                        }\r\n                        if(EditMap.map.getBlockByPosition(x,y-1).getThisBlockStructure().getBuildingType().getType().equals(\"Stockpile\")) {\r\n                            currentGovernment.getResources().maximumCapacity+=500;\r\n                            return null;\r\n                        }\r\n                        if(EditMap.map.getBlockByPosition(x+1,y).getThisBlockStructure().getBuildingType().getType().equals(\"Stockpile\")) {\r\n                            currentGovernment.getResources().maximumCapacity+=500;\r\n                            return null;\r\n                        }\r\n                        if(EditMap.map.getBlockByPosition(x-1,y).getThisBlockStructure().getBuildingType().getType().equals(\"Stockpile\")) {\r\n                            currentGovernment.getResources().maximumCapacity+=500;\r\n                            return null;\r\n                        }\r\n                    }catch (Exception exception){\r\n                    }\r\n                    return \"you have already a stockpile in your city.you should put the new stockpile near it!\";\r\n                }\r\n            case \"Quarry\":\r\n                if(!currentBlock.getType().equals(\"Stone\"))\r\n                    return \"This Block type is not suitable for this structure!\";\r\n                resources.getResource(\"Stone\").ProductionRate+=50;\r\n                return null;\r\n\r\n            case \"PitchRig\":\r\n                if(!currentBlock.getType().equals(\"Meadow\"))\r\n                    return \"This Block type is not suitable for this structure!\";\r\n                resources.getResource(\"Pitch\").ProductionRate+=40;\r\n                return null;\r\n            case \"Mill\":\r\n                resources.getResource(\"Wheat\").ProductionRate-=20;\r\n                resources.getResource(\"Flour\").ProductionRate+=30;\r\n                return null;\r\n            case \"Inn\":\r\n                resources.getResource(\"Wine\").ProductionRate-=60;\r\n                return null;\r\n            case \"Ditch\":\r\n                return null;\r\n            case \"MercenaryPost\":\r\n                return null;\r\n            case \"PitchDitch\":\r\n                return null;\r\n            case \"CagedWarDogs\":\r\n                return null;\r\n            case \"SiegeTent\":\r\n                return null;\r\n            case \"Stable\":\r\n                resources.getResource(\"Horse\").ProductionRate+=10;\r\n                return null;\r\n            case \"Store\":\r\n                if(currentGovernment.getBuildingByNameForGoverment(\"َStore\").equals(null)){\r\n                    return null;\r\n                }\r\n                else{\r\n                    return \"you have already placed this building in your city!\";\r\n                }\r\n            case \"OilSmelter\":\r\n                resources.getResource(\"Pitch\").ProductionRate-=20;\r\n                resources.getResource(\"Oil\").ProductionRate+=15;\r\n                return null;\r\n            case \"IronMine\":\r\n                if(!currentBlock.getType().equals(\"Iron\"))\r\n                    return \"This Block type is not suitable for this structure!\";\r\n                resources.getResource(\"Iron\").ProductionRate+=22;\r\n                return null;\r\n            case \"WoodCutter\":\r\n                resources.getResource(\"Wood\").ProductionRate+=resources.getResource(\"Wood\").ProductionRate*25/100;\r\n                return null;\r\n            case \"AppleFarm\":\r\n                if(!currentBlock.getType().equals(\"Dense Meadow\"))\r\n                    return \"This Block type is not suitable for this structure!\";\r\n                resources.getResource(\"Apple\").ProductionRate+=50;\r\n                return null;\r\n\r\n        }\r\n        return null;\r\n    }\r\n    public static boolean checkForEnoughWorkingPeople(String type){\r\n        BuildingType buildingType= Types.getBuildingTypeByType(type);\r\n        int d=buildingType.getRequiredPeopleToWork();\r\n        if(d==0)\r\n            return true;\r\n        int count=0;\r\n        for(People normalPeople:currentGovernment.getPeoples()){\r\n            if(normalPeople instanceof NormalPeople && ((NormalPeople) normalPeople).isEmployed()==false){\r\n                count++;\r\n                if(d==count)\r\n                    return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n    public static void employment(BuildingType buildingType){\r\n        int cou=buildingType.getRequiredPeopleToWork();\r\n        int d=0;\r\n        for(People normalPeople:currentGovernment.getPeoples()){\r\n            if(normalPeople instanceof NormalPeople && ((NormalPeople) normalPeople).isEmployed()==false){\r\n                ((NormalPeople) normalPeople).setEmployed(true);\r\n                d++;\r\n                if(d==cou)\r\n                    return;\r\n            }\r\n        }\r\n    }\r\n    public static  boolean checkForEnoughResources(int Wood,int Stone,int gold){\r\n        if(currentGovernment.getCoins()<gold)\r\n            return true;\r\n        if(currentGovernment.getAmountOfResource(\"Wood\")<Wood || currentGovernment.getAmountOfResource(\"Stone\")<Stone)\r\n            return true;\r\n\r\n        return false;\r\n    }\r\n    public static void CostPay(String BuildingType){\r\n        BuildingType buildingType=Types.getBuildingTypeByType(BuildingType);\r\n        int Wood=buildingType.getWoodCost();\r\n        int Stone= buildingType.getStoneCost();\r\n        int gold=buildingType.getGoldCost();\r\n        currentGovernment.getResources().changeResourceAmount(\"Wood\",Wood);\r\n        currentGovernment.getResources().changeResourceAmount(\"Stone\",Stone);\r\n        currentGovernment.changeCoins((-1)*gold);\r\n    }\r\n\r\n    public static String selectBuilding(Matcher matcher){\r\n         x=Integer.parseInt(matcher.group(\"x\"));\r\n         y=Integer.parseInt(matcher.group(\"y\"));\r\n        Block block;\r\n        try {\r\n            block=game.getMap().getBlockByPosition(x,y);\r\n        }catch (Exception e){\r\n            return \"Invalid Cordinates!\";\r\n        }\r\n        if(block.getThisBlockStructure()==null)\r\n            return \"there is no building!\";\r\n        currentStructure=block.getThisBlockStructure();\r\n        if(!currentStructure.getGovernment().equals(currentGovernment))\r\n            return \"this building doesn't belong to you!\";\r\n        return \"you have selected a building at \"+x+\" \"+y+\" :\"+currentStructure.getBuildingType().getType();\r\n    }\r\n\r\n    public static String unSelectBuilding(Matcher matcher){\r\n        if (currentStructure.equals(null))\r\n             return \"you haven't selected any building to be unselected!\";\r\n        currentStructure=null;\r\n        return \"you have unselected your working building succesfully!\";\r\n    }\r\n\r\n    public static String repair(Matcher matcher){\r\n        if (currentStructure.equals(null))\r\n            return \"you haven't selected any building yet!\";\r\n        if( currentBlock.myEnemies(currentGovernment) != null && currentBlock.myEnemies(currentGovernment).size()>0)\r\n            return \"you can't repair buildings while they are under enemy fire!\";\r\n        int requiredStone=10+currentStructure.getBuildingType().getStoneCost()/2;\r\n        if(currentGovernment.getResources().getResource(\"Stone\").getCount()>requiredStone)\r\n            return \"you don't have enough resources to repair this building!\\nCost :\"+10+currentStructure.getBuildingType().getStoneCost()/2\r\n                    +\"\\nYour Stone Count :\"+currentGovernment.getResources().getResource(\"Stone\").getCount();\r\n        currentGovernment.getResources().getResource(\"Stone\").changeCount((-1)*requiredStone);\r\n        currentStructure.setHP(500);\r\n        return \"building at \"+currentBlock.getX()+\" \"+currentBlock.getY()+\" repaired succesfully!\\nCost :\"+10+currentStructure.getBuildingType().getStoneCost()/2;\r\n    }\r\n\r\n    public static String clearBlock(Matcher matcher){\r\n        currentBlock=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(Integer.parseInt(matcher.group(\"x\")),Integer.parseInt(matcher.group(\"y\")));\r\n        currentBlock.setType(\"Dirt\");\r\n        if((currentStructure=currentBlock.getThisBlockStructure()) != null){\r\n            BuildingType buildingType=currentBlock.getThisBlockStructure().getBuildingType();\r\n            Structure structure=currentGovernment.getBuildingByNameForGovernment(buildingType.getType());\r\n            for(int i=0;i<currentGovernment.getStructures().size();i++){\r\n                if(structure.getBuildingType().equals(currentGovernment.getStructures().get(i))){\r\n                    currentGovernment.getStructures().remove(i);\r\n                    break;\r\n                }\r\n\r\n            }\r\n            switch (buildingType.getType()){\r\n                case \"Stockpile\":\r\n                    currentGovernment.getResources().maximumCapacity-=500;\r\n                    break;\r\n                case\"Quarry\":\r\n                    currentGovernment.getResources().getResource(\"Stone\").ProductionRate-=50;\r\n                    break;\r\n                case \"PitchRig\":\r\n                    currentGovernment.getResources().getResource(\"Pitch\").ProductionRate-=40;\r\n                    break;\r\n                case \"Mill\":\r\n                    currentGovernment.getResources().getResource(\"Wheat\").ProductionRate+=20;\r\n                    currentGovernment.getResources().getResource(\"Flour\").ProductionRate+=30;\r\n                    break;\r\n                case \"Inn\":\r\n                    currentGovernment.getResources().getResource(\"Wine\").ProductionRate+=60;\r\n                    break;\r\n                case \"OilSmelter\":\r\n                    currentGovernment.getResources().getResource(\"Pitch\").ProductionRate+=20;\r\n                    currentGovernment.getResources().getResource(\"Oil\").ProductionRate-=15;\r\n                    break;\r\n                case \"WoodCutter\":\r\n                    currentGovernment.getResources().getResource(\"Wood\").ProductionRate-=currentGovernment.getResources().getResource(\"Wood\").ProductionRate*25/100;\r\n                    break;\r\n                case \"IronMine\":\r\n                    currentGovernment.getResources().getResource(\"Iron\").ProductionRate-=22;\r\n                    break;\r\n                case \"AppleFarm\":\r\n                    currentGovernment.getResources().getResource(\"Apple\").ProductionRate-=50;\r\n                    break;\r\n            }\r\n        }\r\n        return \"block in \"+x+\" \"+y+\" is now cleaned.\";\r\n    }\r\n\r\n    // Mohammad\r\n\r\n\r\n\r\n    ///////////////////// ALI\r\n\r\n    public static String createUnit(Matcher matcher){\r\n        if (currentStructure==null){\r\n            return \"Error: Please select a building!\";\r\n        }\r\n        PeopleType peopleType = Types.getPeopleTypeByType(matcher.group(\"type\"));\r\n        if (peopleType == null){\r\n            return \"Error: Invalid type!\";\r\n        }\r\n        if (!currentStructure.getName().equals(peopleType.requiredStructure)){\r\n            return \"Error: An appropriate building has not been selected!\";\r\n        }\r\n        People people;\r\n        Block block = currentStructure.getBlock();\r\n        if (peopleType.category.equals(\"launchers\")){\r\n            people = new Launcher(peopleType,currentGovernment,block);\r\n        }\r\n        else if (peopleType.category.equals(\"fightingForce\")){\r\n            people = new FightingForce(peopleType,currentGovernment,block);\r\n        }\r\n        else {\r\n            people = new NormalPeople(peopleType,currentGovernment,block);\r\n        }\r\n        currentGovernment.addPeople(people);\r\n        block.addPeople(people);\r\n        return \"The soldier has been successfully created!\";\r\n    }\r\n\r\n    public static String selectUnit(Matcher matcher){\r\n        int x = Integer.parseInt(matcher.group(\"x\"));\r\n        int y = Integer.parseInt(matcher.group(\"y\"));\r\n        String type = matcher.group(\"type\");\r\n        ArrayList<People> selectedPeoples = new ArrayList<>();\r\n        Block block = game.getMap().getBlockByPosition(x,y);\r\n        People people;\r\n        for (int i = 0; i < block.getPeoples().size(); i++) {\r\n            people = block.getPeoples().get(i);\r\n            if (people.getGovernment().equals(currentGovernment) && people.getPeopleType().type.equals(type)){\r\n                selectedPeoples.add(people);\r\n            }\r\n        }\r\n        if (selectedPeoples.size()==0){\r\n            return \"You have no units with this type in this place!\";\r\n        }\r\n        currentGovernment.setSelectedPeoples(selectedPeoples);\r\n        return \"selected!\";\r\n    }\r\n    public static String unSelectUnit(){\r\n        if (currentGovernment.getSelectedPeoples()==null){\r\n            return \"You have not selected any units!\";\r\n        }\r\n        currentGovernment.setSelectedPeoples(null);\r\n        return \"unSelect!\";\r\n    }\r\n\r\n    public static String moveUnit(Matcher matcher){\r\n        int x = Integer.parseInt(matcher.group(\"x\"));\r\n        int y = Integer.parseInt(matcher.group(\"y\"));\r\n        Block block;\r\n        if ((block = game.getMap().getBlockByPosition(x,y))== null){\r\n            return \"Error: Invalid position!\";\r\n        }\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        if (selectedPeoples.size()==0){\r\n            return \"No unit selected!\";\r\n        }\r\n        for (People selectedPeople : selectedPeoples) {\r\n            selectedPeople.startMove(block);\r\n        }\r\n        return \"OK!\"; //...\r\n    }\r\n    public static String patrolUnit(Matcher matcher){\r\n        int x1 = Integer.parseInt(matcher.group(\"x1\"));\r\n        int y1 = Integer.parseInt(matcher.group(\"y1\"));\r\n        int x2 = Integer.parseInt(matcher.group(\"x2\"));\r\n        int y2 = Integer.parseInt(matcher.group(\"y2\"));\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        Block block1 , block2;\r\n        if ((block1 = game.getMap().getBlockByPosition(x1,y1))== null || (block2 = game.getMap().getBlockByPosition(x2,y2))== null){\r\n            return \"Error: Invalid position!\";\r\n        }\r\n        if (selectedPeoples==null){\r\n            return \"No unit selected!\";\r\n        }\r\n        for (People selectedPeople : selectedPeoples) {\r\n            selectedPeople.startPatrol(block1, block2);\r\n        }\r\n        return \"OK!\"; //...\r\n    }\r\n\r\n    public static String stopUnit(){\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        if (selectedPeoples==null || selectedPeoples.size()==0){\r\n            return \"No unit selected!\";\r\n        }\r\n        for (People selectedPeople : selectedPeoples) {\r\n            selectedPeople.stop();\r\n        }\r\n        return \"OK!\";\r\n    }\r\n    public static String setCondition(Matcher matcher){\r\n        return \"...\";\r\n    }\r\n\r\n    public static String attackEnemy(Matcher matcher){\r\n        int x = Integer.parseInt(matcher.group(\"x\"));\r\n        int y = Integer.parseInt(matcher.group(\"y\"));\r\n        Block block;\r\n        if ((block = game.getMap().getBlockByPosition(x,y))== null){\r\n            return \"Error: Invalid position!\";\r\n        }\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        for (People selectedPeople : selectedPeoples) {\r\n            if (!selectedPeople.getPeopleType().category.equals(\"fightingForce\")) {\r\n                return \"Error: The unit you have selected isn't a fightingForce!\";\r\n            }\r\n            ((FightingForce) selectedPeople).attack(block);\r\n        }\r\n        return \"OK!\";\r\n    }\r\n\r\n    public static String attackLaunch(Matcher matcher){\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        int x = Integer.parseInt(matcher.group(\"x\"));\r\n        int y = Integer.parseInt(matcher.group(\"y\"));\r\n        if (selectedPeoples==null){\r\n            return \"No unit selected!\";\r\n        }\r\n        for (People selectedPeople : selectedPeoples) {\r\n            if (!(selectedPeople instanceof Launcher)) {\r\n                return \"The selected unit is not a launcher!\";\r\n            }\r\n            if (((Launcher) selectedPeople).checkInRange(x, y)) {\r\n                return \"The specified target is not in the selected unit's range!\";\r\n            }\r\n            ((Launcher) selectedPeople).launch(game.getMap().getBlockByPosition(x, y));\r\n        }\r\n        return \"The launch to the requested position was successfully completed!\";\r\n    }\r\n\r\n    public static String pourOil(Matcher matcher){\r\n        ArrayList<People> selectedPeoples = currentGovernment.getSelectedPeoples();\r\n        String direction = matcher.group(\"direction\");\r\n        if (selectedPeoples==null){\r\n            return \"Error: No unit selected!\";\r\n        }\r\n        for (People selectedPeople : selectedPeoples) {\r\n            if (!(selectedPeople instanceof Engineer)) {\r\n                return \"Error: The selected unit is not a engineer!\";\r\n            }\r\n            String[] directions = {\"r\", \"l\", \"s\", \"n\"};\r\n            if (!Tools.validType(directions, direction)) {\r\n                return \"Error: Invalid Direction!\";\r\n            }\r\n            ((Engineer) selectedPeople).pourOil(direction, game.getMap());\r\n        }\r\n        return \"Oil was successfully spilled.\";\r\n    }\r\n\r\n    public static String digTunnel(Matcher matcher){\r\n        int x=Integer.parseInt(matcher.group(\"x\"));\r\n        int y=Integer.parseInt(matcher.group(\"y\"));\r\n        currentBlock=ApplicationManager.getCurrentGame().getMap().getBlockByPosition(x,y);\r\n        if(currentBlock.isThereIsTunnel())\r\n            return \"You can't dig a tunnel here!\";\r\n        currentBlock.setThereIsTunnel(true);\r\n        return \"you digged a tunnel at \"+x+\" \"+y;\r\n    }\r\n\r\n    public static String disbandUnit(Matcher matcher){\r\n        return \"...\";\r\n    }\r\n\r\n\r\n    public static EventHandler<? super MouseEvent> nextTurn() {\r\n        game.nextTurn();\r\n        currentStructure = null;\r\n        System.out.println(currentGovernment.getOwner().getUsername()+\" playing!\");\r\n        return null;\r\n    }\r\n\r\n\r\n    ///////////////////// ALI\r\n\r\n\r\n    public static Game getGame() {\r\n        return game;\r\n    }\r\n\r\n    public static void endGame() {\r\n\r\n    }\r\n\r\n    public static void setCurrentGovernment(Government currentGovernment) {\r\n        GameController.currentGovernment = currentGovernment;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/GameController.java b/src/main/java/controller/GameController.java
+--- a/src/main/java/controller/GameController.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/controller/GameController.java	(date 1687949154905)
+@@ -6,6 +6,7 @@
+ import model.Buildings.BuildingType;
+ import model.Buildings.Structure;
+ import model.Peoples.*;
++import view.GameMenuController;
+ 
+ import java.util.ArrayList;
+ import java.util.regex.Matcher;
+@@ -13,6 +14,9 @@
+ public class GameController {
+ 
+     public static String inDropBuilding = null;
++
++    public static String inDropUnit = null;
++
+     private static Game game;
+     public static Government currentGovernment;
+     static int x,y;
+@@ -104,20 +108,13 @@
+ 
+ 
+     // Mohammad
+-    public static String dropBuilding(Matcher matcher){
++    public static String dropBuilding(String type, Block currentBlock){
+         if (currentGovernment==null){
+             return "Error: No government selected!";
+         }
+-        x=Integer.parseInt(matcher.group("x"));
+-        y=Integer.parseInt(matcher.group("y"));
+-        String type=matcher.group("type");
+-        Map currentMap=ApplicationManager.getCurrentGame().getMap();
+-        if(x> currentMap.getSize() || y>currentMap.getSize())
+-            return "Invalid cordinates!";
+         BuildingType buildingType= Types.getBuildingTypeByType(type);
+         if(buildingType == null)
+             return "Invalid Building name!";
+-        currentBlock = currentMap.getBlockByPosition(x,y);
+         if(currentBlock.getThisBlockStructure() != null)
+             return "This Block has already been occupied by another structure!";
+         if(checkBuildingPrerequisite(type) != null){
+@@ -425,14 +422,8 @@
+ 
+     ///////////////////// ALI
+ 
+-    public static String createUnit(Matcher matcher){
+-        if (currentStructure==null){
+-            return "Error: Please select a building!";
+-        }
+-        PeopleType peopleType = Types.getPeopleTypeByType(matcher.group("type"));
+-        if (peopleType == null){
+-            return "Error: Invalid type!";
+-        }
++    public static String createUnit(String type, int count){
++        PeopleType peopleType = Types.getPeopleTypeByType(type);
+         if (!currentStructure.getName().equals(peopleType.requiredStructure)){
+             return "Error: An appropriate building has not been selected!";
+         }
+@@ -447,9 +438,11 @@
+         else {
+             people = new NormalPeople(peopleType,currentGovernment,block);
+         }
+-        currentGovernment.addPeople(people);
+-        block.addPeople(people);
+-        return "The soldier has been successfully created!";
++        for (int i = 0; i < count; i++) {
++            currentGovernment.addPeople(people);
++            block.addPeople(people);
++        }
++        return "The soldier(s) has been successfully created!";
+     }
+ 
+     public static String selectUnit(Matcher matcher){
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" project-jdk-name=\"corretto-19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/.idea/misc.xml	(date 1687888020968)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="corretto-19" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/resources/FXML/GameMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.ScrollPane?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<Pane fx:id=\"pane\" prefHeight=\"700.0\" prefWidth=\"1000.0\" style=\"-fx-background-color: #FFFDD0;\" stylesheets=\"@../CSS/gameStyles.css\" xmlns=\"http://javafx.com/javafx/19\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"view.GameMenuController\">\r\n   <children>\r\n      <ScrollPane prefHeight=\"500.0\" prefWidth=\"900.0\">\r\n         <content>\r\n            <Pane fx:id=\"mapPane\" prefHeight=\"499.0\" prefWidth=\"901.0\" />\r\n         </content>\r\n      </ScrollPane>\r\n      <Pane layoutX=\"900.0\" layoutY=\"400.0\" prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: gray;\" />\r\n      <Button layoutX=\"910.0\" layoutY=\"207.0\" mnemonicParsing=\"false\" onMouseClicked=\"#nextTurn\" styleClass=\"button4\" text=\"دور بعد\" />\r\n\r\n      <ImageView fx:id=\"exit\" onMouseClicked=\"#exit\" fitHeight=\"30.0\" fitWidth=\"30.0\" layoutX=\"965.0\" layoutY=\"3.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n         <image>\r\n            <Image url=\"@../images/icons/close.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <Button layoutX=\"900.0\" layoutY=\"265.0\" mnemonicParsing=\"false\" prefHeight=\"33.0\" prefWidth=\"100.0\" styleClass=\"button1\" text=\"حکومت\" />\r\n      <Button layoutX=\"900.0\" layoutY=\"310.0\" mnemonicParsing=\"false\" prefHeight=\"33.0\" prefWidth=\"100.0\" styleClass=\"button2\" text=\"فروشگاه\" />\r\n      <Button layoutX=\"900.0\" layoutY=\"355.0\" mnemonicParsing=\"false\" prefHeight=\"45.0\" prefWidth=\"100.0\" styleClass=\"button3\" text=\"تجارت\" />\r\n      <Label fx:id=\"government\" alignment=\"CENTER\" layoutX=\"909.0\" layoutY=\"153.0\" prefHeight=\"20.0\" prefWidth=\"80.0\" styleClass=\"label2\" text=\"username\" />\r\n      <Label layoutX=\"900.0\" layoutY=\"92.0\" prefHeight=\"41.0\" prefWidth=\"100.0\" styleClass=\"label5\" text=\"حکومت فعلی:\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#3d9082\" height=\"202.0\" layoutX=\"-2.0\" layoutY=\"499.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"680.0\" />\r\n      <VBox layoutX=\"106.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name2\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name2.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 2\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name8\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name8.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 8\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"195.0\" layoutY=\"505.0\" prefHeight=\"178.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name3\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name3.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 3\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"79.0\" prefWidth=\"80.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name9\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name9.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"80.0\" text=\"نام 9\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"285.0\" layoutY=\"505.0\" prefHeight=\"173.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name4\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name4.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 4\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"89.0\" prefWidth=\"80.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name10\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name10.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"0.0\" prefWidth=\"80.0\" text=\"نام 10\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"376.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name5\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name5.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 5\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name11\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name11.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 11\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"467.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name6\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name6.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 6\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name12\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name12.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 12\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <VBox layoutX=\"14.0\" layoutY=\"505.0\" prefHeight=\"184.0\" prefWidth=\"80.0\">\r\n         <children>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name1\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name1.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"16.0\" prefWidth=\"87.0\" text=\"نام 1\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n            <VBox prefHeight=\"81.0\" prefWidth=\"61.0\">\r\n               <children>\r\n                  <ImageView onMouseClicked=\"#dropBuilding\" id=\"name7\" fitHeight=\"80.0\" fitWidth=\"80.0\" pickOnBounds=\"true\" smooth=\"false\">\r\n                     <image>\r\n                        <Image url=\"@../images/Buildings/name7.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n                  <Label alignment=\"CENTER\" contentDisplay=\"CENTER\" prefHeight=\"6.0\" prefWidth=\"80.0\" text=\"نام 7\">\r\n                     <font>\r\n                        <Font size=\"10.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </VBox>\r\n         </children>\r\n      </VBox>\r\n      <Text layoutX=\"553.0\" layoutY=\"579.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"در این قسمت می توانید ساختمان مورد نظر را انتخاب و آن را در نقشه قرار دهید\" textAlignment=\"CENTER\" wrappingWidth=\"120.001953125\" />\r\n   </children>\r\n</Pane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/FXML/GameMenu.fxml b/src/main/resources/FXML/GameMenu.fxml
+--- a/src/main/resources/FXML/GameMenu.fxml	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/resources/FXML/GameMenu.fxml	(date 1687939016012)
+@@ -1,27 +1,22 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.ScrollPane?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.shape.Rectangle?>
+-<?import javafx.scene.text.Font?>
+-<?import javafx.scene.text.Text?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
++<?import javafx.scene.layout.*?>
++<?import javafx.scene.shape.*?>
++<?import javafx.scene.text.*?>
+ 
+-<Pane fx:id="pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFDD0;" stylesheets="@../CSS/gameStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuController">
++<Pane fx:id="pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFDD0;" stylesheets="@../CSS/gameStyles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuController">
+    <children>
+-      <ScrollPane prefHeight="500.0" prefWidth="900.0">
++      <ScrollPane fx:id="scrollPane" prefHeight="500.0" prefWidth="900.0">
+          <content>
+-            <Pane fx:id="mapPane" prefHeight="499.0" prefWidth="901.0" />
++            <Pane fx:id="mapPane" prefHeight="2500" prefWidth="2500" />
+          </content>
+       </ScrollPane>
+       <Pane layoutX="900.0" layoutY="400.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: gray;" />
+       <Button layoutX="910.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#nextTurn" styleClass="button4" text="دور بعد" />
+ 
+-      <ImageView fx:id="exit" onMouseClicked="#exit" fitHeight="30.0" fitWidth="30.0" layoutX="965.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
++      <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" layoutX="965.0" layoutY="3.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+          <image>
+             <Image url="@../images/icons/close.png" />
+          </image>
+@@ -36,12 +31,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name2" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name2.png" />
++                        <Image url="@../images/Buildings/Barrack.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 2">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Barrack">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -50,12 +45,12 @@
+             </VBox>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name8" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name8" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name8.png" />
++                        <Image url="@../images/Buildings/LookoutTower.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 8">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="LookoutTower">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -68,12 +63,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name3" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name3.png" />
++                        <Image url="@../images/Buildings/Cathedral.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 3">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Cathedral">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -82,12 +77,12 @@
+             </VBox>
+             <VBox prefHeight="79.0" prefWidth="80.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name9" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name9" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name9.png" />
++                        <Image url="@../images/Buildings/Market.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="80.0" text="نام 9">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="80.0" text="Market">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -100,12 +95,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name4" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name4.png" />
++                        <Image url="@../images/Buildings/Church.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 4">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Church">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -114,12 +109,12 @@
+             </VBox>
+             <VBox prefHeight="89.0" prefWidth="80.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name10" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name10" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name10.png" />
++                        <Image url="@../images/Buildings/MercenaryPost.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="80.0" text="نام 10">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="80.0" text="MercenaryPost">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -132,12 +127,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name5" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name5.png" />
++                        <Image url="@../images/Buildings/EngineerGuild.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 5">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="EngineerGuild">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -146,12 +141,12 @@
+             </VBox>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name11" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name11" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name11.png" />
++                        <Image url="@../images/Buildings/Quarry.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 11">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="Quarry">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -164,12 +159,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name6" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name6.png" />
++                        <Image url="@../images/Buildings/Hovel.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 6">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Hovel">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -178,12 +173,12 @@
+             </VBox>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name12" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name12" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name12.png" />
++                        <Image url="@../images/Buildings/Store.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 12">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="Store">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -196,12 +191,12 @@
+          <children>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name1" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name1.png" />
++                        <Image url="@../images/Buildings/Armoury.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 1">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Armoury">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+@@ -210,12 +205,12 @@
+             </VBox>
+             <VBox prefHeight="81.0" prefWidth="61.0">
+                <children>
+-                  <ImageView onMouseClicked="#dropBuilding" id="name7" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
++                  <ImageView id="name7" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
+                      <image>
+-                        <Image url="@../images/Buildings/name7.png" />
++                        <Image url="@../images/Buildings/IronMine.png" />
+                      </image>
+                   </ImageView>
+-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 7">
++                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="IronMine">
+                      <font>
+                         <Font size="10.0" />
+                      </font>
+Index: src/main/java/model/Types.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport model.Buildings.BuildingType;\r\nimport model.Peoples.PeopleType;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Types {\r\n    private static ArrayList<PeopleType> peopleTypes = new ArrayList<>();\r\n    private static ArrayList<BuildingType> buildingTypes = new ArrayList<>();\r\n\r\n    public static void run(){\r\n        addPeopleTypes();\r\n        addBuildingsTypes();\r\n    }\r\n\r\n    public static void addPeopleTypes() {\r\n\r\n        peopleTypes.add(new PeopleType(\"Archer\",\"launchers\" ,8, 2,2, 4, 2, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Crossbowmen\",\"launchers\" ,9, 2,3, 4, 5, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"ArcherBow\",\"launchers\" ,6, 2,2, 4, 2, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"Slingers\",\"launchers\" ,7, 2,1, 4, 1, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"HorseArchers\",\"launchers\" ,10, 2,3, 5, 3, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"FireThrowers\",\"launchers\" ,12, 4,2, 5, 5, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n\r\n        peopleTypes.add(new PeopleType(\"Tunneler\",\"NormalPeople\" ,8, 3,1, 4, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Laddermen\",\"NormalPeople\" ,9, 0,1, 4, 0, new String[]{\"type1\", \"type2\"},\"EngineerGuild\"));\r\n        peopleTypes.add(new PeopleType(\"Engineer\",\"NormalPeople\" ,9, 0,1, 3, 0, new String[]{\"type1\", \"type2\"},\"EngineerGuild\"));\r\n\r\n        peopleTypes.add(new PeopleType(\"Spearmen\",\"fightingForce\" ,7, 3,1, 3, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Pikemen\",\"fightingForce\" ,9, 3,4, 2, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Macemen\",\"fightingForce\" ,10, 4,3, 3, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Swordsmen\",\"fightingForce\" ,11, 5,5, 1, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"Knight\",\"fightingForce\" ,14, 5,4, 5, 0, new String[]{\"type1\", \"type2\"},\"Barrack\"));\r\n        peopleTypes.add(new PeopleType(\"BlackMonk\",\"fightingForce\" ,8, 3,3, 2, 0, new String[]{\"type1\", \"type2\"},\"Cathedral\"));\r\n        peopleTypes.add(new PeopleType(\"Slaves\",\"fightingForce\" ,4, 1,1, 4, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"Assassins\",\"fightingForce\" ,9, 3,3, 3, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n        peopleTypes.add(new PeopleType(\"ArabianSwordsmen\",\"fightingForce\" ,13, 4,4, 5, 0, new String[]{\"type1\", \"type2\"},\"MercenaryPost\"));\r\n\r\n    }\r\n\r\n\r\n    public static void addBuildingsTypes() {\r\n        buildingTypes.add(new BuildingType(\"SmallStoneGatehouse\",\"CastleBuildings\",0,0,0,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"BigStoneGatehouse\",\"CastleBuildings\",0,20,0,0,0,0,0,0,10,0,0));\r\n        buildingTypes.add(new BuildingType(\"Keep\",\"CastleBuildings\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"DrawBridge\",\"CastleBuildings\",10,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"LookoutTower\",\"TowerAndLookouts\",0,10,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"CircleTower\",\"TowerAndLookouts\",0,40,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"SquareTower\",\"TowerAndLookouts\",0,35,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Perimeter tower\",\"TowerAndLookouts\",0,10,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Turret\",\"TowerAndLookouts\",0,15,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Armoury\",\"WeaponBuildings\",5,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Barrack\",\"WeaponBuildings\",0,15,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"EngineerGuild\",\"WeaponBuildings\",10,0,100,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"KillingPit\",\"Trap\",6,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Hovel\",\"TownBuildings\",6,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Church\",\"TownBuildings\",0,0,250,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Cathedral\",\"WeaponBuildings\",0,0,1000,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Armourer\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Blacksmith\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Fletcher\",\"WeaponBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Poleturner\",\"WeaponBuildings\",10,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Tunnel\",\"Other\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Stockpile\",\"Storge\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Quarry\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,3));\r\n        buildingTypes.add(new BuildingType(\"PitchRig\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Mill\",\"FoodProccessingBuildings\",20,0,0,0,0,0,0,0,0,0,3));\r\n        buildingTypes.add(new BuildingType(\"Inn\",\"CastleBuildings\",20,0,100,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Ditch\",\"Trap\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"MercenaryPost\",\"WeaponBuildings\",10,0,0,0,0,0,0,0,8,0,0));\r\n        buildingTypes.add(new BuildingType(\"PitchDitch\",\"Trap\",0,0,0,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"CagedWarDogs\",\"Trap\",10,0,100,10000,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"SiegeTent\",\"CastleBuildings\",0,0,0,0,0,0,0,0,8,50,0));\r\n        buildingTypes.add(new BuildingType(\"Stable\",\"Storage\",20,0,100,0,0,0,0,0,0,0,0));\r\n        buildingTypes.add(new BuildingType(\"Store\",\"Industry\",20,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"OilSmelter\",\"Industry\",0,10,100,0,0,0,0,0,0,1,1));\r\n        buildingTypes.add(new BuildingType(\"IronMine\",\"FarmBuildings\",20,0,0,0,0,0,0,0,0,0,2));\r\n        buildingTypes.add(new BuildingType(\"WoodCutter\",\"FarmBuildings\",3,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"AppleFarm\",\"FarmBuildings\",5,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"WheatFarm\",\"FarmBuildings\",15,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"BarleyFarm\",\"FarmBuildings\",15,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Bakery\",\"FoodProccessingBuildings\",10,0,0,0,0,0,0,0,0,0,1));\r\n        buildingTypes.add(new BuildingType(\"Brewery\",\"FoodProccessingBuildings\",10,0,0,0,0,0,0,0,0,0,1));\r\n    }\r\n\r\n    public static PeopleType getPeopleTypeByType(String type){\r\n        for (PeopleType peopleType : peopleTypes) {\r\n            if(peopleType.type.equals(type)){\r\n                return peopleType;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static BuildingType getBuildingTypeByType(String type){\r\n        for (BuildingType buildingType : buildingTypes) {\r\n            if(buildingType.getType().equals(type)){\r\n                return buildingType;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Types.java b/src/main/java/model/Types.java
+--- a/src/main/java/model/Types.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/Types.java	(date 1687940261894)
+@@ -81,10 +81,11 @@
+         buildingTypes.add(new BuildingType("WheatFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+         buildingTypes.add(new BuildingType("BarleyFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
+         buildingTypes.add(new BuildingType("Bakery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+-        buildingTypes.add(new BuildingType("Brewery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
++        buildingTypes.add(new BuildingType("Market","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+     }
+ 
+     public static PeopleType getPeopleTypeByType(String type){
++        run();
+         for (PeopleType peopleType : peopleTypes) {
+             if(peopleType.type.equals(type)){
+                 return peopleType;
+@@ -94,8 +95,12 @@
+     }
+ 
+     public static BuildingType getBuildingTypeByType(String type){
++        run();
++        System.out.println("Type: "+type);
+         for (BuildingType buildingType : buildingTypes) {
++            System.out.println("BT: " +buildingType.getType());
+             if(buildingType.getType().equals(type)){
++                System.out.println("hiType!");
+                 return buildingType;
+             }
+         }
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>StrongholdPhase2</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>17</maven.compiler.source>\r\n        <maven.compiler.target>17</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-controls</artifactId>\r\n            <version>19</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-fxml</artifactId>\r\n            <version>19</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-media</artifactId>\r\n            <version>16</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.google.code.gson</groupId>\r\n            <artifactId>gson</artifactId>\r\n            <version>2.8.9</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.11</artifactId>\r\n            <version>1.1.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.12</artifactId>\r\n            <version>1.1.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.google.guava</groupId>\r\n            <artifactId>guava</artifactId>\r\n            <version>25.1-android</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.netflix.nebula</groupId>\r\n            <artifactId>gradle-override-plugin</artifactId>\r\n            <version>4.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.netflix.nebula</groupId>\r\n            <artifactId>gradle-override-plugin</artifactId>\r\n            <version>4.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.12</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.12</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.netflix.nebula</groupId>\r\n            <artifactId>gradle-override-plugin</artifactId>\r\n            <version>4.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.netflix.nebula</groupId>\r\n            <artifactId>gradle-override-plugin</artifactId>\r\n            <version>4.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.11</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.11</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.constructor</groupId>\r\n            <artifactId>override_2.10</artifactId>\r\n            <version>3.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_2.11</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.constructor</groupId>\r\n            <artifactId>override_2.10</artifactId>\r\n            <version>3.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.constructor</groupId>\r\n            <artifactId>override_2.10</artifactId>\r\n            <version>3.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.constructor</groupId>\r\n            <artifactId>override_2.12</artifactId>\r\n            <version>4.1.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.constructor</groupId>\r\n            <artifactId>override_2.11</artifactId>\r\n            <version>4.1.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>ee.ringit.extras.camunda</groupId>\r\n            <artifactId>timer-override-plugin</artifactId>\r\n            <version>1.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>ee.ringit.extras.camunda</groupId>\r\n            <artifactId>timer-override-plugin</artifactId>\r\n            <version>1.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_sjs0.6_2.11</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.thoughtworks.feature</groupId>\r\n            <artifactId>override_sjs0.6_2.11</artifactId>\r\n            <version>2.0.0-RC3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>de.foellix</groupId>\r\n            <artifactId>AQL-System</artifactId>\r\n            <version>2.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>de.foellix</groupId>\r\n            <artifactId>AQL-System</artifactId>\r\n            <version>2.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.seomse.system</groupId>\r\n            <artifactId>seomse-system</artifactId>\r\n            <version>1.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.seomse.system</groupId>\r\n            <artifactId>seomse-system</artifactId>\r\n            <version>1.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.ow2.jonas.jpaas.system-representation</groupId>\r\n            <artifactId>system-representation</artifactId>\r\n            <version>1.0.0-M1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>net.lecousin.framework.system</groupId>\r\n            <artifactId>system-api</artifactId>\r\n            <version>0.2.6</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>net.lecousin.framework.system</groupId>\r\n            <artifactId>system-api</artifactId>\r\n            <version>0.2.6</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>de.foellix</groupId>\r\n            <artifactId>AQL-System</artifactId>\r\n            <version>2.0.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>de.foellix</groupId>\r\n            <artifactId>AQL-System</artifactId>\r\n            <version>2.0.0</version>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/pom.xml	(date 1687900471844)
+@@ -15,6 +15,7 @@
+     </properties>
+ 
+     <dependencies>
++
+         <dependency>
+             <groupId>org.openjfx</groupId>
+             <artifactId>javafx-controls</artifactId>
+@@ -35,156 +36,7 @@
+             <artifactId>gson</artifactId>
+             <version>2.8.9</version>
+         </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.11</artifactId>
+-            <version>1.1.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.12</artifactId>
+-            <version>1.1.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.google.guava</groupId>
+-            <artifactId>guava</artifactId>
+-            <version>25.1-android</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.netflix.nebula</groupId>
+-            <artifactId>gradle-override-plugin</artifactId>
+-            <version>4.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.netflix.nebula</groupId>
+-            <artifactId>gradle-override-plugin</artifactId>
+-            <version>4.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.12</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.12</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.netflix.nebula</groupId>
+-            <artifactId>gradle-override-plugin</artifactId>
+-            <version>4.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.netflix.nebula</groupId>
+-            <artifactId>gradle-override-plugin</artifactId>
+-            <version>4.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.11</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.11</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.constructor</groupId>
+-            <artifactId>override_2.10</artifactId>
+-            <version>3.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_2.11</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.constructor</groupId>
+-            <artifactId>override_2.10</artifactId>
+-            <version>3.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.constructor</groupId>
+-            <artifactId>override_2.10</artifactId>
+-            <version>3.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.constructor</groupId>
+-            <artifactId>override_2.12</artifactId>
+-            <version>4.1.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.constructor</groupId>
+-            <artifactId>override_2.11</artifactId>
+-            <version>4.1.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>ee.ringit.extras.camunda</groupId>
+-            <artifactId>timer-override-plugin</artifactId>
+-            <version>1.0.1</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>ee.ringit.extras.camunda</groupId>
+-            <artifactId>timer-override-plugin</artifactId>
+-            <version>1.0.1</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_sjs0.6_2.11</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.thoughtworks.feature</groupId>
+-            <artifactId>override_sjs0.6_2.11</artifactId>
+-            <version>2.0.0-RC3</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>de.foellix</groupId>
+-            <artifactId>AQL-System</artifactId>
+-            <version>2.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>de.foellix</groupId>
+-            <artifactId>AQL-System</artifactId>
+-            <version>2.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.seomse.system</groupId>
+-            <artifactId>seomse-system</artifactId>
+-            <version>1.0.1</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.seomse.system</groupId>
+-            <artifactId>seomse-system</artifactId>
+-            <version>1.0.1</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.ow2.jonas.jpaas.system-representation</groupId>
+-            <artifactId>system-representation</artifactId>
+-            <version>1.0.0-M1</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>net.lecousin.framework.system</groupId>
+-            <artifactId>system-api</artifactId>
+-            <version>0.2.6</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>net.lecousin.framework.system</groupId>
+-            <artifactId>system-api</artifactId>
+-            <version>0.2.6</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>de.foellix</groupId>
+-            <artifactId>AQL-System</artifactId>
+-            <version>2.0.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>de.foellix</groupId>
+-            <artifactId>AQL-System</artifactId>
+-            <version>2.0.0</version>
+-        </dependency>
++
+     </dependencies>
+ 
+ </project>
+\ No newline at end of file
+Index: src/main/java/model/Block.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport model.Buildings.Structure;\r\nimport model.Peoples.Militia;\r\nimport model.Peoples.People;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Block {\r\n    private int x;\r\n    private int y;\r\n    private boolean ThereIsTunnel;\r\n\r\n    public boolean isThereIsTunnel() {\r\n        return ThereIsTunnel;\r\n    }\r\n\r\n    public void setThereIsTunnel(boolean thereIsTunnel) {\r\n        ThereIsTunnel = thereIsTunnel;\r\n    }\r\n\r\n    private String type;\r\n    private Structure thisBlockStructure = null;\r\n    private int governmentId = 0;\r\n    private ArrayList<People> peoples = new ArrayList<>();\r\n    private String tree;\r\n    private boolean isSick = false;\r\n    public Block(int x,int y){\r\n        this.x = x;\r\n        this.y = y;\r\n        this.type=\"Dirt\";\r\n    }\r\n\r\n    public int getX() {\r\n        return x;\r\n    }\r\n\r\n    public int getY() {\r\n        return y;\r\n    }\r\n\r\n    public void nextTurn(){\r\n        if (peoples==null){\r\n            return;\r\n        }\r\n        if (peoples.size()==0){\r\n            return;\r\n        }\r\n        for (int i = 0; i < peoples.size(); i++) {\r\n            peoples.get(i).nextTurn();\r\n        }\r\n        battles();\r\n    }\r\n\r\n    private void battles() {\r\n        People people1;\r\n        People people2;\r\n        for (int i = 0; i < peoples.size(); i++) {\r\n            people1 = peoples.get(i);\r\n            for (int j = i; j < peoples.size(); j++) {\r\n                people2 = peoples.get(i);\r\n                if (!people1.getGovernment().equals(people2.getGovernment())){\r\n                    battleTwoUnit(people1,people2);\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    private void battleTwoUnit(People people1, People people2) {\r\n        if (people1 instanceof Militia && people2 instanceof Militia) {\r\n            people1.hitPointReduce(((Militia) people2).getAttackPower() - ((Militia) people1).getDefencePower());\r\n            people2.hitPointReduce(((Militia) people1).getAttackPower() - ((Militia) people2).getDefencePower());\r\n        }\r\n        else if (people2 instanceof Militia) {\r\n            people1.hitPointReduce(((Militia) people2).getAttackPower());\r\n        }\r\n        else if (people1 instanceof Militia) {\r\n            people2.hitPointReduce(((Militia) people1).getAttackPower());\r\n        }\r\n    }\r\n\r\n    public void addPeople(People people){\r\n        if (peoples==null){\r\n            peoples= new ArrayList<>();\r\n        }\r\n        peoples.add(people);\r\n    }\r\n\r\n    public void removePeople(People people){\r\n        peoples.remove(people);\r\n    }\r\n\r\n    public void setType(String type){\r\n        this.type = type;\r\n    }\r\n\r\n    public String getType(){\r\n        return (type);\r\n    }\r\n\r\n    public void underAttack(Government government){\r\n\r\n    }\r\n\r\n    public int getGovernmentId() {\r\n        return governmentId;\r\n    }\r\n\r\n    public void setGovernmentId(int governmentId) {\r\n        this.governmentId = governmentId;\r\n    }\r\n\r\n    public Structure getThisBlockStructure() {\r\n        return thisBlockStructure;\r\n    }\r\n\r\n    public void setThisBlockStructure(Structure thisBlockStructure) {\r\n        this.thisBlockStructure = thisBlockStructure;\r\n    }\r\n\r\n    public ArrayList<People> getPeoples() {\r\n        return peoples;\r\n    }\r\n\r\n\r\n    public boolean suitableTypeForUnit(String type) {\r\n        if (type.equals(\"x\") || type.equals(\"y\") || type.equals(\"z\")){\r\n            return false;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    public String getTree() {\r\n        return tree;\r\n    }\r\n\r\n    public void setTree(String tree) {\r\n        this.tree = tree;\r\n    }\r\n\r\n    public boolean suitableTypeForTree() {\r\n        if (type.equals(\"x\") || type.equals(\"y\") || type.equals(\"z\")){\r\n            return false;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    public void burn() {\r\n        for (People people : peoples) {\r\n            people.hitPointReduce(10);\r\n        }\r\n    }\r\n\r\n    public boolean isPassable(People people) {\r\n        ArrayList<String> badTypes = new ArrayList<>();\r\n        badTypes.add(\"type1\");\r\n        badTypes.add(\"type2\");\r\n        badTypes.add(\"type3\");\r\n        return !badTypes.contains(type); ///.....\r\n    }\r\n\r\n    public ArrayList<People> myEnemies(Government government) {\r\n        ArrayList<People> enemies = new ArrayList<>();\r\n        if(peoples == null)\r\n            return null;\r\n        for (People people : peoples) {\r\n            if (!people.getGovernment().equals(government)) {\r\n                enemies.add(people);\r\n            }\r\n        }\r\n        return enemies;\r\n    }\r\n\r\n    public void appearanceSickness() {\r\n        this.isSick = true;\r\n    }\r\n\r\n    public void disappearanceSickness() {\r\n        this.isSick = false;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Block.java b/src/main/java/model/Block.java
+--- a/src/main/java/model/Block.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/Block.java	(date 1687889936921)
+@@ -24,7 +24,6 @@
+     private int governmentId = 0;
+     private ArrayList<People> peoples = new ArrayList<>();
+     private String tree;
+-    private boolean isSick = false;
+     public Block(int x,int y){
+         this.x = x;
+         this.y = y;
+@@ -171,11 +170,5 @@
+         return enemies;
+     }
+ 
+-    public void appearanceSickness() {
+-        this.isSick = true;
+-    }
+ 
+-    public void disappearanceSickness() {
+-        this.isSick = false;
+-    }
+ }
+Index: src/main/java/model/Government.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport controller.GameController;\r\nimport model.Buildings.BuildingType;\r\nimport model.Buildings.Structure;\r\nimport model.Peoples.NormalPeople;\r\nimport model.Peoples.People;\r\nimport model.Peoples.PeopleType;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.Random;\r\n\r\n\r\npublic class Government{\r\n    private Structure centralCastle;\r\n    private final User owner;\r\n    private ArrayList<People> peoples = new ArrayList<>();\r\n\r\n    private ArrayList<Structure> structures = new ArrayList<>();\r\n\r\n    public ArrayList<Structure> getStructures() {\r\n        return structures;\r\n    }\r\n\r\n    private ArrayList<TradeMessage> tradeMessages = new ArrayList<>();\r\n    private ArrayList<TradeMessage> thisGovermentTrades = new ArrayList<>();\r\n    private ArrayList<Trade> trades = new ArrayList<>();\r\n    private String color;\r\n    private Resources resources;\r\n    private final String[] foodType;\r\n    private int[]  foodAmount;\r\n\r\n    private int popularity;\r\n    private int taxRate;\r\n    private int fearRate;\r\n    private int feedRate;\r\n    private int sicknessNumber;\r\n    private int coins;\r\n    private ArrayList<People> selectedPeoples = new ArrayList<>();\r\n\r\n\r\n    public Government(User user, String color){\r\n        this.owner = user;\r\n        this.coins = 1000;\r\n        this.color = color;\r\n        foodType = new String[]{\"bread\", \"meat\", \"apple\", \"rice\"};\r\n        resources = new Resources();\r\n        foodAmount = new int[]{10, 10, 10, 10};\r\n    }\r\n\r\n\r\n    public void addTrade(Trade trade){\r\n        trades.add(trade);\r\n    }\r\n\r\n    public void addTradeMessage(TradeMessage tradeMessage){\r\n        tradeMessages.add(tradeMessage);\r\n    }\r\n\r\n    public User getOwner() {\r\n        return owner;\r\n    }\r\n\r\n    public ArrayList<People> getPeoples() {\r\n        return peoples;\r\n    }\r\n\r\n    public void addPeople(People people){\r\n        peoples.add(people);\r\n    }\r\n\r\n    public ArrayList<Trade> getTrades() {\r\n        return trades;\r\n    }\r\n\r\n    public ArrayList<TradeMessage> getTradeMessages() {\r\n        return tradeMessages;\r\n    }\r\n\r\n    public int getPopularity() {\r\n        return popularity;\r\n    }\r\n\r\n    public void changePopularity(int amount) {\r\n        popularity += amount;\r\n    }\r\n\r\n    public void delShowedMessages(){\r\n        for (int i = 0; i < tradeMessages.size(); i++) {\r\n            if (tradeMessages.get(i).showCondition()){\r\n                tradeMessages.remove(tradeMessages.get(i));\r\n                i--;\r\n            }\r\n        }\r\n    }\r\n\r\n    public boolean checkGameOver(){\r\n        return centralCastle.getHitPoint() <= 0;\r\n    }\r\n\r\n    public void nextTurn(){\r\n\r\n        // food & ...\r\n        getResources().changeOfResourcesAtTheEndOfTurn();\r\n\r\n        // Feed +\r\n        checkTheFoodFactor();\r\n\r\n        // Tax +\r\n        //initialization for taxRate = 0\r\n        checkTheTaxFactor();\r\n\r\n        // Religion +\r\n        checkTheReligionFactor();\r\n\r\n        // Fear +\r\n        checkTheFearFactor();\r\n\r\n        // Sickness\r\n        checkSicknessFactor();\r\n\r\n        // change population\r\n        changePopulation();\r\n\r\n        // game over\r\n        if (checkGameOver()){\r\n            Game game = GameController.getGame();\r\n            game.removeGovernment(this);\r\n            User user = this.getOwner();\r\n            user.addScore(game.getScore());\r\n\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n    public int getAmountOfResource(String type){\r\n        return resources.getResourceAmount(type);\r\n    }\r\n    public void changeAmountOfResource(String type, int amount){\r\n        resources.changeResourceAmount(type,amount);\r\n    }\r\n\r\n    public int getAmountOfFoods(String type){\r\n        return foodAmount[getIndexOfFood(type)];\r\n    }\r\n\r\n    public void changeAmountOfFoods(String type, int amount){\r\n        foodAmount[getIndexOfFood(type)]+=amount;\r\n    }\r\n\r\n    // Food\r\n    public void setFeedRate(int foodRate) { this.feedRate = foodRate; }\r\n\r\n    public int amountOfFoods() {\r\n        int amount = 0;\r\n        for (int i : foodAmount) {\r\n            amount += i;\r\n        }\r\n\r\n        return amount;\r\n    }\r\n    public int getFeedRate() { return feedRate; }\r\n\r\n    // Tax\r\n    public void setTaxRate(int taxRate) { this.taxRate = taxRate; }\r\n\r\n    public int getTaxRate() {\r\n        return taxRate;\r\n    }\r\n    public int getCoins() {\r\n        return coins;\r\n    }\r\n\r\n    // Fear\r\n    public int getFearRate() { return fearRate; }\r\n    public void setFearRate(int fearRate) { this.fearRate = fearRate; }\r\n\r\n    public void changeCoins(int count) {\r\n        coins+=count;\r\n    }\r\n\r\n\r\n    public void setSelectedPeoples(ArrayList<People> peoples) {\r\n        selectedPeoples = peoples;\r\n    }\r\n\r\n    public ArrayList<People> getSelectedPeoples() {\r\n        return selectedPeoples;\r\n    }\r\n\r\n\r\n    public Resources getResources() {\r\n        return resources;\r\n    }\r\n\r\n    public void removePeople(People people) {\r\n        peoples.remove(people);\r\n    }\r\n\r\n\r\n\r\n    //next turn function\r\n    //food\r\n    private void checkTheFoodFactor() {\r\n        changePopularity(getAmountOfAllTypesOfFoods() - 1);\r\n\r\n        double foodForEachPerson = (double) feedRate / 2 + 1;\r\n        int foodsToBeConsuming = (int) (foodForEachPerson * peoples.size() + 1); // +1 is to be int\r\n\r\n        if (amountOfFoods() <= foodsToBeConsuming) {\r\n            Arrays.fill(foodAmount, 0);\r\n            feedRate = -2;\r\n        }\r\n        else {\r\n            int eachFoodToBeConsuming = foodsToBeConsuming / 4;\r\n            for (int i = 0; i < foodAmount.length; i++) {\r\n                foodAmount[i] -= eachFoodToBeConsuming;\r\n            }\r\n            while (foodsToBeConsuming % 4 != 0) {\r\n                foodAmount[getIndexOfMaxAmountOfFoods()]--;\r\n                foodsToBeConsuming--;\r\n            }\r\n        }\r\n\r\n        changePopularity(feedRate * 2);\r\n    }\r\n\r\n    //tax\r\n    private void checkTheTaxFactor() {\r\n        double taxOfEachPerson = 0;\r\n        int taxesToBeCollected = 0;\r\n        int changeOfPopularity = 1;\r\n\r\n        if (taxRate < 0) {\r\n            taxOfEachPerson = -0.2 * taxRate - 0.4;\r\n            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size()) - 1;\r\n            changeOfPopularity = taxRate * -2 + 1;\r\n        }\r\n        else if(taxRate > 0) {\r\n            taxOfEachPerson = 0.2 * taxRate + 0.4;\r\n            taxesToBeCollected = (int) (taxOfEachPerson * peoples.size());\r\n            if (taxRate <= 4)\r\n                changeOfPopularity = taxRate * 2;\r\n            else\r\n                changeOfPopularity = taxRate * 4 - 8;\r\n        }\r\n\r\n        coins += taxesToBeCollected;\r\n        changePopularity(changeOfPopularity);\r\n    }\r\n\r\n    //religion\r\n    private void checkTheReligionFactor() {\r\n        for (Block block : GameController.getGame().getMap().getBlocks()) {\r\n            if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getBuildingType()==null){\r\n                continue;\r\n            }\r\n            if (block.getThisBlockStructure().getBuildingType().getType().equals(\"Church\") || block.getThisBlockStructure().getBuildingType().getType().equals(\"Cathedral\")) {\r\n                popularity += 2;\r\n            }\r\n        }\r\n    }\r\n\r\n    //fear\r\n    private void checkTheFearFactor() {\r\n        changePopularity(fearRate);\r\n\r\n        for (People people : peoples) {\r\n            if (!people.getPeopleType().category.equals(\"Unemployed\")) {\r\n                double tmp = (double) fearRate * -1 + 20.0;\r\n                people.getPeopleType().attackPower *= tmp / 20.0;\r\n            }\r\n        }\r\n    }\r\n\r\n    // Sickness\r\n    private void checkSicknessFactor() {\r\n        changePopularity(-1 * sicknessNumber);\r\n\r\n        if (ApplicationManager.getCurrentGame().getNumberOfTurn() % 5 == 4) {\r\n            Random random = new Random();\r\n            int randomInt = random.nextInt();\r\n            randomInt %= structures.size();\r\n\r\n            //logic\r\n            sicknessNumber++;\r\n            structures.get(randomInt).getBlock().appearanceSickness();\r\n            //graphic\r\n//            structures.get(randomInt).getBlock().addSicknessSign();\r\n\r\n        }\r\n    }\r\n\r\n    // change population\r\n\r\n    private void changePopulation() {\r\n        BuildingType buildingType;\r\n        PeopleType peopleType;\r\n\r\n        if (peoples.size()==0){\r\n            return;\r\n        }\r\n        int amountOfPeopleToBeAdded = getAmountOfAllTypesOfFoods() / peoples.size();\r\n        for (Structure structure : structures) {\r\n            buildingType = structure.getBuildingType();\r\n            peopleType = new PeopleType(buildingType.getType(),\"Unemployed\", 0, 0, 0, 0, 0, null, null);\r\n\r\n            for (int i = 0; i < amountOfPeopleToBeAdded; i++) {\r\n                if ((buildingType.getType().equals(\"Hovel\")  || buildingType.getType().equals(\"SmallGateHouse\") || buildingType.getType().equals(\"BigGateHouse\")) && buildingType.getNormalPeopleCapacity() > structure.getNormalPeople().size())  {\r\n                    NormalPeople normalPeople = new NormalPeople(peopleType, this, structure.getBlock());\r\n                    peoples.add(normalPeople); // nothing another ????\r\n                    structure.addNormalPeople(normalPeople);\r\n                    structure.getBlock().addPeople(normalPeople);\r\n                }\r\n            }\r\n        }\r\n\r\n        // Population death + ?\r\n        int amountOfPeopleWhoMostToReduced = peoples.size() / getAmountOfAllTypesOfFoods();\r\n        for (Structure structure : structures) {\r\n            buildingType = structure.getBuildingType();\r\n\r\n            for (int i = 0; i < amountOfPeopleWhoMostToReduced; i++) {\r\n                if ((buildingType.getType().equals(\"Hovel\")  || buildingType.getType().equals(\"SmallGateHouse\") || buildingType.getType().equals(\"BigGateHouse\")) && structure.getNormalPeople().size() != 0)  {\r\n                    for (People people : peoples) {\r\n                        if (people instanceof NormalPeople && peoples.contains(people)) {\r\n                            peoples.remove(people);\r\n                            structure.removeNormalPeople((NormalPeople) people);\r\n                            structure.getBlock().removePeople(people);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    // *Auxiliary functions* //\r\n\r\n    // Food functions\r\n    private int getAmountOfAllTypesOfFoods() {\r\n        int amountOfTypesOfFoods = 0;\r\n\r\n        for (int i : foodAmount) {\r\n            amountOfTypesOfFoods++;\r\n        }\r\n\r\n        return amountOfTypesOfFoods;\r\n    }\r\n\r\n    private int getIndexOfMaxAmountOfFoods() {\r\n        int indexOfMax = 0;\r\n        for (int i = 0; i < foodAmount.length; i++) {\r\n            if (foodAmount[i] > indexOfMax)\r\n                indexOfMax = i;\r\n        }\r\n\r\n        return indexOfMax;\r\n    }\r\n    // functions of religion\r\n\r\n\r\n    public Integer getIndexOfFood(String type){\r\n        for (int i = 0; i < foodType.length; i++) {\r\n            if (foodType[i].equals(type)){\r\n                return i;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n    public  Structure getBuildingByNameForGovernment(String type){\r\n        for(Structure structure:structures){\r\n            if(structure.getBuildingType().getType().equals(type))\r\n                return structure;\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public BuildingType getBuildingTypeByNameForGovernment(String type) {\r\n        for(Structure structure:structures){\r\n            if(structure.getBuildingType().getType().equals(type))\r\n                return structure.getBuildingType();\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public BuildingType getBuildingByNameForGoverment(String str) {\r\n        for(Structure structure:structures){\r\n            if(structure.getBuildingType().getType().equals(str))\r\n                return structure.getBuildingType();\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public void setCentralCastle(Structure centralCastle) {\r\n        this.centralCastle = centralCastle;\r\n    }\r\n\r\n    public void AddTradeMessage(TradeMessage tradeMessage){\r\n        thisGovermentTrades.add(0,tradeMessage);\r\n    }\r\n\r\n    public ArrayList<TradeMessage> getThisGovermentTrades() {\r\n        return thisGovermentTrades;\r\n    }\r\n    //\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Government.java b/src/main/java/model/Government.java
+--- a/src/main/java/model/Government.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/Government.java	(date 1687889936517)
+@@ -9,7 +9,6 @@
+ 
+ import java.util.ArrayList;
+ import java.util.Arrays;
+-import java.util.Random;
+ 
+ 
+ public class Government{
+@@ -35,7 +34,6 @@
+     private int taxRate;
+     private int fearRate;
+     private int feedRate;
+-    private int sicknessNumber;
+     private int coins;
+     private ArrayList<People> selectedPeoples = new ArrayList<>();
+ 
+@@ -100,10 +98,8 @@
+     }
+ 
+     public void nextTurn(){
+-
+         // food & ...
+         getResources().changeOfResourcesAtTheEndOfTurn();
+-
+         // Feed +
+         checkTheFoodFactor();
+ 
+@@ -117,9 +113,6 @@
+         // Fear +
+         checkTheFearFactor();
+ 
+-        // Sickness
+-        checkSicknessFactor();
+-
+         // change population
+         changePopulation();
+ 
+@@ -202,6 +195,9 @@
+ 
+ 
+ 
++
++
++
+     //next turn function
+     //food
+     private void checkTheFoodFactor() {
+@@ -276,24 +272,6 @@
+         }
+     }
+ 
+-    // Sickness
+-    private void checkSicknessFactor() {
+-        changePopularity(-1 * sicknessNumber);
+-
+-        if (ApplicationManager.getCurrentGame().getNumberOfTurn() % 5 == 4) {
+-            Random random = new Random();
+-            int randomInt = random.nextInt();
+-            randomInt %= structures.size();
+-
+-            //logic
+-            sicknessNumber++;
+-            structures.get(randomInt).getBlock().appearanceSickness();
+-            //graphic
+-//            structures.get(randomInt).getBlock().addSicknessSign();
+-
+-        }
+-    }
+-
+     // change population
+ 
+     private void changePopulation() {
+Index: src/main/java/view/BuildingMenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/BuildingMenuController.java b/src/main/java/view/BuildingMenuController.java
+new file mode 100644
+--- /dev/null	(date 1687949464261)
++++ b/src/main/java/view/BuildingMenuController.java	(date 1687949464261)
+@@ -0,0 +1,104 @@
++package view;
++
++import controller.CreateNewGame;
++import controller.EditMap;
++import controller.GameController;
++import javafx.scene.control.Alert;
++import javafx.scene.control.Button;
++import javafx.scene.control.Label;
++import javafx.scene.image.ImageView;
++import javafx.scene.input.MouseEvent;
++import javafx.scene.text.Text;
++import model.Buildings.Structure;
++import model.GBlock;
++
++public class BuildingMenuController {
++
++    public ImageView Knight;
++    public ImageView Archer;
++    public ImageView Assassins;
++    public ImageView Engineer;
++    public ImageView HorseArchers;
++    public ImageView Slaves;
++    public ImageView Swordsmen;
++    public Text number;
++    public Button remove;
++    public Button add;
++    public Button create;
++    public Button destroy;
++    public Button repair;
++    private int count = 0;
++
++
++    public void menuInitialize() {
++        add.setOnMouseClicked(mouseEvent -> add());
++        remove.setOnMouseClicked(mouseEvent -> remove());
++        repair.setOnMouseClicked(mouseEvent -> repair());
++        destroy.setOnMouseClicked(mouseEvent -> destroy());
++        create.setOnMouseClicked(mouseEvent -> dropUnit());
++
++    }
++
++
++    public void repair() {
++        BuildingMenu.stage.close();
++    }
++
++    private void destroy() {
++        BuildingMenu.stage.close();
++    }
++
++    public void clickUnit(MouseEvent mouseEvent) {
++        ImageView imageView = (ImageView) mouseEvent.getSource();
++        String type = null;
++
++        if (imageView.equals(Knight)){
++            type = "Knight";
++        }
++        else if (imageView.equals(Slaves)){
++            type = "Slaves";
++        }
++        else if (imageView.equals(Swordsmen)){
++            type = "Swordsmen";
++        }
++        else if (imageView.equals(Archer)){
++            type = "Archer";
++        }
++        else if (imageView.equals(Assassins)){
++            type = "Assassins";
++        }
++        else if (imageView.equals(Engineer)){
++            type = "Engineer";
++        }
++        else if (imageView.equals(HorseArchers)){
++            type = "HorseArchers";
++        }
++        System.out.println(type);
++        GameController.inDropUnit = type;
++    }
++
++    public void add(){
++        if (count<8){
++            count++;
++            number.setText(count+"");
++        }
++    }
++
++    public void remove(){
++        if (count>0){
++            count--;
++            number.setText(count+"");
++        }
++    }
++
++    public void dropUnit(){
++        String result;
++        if (GameController.inDropUnit!=null && count>0){
++            result = GameController.createUnit(GameController.inDropUnit,count);
++            BuildingMenu.stage.close();
++            Alert alert = new Alert(Alert.AlertType.INFORMATION,result);
++            alert.showAndWait();
++        }
++
++    }
++}
+Index: src/main/java/model/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport controller.GameController;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Game {\r\n\r\n    private static Government currentGovernment;\r\n    private static ArrayList<Government> governments;\r\n\r\n    public static ArrayList<Government> getGovernments() {\r\n        return governments;\r\n    }\r\n\r\n    private int numberOfTurn = 0;\r\n    private final Map map;\r\n    private boolean condition;\r\n\r\n    private final int numberOfPlayers;\r\n\r\n    private int number;\r\n\r\n\r\n    public Map getMap() {\r\n        return map;\r\n    }\r\n\r\n    public Game(Map map, ArrayList<Government> governments){\r\n        this.governments = governments;\r\n        this.map = map;\r\n        condition = true;\r\n        currentGovernment = this.governments.get(0);\r\n        numberOfPlayers = governments.size();\r\n    }\r\n\r\n    public void nextTurn(){\r\n        map.nextTurn();\r\n        governmentsNextTurn();\r\n        nextGovernment();\r\n        checkEnd();\r\n    }\r\n\r\n    private void governmentsNextTurn(){\r\n        numberOfTurn++;\r\n        for (int i = 0; i < governments.size(); i++) {\r\n            governments.get(i).nextTurn();\r\n        }\r\n    }\r\n\r\n    private void nextGovernment(){\r\n        number+=1;\r\n        currentGovernment = governments.get((number%governments.size()));\r\n        GameController.currentGovernment = currentGovernment;\r\n    }\r\n\r\n    public void checkEnd(){\r\n        if (governments.size()==1){\r\n            condition = false;\r\n            governments.get(0).getOwner().addScore(getScore());\r\n            GameController.endGame();\r\n        }\r\n    }\r\n\r\n    public Government getGovernmentByUser(User user){\r\n        for (Government government : governments) {\r\n            if (government.getOwner().equals(user)) {\r\n                return government;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static Government getCurrentGovernment() {\r\n        return currentGovernment;\r\n    }\r\n\r\n\r\n    public void removeGovernment(Government government){\r\n        System.out.println(government.getOwner().getUsername()+\" Game Over!\");\r\n        governments.remove(government);\r\n    }\r\n\r\n\r\n    public int getScore(){\r\n        return numberOfPlayers * (numberOfPlayers-governments.size()-1);\r\n    }\r\n\r\n    public int getNumberOfTurn() {\r\n        return numberOfTurn;\r\n    }\r\n\r\n    public void setNumberOfTurn(int numberOfTurn) {\r\n        this.numberOfTurn = numberOfTurn;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Game.java b/src/main/java/model/Game.java
+--- a/src/main/java/model/Game.java	(revision 46664f94f11570a3c3c81bf41ae52ee25f87f21e)
++++ b/src/main/java/model/Game.java	(date 1687889936936)
+@@ -13,7 +13,6 @@
+         return governments;
+     }
+ 
+-    private int numberOfTurn = 0;
+     private final Map map;
+     private boolean condition;
+ 
+@@ -42,7 +41,6 @@
+     }
+ 
+     private void governmentsNextTurn(){
+-        numberOfTurn++;
+         for (int i = 0; i < governments.size(); i++) {
+             governments.get(i).nextTurn();
+         }
+@@ -85,12 +83,4 @@
+     public int getScore(){
+         return numberOfPlayers * (numberOfPlayers-governments.size()-1);
+     }
+-
+-    public int getNumberOfTurn() {
+-        return numberOfTurn;
+-    }
+-
+-    public void setNumberOfTurn(int numberOfTurn) {
+-        this.numberOfTurn = numberOfTurn;
+-    }
+ }
+Index: src/main/java/view/BuildingMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/BuildingMenu.java b/src/main/java/view/BuildingMenu.java
+new file mode 100644
+--- /dev/null	(date 1687945130988)
++++ b/src/main/java/view/BuildingMenu.java	(date 1687945130988)
+@@ -0,0 +1,33 @@
++package view;
++
++import javafx.application.Application;
++import javafx.fxml.FXMLLoader;
++import javafx.scene.Scene;
++import javafx.scene.layout.Pane;
++import javafx.stage.Stage;
++import model.GBlock;
++
++public class BuildingMenu extends Application {
++
++    public static Stage stage;
++    public static Pane root;
++
++    public static BuildingMenuController controller;
++
++    public static GBlock gBlock;
++
++    @Override
++    public void start(Stage stage) throws Exception {
++        BuildingMenu.stage = stage;
++        FXMLLoader loader = new FXMLLoader();
++        loader.setLocation(getClass().getResource("/FXML/BuildingSelect.fxml"));
++        root = loader.load();
++        Scene scene = new Scene(root);
++        stage.setScene(scene);
++        stage.show();
++        stage.setResizable(false);
++        controller = loader.getController();
++        controller.menuInitialize();
++    }
++
++}

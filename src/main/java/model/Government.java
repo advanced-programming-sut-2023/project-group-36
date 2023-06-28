@@ -373,6 +373,14 @@ public class Government{
         return null;
     }
 
+    public void showUnits(){
+        for (People people : peoples) {
+            people.show();
+        }
+    }
+
+
+
     public void setCentralCastle(Structure centralCastle) {
         this.centralCastle = centralCastle;
     }
