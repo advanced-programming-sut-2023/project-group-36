@@ -19,6 +19,12 @@ public  class Structure {
         this.HP = HP;
     }
 
+    public Structure(Government government){
+        this.HP = 1000;
+        this.government = government;
+        this.buildingType=null;
+    }
+
     public BuildingType getBuildingType() {
         return buildingType;
     }
@@ -32,6 +38,9 @@ public  class Structure {
     }
 
     public String getName() {
+        if (buildingType==null || buildingType.getType()==null){
+            return "middleCastle";
+        }
         return buildingType.getType();
     }
 

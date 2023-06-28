@@ -6,6 +6,7 @@ import model.*;
 import model.Buildings.BuildingType;
 import model.Buildings.Structure;
 import model.Peoples.*;
+import view.GameMenuController;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -13,6 +14,9 @@ import java.util.regex.Matcher;
 public class GameController {
 
     public static String inDropBuilding = null;
+
+    public static String inDropUnit = null;
+
     private static Game game;
     public static Government currentGovernment;
     static int x,y;
@@ -104,20 +108,13 @@ public class GameController {
 
 
     // Mohammad
-    public static String dropBuilding(Matcher matcher){
+    public static String dropBuilding(String type, Block currentBlock){
         if (currentGovernment==null){
             return "Error: No government selected!";
         }
-        x=Integer.parseInt(matcher.group("x"));
-        y=Integer.parseInt(matcher.group("y"));
-        String type=matcher.group("type");
-        Map currentMap=ApplicationManager.getCurrentGame().getMap();
-        if(x> currentMap.getSize() || y>currentMap.getSize())
-            return "Invalid cordinates!";
         BuildingType buildingType= Types.getBuildingTypeByType(type);
         if(buildingType == null)
             return "Invalid Building name!";
-        currentBlock = currentMap.getBlockByPosition(x,y);
         if(currentBlock.getThisBlockStructure() != null)
             return "This Block has already been occupied by another structure!";
         if(checkBuildingPrerequisite(type) != null){
@@ -425,14 +422,8 @@ public class GameController {
 
     ///////////////////// ALI
 
-    public static String createUnit(Matcher matcher){
-        if (currentStructure==null){
-            return "Error: Please select a building!";
-        }
-        PeopleType peopleType = Types.getPeopleTypeByType(matcher.group("type"));
-        if (peopleType == null){
-            return "Error: Invalid type!";
-        }
+    public static String createUnit(String type, int count){
+        PeopleType peopleType = Types.getPeopleTypeByType(type);
         if (!currentStructure.getName().equals(peopleType.requiredStructure)){
             return "Error: An appropriate building has not been selected!";
         }
@@ -447,9 +438,11 @@ public class GameController {
         else {
             people = new NormalPeople(peopleType,currentGovernment,block);
         }
-        currentGovernment.addPeople(people);
-        block.addPeople(people);
-        return "The soldier has been successfully created!";
+        for (int i = 0; i < count; i++) {
+            currentGovernment.addPeople(people);
+            block.addPeople(people);
+        }
+        return "The soldier(s) has been successfully created!";
     }
 
     public static String selectUnit(Matcher matcher){

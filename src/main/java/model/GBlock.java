@@ -1,46 +1,49 @@
 package model;
-import controller.EditMap;
-import javafx.scene.control.Label;
+import controller.GameController;
+import javafx.animation.PauseTransition;
+import javafx.scene.Cursor;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import view.ChangeBlockMenu;
-import view.EditMapMenu;
-import view.GameMenu;
-import view.GameMenuController;
-
-import java.io.IOException;
-import java.util.Objects;
+import javafx.util.Duration;
+import view.*;
 
 public class GBlock extends Rectangle {
     private Block block;
     private Boolean changeAble;
     private ImageView texture = new ImageView();
     private ImageView building = new ImageView();
-    private Label label;
+
+
+
+    public static Image Iron = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Iron.png")));
+
+    public static Image Grass = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Grass.png")));
+    public static Image Gravel = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Gravel.png")));
+    public static Image Boulder = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Boulder.png")));
+    public static Image Dirt = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dirt.png")));
+    public static Image Meadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Meadow.png")));
+    public static Image DenseMeadow = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Dense Meadow.png")));
+    public static Image Stone = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Stone.png")));
+
+    private static Image MiddleCastle = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/buildings/castle.png")));
+
+
+
+
+    private boolean insideBuilding;
+    private boolean insideBlock;
 
     public Rectangle information;
 
-    public static Image Iron = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Iron.png");
-    public static Image Grass = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Grass.png");
-    public static Image Gravel = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Gravel.png");
-    public static Image Boulder = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Boulder.png");
-    public static Image Dirt = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dirt.png");
-    public static Image Meadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Meadow.png");
-    public static Image DenseMeadow = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Dense Meadow.png");
-    public static Image Stone = new Image("C:/Users/m/Desktop/GameMenu/src/main/resources/images/textures/Stone.png");
-    public static Image Sickness;
+    private final Rectangle buildingInformation = new Rectangle(130,70);
 
-    static {
-        try {
-            Sickness = new Image(Objects.requireNonNull(GBlock.class.getResource("face-with-medical-mask_1f637.png")).openStream());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    Text name = new Text();
+    Text government = new Text();
+    Text HP = new Text();
 
     public GBlock(Block block, Boolean changeAble){
         super(50,50);
@@ -49,7 +52,9 @@ public class GBlock extends Rectangle {
         this.setY(50*(block.getY()-1));
         this.setFill(Color.rgb(100,80,60));
         this.changeAble = changeAble;
+
         setTexture();
+        setBuilding();
 
         information = new Rectangle(130,70);
         information.setFill(Color.BROWN);
@@ -57,7 +62,6 @@ public class GBlock extends Rectangle {
         information.setY(this.getY()-50);
 
 
-        //setBuilding();
         if (changeAble){
             EditMapMenu.controller.getMapPane().getChildren().add(this);
             EditMapMenu.controller.getMapPane().getChildren().add(texture);
@@ -66,15 +70,42 @@ public class GBlock extends Rectangle {
         else {
             GameMenu.controller.getMapPane().getChildren().add(this);
             GameMenu.controller.getMapPane().getChildren().add(texture);
+            GameMenu.controller.getMapPane().getChildren().add(building);
+
 
         }
-
-        //Game.pane.getChildren().add(building);
 
         setMouseEvents(changeAble);
     }
 
-    private void click() throws Exception {
+
+    private void setBuildingInformation(boolean show) {
+        name.setText("name: "+block.getThisBlockStructure().getName());
+        government.setText("government: "+block.getThisBlockStructure().getGovernment().getOwner().getUsername());
+        HP.setText("HP: "+block.getThisBlockStructure().getHitPoint());
+
+        buildingInformation.setFill(Color.BLUE);
+        buildingInformation.setX(this.getX()+50);
+        buildingInformation.setY(this.getY()-50);
+
+        name.setX(this.getX()+55);
+        name.setY(this.getY()-30);
+
+        government.setX(this.getX()+55);
+        government.setY(this.getY()-10);
+
+        HP.setX(this.getX()+55);
+        HP.setY(this.getY()+10);
+
+        if (block.getThisBlockStructure()!=null && show){
+            GameMenu.controller.getMapPane().getChildren().addAll(buildingInformation,name,government,HP);
+        }
+        else {
+            GameMenu.controller.getMapPane().getChildren().removeAll(buildingInformation,name,government,HP);
+        }
+    }
+
+    private void textureClick() throws Exception {
         if (changeAble){
             if (ChangeBlockMenu.stage == null){
                 ChangeBlockMenu.gBlock = this;
@@ -83,27 +114,56 @@ public class GBlock extends Rectangle {
             }
         }
         else {
-            this.setFill(Color.YELLOW);
-            image();
+            GameMenu.root.setCursor(Cursor.DEFAULT);
+            if (GameController.inDropBuilding==null || block.getThisBlockStructure()!=null){
+                return;
+            }
+            String result = GameController.dropBuilding(GameController.inDropBuilding,this.block);
+            if (!result.equals("drop building is done successfully.")){
+                System.out.println(result);
+                return;
+            }
+            Image image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/"+ GameController.inDropBuilding +".png")));
+            building.setImage(image);
+            GameController.inDropBuilding = null;
+            building.setFitWidth(40);
+            building.setFitHeight(40);
         }
     }
 
-    public void image(){
-        ImageView imageView = new ImageView("C:/Users/m/Desktop/GameMenu/src/main/resources/images/suggested/images.png");
-        imageView.setX(this.getX());
-        imageView.setY(this.getY());
-        imageView.setFitWidth(40);
-        imageView.setFitHeight(40);
-        GameMenu.controller.getMapPane().getChildren().add(imageView);
+    private void buildingClick() throws Exception {
+        if (block.getThisBlockStructure().getName().equals("middleCastle") || !block.getThisBlockStructure().getGovernment().equals(GameController.currentGovernment)){
+            return;
+        }
+        BuildingMenu buildingMenu = new BuildingMenu();
+        buildingMenu.start(new Stage());
     }
 
-    public void setBuilding(){
 
-        this.label = new Label(block.getThisBlockStructure().getName());
-        label.setLayoutX(50*(block.getX()-1));
-        label.setLayoutY(50*(block.getY()-1));
-        label.setStyle("-fx-font-size: 10");
-        //Game.mapPane.getChildren().add(label);
+
+    public void setBuilding(){
+        building.setX(this.getX()+5);
+        building.setY(this.getY()+5);
+        building.setFitWidth(1);
+        building.setFitHeight(1);
+        building.setImage(GBlock.Iron);
+        if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getName()==null){
+            System.out.println("null!");
+            return;
+        }
+        switch (block.getThisBlockStructure().getName()) {
+            case "Iron" -> building.setImage(GBlock.Iron);
+            case "Grass" -> building.setImage(GBlock.Grass);
+            case "Dirt" -> building.setImage(GBlock.Dirt);
+            case "Meadow" -> building.setImage(GBlock.Meadow);
+            case "Dense Meadow" -> building.setImage(GBlock.DenseMeadow);
+            case "Gravel" -> building.setImage(GBlock.Gravel);
+            case "Stone" -> building.setImage(GBlock.Stone);
+            case "middleCastle" -> building.setImage(GBlock.MiddleCastle);
+            default -> building.setImage(GBlock.Boulder);
+        }
+        building.setFitWidth(40);
+        building.setFitHeight(40);
     }
 
     public void setTexture(){
@@ -119,8 +179,8 @@ public class GBlock extends Rectangle {
         }
         texture.setX(this.getX()+1);
         texture.setY(this.getY()+1);
-        texture.setFitWidth(48);
-        texture.setFitHeight(48);
+        texture.setFitWidth(50);
+        texture.setFitHeight(50);
     }
 
     public void update(){
@@ -128,25 +188,72 @@ public class GBlock extends Rectangle {
         setBuilding();
     }
 
-    public void shift(int x , int y){
-        //this.block = Game.getBlockByPosition(block.getX()+x, block.getY()+y);
-        update();
-    }
 
     public void setMouseEvents(Boolean on){
         if (on){
-            this.texture.setOnMouseClicked(event -> {
+            texture.setOnMouseClicked(event -> {
                 try {
-                    click();
+                    textureClick();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             });
         }
         else {
-            this.texture.setOnMouseClicked(null);
-            this.texture.setOnMouseEntered(event -> showInformation());
-            this.texture.setOnMouseExited(event -> unShowInformation());
+            texture.setOnMouseClicked(event -> {
+                try {
+                    textureClick();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            building.setOnMouseClicked(event -> {
+                try {
+                    buildingClick();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            PauseTransition pause1 = new PauseTransition(Duration.seconds(2));
+            PauseTransition pause2 = new PauseTransition(Duration.seconds(2));
+            pause1.setOnFinished(event -> showInformation());
+            pause2.setOnFinished(event -> showBuildingInformation());
+
+
+            texture.setOnMouseEntered(e -> {
+                insideBlock = true;
+                pause1.playFromStart();
+            });
+            texture.setOnMouseExited(e -> {
+                insideBlock = false;
+                unShowInformation();
+            });
+
+
+            building.setOnMouseEntered(e -> {
+                insideBuilding = true;
+                pause2.playFromStart();
+            });
+            building.setOnMouseExited(e -> {
+                insideBuilding = false;
+                unShowBuildingInformation();
+            });
+
+        }
+    }
+
+
+    private void showBuildingInformation() {
+        if (insideBuilding){
+            setBuildingInformation(true);
+        }
+    }
+
+    private void unShowBuildingInformation() {
+        if (!insideBuilding){
+            setBuildingInformation(false);
 
         }
     }
@@ -158,14 +265,30 @@ public class GBlock extends Rectangle {
 
 
     public void showInformation(){
-        GameMenu.controller.getMapPane().getChildren().add(information);
+        if (insideBlock){
+            GameMenu.controller.getMapPane().getChildren().add(information);
+        }
     }
 
     public void unShowInformation(){
-        GameMenu.controller.getMapPane().getChildren().remove(information);
+        if (!insideBlock){
+            GameMenu.controller.getMapPane().getChildren().remove(information);
+        }
     }
 
-    public void addSicknessSign() {
+    public void zoom(double scale) {
+        building.setFitWidth(building.getFitWidth()*scale);
+        building.setFitHeight(building.getFitHeight()*scale);
+        texture.setFitWidth(texture.getFitWidth()*scale);
+        texture.setFitHeight(texture.getFitHeight()*scale);
+        this.prefHeight(this.getHeight()*scale);
+        this.prefWidth(this.getWidth()*scale);
 
+        this.setX(getX()*scale);
+        this.setY(getY()*scale);
+        building.setX(building.getX()*scale);
+        building.setY(building.getY()*scale);
+        texture.setX(texture.getX()*scale);
+        texture.setY(texture.getY()*scale);
     }
 }

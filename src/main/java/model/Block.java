@@ -24,7 +24,6 @@ public class Block {
     private int governmentId = 0;
     private ArrayList<People> peoples = new ArrayList<>();
     private String tree;
-    private boolean isSick = false;
     public Block(int x,int y){
         this.x = x;
         this.y = y;
@@ -171,11 +170,5 @@ public class Block {
         return enemies;
     }
 
-    public void appearanceSickness() {
-        this.isSick = true;
-    }
 
-    public void disappearanceSickness() {
-        this.isSick = false;
-    }
 }

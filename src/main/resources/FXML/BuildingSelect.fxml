@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuildingMenuController">
+   <children>
+      <ImageView fx:id="Knight" fitHeight="87.0" fitWidth="50.0" layoutX="41.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Knight.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="46.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Knight" textAlignment="CENTER" wrappingWidth="39.13671875" />
+      <ImageView fx:id="Archer" fitHeight="100.0" fitWidth="50.0" layoutX="123.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Archer.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archer" textAlignment="CENTER" wrappingWidth="39.13671875" />
+      <ImageView fx:id="Assassins" fitHeight="100.0" fitWidth="50.0" layoutX="195.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Assassins.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="200.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assassins" textAlignment="CENTER" wrappingWidth="50.0" />
+      <ImageView fx:id="Engineer" fitHeight="100.0" fitWidth="50.0" layoutX="277.0" layoutY="49.0" pickOnBounds="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Engineer.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="278.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer" textAlignment="CENTER" wrappingWidth="60.13671875" />
+      <ImageView fx:id="HorseArchers" fitHeight="100.0" fitWidth="50.0" layoutX="353.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/HorseArchers.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="353.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HorseArchers" textAlignment="CENTER" wrappingWidth="75.13671875" />
+      <ImageView fx:id="Slaves" fitHeight="100.0" fitWidth="50.0" layoutX="445.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Slaves.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="459.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slaves" textAlignment="CENTER" wrappingWidth="39.13671875" />
+      <ImageView fx:id="Swordsmen" fitHeight="100.0" fitWidth="50.0" layoutX="536.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clickUnit">
+         <image>
+            <Image url="@../images/Units/Swordsmen.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="536.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swordsmen" textAlignment="CENTER" wrappingWidth="75.13671875000006" />
+      <Text fx:id="number" layoutX="479.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Text>
+      <Button fx:id="remove" layoutX="449.0" layoutY="220.0" mnemonicParsing="false" text="-" textAlignment="CENTER" />
+      <Button fx:id="add" layoutX="511.0" layoutY="220.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="create" layoutX="154.0" layoutY="228.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="ساختن" />
+      <Line endX="566.0" layoutX="94.0" layoutY="299.0" startX="-100.0" strokeMiterLimit="0.0" />
+      <Button fx:id="destroy" layoutX="444.0" layoutY="353.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="تخریب" />
+      <Button fx:id="repair" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" text="بازسازی" />
+   </children>
+</Pane>

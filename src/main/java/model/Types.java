@@ -81,10 +81,11 @@ public class Types {
         buildingTypes.add(new BuildingType("WheatFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
         buildingTypes.add(new BuildingType("BarleyFarm","FarmBuildings",15,0,0,0,0,0,0,0,0,0,1));
         buildingTypes.add(new BuildingType("Bakery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
-        buildingTypes.add(new BuildingType("Brewery","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
+        buildingTypes.add(new BuildingType("Market","FoodProccessingBuildings",10,0,0,0,0,0,0,0,0,0,1));
     }
 
     public static PeopleType getPeopleTypeByType(String type){
+        run();
         for (PeopleType peopleType : peopleTypes) {
             if(peopleType.type.equals(type)){
                 return peopleType;
@@ -94,8 +95,12 @@ public class Types {
     }
 
     public static BuildingType getBuildingTypeByType(String type){
+        run();
+        System.out.println("Type: "+type);
         for (BuildingType buildingType : buildingTypes) {
+            System.out.println("BT: " +buildingType.getType());
             if(buildingType.getType().equals(type)){
+                System.out.println("hiType!");
                 return buildingType;
             }
         }

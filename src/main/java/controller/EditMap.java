@@ -22,7 +22,7 @@ public class EditMap {
         if (block.getThisBlockStructure()!=null){
             return "Error: This position has already been selected for another government!";
         }
-        Structure centralCastle = new Structure(100);
+        Structure centralCastle = new Structure(government);
         block.setThisBlockStructure(centralCastle);
         government.setCentralCastle(centralCastle);
         number++;

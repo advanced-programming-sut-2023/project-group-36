@@ -2,10 +2,8 @@ package view;
 import controller.EditMap;
 import controller.GameController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.control.SkinBase;
+import javafx.scene.Cursor;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -23,13 +21,53 @@ public class GameMenuController {
     public Pane pane;
     public Label government;
     public ImageView exit;
+    public ScrollPane scrollPane;
     @FXML
     private Pane mapPane = new Pane();
+
+    public double newScale = 1.0;
 
 
 
 
     public void gameInitialize(){
+
+        double minScale = 0.7;
+        double maxScale = 1.5;
+
+        Button zoomInButton = new Button("+");
+        Button zoomOutButton = new Button("-");
+        zoomInButton.setLayoutX(10);
+        zoomOutButton.setLayoutX(40);
+
+        zoomInButton.setOnAction(event -> {
+            newScale = newScale * 1.2;
+            if (newScale <= maxScale) {
+                mapPane.setLayoutX(mapPane.getLayoutX()*1.2);
+                mapPane.setLayoutY(mapPane.getLayoutY()*1.2);
+                blocksZoom(1.2);
+            }
+            else {
+                newScale /= 1.2;
+            }
+        });
+
+        zoomOutButton.setOnAction(event -> {
+            newScale = newScale * 0.9;
+            if (newScale >= minScale) {
+                mapPane.setLayoutX(mapPane.getLayoutX()*0.9);
+                mapPane.setLayoutY(mapPane.getLayoutY()*0.9);
+
+                blocksZoom(0.9);
+            }
+            else {
+                newScale /= 0.9;
+            }
+        });
+
+        pane.getChildren().add(zoomOutButton);
+        pane.getChildren().add(zoomInButton);
+
 
         gBlocks = new ArrayList<>();
         government.setText(GameController.currentGovernment.getOwner().getUsername());
@@ -43,6 +81,13 @@ public class GameMenuController {
 
 
     }
+
+    private void blocksZoom(double scale) {
+        for (int i = 0; i < gBlocks.size(); i++) {
+            gBlocks.get(i).zoom(scale);
+        }
+    }
+
 
     public static Block getBlockByPosition ( int x, int y){
         for (Block block : EditMap.blocks) {
@@ -69,42 +114,12 @@ public class GameMenuController {
 
     public void dropBuilding(MouseEvent mouseEvent) {
         ImageView imageView = (ImageView) mouseEvent.getSource();
+        Cursor cursor = Cursor.cursor(imageView.getImage().getUrl());
+        GameMenu.root.setCursor(cursor);
         String packageAddress = "file:/C:/Users/m/Desktop/StrongholdPhase2/target/classes/images/Buildings/";
         String name = imageView.getImage().getUrl().replace(packageAddress,"");
         name = name.replace(".png","");
         System.out.println(name);
         GameController.inDropBuilding = name;
-
-        //GameController.dropBuilding();
-
-        /*/
-        GBlock gBlock = ChangeBlockMenu.gBlock;
-        if (imageView.equals(Dirt)){
-            EditMap.setTexture(gBlock.getBlock(),"Dirt");
-        }
-        else if (imageView.equals(Grass)){
-            EditMap.setTexture(gBlock.getBlock(),"Grass");
-        }
-        else if (imageView.equals(Gravel)){
-            EditMap.setTexture(gBlock.getBlock(),"Gravel");
-        }
-        else if (imageView.equals(Meadow)){
-            EditMap.setTexture(gBlock.getBlock(),"Meadow");
-        }
-        else if (imageView.equals(Iron)){
-            EditMap.setTexture(gBlock.getBlock(),"Iron");
-        }
-        else if (imageView.equals(Stone)){
-            EditMap.setTexture(gBlock.getBlock(),"Stone");
-        }
-        else if (imageView.equals(Boulder)){
-            EditMap.setTexture(gBlock.getBlock(),"Boulder");
-        }
-        else {
-            EditMap.setTexture(gBlock.getBlock(),"Dense Meadow");
-        }
-
-         */
-
     }
 }

@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFDD0;" stylesheets="@../CSS/gameStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuController">
+<Pane fx:id="pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFFDD0;" stylesheets="@../CSS/gameStyles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameMenuController">
    <children>
-      <ScrollPane prefHeight="500.0" prefWidth="900.0">
+      <ScrollPane fx:id="scrollPane" prefHeight="500.0" prefWidth="900.0">
          <content>
-            <Pane fx:id="mapPane" prefHeight="499.0" prefWidth="901.0" />
+            <Pane fx:id="mapPane" prefHeight="2500" prefWidth="2500" />
          </content>
       </ScrollPane>
       <Pane layoutX="900.0" layoutY="400.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: gray;" />
       <Button layoutX="910.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#nextTurn" styleClass="button4" text="دور بعد" />
 
-      <ImageView fx:id="exit" onMouseClicked="#exit" fitHeight="30.0" fitWidth="30.0" layoutX="965.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" layoutX="965.0" layoutY="3.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/close.png" />
          </image>
@@ -36,12 +31,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name2" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name2.png" />
+                        <Image url="@../images/Buildings/Barrack.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Barrack">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -50,12 +45,12 @@
             </VBox>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name8" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name8" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name8.png" />
+                        <Image url="@../images/Buildings/LookoutTower.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 8">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="LookoutTower">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -68,12 +63,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name3" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name3.png" />
+                        <Image url="@../images/Buildings/Cathedral.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 3">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Cathedral">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -82,12 +77,12 @@
             </VBox>
             <VBox prefHeight="79.0" prefWidth="80.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name9" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name9" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name9.png" />
+                        <Image url="@../images/Buildings/Market.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="80.0" text="نام 9">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="80.0" text="Market">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -100,12 +95,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name4" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name4.png" />
+                        <Image url="@../images/Buildings/Church.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 4">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Church">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -114,12 +109,12 @@
             </VBox>
             <VBox prefHeight="89.0" prefWidth="80.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name10" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name10" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name10.png" />
+                        <Image url="@../images/Buildings/MercenaryPost.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="80.0" text="نام 10">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="80.0" text="MercenaryPost">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -132,12 +127,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name5" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name5.png" />
+                        <Image url="@../images/Buildings/EngineerGuild.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 5">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="EngineerGuild">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -146,12 +141,12 @@
             </VBox>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name11" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name11" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name11.png" />
+                        <Image url="@../images/Buildings/Quarry.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 11">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="Quarry">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -164,12 +159,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name6" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name6.png" />
+                        <Image url="@../images/Buildings/Hovel.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 6">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Hovel">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -178,12 +173,12 @@
             </VBox>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name12" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name12" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name12.png" />
+                        <Image url="@../images/Buildings/Store.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 12">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="Store">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -196,12 +191,12 @@
          <children>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name1" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name1.png" />
+                        <Image url="@../images/Buildings/Armoury.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="نام 1">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="16.0" prefWidth="87.0" text="Armoury">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -210,12 +205,12 @@
             </VBox>
             <VBox prefHeight="81.0" prefWidth="61.0">
                <children>
-                  <ImageView onMouseClicked="#dropBuilding" id="name7" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" smooth="false">
+                  <ImageView id="name7" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#dropBuilding" pickOnBounds="true" smooth="false">
                      <image>
-                        <Image url="@../images/Buildings/name7.png" />
+                        <Image url="@../images/Buildings/IronMine.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="نام 7">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="6.0" prefWidth="80.0" text="IronMine">
                      <font>
                         <Font size="10.0" />
                      </font>

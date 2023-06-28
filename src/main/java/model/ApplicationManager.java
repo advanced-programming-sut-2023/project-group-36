@@ -9,7 +9,6 @@ public class ApplicationManager {
     private static ArrayList<User> users = new ArrayList<>();
     private static User currentUser;
     private static Game currentGame;
-    private int turn = 0;
     private static boolean stayLoggedIn;
 
 
