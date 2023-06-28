@@ -9,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Peoples.People;
 import view.*;
 
 public class GBlock extends Rectangle {
@@ -31,6 +32,12 @@ public class GBlock extends Rectangle {
 
     private static Image MiddleCastle = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/buildings/castle.png")));
 
+    public static Image Knight = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Knight.png")));
+    public static Image Slaves = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Slaves.png")));
+    public static Image Archer = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Archer.png")));
+    public static Image Swordsmen = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Swordsmen.png")));
+    //public static Image Knight = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Knight.png")));
+    //public static Image Knight = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Knight.png")));
 
 
 
@@ -183,6 +190,33 @@ public class GBlock extends Rectangle {
         texture.setFitHeight(50);
     }
 
+    public void showUnits(){
+        for (int i = 0; i < block.getPeoples().size(); i++) {
+            showUnit(block.getPeoples().get(i),i);
+        }
+    }
+
+    private void showUnit(People people,int i) {
+        ImageView imageView = new ImageView();
+        switch (people.getPeopleType().type) {
+            case "Knight" -> imageView.setImage(GBlock.Knight);
+            case "Slaves" -> imageView.setImage(GBlock.Slaves);
+            case "Archer" -> imageView.setImage(GBlock.Archer);
+            case "Meadow" -> imageView.setImage(GBlock.Meadow);
+            case "Dense Meadow" -> imageView.setImage(GBlock.DenseMeadow);
+            case "Gravel" -> imageView.setImage(GBlock.Gravel);
+            case "Stone" -> imageView.setImage(GBlock.Stone);
+            default -> imageView.setImage(GBlock.Boulder);
+        }
+        imageView.setFitHeight(10);
+        imageView.setFitWidth(4);
+        imageView.setX(getX()+2+i*5);
+        imageView.setY(getY()+2+i*5);
+        GameMenu.controller.getMapPane().getChildren().add(imageView);
+
+    }
+
+
     public void update(){
         setTexture();
         setBuilding();
@@ -265,6 +299,7 @@ public class GBlock extends Rectangle {
 
 
     public void showInformation(){
+        showUnits();
         if (insideBlock){
             GameMenu.controller.getMapPane().getChildren().add(information);
         }

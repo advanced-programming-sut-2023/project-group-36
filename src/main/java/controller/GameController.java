@@ -424,7 +424,7 @@ public class GameController {
 
     public static String createUnit(String type, int count){
         PeopleType peopleType = Types.getPeopleTypeByType(type);
-        if (!currentStructure.getName().equals(peopleType.requiredStructure)){
+        if (currentStructure==null || !currentStructure.getName().equals(peopleType.requiredStructure)){
             return "Error: An appropriate building has not been selected!";
         }
         People people;
