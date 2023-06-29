@@ -1,12 +1,17 @@
 package model;
 
+import Chat.ChatMenu;
+import Chat.Conversation;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.Objects;
 
 public class User {
+    private Socket chatSocket;
     private String username;
     private String password;
     private String nickname;
@@ -32,8 +37,9 @@ public class User {
     private Game game;
     private int score;
     private int highScore;
+    private ChatMenu chatMenu;
 
-    public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber){
+    public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber) throws IOException {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
@@ -42,7 +48,18 @@ public class User {
         this.questionAnswer = questionAnswer;
         this.questionNumber = questionNumber;
         score=0;
+        chatSocket=new Socket("localhost",666);
+        chatMenu=new ChatMenu(this);
     }
+
+    public Socket getChatSocket() {
+        return chatSocket;
+    }
+
+    public ChatMenu getChatMenu() {
+        return chatMenu;
+    }
+
     public int getQuestionNumber() {
         return questionNumber;
     }

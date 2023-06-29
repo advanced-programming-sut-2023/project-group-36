@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import model.ApplicationManager;
 import model.User;
 
+import java.io.IOException;
+
 public class CreateNewGameMenu extends Application{
     public static Pane root;
     public static CreateNewGameController controller;
@@ -28,7 +30,7 @@ public class CreateNewGameMenu extends Application{
         controller.menuInitialize();
     }
 
-    public void addUsers(){
+    public void addUsers() throws IOException {
         User user1 = new User("ali","123","1","1","1","1",1);
         User user2 = new User("mohammad","123","1","1","1","1",1);
         User user3 = new User("amir","123","1","1","1","1",1);
