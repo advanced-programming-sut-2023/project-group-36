@@ -101,6 +101,15 @@ public class GBlock extends Rectangle {
         textOfStructure.setX(information.getX() + textOfSoldiers.getLayoutBounds().getWidth() + 10);
         textOfStructure.setY(information.getY() + 15);
 
+        //trees
+        if (this.getBlock().getTree() != null) {
+            Text textOfTrees = new Text();
+            String str = "Trees : " + textOfTrees;
+            textOfTrees.setText(str);
+            textOfTrees.setX(information.getX() + textOfSoldiers.getLayoutBounds().getWidth() + textOfStructure.getLayoutBounds().getWidth() + 10);
+            textOfTrees.setY(information.getY() + 15);
+        }
+
 
 
         if (changeAble){
