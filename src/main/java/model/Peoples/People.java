@@ -193,12 +193,14 @@ public class People {
 
 
     public void show(){
+        if (block.getThisBlockStructure()!=null){
+            return;
+        }
         Random random = new Random();
         imageView.setFitHeight(35);
         imageView.setFitWidth(20);
         imageView.setX((block.getX()-1)*50+random.nextInt(50));
         imageView.setY((block.getY()-1)*50+random.nextInt(50));
-        System.out.println("x: "+imageView.getX());
         if (!GameMenu.controller.getMapPane().getChildren().contains(imageView)){
             GameMenu.controller.getMapPane().getChildren().add(imageView);
         }

@@ -445,12 +445,9 @@ public class GameController {
         return "The soldier(s) has been successfully created!";
     }
 
-    public static String selectUnit(Matcher matcher){
-        int x = Integer.parseInt(matcher.group("x"));
-        int y = Integer.parseInt(matcher.group("y"));
-        String type = matcher.group("type");
+    public static String selectUnit(String type){
         ArrayList<People> selectedPeoples = new ArrayList<>();
-        Block block = game.getMap().getBlockByPosition(x,y);
+        Block block = currentBlock;
         People people;
         for (int i = 0; i < block.getPeoples().size(); i++) {
             people = block.getPeoples().get(i);

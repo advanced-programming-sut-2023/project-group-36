@@ -55,6 +55,11 @@ public class GBlock extends Rectangle {
     Text government = new Text();
     Text HP = new Text();
 
+
+    Text textOfStructure = new Text();
+    Text textOfSoldiers = new Text();
+
+
     public GBlock(Block block, Boolean changeAble){
         super(50,50);
         this.block = block;
@@ -68,7 +73,6 @@ public class GBlock extends Rectangle {
 
         information = new Rectangle(130,70);
         information.setFill(Color.BROWN);
-
         //set x
         if (information.getX() > 50)
             information.setX(this.getX() - 50);
@@ -81,34 +85,7 @@ public class GBlock extends Rectangle {
         else
             information.setY(this.getY()+50);
 
-        //soldiers
-        int numberOfSoldiers = 0;
-        for (People people : this.block.getPeoples()) {
-            if (!(people instanceof NormalPeople)) {
-                numberOfSoldiers++;
-            }
-        }
-        String string = "Soldiers : " + numberOfSoldiers;
-        Text textOfSoldiers = new Text(string);
-        textOfSoldiers.setX(information.getX() + 20);
-        textOfSoldiers.setY(information.getY() + 15);
-
-        //structures
-        String typeOfStructure = this.getBlock().getThisBlockStructure().getBuildingType().getType();
-        Text textOfStructure = new Text();
-        typeOfStructure += " : 1";
-        textOfStructure.setText(typeOfStructure);
-        textOfStructure.setX(information.getX() + textOfSoldiers.getLayoutBounds().getWidth() + 10);
-        textOfStructure.setY(information.getY() + 15);
-
-        //trees
-        if (this.getBlock().getTree() != null) {
-            Text textOfTrees = new Text();
-            String str = "Trees : " + textOfTrees;
-            textOfTrees.setText(str);
-            textOfTrees.setX(information.getX() + textOfSoldiers.getLayoutBounds().getWidth() + textOfStructure.getLayoutBounds().getWidth() + 10);
-            textOfTrees.setY(information.getY() + 15);
-        }
+        setBlockInformation();
 
 
 
@@ -128,6 +105,34 @@ public class GBlock extends Rectangle {
         setMouseEvents(changeAble);
     }
 
+
+    private void setBlockInformation(){
+
+        //soldiers
+        int numberOfSoldiers = 0;
+        for (People people : this.block.getPeoples()) {
+            if (!(people instanceof NormalPeople)) {
+                numberOfSoldiers++;
+            }
+        }
+        String string = "Soldiers : " + numberOfSoldiers;
+        textOfSoldiers.setText(string);
+        textOfSoldiers.setX(information.getX() + 10);
+        textOfSoldiers.setY(information.getY() + 50);
+
+        //structures
+        if (this.getBlock().getThisBlockStructure()!=null){
+            String typeOfStructure = this.getBlock().getThisBlockStructure().getName();
+            typeOfStructure += " : "+this.getBlock().getThisBlockStructure().getGovernment().getOwner().getUsername();
+            textOfStructure.setText(typeOfStructure);
+        }
+        else {
+            textOfStructure.setText("No Building!");
+        }
+        textOfStructure.setX(information.getX() + 10);
+        textOfStructure.setY(information.getY() + 25);
+
+    }
 
     private void setBuildingInformation(boolean show) {
         name.setText("name: "+block.getThisBlockStructure().getName());
@@ -163,7 +168,7 @@ public class GBlock extends Rectangle {
                 System.out.println(getX()+","+getY());
             }
         }
-        else {
+        else if (GameController.inDropBuilding!=null){
             GameMenu.root.setCursor(Cursor.DEFAULT);
             if (GameController.inDropBuilding==null || block.getThisBlockStructure()!=null){
                 return;
@@ -178,6 +183,11 @@ public class GBlock extends Rectangle {
             GameController.inDropBuilding = null;
             building.setFitWidth(40);
             building.setFitHeight(40);
+        }
+        else {
+            GameController.currentBlock = block;
+            BlockMenu blockMenu = new BlockMenu();
+            blockMenu.start(new Stage());
         }
     }
 
@@ -313,7 +323,6 @@ public class GBlock extends Rectangle {
     private void unShowBuildingInformation() {
         if (!insideBuilding){
             setBuildingInformation(false);
-
         }
     }
 
@@ -325,13 +334,14 @@ public class GBlock extends Rectangle {
 
     public void showInformation(){
         if (insideBlock){
-            GameMenu.controller.getMapPane().getChildren().add(information);
+            setBlockInformation();
+            GameMenu.controller.getMapPane().getChildren().addAll(information,textOfStructure,textOfSoldiers);
         }
     }
 
     public void unShowInformation(){
         if (!insideBlock){
-            GameMenu.controller.getMapPane().getChildren().remove(information);
+            GameMenu.controller.getMapPane().getChildren().removeAll(information,textOfStructure,textOfSoldiers);
         }
     }
 
