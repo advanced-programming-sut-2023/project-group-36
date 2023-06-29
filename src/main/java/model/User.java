@@ -1,5 +1,9 @@
 package model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
+
 import java.util.Objects;
 
 public class User {
@@ -12,14 +16,17 @@ public class User {
     private int questionNumber;
 
     private String questionAnswer;
-    private String AvatarAddress="images/Avatars/1.png";
+    private Image avatarImage;
 
-    public String getAvatarAddress() {
-        return AvatarAddress;
+    public Image getAvatarImage() {
+        return avatarImage;
+    }
+    public StringProperty usernameProperty(){
+        return new SimpleStringProperty(username);
     }
 
-    public void setAvatarAddress(String avatarAddress) {
-        AvatarAddress = avatarAddress;
+    public void setAvatarAddress(Image image) {
+        avatarImage = image;
     }
 
     private Game game;

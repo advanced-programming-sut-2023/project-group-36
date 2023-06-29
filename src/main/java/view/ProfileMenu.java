@@ -3,19 +3,21 @@ package view;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.TransferMode;
@@ -23,17 +25,24 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.ApplicationManager;
 import model.User;
 
+import java.io.File;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class ProfileMenu extends Application {
-    Timeline timeline;
-    boolean nameChane=true;
-    boolean passChange=true;
-    boolean nickChange=true;
-    boolean emailCheck=true;
+    private Timeline timeline;
+    private boolean nameChane=true;
+    private boolean passChange=true;
+    private boolean nickChange=true;
+    private boolean emailCheck=true;
+    private  int counter=0;
+    private TableView<User> scoreboard=new TableView<User>();
     CaptchaMenu captchaMenu=new CaptchaMenu();
 
     @Override
@@ -46,12 +55,65 @@ public class ProfileMenu extends Application {
         info.setAlignment(Pos.TOP_CENTER);
         info.setMinWidth(200);
         info.setMinHeight(700);
+        info.setSpacing(25);
         Image avatar=new Image(getClass().getResource("/images/Avatars/1.png").openStream());
         ImageView avatarView=new ImageView(new Image(getClass().getResource("/images/Avatars/1.png").openStream()));
         avatarView.setFitHeight(100);
         avatarView.setFitWidth(100);
-
+        avatarView.setOnMouseClicked(mouseEvent -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose Avatar Image");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+            );
+            File selectedFile = fileChooser.showOpenDialog(stage);
+            if (selectedFile != null) {
+                Image image = new Image(selectedFile.toURI().toString());
+                ImageView imageView = new ImageView(image);
+                avatarView.setImage(imageView.getImage());
+            }
+        });
         info.getChildren().add(avatarView);
+        HBox v1=new HBox();
+        v1.setAlignment(Pos.TOP_CENTER);
+        v1.setSpacing(15);
+        HBox v2=new HBox();
+        v2.setAlignment(Pos.TOP_CENTER);
+        v2.setSpacing(15);
+        info.getChildren().addAll(v1,v2);
+        for(int i=1;i<9;i++){
+            if(i<5)
+                v1.getChildren().add(new ImageView(new Image(getClass().getResource("/images/Avatars/"+i+".png").toString())));
+            else
+                v2.getChildren().add(new ImageView(new Image(getClass().getResource("/images/Avatars/"+i+".png").toString())));
+        }
+        for(Node node:v1.getChildren()){
+            if(node instanceof ImageView){
+                if(!node.equals(avatarView)){
+                    ((ImageView) node).setFitHeight(30);
+                    ((ImageView) node).setFitWidth(30);
+                    try {
+                        node.setOnMousePressed(mouseEvent -> avatarView.setImage(((ImageView) node).getImage()));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        for(Node node:v2.getChildren()){
+            if(node instanceof ImageView){
+                if(!node.equals(avatarView)){
+                    ((ImageView) node).setFitHeight(30);
+                    ((ImageView) node).setFitWidth(30);
+                    try {
+                        node.setOnMousePressed(mouseEvent -> avatarView.setImage(((ImageView) node).getImage()));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
         info.setLayoutX(0);
         info.setLayoutY(0);
         /*Label CurrentUsername=new Label("Username :\n"+ApplicationManager.getCurrentUser().getUsername());
@@ -63,6 +125,21 @@ public class ProfileMenu extends Application {
         info.getChildren().add(CurrnetEmail);
         info.getChildren().add(CurrentSlogan);*/
         //changing info
+        Button mainMenuBak=new Button();
+        ImageView backButt=new ImageView(getClass().getResource("/images/icons/Ionic-Ionicons-Caret-back-circle-sharp.512.png").toString());
+        backButt.setFitWidth(30);
+        backButt.setFitHeight(30);
+        mainMenuBak.setGraphic(backButt);
+        mainMenuBak.setAlignment(Pos.BASELINE_CENTER);
+        mainMenuBak.setOnMouseClicked(mouseEvent -> {
+            try {
+                new MainMenu().start(stage);
+            } catch (Exception e) {
+                System.out.println("error in loading main menu form profile menu");
+                throw new RuntimeException(e);
+            }
+        });
+        info.getChildren().add(mainMenuBak);
         info.setBorder(new Border(new BorderStroke(Color.BLUEVIOLET, BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
         pane.getChildren().add(info);
         VBox ChangeInfo=new VBox();
@@ -232,6 +309,7 @@ public class ProfileMenu extends Application {
                 } catch (Exception e) {
                     System.out.println("errro in loading captch");
                 }
+                ApplicationManager.getCurrentUser().setAvatarAddress(avatarView.getImage());
                 if(captchaMenu.getCanPass()){
                     if (changeNameField.getText().length() > 0)
                         ApplicationManager.getCurrentUser().setUsername(changeNameField.getText());
@@ -243,15 +321,55 @@ public class ProfileMenu extends Application {
                         ApplicationManager.getCurrentUser().setEmail(newemail.getText());
                     if(newSlogan.getText().length()>0)
                         ApplicationManager.getCurrentUser().setSlogan(newSlogan.getText());
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Success in changing information!\nyour changes will be shown in next time you run the profile menu");
+                    alert.show();
                 }
             }
         });
         //scoreboard
-        TableView<User> scoreboard=new TableView<User>();
-
+        Button back=new Button("<");
+        Button next=new Button(">");
+        VBox control=new VBox(back,next);
+        control.setSpacing(25);
+        control.setLayoutY(568);
+        control.setLayoutX(1030);
+        pane.getChildren().add(control);
+        scoreboard.setMaxHeight(200);
+        scoreboard.setMinWidth(820);
+        scoreboard.setLayoutX(202);
+        scoreboard.setLayoutY(528);
+        Collections.sort(ApplicationManager.getUsers(), Comparator.comparingInt(User::getScore));
+        final ObservableList<User> userObservableList= FXCollections.observableList(ApplicationManager.getUsers());
+        TableColumn<User,Image> Avatars=new TableColumn("Avatar");
+        Avatars.setCellValueFactory(cellData -> new SimpleObjectProperty<Image>(cellData.getValue().getAvatarImage()));
+        Avatars.setMinWidth(100);
+        Avatars.setMaxWidth(100);
+        TableColumn<User,String> Usernames=new TableColumn("Username");
+        Usernames.setCellValueFactory(cellData ->cellData.getValue().usernameProperty());
+        Usernames.setMinWidth(150);
+        Usernames.setMaxWidth(150);
+        TableColumn<User,String>Slogans=new TableColumn("Slogan");
+        Slogans.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSlogan()));
+        Slogans.setMaxWidth(200);
+        Slogans.setMinWidth(200);
+        scoreboard.setItems(userObservableList);
+        scoreboard.getColumns().addAll(Avatars,Usernames,Slogans);
+        scoreboard.scrollTo(0);
+        back.setOnMouseClicked(mouseEvent -> {
+            counter-=5;
+            if(counter<0)
+                counter=0;
+            scoreboard.scrollTo(counter);
+        });
+        next.setOnMouseClicked(mouseEvent -> {
+            if(counter+5<scoreboard.getItems().size())
+                counter+=5;
+            scoreboard.scrollTo(counter);
+        });
+        pane.getChildren().add(scoreboard);
         pane.getChildren().add(ChangeInfo);
         stage.setScene(new Scene(pane));
         stage.show();
-
     }
 }
