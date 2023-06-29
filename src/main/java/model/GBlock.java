@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Buildings.Structure;
+import model.Peoples.NormalPeople;
 import model.Peoples.People;
 import view.*;
 
@@ -66,8 +68,37 @@ public class GBlock extends Rectangle {
 
         information = new Rectangle(130,70);
         information.setFill(Color.BROWN);
-        information.setX(this.getX()+50);
-        information.setY(this.getY()-50);
+
+        //set x
+        if (information.getX() > 50)
+            information.setX(this.getX() - 50);
+        else
+            information.setX(this.getX()+50);
+
+        //set y
+        if (information.getY() > 50)
+            information.setY(this.getY()-50);
+        else
+            information.setY(this.getY()+50);
+
+        //soldiers
+        int numberOfSoldiers = 0;
+        for (People people : this.block.getPeoples()) {
+            if (!(people instanceof NormalPeople)) {
+                numberOfSoldiers++;
+            }
+        }
+        String string = "Soldiers : " + numberOfSoldiers;
+        Text textOfSoldiers = new Text(string);
+
+
+        //structures
+        String typeOfStructure = this.getBlock().getThisBlockStructure().getBuildingType().getType();
+        Text textOfStructure = new Text();
+        typeOfStructure += " : 1";
+        textOfStructure.setText(typeOfStructure);
+
+
 
 
         if (changeAble){
@@ -307,5 +338,9 @@ public class GBlock extends Rectangle {
         building.setY(building.getY()*scale);
         texture.setX(texture.getX()*scale);
         texture.setY(texture.getY()*scale);
+    }
+
+    public void addSicknessSign() {
+
     }
 }
