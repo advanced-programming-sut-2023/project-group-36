@@ -61,6 +61,12 @@ public class RegisterMenu extends Application {
         Register.getChildren().add(RegisterLAbel);
         TextField username = new TextField(),email=new TextField(),nickname=new TextField(),passwordrecovery=new TextField();
         PasswordField passwordField=new PasswordField();
+        passwordField.setOnMouseClicked(mouseEvent -> {
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Your password:");
+            alert.setContentText(passwordField.getText());
+            alert.show();
+        });
         username.setPromptText("Username");
         username.setMaxWidth(250);
         username.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
@@ -91,13 +97,14 @@ public class RegisterMenu extends Application {
         passwordrecovery.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         passwordrecovery.setMinHeight(25);
         CheckBox slogan=new CheckBox();
-        slogan.setText("I want to a slogan");
+        slogan.setText("I want to have slogan");
         slogan.setTextFill(Color.WHITE);
         SplitMenuButton preSloagans=new SplitMenuButton(new MenuItem("Duty before death"),new MenuItem("Strike first"),new MenuItem("I Will Not Return Unavenged")
                 ,new MenuItem("In this sign, you will conquer"));
         TextField sloganText=new TextField();
         Button randSlogan=new Button("random");
-        HBox items=new HBox(preSloagans,randSlogan);
+        Button randPass=new Button("Random\nPass");
+        HBox items=new HBox(preSloagans,randPass,randSlogan);
         items.setAlignment(Pos.TOP_CENTER);
         items.setSpacing(25);
         Register.getChildren().addAll(username,passwordField,email,nickname,securityQ,passwordrecovery,slogan,sloganText,items,RegisterButton);
@@ -231,6 +238,14 @@ public class RegisterMenu extends Application {
                 throw new RuntimeException(e);
             }
         });
+        randPass.setOnMouseClicked(mouseEvent -> {
+            passwordField.setText(randomPass((int) (Math.random() *12 + 10)));
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("your random password:");
+            alert.setContentText(passwordField.getText());
+            alert.show();
+
+        });
 
     RegisterButton.setOnMouseClicked(mouseEvent -> {
         if(trueNick && truePass && trueEmail && trueUsername && trueSeq){
@@ -277,6 +292,19 @@ public class RegisterMenu extends Application {
         timeline.play();
         pane.getChildren().add(Register);
         stage.show();
+    }
+    public String randomPass(int length){
+        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            // Generate a random index between 0 and CHARACTERS.length - 1
+            int randomIndex = random.nextInt(CHARACTERS.length());
+            // Append the character at the random index to the password
+            sb.append(CHARACTERS.charAt(randomIndex));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
     }
 
 }
