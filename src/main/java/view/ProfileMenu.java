@@ -34,7 +34,7 @@ public class ProfileMenu extends Application {
     boolean passChange=true;
     boolean nickChange=true;
     boolean emailCheck=true;
-    boolean sloganCheck=true;
+    CaptchaMenu captchaMenu=new CaptchaMenu();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -140,6 +140,8 @@ public class ProfileMenu extends Application {
         newSlogan.setMinWidth(200);
         sloganBox.getChildren().addAll(sloganLabel,newSlogan,sloganCheck);
         ChangeInfo.getChildren().addAll(sloganBox);
+        Button submit=new Button("save changes");
+        ChangeInfo.getChildren().add(submit);
         //logic
         timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
             if(changeNameField.getText().length()==0) {
@@ -171,7 +173,7 @@ public class ProfileMenu extends Application {
                 currPassCheck.setTextFill(Color.RED);
                 passChange=false;
             }*/
-            else if(!newPassword.getText().matches(".*[@#%&*-\\^$!]+.*") || newPassword.getText().length()<5){
+            else if(!(newPassword.getText().matches(".*[@#%&*$!]+.*") && newPassword.getText().matches(".*[0-9]+.*") && newPassword.getText().matches(".*[a-zA-Z]+.*")) || newPassword.getText().length()<5){
                 newPassCheck.setText("Weak format");
                 newPassCheck.setTextFill(Color.YELLOW);
                 passChange=false;
@@ -182,15 +184,68 @@ public class ProfileMenu extends Application {
                 newPassCheck.setText("OK!");
                 currPassCheck.setTextFill(Color.GREEN);
                 newPassCheck.setTextFill(Color.GREEN);
+            }if(newNickname.getText().length()==0){
+                NicknameCheck.setText("");
+                nickChange=true;
+                NicknameCheck.setTextFill(Color.GREEN);
             }
-            if(newNickname.getText().length()<5){
-
+            else if(newNickname.getText().length()<5){
+                NicknameCheck.setText("Too Short");
+                nickChange=false;
+                NicknameCheck.setTextFill(Color.RED);
+            }
+            else{
+                NicknameCheck.setText("OK");
+                nickChange=true;
+                NicknameCheck.setTextFill(Color.GREEN);
+            }
+            if(newemail.getText().length()==0){
+                EmailCheck.setText("");
+                emailCheck=true;
+            }
+            else if(!newemail.getText().matches(".+@.+\\..+")){
+                EmailCheck.setTextFill(Color.RED);
+                EmailCheck.setText("Invalide format");
+                emailCheck=false;
+            }
+            else {
+                EmailCheck.setTextFill(Color.GREEN);
+                EmailCheck.setText("OK             ");
+                emailCheck=true;
+            }
+            if(newSlogan.getText().length()==0){
+                sloganCheck.setText("  ");
+            }
+            else{
+                sloganCheck.setText("OK");
+                sloganCheck.setTextFill(Color.GREEN);
             }
 
 
         }));
         timeline.setCycleCount(-1);
         timeline.play();
+        submit.setOnMouseClicked(mouseEvent -> {
+            if(nameChane && passChange && nickChange && emailCheck){
+                try {
+                    captchaMenu.start(new Stage());
+                } catch (Exception e) {
+                    System.out.println("errro in loading captch");
+                }
+                if(captchaMenu.getCanPass()){
+                    if (changeNameField.getText().length() > 0)
+                        ApplicationManager.getCurrentUser().setUsername(changeNameField.getText());
+                    if(newPassword.getText().length()>0)
+                        ApplicationManager.getCurrentUser().setPassword(newPassword.getText());
+                    if(newNickname.getText().length()>0)
+                        ApplicationManager.getCurrentUser().setNickname(newNickname.getText());
+                    if(newemail.getText().length()>0)
+                        ApplicationManager.getCurrentUser().setEmail(newemail.getText());
+                    if(newSlogan.getText().length()>0)
+                        ApplicationManager.getCurrentUser().setSlogan(newSlogan.getText());
+                }
+            }
+        });
         //scoreboard
         TableView<User> scoreboard=new TableView<User>();
 
