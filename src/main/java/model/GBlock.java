@@ -90,14 +90,16 @@ public class GBlock extends Rectangle {
         }
         String string = "Soldiers : " + numberOfSoldiers;
         Text textOfSoldiers = new Text(string);
-
+        textOfSoldiers.setX(information.getX() + 20);
+        textOfSoldiers.setY(information.getY() + 15);
 
         //structures
         String typeOfStructure = this.getBlock().getThisBlockStructure().getBuildingType().getType();
         Text textOfStructure = new Text();
         typeOfStructure += " : 1";
         textOfStructure.setText(typeOfStructure);
-
+        textOfStructure.setX(information.getX() + textOfSoldiers.getLayoutBounds().getWidth() + 10);
+        textOfStructure.setY(information.getY() + 15);
 
 
 
