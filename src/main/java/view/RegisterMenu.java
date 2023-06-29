@@ -19,8 +19,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.ApplicationManager;
 
+import java.util.Random;
+
 public class RegisterMenu extends Application {
-    private boolean truePass,trueUsername,trueEmail,trueNick;
+    private boolean truePass,trueUsername,trueEmail,trueNick,trueSeq;
     private CaptchaMenu captchaMenu=new CaptchaMenu();
     public static Timeline timeline;
     @Override
@@ -79,16 +81,29 @@ public class RegisterMenu extends Application {
         nickname.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         nickname.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
         nickname.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
-        passwordrecovery.setPromptText("Security Question");
+        SplitMenuButton securityQ=new SplitMenuButton(new MenuItem("1. what is your father's name?"),new MenuItem("2. who was your first class teacher?")
+        ,new MenuItem("3. what was your most hated course in second term?"));
+        securityQ.setText("security question");
+        securityQ.setMinWidth(150);
+        securityQ.setMaxWidth(150);
+        passwordrecovery.setPromptText("Security Question Answer");
         passwordrecovery.setMaxWidth(250);
         passwordrecovery.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
-        passwordrecovery.setMinHeight(200);
+        passwordrecovery.setMinHeight(25);
         CheckBox slogan=new CheckBox();
         slogan.setText("I want to a slogan");
         slogan.setTextFill(Color.WHITE);
+        SplitMenuButton preSloagans=new SplitMenuButton(new MenuItem("Duty before death"),new MenuItem("Strike first"),new MenuItem("I Will Not Return Unavenged")
+                ,new MenuItem("In this sign, you will conquer"));
         TextField sloganText=new TextField();
-        Register.getChildren().addAll(username,passwordField,email,nickname,slogan,sloganText,RegisterButton);
+        Button randSlogan=new Button("random");
+        HBox items=new HBox(preSloagans,randSlogan);
+        items.setAlignment(Pos.TOP_CENTER);
+        items.setSpacing(25);
+        Register.getChildren().addAll(username,passwordField,email,nickname,securityQ,passwordrecovery,slogan,sloganText,items,RegisterButton);
         sloganText.setVisible(false);
+        preSloagans.setVisible(false);
+        randSlogan.setVisible(false);
         sloganText.setMaxWidth(200);
         sloganText.setMaxHeight(200);
         Label usernameCheck=new Label("Short Username");
@@ -187,10 +202,27 @@ public class RegisterMenu extends Application {
         slogan.setOnMouseClicked(mouseEvent -> {
             if(!slogan.isSelected()){
                 sloganText.setVisible(false);
+                preSloagans.setVisible(false);
+                randSlogan.setVisible(false);
             }
             else{
                 sloganText.setVisible(true);
+                preSloagans.setVisible(true);
+                randSlogan.setVisible(true);
             }
+        });
+        for(MenuItem menuItem:preSloagans.getItems()){
+            menuItem.setOnAction(actionEvent -> {
+                sloganText.setText(menuItem.getText());
+            });
+        }
+        for(MenuItem menuItem:securityQ.getItems()){
+            menuItem.setOnAction(actionEvent -> {
+                securityQ.setText(menuItem.getText());
+            });
+        }
+        randSlogan.setOnMouseClicked(mouseEvent -> {
+            sloganText.setText(preSloagans.getItems().get((int) ((Math.random() * 4))).getText());
         });
         backIcon.setOnMouseClicked(mouseEvent -> {
             try {
@@ -201,7 +233,7 @@ public class RegisterMenu extends Application {
         });
 
     RegisterButton.setOnMouseClicked(mouseEvent -> {
-        if(trueNick && truePass && trueEmail && trueUsername){
+        if(trueNick && truePass && trueEmail && trueUsername && trueSeq){
             try {
                 captchaMenu.start(new Stage());
             } catch (Exception e) {
@@ -225,6 +257,9 @@ public class RegisterMenu extends Application {
                 emailCheck.setText("");
             if(nickname.getText().length()==0)
                 nickCheck.setText("");
+            if(!securityQ.getText().contains("question") && passwordrecovery.getText().length()>3) {
+                trueSeq = true;
+            }
             if(captchaMenu.getCanPass()) {
                 try {
                     captchaMenu.setCanPass(false);
@@ -232,7 +267,7 @@ public class RegisterMenu extends Application {
                     new MainMenu().start(new Stage());
                 } catch (Exception e) {
                     System.out.println("error in loading main menu");
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
 
             }
