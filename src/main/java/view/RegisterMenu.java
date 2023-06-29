@@ -5,6 +5,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,12 +19,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.ApplicationManager;
+import model.User;
 
 import java.util.Random;
 
 public class RegisterMenu extends Application {
     private boolean truePass,trueUsername,trueEmail,trueNick,trueSeq;
     private CaptchaMenu captchaMenu=new CaptchaMenu();
+    private int secIn=1;
     public static Timeline timeline;
     @Override
     public void start(Stage stage) throws Exception {
@@ -38,7 +41,7 @@ public class RegisterMenu extends Application {
         backIcon.setY(0);
         pane.getChildren().add(backIcon);
         stage.setScene(scene);
-        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg").openStream(),1080,720,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506456.jpg").openStream(),1080,750,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));
@@ -48,6 +51,7 @@ public class RegisterMenu extends Application {
         RegisterButton.setFont(Font.font("Ariel", FontWeight.BOLD, 18));
         RegisterButton.setStyle("-fx-text-fill: white;");
         VBox Register=new VBox();
+        Register.setPadding(new Insets(5,12,12,12));
         Register.setAlignment(Pos.TOP_CENTER);
         Register.setLayoutX(100);
         Register.setLayoutY(80);
@@ -144,7 +148,7 @@ public class RegisterMenu extends Application {
                 trueUsername=false;
 
             }
-            else if(username.getText().matches(".*[@#%&*\\^$!]+.*")){
+            else if(username.getText().matches(".*[@#%&*\\^$!]+.*") ){
                 usernameCheck.setTextFill(Color.YELLOW);
                 usernameCheck.setText("Invalid format");
                 trueUsername=false;
@@ -169,7 +173,7 @@ public class RegisterMenu extends Application {
                 truePass=false;
 
             }
-            else if(!passwordField.getText().matches(".*[@#%&*-\\^$!]+.*")){
+            else if(!passwordField.getText().matches(".*[@#%&*\\-$!]+.*") || passwordField.getText().matches("\\d+.*") || !passwordField.getText().matches(".*[A-Z]+.*")){
                 passwordCheck.setTextFill(Color.YELLOW);
                 passwordCheck.setText("Weak format");
                 truePass=false;
@@ -226,6 +230,12 @@ public class RegisterMenu extends Application {
         for(MenuItem menuItem:securityQ.getItems()){
             menuItem.setOnAction(actionEvent -> {
                 securityQ.setText(menuItem.getText());
+                if(menuItem.getText().contains("teacher"))
+                    secIn=2;
+                else if (menuItem.getText().contains("course"))
+                    secIn=3;
+                else
+                    secIn=1;
             });
         }
         randSlogan.setOnMouseClicked(mouseEvent -> {
@@ -279,6 +289,11 @@ public class RegisterMenu extends Application {
                 try {
                     captchaMenu.setCanPass(false);
                     stage.close();
+                    ApplicationManager.setCurrentUser(new User(username.getText(),passwordField.getText(),nickname.getText(),email.getText(),sloganText.getText(),passwordrecovery.getText(),secIn));
+                    ApplicationManager.getUsers().add(ApplicationManager.getCurrentUser());
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Register successful!");
+                    alert.setContentText(ApplicationManager.getCurrentUser().getUsername()+"\n"+ApplicationManager.getCurrentUser().getPassword());
                     new MainMenu().start(new Stage());
                 } catch (Exception e) {
                     System.out.println("error in loading main menu");
@@ -298,12 +313,10 @@ public class RegisterMenu extends Application {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            // Generate a random index between 0 and CHARACTERS.length - 1
             int randomIndex = random.nextInt(CHARACTERS.length());
-            // Append the character at the random index to the password
             sb.append(CHARACTERS.charAt(randomIndex));
         }
-        System.out.println(sb.toString());
+        //System.out.println(sb.toString());
         return sb.toString();
     }
 

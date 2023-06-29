@@ -48,7 +48,7 @@ public class User {
         this.questionAnswer = questionAnswer;
         this.questionNumber = questionNumber;
         score=0;
-        chatSocket=new Socket("localhost",666);
+        //chatSocket=new Socket("localhost",66);
         chatMenu=new ChatMenu(this);
     }
 
