@@ -1,5 +1,6 @@
 package view;
 
+import javafx.geometry.Insets;
 import model.ApplicationManager;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -11,17 +12,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import model.User;
 
 public class LoginMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        ApplicationManager.run();
         Pane pane=new Pane();
         pane.setMinWidth(1080);
         pane.setMinHeight(720);
         Scene scene=new Scene(pane);
         stage.setScene(scene);
-        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").openStream(),1080,720,false,true),
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/wallpaper-mania.com_High_resolution_wallpaper_background_ID_77701506533.jpg").toString(),1080,720,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         pane.setBackground(new Background(myBI1));
@@ -44,14 +45,14 @@ public class LoginMenu extends Application {
         LoginFields.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         pane.getChildren().add(login);
         TextField usernameField=new TextField();
-        usernameField.setText("username");
+        usernameField.setPromptText("Username");
         usernameField.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
         usernameField.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
         usernameField.setMaxWidth(200);
         LoginFields.getChildren().add(usernameField);
         PasswordField passwordField=new PasswordField();
         passwordField.setMaxWidth(200);
-        passwordField.setText("Password");
+        passwordField.setPromptText("Password");
         passwordField.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
         passwordField.setBorder(new Border(new BorderStroke(Color.WHITE,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
 
@@ -88,7 +89,26 @@ public class LoginMenu extends Application {
                 String username=usernameField.getText();
                 String password=passwordField.getText();
                 if(username.length()==0 || password.length()==0){
-
+                    User use=ApplicationManager.getUserByUsername(username);
+                    if(use==null){
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("No User with this Username");
+                        alert.show();
+                    }
+                    else if(!use.getPassword().equals(password)){
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Wrong Password");
+                        alert.show();
+                    }
+                    else{
+                        ApplicationManager.setCurrentUser(use);
+                        try {
+                            new MainMenu().start(stage);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("error in loading main menu");
+                        }
+                    }
                 }
         });
         RegisterButton.setOnMouseClicked(mouseEvent -> {
@@ -104,7 +124,53 @@ public class LoginMenu extends Application {
             s1.setWidth(500);
             s1.setX(550);
             s1.setY(200);
-            Pane pane1=new Pane();
+            VBox pane1=new VBox();
+            pane1.setAlignment(Pos.TOP_CENTER);
+            pane1.setSpacing(25);
+            pane1.setPadding(new Insets(15,25,15,25));
+            pane1.getChildren().add(new Label("Enter your username:"));
+            TextField usernamef=new TextField();
+            usernamef.setMaxWidth(200);
+            Button ok=new Button("Check");
+            Label secQ=new Label();
+            TextField seqA=new TextField();
+            seqA.setMaxWidth(250);
+            Button secondOk=new Button("Check answer");
+            pane1.getChildren().addAll(usernamef,ok,secQ,seqA,secondOk);
+            secQ.setVisible(false);
+            seqA.setVisible(false);
+            secondOk.setVisible(false);
+            ok.setOnMouseClicked(mouseEvent1 -> {
+                User use=ApplicationManager.getUserByUsername(usernamef.getText());
+                if(use==null){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("No User with this Username");
+                    alert.show();
+                }
+                else{
+                    secQ.setVisible(true);
+                    seqA.setVisible(true);
+                    secondOk.setVisible(true);
+                    switch (use.getQuestionNumber()) {
+                        case 1 -> secQ.setText("what is your father's name?");
+                        case 2 -> secQ.setText("who was your first class teacher?");
+                        case 3 -> secQ.setText("what was your most hated course in second term?");
+                    }
+                    secondOk.setOnMouseClicked(mouseEvent2 -> {
+                        String text=seqA.getText();
+                        if(use.getQuestionAnswer().equalsIgnoreCase(text)){
+                            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                            alert.setHeaderText("your password:");
+                            alert.setContentText(use.getPassword());
+                            alert.show();
+                            alert.setOnCloseRequest(dialogEvent -> {
+                                s1.close();
+                            });
+                        }
+                    });
+                }
+            });
+
             Scene fscene=new Scene(pane1);
             s1.setScene(fscene);
             s1.show();
