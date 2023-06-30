@@ -3,21 +3,30 @@ package Chat;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import model.User;
+import view.LoginMenu;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 
 public class ChatMenu extends Application implements Runnable {
     private User loggedUser;
+    private Socket socket;
     private ArrayList<Conversation> thisUserConversations;
     private VBox messages;
     private ScrollPane scrollPane;
@@ -26,7 +35,8 @@ public class ChatMenu extends Application implements Runnable {
         return thisUserConversations;
     }
 
-    public ChatMenu(User loggedUser) {
+    public ChatMenu(User loggedUser) throws IOException {
+        socket=new Socket("localhost",1);
         this.loggedUser = loggedUser;
         thisUserConversations=new ArrayList<>();
         messages=new VBox();
@@ -69,11 +79,24 @@ public class ChatMenu extends Application implements Runnable {
         scrollPane.setBackground(Background.fill(Color.BLUEVIOLET));
         gridPane.getChildren().add(scrollPane);
         TextField entry =new TextField();
-        entry.setMinWidth(600);
-        entry.setMinHeight(50);
+        entry.setMinWidth(520);
+        entry.setMinHeight(30);
         entry.setLayoutX(200);
         entry.setLayoutY(550);
-        gridPane.getChildren().add(entry);
+        ImageView imageView=new ImageView(new Image(getClass().getResource("/images/icons/send-4008.png").toString()));
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(30);
+        imageView.setStyle("-fx-border-color: black; -fx-border-width: 10px;");
+        HBox enetries=new HBox(entry,imageView);
+        enetries.setAlignment(Pos.TOP_CENTER);
+        enetries.setSpacing(15);
+        gridPane.getChildren().add(enetries);
+        enetries.setLayoutX(201);
+        enetries.setLayoutY(540);
+        enetries.setMaxWidth(610);
+        enetries.setPadding(new Insets(10,10,5,10));
+        enetries.setBorder(new Border(new BorderStroke(Color.SILVER, BorderStrokeStyle.SOLID,new CornerRadii(3),new BorderWidths(6))));
+
         messages.heightProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {

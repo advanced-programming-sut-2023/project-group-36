@@ -6,6 +6,7 @@ import model.User;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
@@ -14,12 +15,12 @@ import java.util.ArrayList;
 public class Server extends Thread{
     private boolean ServerIsRunning=false;
     private ArrayList<Conversation> conversations=new ArrayList<>() ;
-    ArrayList<User> users= ApplicationManager.getUsers();
+    ArrayList<Socket> users= new ArrayList<>();
     private ServerSocket serverSocket=new ServerSocket();
     Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/chatsystem","root","Group36@");
     Statement statement=connection.createStatement();
     public Server() throws IOException, SQLException {
-        serverSocket=new ServerSocket(666);
+        serverSocket=new ServerSocket(1);
     }
     @Override
     public void run(){
@@ -32,17 +33,13 @@ public class Server extends Thread{
 
         }
     }
-    public void addChat(Conversation conversation){
+    public void addChat(Conversation conversation) throws IOException {
         conversations.add(conversation);
-        for(User user:conversation.getUsers()){
-            user.getChatMenu().getThisUserConversations().add(0,conversation);
+        for(Socket user:conversation.getUsers()){
+            ObjectOutputStream outputStream=new ObjectOutputStream(user.getOutputStream());
+            outputStream.writeObject(conversation);
+            outputStream.flush();
         }
     }
-    public void sendMessage(Message message) throws IOException {
-        Conversation conversation=message.getConversation();
-        for(User user:conversation.getUsers()){
-            ObjectOutputStream out =new ObjectOutputStream(user.getChatSocket().getOutputStream());
-            out.writeObject(message);
-        }
-    }
+
 }

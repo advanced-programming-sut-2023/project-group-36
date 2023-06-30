@@ -6,16 +6,17 @@ import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import model.User;
 
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
 public class Conversation  {
     private ObservableList<Message> messages;
-    private ArrayList <User> users;
+    private ArrayList <Socket> users;
     private boolean Visible;
     private String type;
 
-    public Conversation(ArrayList<User> users,boolean Visible,String type) {
+    public Conversation(ArrayList<Socket> users,boolean Visible,String type) {
         this.users = users;
         this.Visible=Visible;
         this.type=type;
@@ -26,7 +27,7 @@ public class Conversation  {
         return messages;
     }
 
-    public ArrayList<User> getUsers() {
+    public ArrayList<Socket> getUsers() {
         return users;
     }
 

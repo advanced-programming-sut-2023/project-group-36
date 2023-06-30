@@ -11,7 +11,6 @@ import java.net.Socket;
 import java.util.Objects;
 
 public class User {
-    private Socket chatSocket;
     private String username;
     private String password;
     private String nickname;
@@ -48,13 +47,9 @@ public class User {
         this.questionAnswer = questionAnswer;
         this.questionNumber = questionNumber;
         score=0;
-        //chatSocket=new Socket("localhost",66);
         chatMenu=new ChatMenu(this);
     }
 
-    public Socket getChatSocket() {
-        return chatSocket;
-    }
 
     public ChatMenu getChatMenu() {
         return chatMenu;

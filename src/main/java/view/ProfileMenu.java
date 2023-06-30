@@ -47,6 +47,10 @@ public class ProfileMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane=new Pane();
+        BackgroundImage myBI1= new BackgroundImage(new Image(LoginMenu.class.getResource("/images/741567.jpg").toString(),1080,720,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        pane.setBackground(new Background(myBI1));
         pane.setStyle("-fx-font-family: Candara; -fx-font-size: 20px;-fx-text-fill: black");
         pane.setMinHeight(720);
         pane.setMinWidth(1080);

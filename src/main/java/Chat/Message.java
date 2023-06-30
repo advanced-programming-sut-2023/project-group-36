@@ -6,13 +6,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model.User;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
     private User sender;
     private String content;
     private Conversation conversation;
     private String status;
     private boolean deletedForOwner;
-
+    String sendTime;
 
     public String getContent() {
         return content;
