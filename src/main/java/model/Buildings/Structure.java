@@ -19,10 +19,11 @@ public  class Structure {
         this.HP = HP;
     }
 
-    public Structure(Government government){
+    public Structure(Government government, Block block){
         this.HP = 1000;
         this.government = government;
         this.buildingType=null;
+        this.block = block;
     }
 
     public BuildingType getBuildingType() {

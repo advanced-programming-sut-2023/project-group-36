@@ -20,6 +20,7 @@ public class Block {
     }
 
     private String type;
+
     private Structure thisBlockStructure = null;
     private int governmentId = 0;
     private ArrayList<People> peoples = new ArrayList<>();
@@ -171,4 +172,22 @@ public class Block {
     }
 
 
+    public void sickness() {
+        for (People people : peoples) {
+            people.hitPointReduce(2);
+        }
+        if (thisBlockStructure!=null){
+            thisBlockStructure.setHP(thisBlockStructure.getHitPoint()-10);
+        }
+    }
+
+    public void fire() {
+        for (People people : peoples) {
+            people.hitPointReduce(5);
+        }
+        if (thisBlockStructure!=null){
+            thisBlockStructure.setHP(thisBlockStructure.getHitPoint()-20);
+        }
+
+    }
 }

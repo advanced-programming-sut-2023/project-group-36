@@ -8,10 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import model.Block;
-import model.CurrentGovernmentBox;
-import model.GBlock;
+import model.*;
 
 import java.util.ArrayList;
 
@@ -23,6 +22,7 @@ public class GameMenuController {
     public Label government;
     public ImageView exit;
     public ScrollPane scrollPane;
+    public Pane miniMap;
     @FXML
     private Pane mapPane = new Pane();
 
@@ -77,9 +77,28 @@ public class GameMenuController {
                 gBlocks.add(new GBlock(getBlockByPosition(i,j),false));
             }
         }
+        Label label = new Label("");
+        label.setLayoutX(100);
+        label.setLayoutY(170);
+        label.setStyle("-fx-font-size: 20;-fx-text-fill: #6fe000");
+        miniMap.getChildren().add(label);
 
-
-
+        ArrayList<Government> governments = Game.getGovernments();
+        int x,y;
+        for (Government value : governments) {
+            x = value.getCentralCastle().getBlock().getX();
+            y = value.getCentralCastle().getBlock().getY();
+            Circle circle = new Circle();
+            circle.setCenterX(4*x+10);
+            circle.setCenterY(4*y+10);
+            System.out.println(circle.getCenterX()+","+circle.getCenterY());
+            circle.setOnMouseEntered(mouseEvent -> {
+                label.setText(value.getOwner().getUsername());
+                System.out.println(value.getOwner().getUsername());
+            });
+            circle.setRadius(10);
+            miniMap.getChildren().add(circle);
+        }
 
     }
 
@@ -107,6 +126,9 @@ public class GameMenuController {
     public void nextTurn(MouseEvent mouseEvent) {
         GameController.nextTurn();
         government.setText(GameController.currentGovernment.getOwner().getUsername());
+        for (GBlock gBlock : gBlocks) {
+            gBlock.update();
+        }
     }
 
     public void exit(MouseEvent mouseEvent) throws Exception {

@@ -97,6 +97,10 @@ public class Government{
         return centralCastle.getHitPoint() <= 0;
     }
 
+    public Structure getCentralCastle(){
+        return centralCastle;
+    }
+
     public void nextTurn(){
         // food & ...
         getResources().changeOfResourcesAtTheEndOfTurn();

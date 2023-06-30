@@ -48,13 +48,13 @@ public class GovernmentMenu extends Application {
             ImageView feedImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() < 0) {
-                feedImage = (new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream()));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 feedImageView = new ImageView(feedImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() > 0) {
-                feedImage = (new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream()));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 feedImageView = new ImageView(feedImage);
             } else {
-                feedImage = (new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream()));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 feedImageView = new ImageView(feedImage);
 }
             feedImageView.setFitWidth(20);
@@ -96,13 +96,13 @@ public class GovernmentMenu extends Application {
             ImageView taxImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() < 0) {
-                taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 taxImageView = new ImageView(taxImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() > 0) {
-                taxImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 taxImageView = new ImageView(taxImage);
             } else {
-                taxImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 taxImageView = new ImageView(taxImage);
             }
             taxImageView.setFitWidth(20);
@@ -142,13 +142,13 @@ public class GovernmentMenu extends Application {
             ImageView fearImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() < 0) {
-                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 fearImageView = new ImageView(fearImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() > 0) {
-                fearImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 fearImageView = new ImageView(fearImage);
             } else {
-                fearImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 fearImageView = new ImageView(fearImage);
             }
 
@@ -190,16 +190,19 @@ public class GovernmentMenu extends Application {
 
             int religionFactor = 0;
             for (Block block : GameController.getGame().getMap().getBlocks()) {
-                if (block.getThisBlockStructure().getBuildingType().getType().equals("Church") || block.getThisBlockStructure().getBuildingType().getType().equals("Cathedral")){
+                if (block.getThisBlockStructure()==null){
+                    break;
+                }
+                if (block.getThisBlockStructure().getName().equals("Church") || block.getThisBlockStructure().getName().equals("Cathedral")){
                     religionFactor ++;
                 }
             }
 
             if (religionFactor > 0) {
-                religionImage = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
+                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 religionImageView = new ImageView(religionImage);
             } else {
-                religionImage = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
+                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
                 religionImageView = new ImageView(religionImage);
             }
             religionImageView.setFitWidth(20);
@@ -220,23 +223,11 @@ public class GovernmentMenu extends Application {
     private ImageView updateImage(int newRate) {
         Image image;
         if (newRate < 0) {
-            try {
-                image = new Image(Objects.requireNonNull(getClass().getResource("slightly-frowning-face-apple.png")).openStream());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
         } else if (newRate > 0) {
-            try {
-                image = new Image(Objects.requireNonNull(getClass().getResource("slightly-smiling-face-apple.png")).openStream());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
         } else {
-            try {
-                image = new Image(Objects.requireNonNull(getClass().getResource("neutral-face-apple.png")).openStream());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
         }
         ImageView newImageView = new ImageView(image);
         newImageView.setFitWidth(20);

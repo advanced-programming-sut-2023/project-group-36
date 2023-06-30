@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Game {
 
     private static Government currentGovernment;
-    private static ArrayList<Government> governments;
+    public static ArrayList<Government> governments;
 
     public static ArrayList<Government> getGovernments() {
         return governments;

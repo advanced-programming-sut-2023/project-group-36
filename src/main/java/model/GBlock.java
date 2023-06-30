@@ -14,6 +14,8 @@ import model.Peoples.NormalPeople;
 import model.Peoples.People;
 import view.*;
 
+import java.util.Random;
+
 public class GBlock extends Rectangle {
     private Block block;
     private Boolean changeAble;
@@ -42,6 +44,26 @@ public class GBlock extends Rectangle {
     public static Image HorseArchers = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/HorseArchers.png")));
     public static Image Assassins = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Units/Assassins.png")));
 
+    public static Image Sickness = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Sickness.png")));
+    public static Image Fire = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/textures/Fire.png")));
+
+
+    public static Image Armoury = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+
+    public static Image Barrack = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Barrack.png")));
+
+    public static Image Cathedral = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Cathedral.png")));
+    public static Image IronMine = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/IronMine.png")));
+    public static Image Hovel = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Hovel.png")));
+    public static Image EngineerGuild = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/EngineerGuild.png")));
+    public static Image Church = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Church.png")));
+    public static Image LookoutTower = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/LookoutTower.png")));
+    public static Image Market = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Market.png")));
+    public static Image MercenaryPost = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/MercenaryPost.png")));
+    public static Image Quarry = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Quarry.png")));
+    public static Image Store = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Store.png")));
+
+
 
 
     private boolean insideBuilding;
@@ -58,6 +80,9 @@ public class GBlock extends Rectangle {
 
     Text textOfStructure = new Text();
     Text textOfSoldiers = new Text();
+
+    Text textOfTexture = new Text();
+
 
 
     public GBlock(Block block, Boolean changeAble){
@@ -108,6 +133,11 @@ public class GBlock extends Rectangle {
 
     private void setBlockInformation(){
 
+
+        textOfTexture.setText("Texture: "+block.getType());
+        textOfTexture.setX(information.getX() + 10);
+        textOfTexture.setY(information.getY() + 60);
+
         //soldiers
         int numberOfSoldiers = 0;
         for (People people : this.block.getPeoples()) {
@@ -118,7 +148,7 @@ public class GBlock extends Rectangle {
         String string = "Soldiers : " + numberOfSoldiers;
         textOfSoldiers.setText(string);
         textOfSoldiers.setX(information.getX() + 10);
-        textOfSoldiers.setY(information.getY() + 50);
+        textOfSoldiers.setY(information.getY() + 40);
 
         //structures
         if (this.getBlock().getThisBlockStructure()!=null){
@@ -130,14 +160,16 @@ public class GBlock extends Rectangle {
             textOfStructure.setText("No Building!");
         }
         textOfStructure.setX(information.getX() + 10);
-        textOfStructure.setY(information.getY() + 25);
+        textOfStructure.setY(information.getY() + 20);
 
     }
 
     private void setBuildingInformation(boolean show) {
-        name.setText("name: "+block.getThisBlockStructure().getName());
-        government.setText("government: "+block.getThisBlockStructure().getGovernment().getOwner().getUsername());
-        HP.setText("HP: "+block.getThisBlockStructure().getHitPoint());
+        if (block.getThisBlockStructure()!=null){
+            name.setText("name: "+block.getThisBlockStructure().getName());
+            government.setText("government: "+block.getThisBlockStructure().getGovernment().getOwner().getUsername());
+            HP.setText("HP: "+block.getThisBlockStructure().getHitPoint());
+        }
 
         buildingInformation.setFill(Color.BLUE);
         buildingInformation.setX(this.getX()+50);
@@ -208,19 +240,23 @@ public class GBlock extends Rectangle {
         building.setFitHeight(1);
         building.setImage(GBlock.Iron);
         if (block.getThisBlockStructure()==null || block.getThisBlockStructure().getName()==null){
-            System.out.println("null!");
             return;
         }
         switch (block.getThisBlockStructure().getName()) {
-            case "Iron" -> building.setImage(GBlock.Iron);
-            case "Grass" -> building.setImage(GBlock.Grass);
-            case "Dirt" -> building.setImage(GBlock.Dirt);
-            case "Meadow" -> building.setImage(GBlock.Meadow);
-            case "Dense Meadow" -> building.setImage(GBlock.DenseMeadow);
-            case "Gravel" -> building.setImage(GBlock.Gravel);
-            case "Stone" -> building.setImage(GBlock.Stone);
-            case "middleCastle" -> building.setImage(GBlock.MiddleCastle);
-            default -> building.setImage(GBlock.Boulder);
+            case "Store" -> building.setImage(GBlock.Store);
+            case "IronMine" -> building.setImage(GBlock.IronMine);
+            case "Market" -> building.setImage(GBlock.Market);
+            case "Cathedral" -> building.setImage(GBlock.Cathedral);
+            case "Church" -> building.setImage(GBlock.Church);
+            case "Barrack" -> building.setImage(GBlock.Barrack);
+            case "Armoury" -> building.setImage(GBlock.Armoury);
+            case "Hovel" -> building.setImage(GBlock.Hovel);
+            case "EngineerGuild" -> building.setImage(GBlock.EngineerGuild);
+            case "Quarry" -> building.setImage(GBlock.Quarry);
+            case "LookoutTower" -> building.setImage(GBlock.LookoutTower);
+            case "MercenaryPost" -> building.setImage(GBlock.MercenaryPost);
+
+            default -> building.setImage(GBlock.MiddleCastle);
         }
         building.setFitWidth(40);
         building.setFitHeight(40);
@@ -230,12 +266,12 @@ public class GBlock extends Rectangle {
         switch (block.getType()) {
             case "Iron" -> texture.setImage(GBlock.Iron);
             case "Grass" -> texture.setImage(GBlock.Grass);
-            case "Dirt" -> texture.setImage(GBlock.Dirt);
+            case "Boulder" -> texture.setImage(GBlock.Boulder);
             case "Meadow" -> texture.setImage(GBlock.Meadow);
             case "Dense Meadow" -> texture.setImage(GBlock.DenseMeadow);
             case "Gravel" -> texture.setImage(GBlock.Gravel);
             case "Stone" -> texture.setImage(GBlock.Stone);
-            default -> texture.setImage(GBlock.Boulder);
+            default -> texture.setImage(GBlock.Dirt);
         }
         texture.setX(this.getX()+1);
         texture.setY(this.getY()+1);
@@ -243,18 +279,12 @@ public class GBlock extends Rectangle {
         texture.setFitHeight(50);
     }
 
-    public void showUnits(){
-        System.out.println(block.getPeoples().size());
-        for (int i = 0; i < block.getPeoples().size(); i++) {
-            block.getPeoples().get(i).show();
-        }
-    }
 
 
 
     public void update(){
-        setTexture();
         setBuilding();
+        addSicknessSign();
     }
 
 
@@ -335,13 +365,13 @@ public class GBlock extends Rectangle {
     public void showInformation(){
         if (insideBlock){
             setBlockInformation();
-            GameMenu.controller.getMapPane().getChildren().addAll(information,textOfStructure,textOfSoldiers);
+            GameMenu.controller.getMapPane().getChildren().addAll(information,textOfStructure,textOfSoldiers,textOfTexture);
         }
     }
 
     public void unShowInformation(){
         if (!insideBlock){
-            GameMenu.controller.getMapPane().getChildren().removeAll(information,textOfStructure,textOfSoldiers);
+            GameMenu.controller.getMapPane().getChildren().removeAll(information,textOfStructure,textOfSoldiers,textOfTexture);
         }
     }
 
@@ -352,7 +382,6 @@ public class GBlock extends Rectangle {
         texture.setFitHeight(texture.getFitHeight()*scale);
         this.prefHeight(this.getHeight()*scale);
         this.prefWidth(this.getWidth()*scale);
-
         this.setX(getX()*scale);
         this.setY(getY()*scale);
         building.setX(building.getX()*scale);
@@ -362,6 +391,20 @@ public class GBlock extends Rectangle {
     }
 
     public void addSicknessSign() {
+        Random random = new Random();
+        int ranNum = random.nextInt(100);
+        if (ranNum==20){
+            texture.setImage(GBlock.Sickness);
+            block.sickness();
+            setBuilding();
+        } else if (ranNum==24) {
+            texture.setImage(GBlock.Fire);
+            block.fire();
+            setBuilding();
 
+        } else{
+            setTexture();
+            setBuilding();
+        }
     }
 }
