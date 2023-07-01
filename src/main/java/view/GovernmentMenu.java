@@ -48,13 +48,13 @@ public class GovernmentMenu extends Application {
             ImageView feedImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() < 0) {
-                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/sad.png")));
                 feedImageView = new ImageView(feedImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() > 0) {
-                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
                 feedImageView = new ImageView(feedImage);
             } else {
-                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                feedImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
                 feedImageView = new ImageView(feedImage);
 }
             feedImageView.setFitWidth(20);
@@ -96,13 +96,13 @@ public class GovernmentMenu extends Application {
             ImageView taxImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() < 0) {
-                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/sad.png")));
                 taxImageView = new ImageView(taxImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() > 0) {
-                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
                 taxImageView = new ImageView(taxImage);
             } else {
-                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                taxImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
                 taxImageView = new ImageView(taxImage);
             }
             taxImageView.setFitWidth(20);
@@ -142,13 +142,13 @@ public class GovernmentMenu extends Application {
             ImageView fearImageView;
 
             if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() < 0) {
-                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/sad.png")));
                 fearImageView = new ImageView(fearImage);
             } else if (ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() > 0) {
-                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
                 fearImageView = new ImageView(fearImage);
             } else {
-                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                fearImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
                 fearImageView = new ImageView(fearImage);
             }
 
@@ -199,10 +199,10 @@ public class GovernmentMenu extends Application {
             }
 
             if (religionFactor > 0) {
-                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
                 religionImageView = new ImageView(religionImage);
             } else {
-                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+                religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
                 religionImageView = new ImageView(religionImage);
             }
             religionImageView.setFitWidth(20);
@@ -223,11 +223,11 @@ public class GovernmentMenu extends Application {
     private ImageView updateImage(int newRate) {
         Image image;
         if (newRate < 0) {
-            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/sad.png")));
         } else if (newRate > 0) {
-            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
         } else {
-            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/Buildings/Armoury.png")));
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png.png")));
         }
         ImageView newImageView = new ImageView(image);
         newImageView.setFitWidth(20);
