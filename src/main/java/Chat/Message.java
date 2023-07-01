@@ -35,6 +35,16 @@ public class Message implements Serializable {
         this.status="sending";
         deletedForOwner=false;
     }
+
+    public Message(String content, String status) {
+        this.content = content;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public Pane showContent(){
         Pane h=new Pane();
         h.getChildren().add(new Label(sender.getUsername()+"\n"+content));
@@ -43,7 +53,7 @@ public class Message implements Serializable {
         seen.setLayoutY(195);
         h.getChildren().add(seen);
         h.setMaxWidth(200);
-
         return  h;
     }
+
 }

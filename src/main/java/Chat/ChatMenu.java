@@ -1,6 +1,7 @@
 package Chat;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
@@ -13,118 +14,119 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.User;
 import view.LoginMenu;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class ChatMenu extends Application implements Runnable {
+public class ChatMenu  {
     private User loggedUser;
+    private MainG mainG;
     private Socket socket;
+    private ObjectOutputStream objectoutputStream;
     private ArrayList<Conversation> thisUserConversations;
     private VBox messages;
+    TextField entry;
+    Handler handler;
     private ScrollPane scrollPane;
     Conversation currnetConversation;
+    LinkedList<Message> qeuedMessages;
     public ArrayList<Conversation> getThisUserConversations() {
         return thisUserConversations;
     }
 
     public ChatMenu(User loggedUser) throws IOException {
-        socket=new Socket("localhost",1);
+        socket=new Socket("localhost",2);
+        objectoutputStream=new ObjectOutputStream(socket.getOutputStream());
         this.loggedUser = loggedUser;
         thisUserConversations=new ArrayList<>();
-        messages=new VBox();
+
     }
 
-    public ChatMenu() {
+
+    public ChatMenu() throws Exception {
         thisUserConversations=new ArrayList<>();
-        messages=new VBox();
+        mainG=new MainG(this);
+        new Thread(() -> {
+            try {
+                socket = new Socket("localhost", 2);
+                System.out.println("connected to server ? "+socket.isConnected());
+                objectoutputStream=new ObjectOutputStream(socket.getOutputStream());
+                System.out.println("stage 1");
+                handler=new Handler(socket);
+                System.out.println("stage2");
+                handler.start();
+                System.out.println("stage3");
+            } catch (IOException e) {
+                System.out.println("server went to chokh");
+            }
+        }).start();
+        mainG.start(new Stage());
+    }
+    public static void main(String[] args) {
+        Application.launch(MainG.class, args);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Pane gridPane=new Pane();
-        gridPane.setMinHeight(600);
-        gridPane.setMaxHeight(600);
-        gridPane.setMinWidth(800);
-        gridPane.setMaxWidth(800);
-        VBox chatsToShow=chatListShow();
-        chatsToShow.setMinWidth(200);
-        chatsToShow.setMinHeight(600);
-        chatsToShow.setLayoutX(0);
-        chatsToShow.setLayoutY(0);
-        chatsToShow.setBackground(Background.fill(Color.BLANCHEDALMOND));
-        //chatsToShow=chatListShow();
-        for(Node node:chatsToShow.getChildren()){
-            if(node instanceof Label){
-                ((Label) node).setBorder(new Border(new BorderStroke(Color.CRIMSON, BorderStrokeStyle.SOLID,new CornerRadii(3),new BorderWidths(6))));
-                node.setOnMousePressed(mouseEvent -> {
 
-                });
+
+    public void chatManager() throws IOException {
+        //input
+        new Thread(() -> {
+
+        }).start();
+    }
+
+    public  void sendMessage(String in) throws IOException {
+        if(in.length()==0)
+            return;
+        entry.setText("");
+        Message message=new Message(in,"watch");
+        objectoutputStream.writeObject(message);
+        objectoutputStream.flush();
+    }
+    private class Handler extends Thread{
+        private ObjectInputStream objectInputStream;
+        public Handler(Socket socket) throws IOException {
+            objectInputStream=new ObjectInputStream(socket.getInputStream());
+            System.out.println("success in sub_constructor");
+        }
+        @Override
+        public void run(){
+            try {
+                objectInputStream=new ObjectInputStream(socket.getInputStream());
+            } catch (IOException e) {
+                System.out.println("error in input");
+            }
+            System.out.println("input okay");
+            while (socket.isConnected()){
+                try {
+                    Object obj=objectInputStream.readObject();
+                    if(obj instanceof Message){
+                        Message message=(Message) obj;
+                        System.out.println(message.getContent()+"\n"+message.getStatus());
+
+                    }
+                    else{
+                        System.out.println("nothing");
+                    }
+                } catch (IOException e) {
+                    System.out.println("error in reading class");
+                } catch (ClassNotFoundException e) {
+                    System.out.println("error in reading data from server");
+                }
             }
         }
-        gridPane.getChildren().add(chatsToShow);
-        scrollPane=new ScrollPane();
-        scrollPane.setLayoutX(200);
-        scrollPane.setLayoutY(0);
-        scrollPane.setMinHeight(600);
-        scrollPane.setMinWidth(600);
-        scrollPane.setHmin(2000);
-        scrollPane.setBackground(Background.fill(Color.BLUEVIOLET));
-        gridPane.getChildren().add(scrollPane);
-        TextField entry =new TextField();
-        entry.setMinWidth(520);
-        entry.setMinHeight(30);
-        entry.setLayoutX(200);
-        entry.setLayoutY(550);
-        ImageView imageView=new ImageView(new Image(getClass().getResource("/images/icons/send-4008.png").toString()));
-        imageView.setFitHeight(30);
-        imageView.setFitWidth(30);
-        imageView.setStyle("-fx-border-color: black; -fx-border-width: 10px;");
-        HBox enetries=new HBox(entry,imageView);
-        enetries.setAlignment(Pos.TOP_CENTER);
-        enetries.setSpacing(15);
-        gridPane.getChildren().add(enetries);
-        enetries.setLayoutX(201);
-        enetries.setLayoutY(540);
-        enetries.setMaxWidth(610);
-        enetries.setPadding(new Insets(10,10,5,10));
-        enetries.setBorder(new Border(new BorderStroke(Color.SILVER, BorderStrokeStyle.SOLID,new CornerRadii(3),new BorderWidths(6))));
 
-        messages.heightProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
-                scrollPane.setVvalue((Double) newValue);
-            }
-        });
-        stage.setScene(new Scene(gridPane));
-        stage.show();
-    }
-    @Override
-    public void run() {
-        try {
-            start(new Stage());
-        } catch (Exception e) {
-            System.out.println("error in loading chat");
-            throw new RuntimeException(e);
-        }
-    }
-    public VBox chatListShow(){
-        if(thisUserConversations.size()==0)
-            return new VBox();
-        VBox res=new VBox();
-        res.setAlignment(Pos.TOP_CENTER);
-        res.setSpacing(25);
-        res.setMinHeight(800);
-        for(int i=0;i<thisUserConversations.size();i++){
-            res.getChildren().add(new Label(thisUserConversations.get(i).getMessages().get(0).getContent()));
-        }
-        return res;
     }
 }
