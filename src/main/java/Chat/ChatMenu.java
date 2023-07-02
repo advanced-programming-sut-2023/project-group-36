@@ -32,8 +32,8 @@ import java.util.LinkedList;
 
 public class ChatMenu  {
     private User loggedUser;
-    private MainG mainG;
     private Socket socket;
+    Graphic graphic;
     private ObjectOutputStream objectoutputStream;
     private ArrayList<Conversation> thisUserConversations;
     private VBox messages;
@@ -56,8 +56,8 @@ public class ChatMenu  {
 
 
     public ChatMenu() throws Exception {
+        graphic=new Graphic();
         thisUserConversations=new ArrayList<>();
-        mainG=new MainG(this);
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", 2);
@@ -72,10 +72,12 @@ public class ChatMenu  {
                 System.out.println("server went to chokh");
             }
         }).start();
-        mainG.start(new Stage());
+        graphic.start(new Stage());
+
     }
+
     public static void main(String[] args) {
-        Application.launch(MainG.class, args);
+
     }
 
 
@@ -127,6 +129,84 @@ public class ChatMenu  {
                 }
             }
         }
+
+    }
+    public class Graphic extends Application{
+        @Override
+        public void start(Stage stage) throws Exception {
+            Pane gridPane=new Pane();
+            gridPane.setMinHeight(600);
+            gridPane.setMaxHeight(600);
+            gridPane.setMinWidth(800);
+            gridPane.setMaxWidth(800);
+            VBox chatsToShow=new VBox();
+            chatsToShow.setMinWidth(200);
+            chatsToShow.setMinHeight(600);
+            chatsToShow.setLayoutX(0);
+            chatsToShow.setLayoutY(0);
+            chatsToShow.setBackground(Background.fill(Color.BLANCHEDALMOND));
+            //chatsToShow=chatListShow();
+            for(Node node:chatsToShow.getChildren()){
+                if(node instanceof Label){
+                    ((Label) node).setBorder(new Border(new BorderStroke(Color.CRIMSON, BorderStrokeStyle.SOLID,new CornerRadii(3),new BorderWidths(6))));
+                    node.setOnMousePressed(mouseEvent -> {
+
+                    });
+                }
+            }
+            gridPane.getChildren().add(chatsToShow);
+            scrollPane=new ScrollPane();
+            scrollPane.setLayoutX(200);
+            scrollPane.setLayoutY(0);
+            scrollPane.setMinHeight(600);
+            scrollPane.setMinWidth(600);
+            scrollPane.setHmin(2000);
+            scrollPane.setBackground(Background.fill(Color.BLUEVIOLET));
+            gridPane.getChildren().add(scrollPane);
+            entry =new TextField();
+            entry.setMinWidth(520);
+            entry.setMinHeight(30);
+            entry.setLayoutX(200);
+            entry.setLayoutY(550);
+            ImageView imageView=new ImageView(new Image(getClass().getResource("/images/icons/send-4008.png").toString()));
+            imageView.setFitHeight(30);
+            imageView.setFitWidth(30);
+            imageView.setStyle("-fx-border-color: black; -fx-border-width: 10px;");
+            HBox enetries=new HBox(entry,imageView);
+            enetries.setAlignment(Pos.TOP_CENTER);
+            enetries.setSpacing(15);
+            gridPane.getChildren().add(enetries);
+            enetries.setLayoutX(201);
+            enetries.setLayoutY(540);
+            enetries.setMaxWidth(610);
+            enetries.setPadding(new Insets(10,10,5,10));
+            enetries.setBorder(new Border(new BorderStroke(Color.SILVER, BorderStrokeStyle.SOLID,new CornerRadii(3),new BorderWidths(6))));
+            messages.heightProperty().addListener(new ChangeListener<>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+                    scrollPane.setVvalue((Double) newValue);
+                }
+            });
+            imageView.setOnMouseClicked(mouseEvent -> {
+                try {
+                    sendMessage(entry.getText());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            gridPane.setOnKeyPressed(keyEvent -> {
+                if(keyEvent.getCode().equals(KeyCode.ENTER)) {
+                    try {
+                        sendMessage(entry.getText());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            stage.setScene(new Scene(gridPane));
+            stage.show();
+        }
+
 
     }
 }
