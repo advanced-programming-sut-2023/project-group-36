@@ -144,6 +144,9 @@ public class GameMenuController {
         name = name.replace(".png","");
         System.out.println(name);
         GameController.inDropBuilding = name;
+        if (name.equals("Cathedral") || name.equals("Church")){
+            GameController.currentGovernment.addReligionFactor();
+        }
     }
 
     public void government(MouseEvent mouseEvent) throws Exception {

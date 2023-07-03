@@ -6,7 +6,6 @@ import model.*;
 import model.Buildings.BuildingType;
 import model.Buildings.Structure;
 import model.Peoples.*;
-import view.GameMenuController;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;

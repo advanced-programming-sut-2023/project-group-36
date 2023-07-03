@@ -17,6 +17,7 @@ public class Government{
     private ArrayList<People> peoples = new ArrayList<>();
 
     private ArrayList<Structure> structures = new ArrayList<>();
+    private int religionFactor;
 
     public ArrayList<Structure> getStructures() {
         return structures;
@@ -31,9 +32,9 @@ public class Government{
     private int[]  foodAmount;
 
     private int popularity;
-    private int taxRate;
-    private int fearRate;
-    private int feedRate;
+    public int taxRate;
+    public int fearRate;
+    public int feedRate;
     private int coins;
     private ArrayList<People> selectedPeoples = new ArrayList<>();
 
@@ -396,6 +397,14 @@ public class Government{
     public ArrayList<TradeMessage> getThisGovermentTrades() {
         return thisGovermentTrades;
     }
-    //
+
+    public int getReligionFactor() {
+        return religionFactor;
+    }
+
+    public void addReligionFactor(){
+        religionFactor++;
+    }
+
 }
 

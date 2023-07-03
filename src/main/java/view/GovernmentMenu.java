@@ -63,7 +63,7 @@ public class GovernmentMenu extends Application {
             feedImageView.setLayoutY(328);
 
             Button feedButton = new Button();
-            feedButton.setText("1");
+            feedButton.setText(GameController.getCurrentGovernment().getFeedRate()+"");
             feedButton.setOnMouseClicked(e -> {
                 int newFeedRate = Integer.parseInt(feedButton.getText()) + 1;
                 if (newFeedRate > 2) {
@@ -112,7 +112,7 @@ public class GovernmentMenu extends Application {
             pane.getChildren().add(taxImageView);
 
             Button taxButton = new Button();
-            taxButton.setText("1");
+            taxButton.setText(GameController.getCurrentGovernment().getTaxRate()+"");
             taxButton.setOnMouseClicked(e -> {
                 int newTaxRate = Integer.parseInt(taxButton.getText())+1;
                 if (newTaxRate > 8) {
@@ -125,6 +125,7 @@ public class GovernmentMenu extends Application {
                 newimageView.setLayoutY(328);
                 pane.getChildren().add(newimageView);
                 taxButton.setText(String.valueOf(newTaxRate));
+                ApplicationManager.getCurrentGame().getCurrentGovernment().setTaxRate(newTaxRate);
             });
             taxButton.setLayoutX(274);
             taxButton.setLayoutY(324);
@@ -159,7 +160,7 @@ public class GovernmentMenu extends Application {
             pane.getChildren().add(fearImageView);
 
             Button fearButton = new Button();
-            fearButton.setText("1");
+            fearButton.setText(GameController.getCurrentGovernment().getFearRate()+"");
             fearButton.setOnMouseClicked(e -> {
                 int newfearRate = Integer.parseInt(fearButton.getText())+1;
                 if (newfearRate > 5) {
@@ -171,6 +172,8 @@ public class GovernmentMenu extends Application {
                 newImageView.setLayoutY(368);
                 pane.getChildren().add(newImageView);
                 fearButton.setText(String.valueOf(newfearRate));
+                ApplicationManager.getCurrentGame().getCurrentGovernment().setFearRate(newfearRate);
+
             });
             fearButton.setLayoutX(104);
             fearButton.setLayoutY(364);
@@ -188,15 +191,7 @@ public class GovernmentMenu extends Application {
             Image religionImage;
             ImageView religionImageView;
 
-            int religionFactor = 0;
-            for (Block block : GameController.getGame().getMap().getBlocks()) {
-                if (block.getThisBlockStructure()==null){
-                    break;
-                }
-                if (block.getThisBlockStructure().getName().equals("Church") || block.getThisBlockStructure().getName().equals("Cathedral")){
-                    religionFactor ++;
-                }
-            }
+            int religionFactor = GameController.getCurrentGovernment().getReligionFactor();
 
             if (religionFactor > 0) {
                 religionImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
@@ -227,7 +222,7 @@ public class GovernmentMenu extends Application {
         } else if (newRate > 0) {
             image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
         } else {
-            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png.png")));
+            image = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
         }
         ImageView newImageView = new ImageView(image);
         newImageView.setFitWidth(20);

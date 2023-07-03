@@ -174,7 +174,7 @@ public class Block {
 
     public void sickness() {
         for (People people : peoples) {
-            people.hitPointReduce(2);
+            people.hitPointReduce(5);
         }
         if (thisBlockStructure!=null){
             thisBlockStructure.setHP(thisBlockStructure.getHitPoint()-10);
@@ -183,7 +183,7 @@ public class Block {
 
     public void fire() {
         for (People people : peoples) {
-            people.hitPointReduce(5);
+            people.hitPointReduce(7);
         }
         if (thisBlockStructure!=null){
             thisBlockStructure.setHP(thisBlockStructure.getHitPoint()-20);

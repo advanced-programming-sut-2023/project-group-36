@@ -2,6 +2,9 @@ package server;
 
 import model.Game;
 
+package server;
+import model.Game;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,7 +18,7 @@ public class Server {
     private List<ObjectOutputStream> outputStreams;
 
    /* public Server() {
-        game = new Game();
+        //game = new Game();
         outputStreams = new ArrayList<>();
     }*/
 

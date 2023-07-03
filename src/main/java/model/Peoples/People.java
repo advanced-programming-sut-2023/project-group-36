@@ -143,6 +143,7 @@ public class People {
 
     public void hitPointReduce(double amount){
         hitPoint -= Math.max(0,(amount - peopleType.defencePower));
+        System.out.println(hitPoint);
     }
 
 
@@ -193,9 +194,9 @@ public class People {
 
 
     public void show(){
-        if (block.getThisBlockStructure()!=null){
-            return;
-        }
+        //if (block.getThisBlockStructure()!=null){
+            //return;
+        //}
         Random random = new Random();
         imageView.setFitHeight(35);
         imageView.setFitWidth(20);

@@ -227,6 +227,7 @@ public class GBlock extends Rectangle {
         if (block.getThisBlockStructure().getName().equals("middleCastle") || !block.getThisBlockStructure().getGovernment().equals(GameController.currentGovernment)){
             return;
         }
+        GameController.currentStructure = block.getThisBlockStructure();
         BuildingMenu buildingMenu = new BuildingMenu();
         buildingMenu.start(new Stage());
     }
