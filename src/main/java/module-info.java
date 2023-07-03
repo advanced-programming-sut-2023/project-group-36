@@ -11,5 +11,6 @@ module Project_Phase_2{
         requires com.google.gson;
         requires javafx.media;
     requires java.sql;
+    requires java.xml.crypto;
     opens model to com.google.gson;
 }

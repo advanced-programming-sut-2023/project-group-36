@@ -47,7 +47,7 @@ public class User {
         this.questionAnswer = questionAnswer;
         this.questionNumber = questionNumber;
         score=0;
-        chatMenu=new ChatMenu(this);
+       // chatMenu=new ChatMenu(this);
     }
 
 

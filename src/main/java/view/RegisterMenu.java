@@ -294,7 +294,7 @@ public class RegisterMenu extends Application {
                     Alert alert=new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("Register successful!");
                     alert.setContentText(ApplicationManager.getCurrentUser().getUsername()+"\n"+ApplicationManager.getCurrentUser().getPassword());
-                    new MainMenu().start(new Stage());
+                    new MainMenu().start(stage);
                 } catch (Exception e) {
                     System.out.println("error in loading main menu");
                     e.printStackTrace();

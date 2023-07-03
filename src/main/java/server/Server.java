@@ -1,3 +1,7 @@
+package server;
+
+import model.Game;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -10,10 +14,10 @@ public class Server {
     private Game game;
     private List<ObjectOutputStream> outputStreams;
 
-    public Server() {
+   /* public Server() {
         game = new Game();
         outputStreams = new ArrayList<>();
-    }
+    }*/
 
     public void start() throws IOException {
         ServerSocket serverSocket = new ServerSocket(12345);
