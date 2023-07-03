@@ -33,11 +33,9 @@ public class User {
     public void setAvatarAddress(Image image) {
         avatarAddress = image.getUrl();
     }
-
-    private Game game;
     private int score;
     private int highScore;
-    private ChatMenu chatMenu;
+
 
     public User(String username, String password, String nickname, String email, String slogan, String questionAnswer, int questionNumber) throws IOException {
         this.username = username;
@@ -48,29 +46,17 @@ public class User {
         this.questionAnswer = questionAnswer;
         this.questionNumber = questionNumber;
         score=0;
-       // chatMenu=new ChatMenu(this);
+        this.avatarAddress=getClass().getResource("/images/Avatars/2.png").toString();
     }
 
 
-    public ChatMenu getChatMenu() {
-        return chatMenu;
-    }
+
 
     public int getQuestionNumber() {
         return questionNumber;
     }
 
-    public void startNewGame(Game game){
-        this.game = game;
-    }
 
-    public void removeGame(Game game){
-        this.game = null;
-    }
-
-    public Game getGame(){
-        return game;
-    }
 
     public int getScore(){
         return score;

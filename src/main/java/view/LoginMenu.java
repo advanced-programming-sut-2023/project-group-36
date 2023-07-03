@@ -18,7 +18,7 @@ import model.User;
 public class LoginMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        //SaveAndLoad.gameInitialization();
+        SaveAndLoad.gameInitialization();
         Pane pane=new Pane();
         pane.setMinWidth(1080);
         pane.setMinHeight(720);

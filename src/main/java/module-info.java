@@ -5,7 +5,7 @@ module Project_Phase_2{
         exports view;
         opens view to javafx.fxml, com.google.gson;
         exports Chat;
-        opens Chat to javafx.fxml;
+        opens Chat to javafx.fxml,com.google.gson;
         exports model;
         requires com.google.gson;
         requires javafx.media;
@@ -14,6 +14,7 @@ module Project_Phase_2{
     opens model to com.google.gson;
     opens model.Buildings to com.google.gson;
     opens model.Peoples to com.google.gson;
+
 
 
 }

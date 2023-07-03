@@ -2,7 +2,6 @@ package server;
 
 import model.Game;
 
-package server;
 import model.Game;
 
 import java.io.IOException;
