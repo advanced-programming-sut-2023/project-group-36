@@ -1,4 +1,5 @@
 package view;
+import controller.CreateNewGame;
 import controller.EditMap;
 import controller.GameController;
 import javafx.fxml.FXML;
@@ -131,7 +132,12 @@ public class GameMenuController {
     }
 
     public void exit(MouseEvent mouseEvent) throws Exception {
+        GameController.setGame(null);
+        CreateNewGame.governments = new ArrayList<>();
+        EditMap.number = 0;
         new CreateNewGameMenu().start(CreateNewGameMenu.stage);
+
+
     }
 
     public void dropBuilding(MouseEvent mouseEvent) {
