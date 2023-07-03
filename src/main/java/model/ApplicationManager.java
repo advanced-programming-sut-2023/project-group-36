@@ -1,5 +1,6 @@
 package model;
 
+import controller.SaveAndLoad;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -19,12 +20,6 @@ public class ApplicationManager {
 
     public void setUsers(ArrayList<User> users) {
         this.users = users;
-    }
-
-    static MediaPlayer mediaPlayer=new MediaPlayer(new Media(ApplicationManager.class.getResource("/music/mokhtarnameh-barkhiz.mp3").toString()));
-    public static void run(){
-        mediaPlayer.setVolume(50);
-        mediaPlayer.play();
     }
 
     public static Game getCurrentGame() {
@@ -101,7 +96,7 @@ public class ApplicationManager {
         if (!stayLoggedIn){
             currentUser = null;
         }
-        //save();
+        save();
         System.exit(1);
     }
 
@@ -109,7 +104,7 @@ public class ApplicationManager {
         currentUser = user;
     }
     public static void save(){
-
+        SaveAndLoad.save(users,null,null);
     }
 
 

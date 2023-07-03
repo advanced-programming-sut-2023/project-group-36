@@ -1,5 +1,6 @@
 package view;
 
+import controller.SaveAndLoad;
 import javafx.geometry.Insets;
 import model.ApplicationManager;
 import javafx.application.Application;
@@ -17,6 +18,7 @@ import model.User;
 public class LoginMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+        //SaveAndLoad.gameInitialization();
         Pane pane=new Pane();
         pane.setMinWidth(1080);
         pane.setMinHeight(720);
@@ -88,7 +90,7 @@ public class LoginMenu extends Application {
         LoginButton.setOnMouseClicked(mouseEvent -> {
                 String username=usernameField.getText();
                 String password=passwordField.getText();
-                if(username.length()==0 || password.length()==0){
+                if(username.length()>0 && password.length()>0){
                     User use=ApplicationManager.getUserByUsername(username);
                     if(use==null){
                         Alert alert=new Alert(Alert.AlertType.ERROR);
@@ -109,6 +111,11 @@ public class LoginMenu extends Application {
                             System.out.println("error in loading main menu");
                         }
                     }
+                }
+                else{
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("please fill all fields");
+                    alert.show();
                 }
         });
         RegisterButton.setOnMouseClicked(mouseEvent -> {

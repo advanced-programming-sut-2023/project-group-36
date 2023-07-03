@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.URI;
 import java.util.Objects;
 
 public class User {
@@ -20,17 +21,17 @@ public class User {
     private int questionNumber;
 
     private String questionAnswer;
-    private Image avatarImage;
+    private String avatarAddress;
 
     public Image getAvatarImage() {
-        return avatarImage;
+        return new Image(avatarAddress);
     }
     public StringProperty usernameProperty(){
         return new SimpleStringProperty(username);
     }
 
     public void setAvatarAddress(Image image) {
-        avatarImage = image;
+        avatarAddress = image.getUrl();
     }
 
     private Game game;

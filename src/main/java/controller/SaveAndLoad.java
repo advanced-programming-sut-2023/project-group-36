@@ -56,6 +56,8 @@ public class SaveAndLoad {
     }
 
     public static void saveUsers(ArrayList<User> users) {
+        if(users == null)
+            return;
         Gson gson = new Gson();
         String json = gson.toJson(users);
         try (FileWriter file = new FileWriter(Address1)) {
@@ -66,6 +68,8 @@ public class SaveAndLoad {
     }
 
     public static void saveMaps(ArrayList<Map> maps) {
+        if(maps==null)
+            return;
         Gson gson = new Gson();
         String json = gson.toJson(maps);
         try (FileWriter file = new FileWriter(Address2)) {
@@ -88,7 +92,7 @@ public class SaveAndLoad {
 
 
     private static void loadUsers() {
-        ArrayList<User> users;
+        ArrayList<User> users=new ArrayList<>();
         try (FileReader file = new FileReader(Address1)) {
             Type gameListType = new TypeToken<ArrayList<User>>(){}.getType();
             Gson gson = new Gson();
