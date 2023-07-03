@@ -23,8 +23,8 @@ public class GovernmentMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane = new Pane();
-        pane.setMinWidth(600);
-        pane.setMinHeight(400);
+        pane.setMinWidth(80);
+        pane.setMinHeight(340);
 
         Rectangle governmentMenu = new Rectangle();
         governmentMenu.setArcHeight(5.0);

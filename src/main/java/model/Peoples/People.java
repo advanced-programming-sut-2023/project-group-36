@@ -270,5 +270,11 @@ public class People {
 
     }
 
+    public void zoom(double scale) {
+        imageView.setFitHeight(35*scale);
+        imageView.setFitWidth(20*scale);
+        imageView.setX(imageView.getX()*scale);
+        imageView.setY(imageView.getY()*scale);
+    }
 
 }

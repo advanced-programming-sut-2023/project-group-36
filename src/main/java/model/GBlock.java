@@ -389,6 +389,9 @@ public class GBlock extends Rectangle {
         building.setY(building.getY()*scale);
         texture.setX(texture.getX()*scale);
         texture.setY(texture.getY()*scale);
+        for (int i = 0; i < block.getPeoples().size(); i++) {
+            block.getPeoples().get(i).zoom(scale);
+        }
     }
 
     public void addSicknessSign() {

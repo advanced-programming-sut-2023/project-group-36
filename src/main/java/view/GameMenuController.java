@@ -33,8 +33,8 @@ public class GameMenuController {
 
     public void gameInitialize(){
 
-        double minScale = 0.7;
-        double maxScale = 1.5;
+        double minScale = 0.81;
+        double maxScale = 1.21;
 
         Button zoomInButton = new Button("+");
         Button zoomOutButton = new Button("-");
@@ -42,14 +42,14 @@ public class GameMenuController {
         zoomOutButton.setLayoutX(40);
 
         zoomInButton.setOnAction(event -> {
-            newScale = newScale * 1.2;
+            newScale = newScale * 1.1;
             if (newScale <= maxScale) {
-                mapPane.setLayoutX(mapPane.getLayoutX()*1.2);
-                mapPane.setLayoutY(mapPane.getLayoutY()*1.2);
-                blocksZoom(1.2);
+                mapPane.setLayoutX(mapPane.getLayoutX()*1.1);
+                mapPane.setLayoutY(mapPane.getLayoutY()*1.1);
+                blocksZoom(1.1);
             }
             else {
-                newScale /= 1.2;
+                newScale /= 1.1;
             }
         });
 
@@ -99,12 +99,11 @@ public class GameMenuController {
             circle.setRadius(10);
             miniMap.getChildren().add(circle);
         }
-
     }
 
     private void blocksZoom(double scale) {
-        for (int i = 0; i < gBlocks.size(); i++) {
-            gBlocks.get(i).zoom(scale);
+        for (GBlock gBlock : gBlocks) {
+            gBlock.zoom(scale);
         }
     }
 
