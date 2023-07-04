@@ -1,7 +1,11 @@
 package Chat;
 
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import javax.xml.crypto.Data;
 import java.io.IOException;
@@ -13,11 +17,12 @@ public class ClientThread extends Thread {
     private DatagramSocket socket;
     private byte[] incoming = new byte[256];
 
-    private TextArea textArea;
+    private VBox textArea;
 
-    public ClientThread(DatagramSocket socket, TextArea textArea) {
+    public ClientThread(DatagramSocket socket, VBox textArea) {
         this.socket = socket;
         this.textArea = textArea;
+
     }
 
     @Override
@@ -31,8 +36,13 @@ public class ClientThread extends Thread {
                 throw new RuntimeException(e);
             }
             String message = new String(packet.getData(), 0, packet.getLength()) + "\n";
-            String current = textArea.getText();
-            textArea.setText(current + message);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    textArea.getChildren().add(new VBox(new Label(message)));
+                }
+            });
         }
     }
 }

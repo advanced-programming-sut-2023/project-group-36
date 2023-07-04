@@ -1,7 +1,11 @@
 package Chat;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -38,8 +42,8 @@ public class ChatClient extends Application {
     private User user;
 
     private static final int SERVER_PORT = 8000; // send to server
-
-    private static final TextArea messageArea = new TextArea();
+    Pane pane=new Pane();
+    private static final VBox messageArea = new VBox();
 
     private static final TextField inputBox = new TextField();
 
@@ -62,12 +66,25 @@ public class ChatClient extends Application {
     public void start(Stage primaryStage) {
         messageArea.setStyle("-fx-font-family: Candara; -fx-font-size: 20px;-fx-text-fill: black");
         messageArea.setMaxWidth(500);
-        messageArea.setEditable(false);
         inputBox.setMaxWidth(500);
+        messageArea.setLayoutX(10);
+        messageArea.setLayoutY(25);
+        inputBox.setMinWidth(480);
+        ScrollPane scrollPane = new ScrollPane(messageArea);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        pane.getChildren().add(inputBox);
+        scrollPane.setMinWidth(520);
+        scrollPane.setLayoutY(50);
+        scrollPane.setMinHeight(500);
+        pane.getChildren().add(scrollPane);
+        pane.setPadding(new Insets(10,15,10,15));
+        pane.setMinWidth(520);
+        pane.setMinHeight(520);
         inputBox.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String temp = (user==null ? "jeff":user.getUsername() )+ ":\n" + inputBox.getText()+"\n"; // message to send
-                messageArea.setText("YOU:\n"+messageArea.getText() + inputBox.getText() + "\n");
+                messageArea.getChildren().add(new HBox(new Label("YOU:\n" + inputBox.getText() + "\n")));
                byte[] msg = temp.getBytes(); // convert to bytes
                 inputBox.setText(""); // remove text from input box
 
@@ -81,7 +98,7 @@ public class ChatClient extends Application {
             }
         });
         // put everything on screen
-        Scene scene = new Scene(new VBox(35, messageArea, inputBox), 550, 300);
+        Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
