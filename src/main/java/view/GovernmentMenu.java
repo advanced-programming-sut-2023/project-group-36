@@ -39,6 +39,37 @@ public class GovernmentMenu extends Application {
 
         pane.getChildren().add(governmentMenu);
 
+        // total rate
+        Label totalLabel = new Label();
+        totalLabel.setLayoutX(188);
+        totalLabel.setLayoutY(348);
+        totalLabel.setText("Total");
+        pane.getChildren().add(totalLabel);
+
+        Image newTotalImage;
+        ImageView newTotalImageView;
+
+        int total = ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() + GameController.getCurrentGovernment().getReligionFactor();
+
+        if (total < 0) {
+            newTotalImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/sad.png")));
+            newTotalImageView = new ImageView(newTotalImage);
+        } else if (total > 0) {
+            newTotalImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/smile.png")));
+            newTotalImageView = new ImageView(newTotalImage);
+        } else {
+            newTotalImage = new Image(String.valueOf(CreateNewGameMenu.class.getResource("/images/faceEmoji/poker.png")));
+            newTotalImageView = new ImageView(newTotalImage);
+        }
+
+        newTotalImageView.setFitWidth(20);
+        newTotalImageView.setFitHeight(20);
+        newTotalImageView.setLayoutX(215);
+        newTotalImageView.setLayoutY(348);
+        pane.getChildren().add(newTotalImageView);
+
+
+
         {
             Label feedLabel = new Label();
             feedLabel.setLayoutX(153);
@@ -65,6 +96,7 @@ public class GovernmentMenu extends Application {
             Button feedButton = new Button();
             feedButton.setText(GameController.getCurrentGovernment().getFeedRate()+"");
             feedButton.setOnMouseClicked(e -> {
+                //feed
                 int newFeedRate = Integer.parseInt(feedButton.getText()) + 1;
                 if (newFeedRate > 2) {
                     newFeedRate = newFeedRate % 2 - 3;
@@ -76,6 +108,16 @@ public class GovernmentMenu extends Application {
                 pane.getChildren().add(imageView);
                 feedButton.setText(String.valueOf(newFeedRate));
                 ApplicationManager.getCurrentGame().getCurrentGovernment().setFeedRate(newFeedRate);
+                //total
+                int newTotal = ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() + GameController.getCurrentGovernment().getReligionFactor();
+
+                ImageView imageView1 = updateImage(newTotal);
+
+                imageView1.setFitWidth(20);
+                imageView1.setFitHeight(20);
+                imageView1.setLayoutX(215);
+                imageView1.setLayoutY(348);
+                pane.getChildren().add(imageView1);
             });
             feedButton.setLayoutX(104);
             feedButton.setLayoutY(324);
@@ -114,10 +156,10 @@ public class GovernmentMenu extends Application {
             Button taxButton = new Button();
             taxButton.setText(GameController.getCurrentGovernment().getTaxRate()+"");
             taxButton.setOnMouseClicked(e -> {
+                // tax
                 int newTaxRate = Integer.parseInt(taxButton.getText())+1;
                 if (newTaxRate > 8) {
                     newTaxRate = newTaxRate % 8 - 4;
-                    //set image
                 }
                 //set image
                 ImageView newimageView = updateImage(newTaxRate);
@@ -126,6 +168,16 @@ public class GovernmentMenu extends Application {
                 pane.getChildren().add(newimageView);
                 taxButton.setText(String.valueOf(newTaxRate));
                 ApplicationManager.getCurrentGame().getCurrentGovernment().setTaxRate(newTaxRate);
+                //total
+                int newTotal = ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() + GameController.getCurrentGovernment().getReligionFactor();
+
+                ImageView imageView1 = updateImage(newTotal);
+
+                imageView1.setFitWidth(20);
+                imageView1.setFitHeight(20);
+                imageView1.setLayoutX(215);
+                imageView1.setLayoutY(348);
+                pane.getChildren().add(imageView1);
             });
             taxButton.setLayoutX(274);
             taxButton.setLayoutY(324);
@@ -159,6 +211,7 @@ public class GovernmentMenu extends Application {
             fearImageView.setLayoutY(368);
             pane.getChildren().add(fearImageView);
 
+            //fear
             Button fearButton = new Button();
             fearButton.setText(GameController.getCurrentGovernment().getFearRate()+"");
             fearButton.setOnMouseClicked(e -> {
@@ -174,6 +227,16 @@ public class GovernmentMenu extends Application {
                 fearButton.setText(String.valueOf(newfearRate));
                 ApplicationManager.getCurrentGame().getCurrentGovernment().setFearRate(newfearRate);
 
+                //total
+                int newTotal = ApplicationManager.getCurrentGame().getCurrentGovernment().getFeedRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getFearRate() + ApplicationManager.getCurrentGame().getCurrentGovernment().getTaxRate() + GameController.getCurrentGovernment().getReligionFactor();
+
+                ImageView imageView1 = updateImage(newTotal);
+
+                imageView1.setFitWidth(20);
+                imageView1.setFitHeight(20);
+                imageView1.setLayoutX(215);
+                imageView1.setLayoutY(348);
+                pane.getChildren().add(imageView1);
             });
             fearButton.setLayoutX(104);
             fearButton.setLayoutY(364);
