@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -39,7 +41,8 @@ public class CreateNewConversation extends Application {
         stage.setScene(new Scene(vBox));
         stage.show();
         check.setOnMouseClicked(mouseEvent -> {
-
+            client.chatsList.getChildren().addAll(new VBox(new Label(name.getText())),new ImageView(new Image(getClass().getResource("/images/Avatars/7.png").toString())));
+            client.update();
         });
     }
 }

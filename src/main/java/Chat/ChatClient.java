@@ -37,6 +37,8 @@ public class ChatClient extends Application {
     }
 
     private User user;
+    public VBox chatsList=new VBox();
+    public ScrollPane chats;
 
     private static final int SERVER_PORT = 8000; // send to server
     Pane pane=new Pane();
@@ -63,6 +65,9 @@ public class ChatClient extends Application {
 
     }
 
+    public ChatClient() {
+    }
+
     @Override
     public void start(Stage primaryStage) {
         messageArea.setStyle("-fx-font-family: Candara; -fx-font-size: 20px;-fx-text-fill: black");
@@ -82,14 +87,13 @@ public class ChatClient extends Application {
         pane.setPadding(new Insets(10,15,10,15));
         pane.setMinWidth(700);
         pane.setMinHeight(520);
-        VBox chatsList=new VBox();
-        ScrollPane chats=new ScrollPane(chatsList);
+        chats=new ScrollPane(chatsList);
         chats.setLayoutX(540);
         chats.setMinHeight(500);
         chats.setMinWidth(200);
         chats.setLayoutY(25);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        chats.setFitToWidth(true);
+        chats.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         pane.getChildren().add(chats);
         MenuBar menuBar=new MenuBar();
         Menu menu= new Menu("Menu");
@@ -108,7 +112,7 @@ public class ChatClient extends Application {
         pane.getChildren().add(menuBar);
         inputBox.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                String temp = (user==null ? "jeff":user.getUsername() )+ ":\n" + inputBox.getText()+"\n"; // message to send
+                String temp = (user==null ? "UnKnown":user.getUsername() )+ ":\n" + inputBox.getText()+"\n"; // message to send
                 messageArea.getChildren().add(new HBox(new Label("YOU:\n" + inputBox.getText() + "\n")));
                byte[] msg = temp.getBytes(); // convert to bytes
                 inputBox.setText(""); // remove text from input box
@@ -126,5 +130,14 @@ public class ChatClient extends Application {
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    public void update(){
+        chats=new ScrollPane(chatsList);
+        chats.setLayoutX(540);
+        chats.setMinHeight(500);
+        chats.setMinWidth(200);
+        chats.setLayoutY(25);
+        chats.setFitToWidth(true);
+        chats.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
     }
 }
