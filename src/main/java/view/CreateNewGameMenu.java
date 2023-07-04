@@ -17,7 +17,6 @@ public class CreateNewGameMenu extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        addUsers();
         CreateNewGameMenu.stage = stage;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXML/CreateNewGame.fxml"));
@@ -30,13 +29,6 @@ public class CreateNewGameMenu extends Application{
         controller.menuInitialize();
     }
 
-    public void addUsers() throws IOException {
-        User user1 = new User("ali","123","1","1","1","1",1);
-        User user2 = new User("mohammad","123","1","1","1","1",1);
-        User user3 = new User("amir","123","1","1","1","1",1);
-        ApplicationManager.addUser(user1);
-        ApplicationManager.addUser(user2);
-        ApplicationManager.addUser(user3);
-    }
+
 
 }

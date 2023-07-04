@@ -64,6 +64,6 @@ public class CaptchaMenu extends Application {
     }
 
     public void setCanPass(boolean canPass) {
-        CanPass = canPass;
+        this.CanPass = canPass;
     }
 }

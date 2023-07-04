@@ -1,5 +1,7 @@
 package view;
 
+import controller.CreateNewGame;
+import controller.GameController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -150,9 +152,12 @@ public class TradeMenu extends Application {
         doanteButt.setOnAction(actionEvent -> {
             price.setVisible(false);
         });
+        stage.setOnCloseRequest(windowEvent -> {
+            timeline.stop();
+        });
         finalAccept.setOnMouseClicked(mouseEvent -> {
             Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erorr");
+
             if(menu.getText().equals("Select User") || type.getText().equals("select item to donate") || couter[0]==0){
                 alert.setContentText("you haven't filled all texts!");
                 alert.showAndWait();
@@ -161,24 +166,26 @@ public class TradeMenu extends Application {
                 alert.setContentText("incorrect format for price!");
                 alert.showAndWait();
             }
-            if(Game.getCurrentGovernment() != null){
-                if(couter[0]>Game.getCurrentGovernment().getResources().getResourceAmount(type.getText())){
+            else if(GameController.getCurrentGovernment() != null){
+                if(couter[0]>GameController.getCurrentGovernment().getResources().getResourceAmount(type.getText())){
+                    System.out.println(GameController.getCurrentGovernment().getResources().getResourceAmount(type.getText())+"\n"+type.getText());
                     alert.setContentText("you don't have enough resources to make this request!");
                     alert.showAndWait();
                 }
                 else {
-                    int pricelist=(requestButt.isSelected() ? Integer.parseInt(requestButt.getText()):0);
-                    Government requested=ApplicationManager.getCurrentGame().getGovernmentByUser(ApplicationManager.getUserByUsername(menu.getText()));
+                    int pricelist=(requestButt.isSelected() ? Integer.parseInt(price.getText()):0);
+                    Government requested=GameController.getGame().getGovernmentByUser(ApplicationManager.getUserByUsername(menu.getText()));
                     Trade trade=new Trade(Game.getCurrentGovernment(),requested,type.getText(),pricelist,couter[0],"");
                     TradeMessage tradeMessage = new TradeMessage("", Game.getCurrentGovernment(), requested, trade);
                     requested.addTradeMessage(tradeMessage);
-                    Game.getCurrentGovernment().AddTradeMessage(tradeMessage);
-                    Game.getCurrentGovernment().addTrade(trade);
-                    Game.getCurrentGovernment().getThisGovermentTrades().add(tradeMessage);
-                    Game.getCurrentGovernment().getResources().getResource(type.getText()).changeCount(pricelist);
+                    GameController.getCurrentGovernment().AddTradeMessage(tradeMessage);
+                    GameController.getCurrentGovernment().addTrade(trade);
+                    GameController.getCurrentGovernment().getThisGovermentTrades().add(tradeMessage);
+                    GameController.getCurrentGovernment().getResources().getResource(type.getText()).changeCount(pricelist);
+                    System.out.println(requested.getTrades());
                     requested.addTrade(trade);
                     alert.setAlertType(Alert.AlertType.INFORMATION);
-                    alert.setContentText("new trade strated with "+requested.getOwner().getUsername());
+                    alert.setContentText("new trade started with "+requested.getOwner().getUsername());
                     alert.show();
                 }
             }
@@ -216,7 +223,7 @@ public class TradeMenu extends Application {
 
     }
     public void MyRequestsValidation(){
-        Government government=Game.getCurrentGovernment();
+        Government government=GameController.getCurrentGovernment();
         if(government==null){
            MyRequests.getChildren().add(new VBox(new Label("You haven't send away any requests yet!")));
             return;
@@ -224,23 +231,33 @@ public class TradeMenu extends Application {
 
         if(government.getThisGovermentTrades().size()==0){
            MyRequests.getChildren().add(new VBox(new Label("You haven't send away any requests yet!")));
+           return;
         }
-        for(int i=0;i<government.getThisGovermentTrades().size();i++){
-            TradeMessage tradeMessage=government.getTradeMessages().get(i);
-            MyRequests.getChildren().add(new VBox(new Label((i+1)+". "+tradeMessage.getTrade().getRequested().getOwner().getUsername()
-            +"--->"+tradeMessage.getTrade().getType()+"\n  "+tradeMessage.getTrade().getAmount()
-            + "   "+tradeMessage.getTrade().getPrice()+"$  "+(tradeMessage.showCondition()? "accepted":"waiting"))));
+        try {
+            for (int i = 0; i < government.getThisGovermentTrades().size(); i++) {
+                TradeMessage tradeMessage = government.getTradeMessages().get(i);
+                MyRequests.getChildren().add(new VBox(new Label((i + 1) + ". " + tradeMessage.getTrade().getRequested().getOwner().getUsername()
+                        + "--->" + tradeMessage.getTrade().getType() + "\n  " + tradeMessage.getTrade().getAmount()
+                        + "   " + tradeMessage.getTrade().getPrice() + "$  " + (tradeMessage.showCondition() ? "accepted" : "waiting"))));
 
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
 
     }
-    public synchronized void UsersList(){
-        if(ApplicationManager.getCurrentGame()==null)
+    public void UsersList(){
+        if(CreateNewGame.governments ==null) {
+            System.out.println("null game");
             return;
-        if(Game.getGovernments().size()==0 || ApplicationManager.getCurrentGame().getGovernments()==null)
+        }
+        if(CreateNewGame.governments.size()==0 || CreateNewGame.governments==null) {
+            System.out.println("empty govers");
             return;
-        for(Government government:Game.getGovernments()){
-            menu.getItems().add(new CheckMenuItem(government.getOwner().getUsername()));
+        }
+        for(Government government:CreateNewGame.governments){
+            menu.getItems().add(new MenuItem(government.getOwner().getUsername()));
         }
     }
 
