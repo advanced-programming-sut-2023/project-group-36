@@ -1,6 +1,7 @@
 package model;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,12 +9,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class TradeMessage extends Application {
+public class TradeMessage{
     public class myButton extends Button{
         public myButton(String s) {
             super(s);
         }
-
         public void dicide(){
          if(this.getText().contains("accept")){
                 if(receiver.getCoins()<trade.getPrice()){
@@ -27,6 +27,7 @@ public class TradeMessage extends Application {
                     sender.changeCoins(trade.getPrice());
                     acceptButton.setText("accepted");
                     rejectButton.setText("...");
+                    message="accepted!";
                     Alert alert=new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("trade has been done successfully!");
                     alert.show();
@@ -35,6 +36,7 @@ public class TradeMessage extends Application {
          else if(this.getText().contains("reject")){
                 rejectButton.setText("rejected");
                 acceptButton.setText("...");
+                message="rejected";
                 sender.getResources().getResource(trade.getType()).changeCount(trade.getAmount());
              Alert alert=new Alert(Alert.AlertType.INFORMATION);
              alert.setContentText("this trade has been rejected successfully!");
@@ -45,8 +47,8 @@ public class TradeMessage extends Application {
     private String message;
     private Government sender;
     private Government receiver;
-    myButton acceptButton=new myButton("accept?");
-    myButton rejectButton=new myButton("reject");
+    public myButton acceptButton=new myButton("accept?");
+    public myButton rejectButton=new myButton("reject?");
     private Trade trade;
 
     private boolean isShowed;
@@ -82,17 +84,12 @@ public class TradeMessage extends Application {
                 ,new Label(trade.getAmount()+""),new Label(trade.getPrice()==0 ? ("donation"):(trade.getPrice()+"")),new Label(this.isShowed ? "new" : "   " ));
         VBox resualt=new VBox();
         resualt.getChildren().add(hBox);
-        resualt.getChildren().add(new VBox(acceptButton,rejectButton));
+        resualt.getChildren().add(new HBox(acceptButton,rejectButton));
+        resualt.setAlignment(Pos.TOP_CENTER);
         return resualt;
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        acceptButton.setOnMouseClicked(mouseEvent -> {
-            acceptButton.setText("okay");
-            System.out.println("yes");
-        });
-    }
+
 
 
 

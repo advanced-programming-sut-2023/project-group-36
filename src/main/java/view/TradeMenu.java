@@ -7,7 +7,6 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -19,14 +18,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.*;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class TradeMenu extends Application {
     VBox NewRequest=new VBox();
     VBox History=new VBox();
     VBox MyRequests=new VBox();
-    ArrayList <VBox> request=new ArrayList<>();
+    ArrayList <VBox> requestsToAccept =new ArrayList<>();
     SplitMenuButton menu = new SplitMenuButton();
 
     Timeline timeline;
@@ -110,8 +108,11 @@ public class TradeMenu extends Application {
         Scene scene=new Scene(pane);
         stage.setScene(scene);
         stage.show();
-        timeline=new Timeline(new KeyFrame(Duration.seconds(10),actionEvent -> {
-            request=new ArrayList<>();
+        stage.setOnCloseRequest(windowEvent -> {
+            return;
+        });
+        timeline=new Timeline(new KeyFrame(Duration.millis(16),actionEvent -> {
+            requestsToAccept =new ArrayList<>();
             History.getChildren().clear();
             History.getChildren().add(HistoryHead);
             HistoryValidation();
@@ -119,7 +120,7 @@ public class TradeMenu extends Application {
             MyRequests.getChildren().add(MyREquestsHead);
             MyRequestsValidation();
         }));
-        timeline.setCycleCount(-1);
+        timeline.setCycleCount(1);
         timeline.play();
         for(MenuItem menuItem:menu.getItems()){
             menuItem.setOnAction(actionEvent -> {
@@ -180,9 +181,12 @@ public class TradeMenu extends Application {
                     requested.addTradeMessage(tradeMessage);
                     GameController.getCurrentGovernment().AddTradeMessage(tradeMessage);
                     GameController.getCurrentGovernment().addTrade(trade);
-                    GameController.getCurrentGovernment().getThisGovermentTrades().add(tradeMessage);
+                    GameController.getCurrentGovernment().getThisGovermentMessageTrades().add(tradeMessage);
                     GameController.getCurrentGovernment().getResources().getResource(type.getText()).changeCount(pricelist);
-                    System.out.println(requested.getTrades());
+                    System.out.println(requested.getTradeMessages());
+                    MyRequests.getChildren().add(new VBox(new Label((GameController.getCurrentGovernment().getThisGovermentMessageTrades().size() + 1) + ". " + tradeMessage.getTrade().getRequested().getOwner().getUsername()
+                            + "--->" + tradeMessage.getTrade().getType() + "\n  " + tradeMessage.getTrade().getAmount()
+                            + "   " + tradeMessage.getTrade().getPrice() + "$  " + (tradeMessage.showCondition() ? "accepted" : "waiting"))));
                     requested.addTrade(trade);
                     alert.setAlertType(Alert.AlertType.INFORMATION);
                     alert.setContentText("new trade started with "+requested.getOwner().getUsername());
@@ -190,35 +194,27 @@ public class TradeMenu extends Application {
                 }
             }
         });
-        for(VBox vBox:request){
-            for(Node button:vBox.getChildren()){
-                if(button instanceof TradeMessage.myButton) {
-                    button.setOnMouseClicked(mouseEvent -> {
-                        ((TradeMessage.myButton) button).dicide();
-                    });
-                }
-            }
+        for(TradeMessage tradeMessage:GameController.getCurrentGovernment().getTradeMessages()){
+            tradeMessage.acceptButton.setOnMouseClicked(mouseEvent -> {
+                tradeMessage.acceptButton.dicide();
+            });
+            tradeMessage.rejectButton.setOnMouseClicked(mouseEvent -> {
+                tradeMessage.rejectButton.dicide();
+            });
         }
     }
     public void HistoryValidation(){
-
-        History.getChildren().add(new VBox(new Label("dgfdg")));
-        if(ApplicationManager.getCurrentGame()==null)
-            return;
-        if(Game.getCurrentGovernment()==null)
-            return;
         Government government = Game.getCurrentGovernment();
         if(government.getTradeMessages()==null || government.getTrades().size()==0){
-            History.getChildren().add(new Label("NO Request has been made yet!"));
             return;
         }
         VBox message;
         for(int i=0;i<government.getTradeMessages().size();i++){
             message=new VBox(government.getTradeMessages().get(i).tradeRequestToShow());
-            request.add(0,message);
+            requestsToAccept.add(0,message);
             message.setAlignment(Pos.TOP_CENTER);
-            request.get(0).setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(15),new BorderWidths(3))));
-            History.getChildren().add(request.get(0));
+            requestsToAccept.get(0).setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,new CornerRadii(1),new BorderWidths(2))));
+            History.getChildren().add(requestsToAccept.get(0));
         }
 
     }
@@ -229,12 +225,12 @@ public class TradeMenu extends Application {
             return;
         }
 
-        if(government.getThisGovermentTrades().size()==0){
+        if(government.getThisGovermentMessageTrades().size()==0){
            MyRequests.getChildren().add(new VBox(new Label("You haven't send away any requests yet!")));
            return;
         }
         try {
-            for (int i = 0; i < government.getThisGovermentTrades().size(); i++) {
+            for (int i = 0; i < government.getThisGovermentMessageTrades().size(); i++) {
                 TradeMessage tradeMessage = government.getTradeMessages().get(i);
                 MyRequests.getChildren().add(new VBox(new Label((i + 1) + ". " + tradeMessage.getTrade().getRequested().getOwner().getUsername()
                         + "--->" + tradeMessage.getTrade().getType() + "\n  " + tradeMessage.getTrade().getAmount()
@@ -242,7 +238,7 @@ public class TradeMenu extends Application {
 
             }
         }catch (Exception e){
-            e.printStackTrace();
+
         }
 
 
@@ -257,7 +253,8 @@ public class TradeMenu extends Application {
             return;
         }
         for(Government government:CreateNewGame.governments){
-            menu.getItems().add(new MenuItem(government.getOwner().getUsername()));
+            if(!government.getOwner().equals(GameController.getCurrentGovernment().getOwner()))
+                 menu.getItems().add(new MenuItem(government.getOwner().getUsername()));
         }
     }
 
