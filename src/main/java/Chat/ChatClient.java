@@ -4,10 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -45,6 +42,10 @@ public class ChatClient extends Application {
     Pane pane=new Pane();
     private static final VBox messageArea = new VBox();
 
+    public ChatClient(User user) {
+        this.user = user;
+    }
+
     private static final TextField inputBox = new TextField();
 
 
@@ -67,20 +68,44 @@ public class ChatClient extends Application {
         messageArea.setStyle("-fx-font-family: Candara; -fx-font-size: 20px;-fx-text-fill: black");
         messageArea.setMaxWidth(500);
         inputBox.setMaxWidth(500);
-        messageArea.setLayoutX(10);
-        messageArea.setLayoutY(25);
+
         inputBox.setMinWidth(480);
+        inputBox.setLayoutY(40);
         ScrollPane scrollPane = new ScrollPane(messageArea);
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         pane.getChildren().add(inputBox);
         scrollPane.setMinWidth(520);
-        scrollPane.setLayoutY(50);
+        scrollPane.setLayoutY(75);
         scrollPane.setMinHeight(500);
         pane.getChildren().add(scrollPane);
         pane.setPadding(new Insets(10,15,10,15));
-        pane.setMinWidth(520);
+        pane.setMinWidth(700);
         pane.setMinHeight(520);
+        VBox chatsList=new VBox();
+        ScrollPane chats=new ScrollPane(chatsList);
+        chats.setLayoutX(540);
+        chats.setMinHeight(500);
+        chats.setMinWidth(200);
+        chats.setLayoutY(25);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        pane.getChildren().add(chats);
+        MenuBar menuBar=new MenuBar();
+        Menu menu= new Menu("Menu");
+        MenuItem create=new MenuItem("create new chat");
+        create.setOnAction(actionEvent -> {
+            try {
+                new CreateNewConversation(this).start(new Stage());
+            } catch (Exception e) {
+                System.out.println("error in loading");
+            }
+        });
+        menu.getItems().add(create);
+        menuBar.getMenus().add(menu);
+        menuBar.setLayoutX(0);
+        menuBar.setMinWidth(700);
+        pane.getChildren().add(menuBar);
         inputBox.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 String temp = (user==null ? "jeff":user.getUsername() )+ ":\n" + inputBox.getText()+"\n"; // message to send

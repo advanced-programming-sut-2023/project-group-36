@@ -1,5 +1,6 @@
 package view;
 
+import Chat.ChatClient;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,7 +30,8 @@ public class MainMenu extends Application {
         Button profile=new Button("Profile");
         Button logout=new Button("Logout");
         Button exit=new Button("Exit");
-        vBox.getChildren().addAll(createGame,GamesList,profile,logout,exit);
+        Button chat=new Button("Chat");
+        vBox.getChildren().addAll(createGame,GamesList,profile,chat,logout,exit);
         vBox.setAlignment(Pos.TOP_CENTER);
         vBox.setPadding(new Insets(5,10,5,10));
         vBox.setSpacing(25);
@@ -39,7 +41,7 @@ public class MainMenu extends Application {
             if(node instanceof Button){
                 ((Button) node).setTextFill(Color.WHITE);
                 ((Button) node).setBackground(Background.fill(Color.TRANSPARENT));
-                ((Button) node).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
+                ((Button) node).setBorder(new Border(new BorderStroke(Color.WHITE, BorderStrokeStyle.SOLID,new CornerRadii(5),new BorderWidths(3))));
                 ((Button) node).setMinWidth(200);
                 ((Button) node).setMinHeight(25);
             }
@@ -63,6 +65,9 @@ public class MainMenu extends Application {
                 e.printStackTrace();
                 System.out.println("error in loading game menu");
             }
+        });
+        chat.setOnMouseClicked(mouseEvent -> {
+            new ChatClient(ApplicationManager.getCurrentUser()).start(new Stage());
         });
         profile.setOnMouseClicked(mouseEvent -> {
             try {
